@@ -44,6 +44,7 @@ module.exports = {
     '@nuxtjs/axios',
     'nuxt-trailingslash-module',
     'nuxt-webfontloader',
+    'bootstrap-vue/nuxt',
     // '@nuxtjs/svg',
     'cookie-universal-nuxt',
     '@nuxtjs/style-resources',
@@ -119,6 +120,19 @@ module.exports = {
       layouts: true,
       pages: true,
       commons: true
+    },
+    babel: {
+      presets({isServer}) {
+        const targets = isServer ? { node: 'current' } : { ie: 11 }
+        return [
+          [ require.resolve("@babel/preset-env"), { targets }  ]
+        ]
+      },
+      plugins: [
+        "@babel/syntax-dynamic-import",
+        "@babel/transform-runtime",
+        "@babel/transform-async-to-generator"
+      ]
     },
     optimization: {
       minimize: !isDev

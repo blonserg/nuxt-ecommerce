@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.wrapper">
+  <div>
     <nuxt-link :to="`/product/${product.pSlug}`">
       <p>{{ product.pName }}</p>
       <img
@@ -7,7 +7,7 @@
         :class="$style.image"
       />
     </nuxt-link>
-    <p>Price {{ product.pPrice }}</p>
+    <p>Prices {{ product.pPrice }}</p>
     <BuyButton :product="product" />
   </div>
 </template>

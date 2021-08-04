@@ -1,6 +1,5 @@
 <template>
   <div :class="$style.page">
-    <h1>{{ category.cName }}</h1>
     <div :class="$style.productList">
       <div
         v-for="product in category.products"

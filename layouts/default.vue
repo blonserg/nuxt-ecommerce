@@ -8,6 +8,9 @@
       <nuxt />
       <CastomerCartModal />
     </div>
+    <div>
+      <Footer />
+    </div>
   </div>
 </template>
 
@@ -15,12 +18,14 @@
 import Header from '~~/components/common/Header.vue'
 import Breadcrumbs from '~~/components/common/Breadcrumbs.vue'
 import CastomerCartModal from '~~/components/modals/CastomerCartModal.vue'
+import Footer from '~~/components/common/Footer.vue'
 
 export default {
   components: {
     Header,
     Breadcrumbs,
-    CastomerCartModal
+    CastomerCartModal,
+    Footer
   },
   computed: {
     meta () {
@@ -58,7 +63,5 @@ export default {
 }
 </script>
 <style lang="scss" module>
-.mainWrapper {
 
-}
 </style>

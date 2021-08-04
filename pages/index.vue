@@ -1,6 +1,5 @@
 <template>
-  <div :class="$style.page">
-    <h1>Интернет-магазин "Хвостики"</h1>
+  <div>
     <CategoriesList :categories="categories" />
   </div>
 </template>
@@ -31,7 +30,4 @@ export default {
 }
 </script>
 <style lang="scss" module>
-.page {
-  @include globalWrapper;
-}
 </style>
