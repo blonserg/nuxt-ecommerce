@@ -12,7 +12,11 @@
         <div class="col-sm-6">
           <b-nav>
             <b-nav-item active>Все категории</b-nav-item>
-            <b-nav-item>Спортивное питание</b-nav-item>
+            <b-nav-item>
+              <n-link to="/category/cats">
+                Спортивное питание
+              </n-link>
+            </b-nav-item>
             <b-nav-item>Аминокислоты</b-nav-item>
             <b-nav-item>Аксессуары</b-nav-item>
           </b-nav>

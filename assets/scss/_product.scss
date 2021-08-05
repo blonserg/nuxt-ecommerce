@@ -51,4 +51,9 @@
             opacity: 0.5;
         }
     }
+
+    &-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }

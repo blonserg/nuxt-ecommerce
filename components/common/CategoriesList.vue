@@ -39,8 +39,8 @@
           Смотреть все
         </div>
       </div>
-      <div class="row product-list">
-        <div class="product-item col-sm-4">
+      <VueSlickCarousel :arrows="true" :dots="true" :slidesToShow="3" :slidesToScroll="1">
+        <div class="product-item">
           <div class="product-item-image">
             <img src="" alt="">
           </div>
@@ -56,7 +56,7 @@
             </div>
           </div>
         </div>
-        <div class="product-item col-sm-4">
+        <div class="product-item">
           <div class="product-item-image">
             <img src="" alt="">
           </div>
@@ -72,7 +72,7 @@
             </div>
           </div>
         </div>
-        <div class="product-item col-sm-4">
+        <div class="product-item">
           <div class="product-item-image">
             <img src="" alt="">
           </div>
@@ -88,19 +88,71 @@
             </div>
           </div>
         </div>
-      </div>
+        <div class="product-item">
+          <div class="product-item-image">
+            <img src="" alt="">
+          </div>
+          <div class="product-item-info">
+            <div class="product-item-ttl">
+              Iso zero whey plus
+              <span>BiotexhUsa</span>
+            </div>
+            <div class="product-item-price">
+              <span>1800</span>
+              <span class="product-item-cur">$</span>
+              <span class="product-item-price _old">1800$</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-item">
+          <div class="product-item-image">
+            <img src="" alt="">
+          </div>
+          <div class="product-item-info">
+            <div class="product-item-ttl">
+              Iso zero whey plus
+              <span>BiotexhUsa</span>
+            </div>
+            <div class="product-item-price">
+              <span>1800</span>
+              <span class="product-item-cur">$</span>
+              <span class="product-item-price _old">1800$</span>
+            </div>
+          </div>
+        </div>
+        <div class="product-item">
+          <div class="product-item-image">
+            <img src="" alt="">
+          </div>
+          <div class="product-item-info">
+            <div class="product-item-ttl">
+              Iso zero whey plus
+              <span>BiotexhUsa</span>
+            </div>
+            <div class="product-item-price">
+              <span>1800</span>
+              <span class="product-item-cur">$</span>
+              <span class="product-item-price _old">1800$</span>
+            </div>
+          </div>
+        </div>
+      </VueSlickCarousel>
     </div>
   </div>
 </template>
 
 <script>
+import VueSlickCarousel from 'vue-slick-carousel'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 export default {
   props: {
     categories: {
       type: Array,
       default: () => []
     }
-  }
+  },
+  components: { VueSlickCarousel },
 }
 </script>
 

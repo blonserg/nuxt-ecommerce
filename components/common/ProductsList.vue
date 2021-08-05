@@ -8,7 +8,7 @@
           :class="$style.image"
         />
       </nuxt-link>
-      <p>Price {{ product.pPrice }}</p>
+      <p>Pricwwe {{ product.pPrice }}</p>
       <BuyButton :product="product" />
     </div>
   </div>

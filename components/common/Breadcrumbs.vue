@@ -1,12 +1,14 @@
 <template>
-  <div v-if="bredcrumbs && bredcrumbs.length > 0" :class="$style.breadcrumbs">
-    <ul>
-      <li v-for="cr in bredcrumbs" :key="cr.url">
-        <n-link :to="cr.url">
-          {{ cr.title }}
-        </n-link>
-      </li>
-    </ul>
+  <div class="container">
+    <div v-if="bredcrumbs && bredcrumbs.length > 0" :class="$style.breadcrumbs">
+      <ul>
+        <li v-for="cr in bredcrumbs" :key="cr.url">
+          <n-link :to="cr.url">
+            {{ cr.title }}
+          </n-link>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -24,29 +26,30 @@ export default {
 <style lang="scss" module>
 /* Style the list */
 .breadcrumbs {
-  background-color: #eee;
-  padding: 10px 16px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  color: #9EA0A1;
+  margin-top: 60px;
+
   ul {
-    list-style: none;
+    display: flex;
+    padding-left: 0;
 
-    @include globalWrapper;
     li {
-      display: inline;
-      font-size: 18px;
-      + ::before {
-        padding: 8px;
-        color: black;
-        content: '/\00a0';
-      }
-      a {
-        color: #0275d8;
-        text-decoration: none;
+      list-style: none;
+      margin-right: 20px;
+      position: relative;
 
-        &:hover {
-          color: #01447e;
-          text-decoration: underline;
-        }
+      a {
+        color: #9EA0A1;
       }
+    }
+
+    li + li:before {
+      content: '>';
+      position: absolute;
+      left: -12px;
     }
   }
 }
