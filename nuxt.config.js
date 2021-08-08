@@ -30,7 +30,10 @@ module.exports = {
     middleware: ['resetBreacrumbs'],
     prefetchLinks: false
   },
-  loading: { color: '#ddd' },
+  loading:{
+    color: 'blue',
+    height: '5px'
+  },
   css: [
     'normalize.css',
     './assets/scss/global-styles.scss'

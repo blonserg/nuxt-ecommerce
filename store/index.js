@@ -39,7 +39,6 @@ export const actions = {
       ]
 
     )
-    commit('GET_PRODUCTS_BY_IDS')
     const idsArray = (mock.sampleSize(products, 5)).map(p => p.id)
     return mock.getProductsByIds(products, productsImages, idsArray)
   },

@@ -9,7 +9,22 @@
        margin-bottom: 20px;
    }
 
-   .collapse {
-    padding-bottom: 20px;
-   } 
+   &-inner {
+       padding-bottom: 20px;
+   }
+
+   &-range {
+       display: flex;
+       justify-content: space-between;
+   }
+
+   .custom-control + .custom-control {
+       margin-top: 5px;
+   }
+
+   .custom-control-label {
+       font-size: 14px;
+       color: #1A232B;
+       opacity: 0.6;
+   }
 }

@@ -5,8 +5,9 @@
         :href="'#'"
         :disabled="!productsQuantity > 0 "
         @click.prevent="onClickHandler"
+        class="header-cart-wrap"
       >
-        <div v-if="productsQuantity > 0">
+        <div class="header-cart-count" v-if="productsQuantity > 0">
           {{ productsQuantity }}
         </div>
         <b-button>

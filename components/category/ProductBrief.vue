@@ -1,13 +1,28 @@
 <template>
-  <div>
+  <div class="product-item product-item--list">
     <nuxt-link :to="`/product/${product.pSlug}`">
-      <p>{{ product.pName }}</p>
       <img
         v-lazy="product.image.imgL"
-        :class="$style.image"
+        class="product-item-image product-item-image--list"
       />
     </nuxt-link>
-    <p>Pricqqqes {{ product.pPrice }}</p>
+    <div class="product-item-infolist">
+      <div class="product-item-ttl">
+        {{ product.pName }}
+        <span>BiotexhUsa</span>
+      </div>
+      <div class="product-item-raiting">
+        <b-form-rating></b-form-rating>
+        <div class="product-item-feed">
+          <a href="#">124 отзыва</a>
+        </div>
+      </div>
+      <div class="product-item-price product-item-price--inline">
+        <span>{{ product.pPrice }}</span>
+        <span class="product-item-cur">$</span>
+        <span class="product-item-price _old">1800$</span>
+      </div>
+    </div>
     <BuyButton :product="product" />
   </div>
 </template>
@@ -36,10 +51,5 @@ export default {
         max-width: 270px;
     height: 35px;
   }
-}
-.image {
-  width: 300px;
-  height: 300px;
-    object-fit: cover;
 }
 </style>
