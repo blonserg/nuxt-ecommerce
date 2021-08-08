@@ -58,6 +58,35 @@ p {
     font-weight: 500;  }
 }
 
+.breadcrumbs {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  color: #9EA0A1;
+  margin-top: 60px;
+
+  ul {
+    display: flex;
+    padding-left: 0;
+
+    li {
+      list-style: none;
+      margin-right: 20px;
+      position: relative;
+
+      a {
+        color: #9EA0A1;
+      }
+    }
+
+    li + li:before {
+      content: '>';
+      position: absolute;
+      left: -12px;
+    }
+  }
+}
+
 @import 'header';
 @import 'product';
 @import 'filter';

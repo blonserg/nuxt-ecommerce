@@ -9,13 +9,32 @@
     </div>
     <div class="merch-hr"></div>
     <div class="row">
-      <div class="col-md-6 col-sm-12">
-        <a :href="product.images.imgXL" target="_blank">
-          <img
-            v-lazy="product.images.imgL"
-          />
-        </a>
-      </div>
+     <div class="col-md-6 col-sm-12">
+        <div class="merch-main_image">
+          <VueSlickCarousel ref="c1" :dots="true" :asNavFor="$refs.c2" :focusOnSelect="true">
+            <div class="merch-main_image-item"><h3>1</h3></div>
+            <div  class="merch-main_image-item"><h3>2</h3></div>
+            <div  class="merch-main_image-item"><h3>3</h3></div>
+            <div class="merch-main_image-item"><h3>4</h3></div>
+            <div class="merch-main_image-item"><h3>5</h3></div>
+            <div class="merch-main_image-item"><h3>6</h3></div>
+            <div class="merch-main_image-item"><h3>7</h3></div>
+            <div class="merch-main_image-item"><h3>8</h3></div>
+          </VueSlickCarousel>
+        </div>
+        <div class="merch-second_image">
+          <VueSlickCarousel ref="c2" :asNavFor="$refs.c1" :slidesToShow="4" :focusOnSelect="true">
+            <div class="merch-main_second-item"><h3>1</h3></div>
+            <div class="merch-main_second-item"><h3>2</h3></div>
+            <div class="merch-main_second-item"><h3>3</h3></div>
+            <div class="merch-main_second-item"><h3>4</h3></div>
+            <div class="merch-main_second-item"><h3>5</h3></div>
+            <div class="merch-main_second-item"><h3>6</h3></div>
+            <div class="merch-main_second-item"><h3>7</h3></div>
+            <div class="merch-main_second-item"><h3>8</h3></div>
+          </VueSlickCarousel>
+        </div>
+      </div> 
       <div class="col-md-6 col-sm-12">
         <div class="merch-name">{{ product.pName }}</div>
         <div class="merch-avaiable-wrap">
@@ -253,10 +272,15 @@
 import BuyButton from '~~/components/common/BuyButton'
 import ProductsList from '~~/components/common/ProductsList'
 import { mapState } from 'vuex'
+import VueSlickCarousel from 'vue-slick-carousel'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+
 export default {
   components: {
     BuyButton,
-    ProductsList
+    ProductsList,
+    VueSlickCarousel
   },
   async asyncData ({ app, params, route, error }) {
     try {

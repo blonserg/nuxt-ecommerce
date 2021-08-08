@@ -9,6 +9,13 @@
         </li>
       </ul>
     </div>
+    <div class="breadcrumbs" v-else>
+      <ul>
+        <li>
+          <a href="/">Main</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
