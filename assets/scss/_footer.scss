@@ -1,0 +1,37 @@
+.footer{
+	display: block;
+	width: 100%;
+	padding: 0 80px;
+	padding-top: 64px;
+	background-color: #0D1115;
+	&-logo{
+		font-family: 'SF Pro Display';
+		font-weight: 900;
+		font-size: 24px;
+		font-style: italic;
+		color: #257BF4;
+		line-height: 20px;
+		text-transform: uppercase;
+	}
+	&-shop{
+		max-width: 243px;
+		max-height: 116px;
+		text-transform: uppercase;
+		margin: 3px 0;
+		span{
+			font-weight: 500;
+			line-height: 16px;
+			letter-spacing: -0.01em;
+			text-transform: uppercase;
+			color: #EAEEF2;
+			opacity: 0.6;
+			}
+		ul{
+			padding-left: 0px;
+			text-transform: none;
+			list-style: none;
+			column-count: 2;
+			column-width: 120px;
+		}
+	}
+}
