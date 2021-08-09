@@ -1,6 +1,6 @@
 <template>
   <div v-if="loading" class="loading-page">
-    <p>Amino</p>
+    <div class="loading-page-inner">Amino</div>
   </div>
 </template>
 
@@ -29,11 +29,20 @@
     height: 100vh;
     background: #0D1115;
     text-align: center;
-    font-size: 30px;
     font-family: sans-serif;
     z-index: 100;
     display: flex;
     justify-content: center;
     align-content: center;
+  }
+  .loading-page-inner {
+    font-family: 'SF Pro Display';
+    font-weight: 900;
+    font-size: 44px;
+    font-style: italic;
+    color: #257BF4;
+    line-height: 20px;
+    text-transform: uppercase;
+    padding-top: 48vh;
   }
 </style>

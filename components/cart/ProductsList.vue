@@ -1,43 +1,60 @@
 <template>
-  <div v-if="productsFromCart.length > 0" :class="$style.wrapper">
+  <div v-if="productsFromCart.length > 0" >
+    <div class="cart-head">
+      <div class="cart-head-product">
+        Товар
+      </div>
+      <div class="cart-head-price">
+        Цена
+      </div>
+      <div class="cart-head-amount">
+        Количество
+      </div>
+      <div class="cart-head-total">
+        Итого
+      </div>
+    </div>
     <div
       v-for="product in productsFromCart"
       :key="product.productId"
-      :class="$style.product"
+      class="cart-product"
     >
       <template>
-        <CloseOrDeleteButton
-          :class="$style.remove"
-          button-type="delete"
-          @click.native="onRemoveClickHandler(product)"
-        />
         <nuxt-link :to="`/product/${product.meta.pSlug}`">
-          <img
+          <img class="cart-product-image"
             v-lazy="product.meta.images.imgL"
-            :class="$style.image"
           />
         </nuxt-link>
-        <nuxt-link :class="$style.pName" :to="`/product/${product.meta.pSlug}`">
-          <p>{{ product.meta.pName }}</p>
-        </nuxt-link>
-        <div>
-          <p>Price: </p>
-          <p>{{ product.meta.pPrice }}</p>
+        <div class="cart-product-name">
+          {{ product.meta.pName }}
         </div>
-        <div>
-          <p>Quantity:</p>
-          <input
+        <div class="cart-product-price">
+          {{ product.meta.pPrice }}
+        </div>
+        <div class="cart-product-amount">
+          <!-- <input
             :value="product.qty"
-            :class="$style.input"
             type="number"
             :min="1"
             :max="1000"
             @input.prevent="onQuantityChangeHandler($event, product)"
-          />
+          /> -->
+          <b-form-spinbutton 
+            :value="product.qty"
+            type="number"
+            :min="1"
+            :max="1000"
+            @input.prevent="onQuantityChangeHandler($event, product)"
+          ></b-form-spinbutton>
         </div>
-        <div>
-          <p>Amount:</p>
-          <p>{{ (product.meta.pPrice * product.qty) | round }}</p>
+        <div class="cart-product-total">
+          {{ (product.meta.pPrice * product.qty) | round }}
+        </div>
+        <div class="cart-product-delete">
+          <CloseOrDeleteButton
+            button-type="delete"
+            @click.native="onRemoveClickHandler(product)"
+          />
         </div>
       </template>
     </div>
@@ -78,41 +95,4 @@ export default {
 </script>
 
 <style lang="scss" module>
-.input {
-  height: 20px;
-}
-    .remove {
-      top: -15px;
-      position: absolute;
-      left: -30px;
-      z-index: 1;
-    }
-.wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  .product {
-    position: relative;
-    margin: 1em;
-    display: flex;
-    flex-direction: row;
-
-    * {
-      margin-right: 10px;
-    }
-    .pName {
-      width: 150px;
-    }
-  }
-
-  p {
-    max-width: 270px;
-    height: 35px;
-  }
-}
-.image {
-  width: 75px;
-  height: 75px;
-  object-fit: cover;
-}
 </style>

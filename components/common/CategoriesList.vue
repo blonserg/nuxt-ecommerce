@@ -17,20 +17,6 @@
       </div>
     </div>
     <div class="container">
-      <!-- <div class="row">
-        <div :class="$style.wrapper">
-          <div
-            v-for="category in categories"
-            :key="category.cSlug"
-            :class="$style.block"
-          >
-            <nuxt-link :to="`/category/${category.cSlug}`">
-              <p>{{ category.cName }}</p>
-              <img :src="category.cImage" />
-            </nuxt-link>
-          </div>
-        </div>
-      </div> -->
       <div class="group">
         <div class="group-ttl">
           Акционные товары

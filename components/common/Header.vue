@@ -17,8 +17,16 @@
                 Спортивное питание
               </n-link>
             </b-nav-item>
-            <b-nav-item>Аминокислоты</b-nav-item>
-            <b-nav-item>Аксессуары</b-nav-item>
+            <b-nav-item>
+              <n-link to="/checkout">
+                Аминокислоты
+              </n-link>
+            </b-nav-item>
+            <b-nav-item>
+              <n-link to="/blog">
+                Аксессуары
+              </n-link>
+            </b-nav-item>
           </b-nav>
         </div>
         <div class="col-sm-4 header-cart"> 

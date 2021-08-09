@@ -2,9 +2,8 @@
   <div>
     <client-only>
       <a
-        :href="'#'"
+        :href="'/cart'"
         :disabled="!productsQuantity > 0 "
-        @click.prevent="onClickHandler"
         class="header-cart-wrap"
       >
         <div class="header-cart-count" v-if="productsQuantity > 0">
@@ -28,11 +27,6 @@ export default {
       if (this.products) {
         return this.products.length
       } else return 0
-    }
-  },
-  methods: {
-    onClickHandler () {
-      this.$modal.show('customer-cart')
     }
   }
 }

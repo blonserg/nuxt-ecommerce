@@ -44,7 +44,7 @@ export default {
     }),
     buyClickHandler () {
       this.addProduct(this.product.id)
-      this.$modal.show('customer-cart', { addedProduct: this.product.id })
+      // this.$modal.show('customer-cart', { addedProduct: this.product.id })
     },
     addedClickHandler () {
       this.$modal.show('customer-cart', { addedProduct: this.product.id })
