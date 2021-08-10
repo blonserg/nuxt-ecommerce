@@ -32,20 +32,19 @@
           {{ product.meta.pPrice }}
         </div>
         <div class="cart-product-amount">
-          <!-- <input
+          <input
             :value="product.qty"
             type="number"
             :min="1"
             :max="1000"
             @input.prevent="onQuantityChangeHandler($event, product)"
-          /> -->
-          <b-form-spinbutton 
+          />
+          <!-- <b-form-spinbutton 
             :value="product.qty"
-            type="number"
             :min="1"
             :max="1000"
-            @input.prevent="onQuantityChangeHandler($event, product)"
-          ></b-form-spinbutton>
+            @change.prevent="onQuantityChangeHandler($event, product)"
+          ></b-form-spinbutton> -->
         </div>
         <div class="cart-product-total">
           {{ (product.meta.pPrice * product.qty) | round }}
@@ -85,8 +84,8 @@ export default {
     onRemoveClickHandler (product) {
       this.removeProduct(product.productId)
     },
-    onQuantityChangeHandler: debounce(function onQuantityChangeHandler (e, product) {
-      const qty = e.target.value
+    onQuantityChangeHandler: debounce(function onQuantityChangeHandler (event, product) {
+      const qty = event.target.value
       this.setProductQuantity({ productId: product.productId, qty })
     }, 400)
 

@@ -43,13 +43,4 @@ export default {
 </script>
 
 <style lang="scss" module>
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 2em;
-  p {
-        max-width: 270px;
-    height: 35px;
-  }
-}
 </style>

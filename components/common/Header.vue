@@ -31,7 +31,7 @@
         </div>
         <div class="col-sm-4 header-cart"> 
           <b-input-group size="md">
-            <b-form-input></b-form-input>
+            <b-form-input placeholder="Поиск"></b-form-input>
           </b-input-group>
           <CartButton />
         </div>

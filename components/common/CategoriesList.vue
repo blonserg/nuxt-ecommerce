@@ -3,14 +3,59 @@
     <div :class="$style.page">
       <div class="container">
         <div class="row">
-          <div class="col-sm-6">
-            <div :class="$style.inner">
-              <h1 :class="$style.head">
+          <div class="col-sm-7">
+            <div class="hero-inner">
+              <h1 class="hero-head">
                 Hydro Whey Zero + Iso WhEy Zero 
               </h1>
-              <p :class="$style.text">
-                При покупке HYDRO WHEY ZERO получи 25% скидки на протеин ISO WHEY ZERO (акция действует до 21.06.21)
+              <p class="hero-text">
+                При покупке HYDRO WHEY ZERO <span>получи 25% скидки</span> на протеин ISO WHEY ZERO (акция действует до 21.06.21)
               </p>
+              <div class="hero-btns">
+                <b-button>Купить</b-button>
+                <a class="link" href="/">
+                  Подробнее
+                  <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.75 1.5L6.25 6L1.75 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="market-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="market-item _econom">
+              <div class="market-item-ttl">
+                ЭКОНОМИЯ
+              </div>
+              <div class="market-item-txt">
+                До 25% — ведь мы напрямую сотрудничаем с производителями
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="market-item _brand">
+              <div class="market-item-ttl">
+                ТОП БРЕНДЫ
+              </div>
+              <div class="market-item-txt">
+                Только наиболее зарекомендовавшие себя среди спортсменов
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="market-item _save">
+              <div class="market-item-ttl">
+                Поддержка
+              </div>
+              <div class="market-item-txt">
+                Поможем с выбором и подберем подходящие продукы под ваши цели
+              </div>
             </div>
           </div>
         </div>
@@ -21,14 +66,17 @@
         <div class="group-ttl">
           Акционные товары
         </div>
-        <div class="group-href">
+        <a class="link" href="/">
           Смотреть все
-        </div>
+          <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.75 1.5L6.25 6L1.75 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
       <VueSlickCarousel :arrows="true" :dots="true" :slidesToShow="3" :slidesToScroll="1">
         <div class="product-item">
           <div class="product-item-image">
-            <img src="" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="">
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -44,7 +92,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="">
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -60,7 +108,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="">
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -76,7 +124,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="">
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -92,7 +140,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="">
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -108,7 +156,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="">
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -143,24 +191,6 @@ export default {
 </script>
 
 <style lang="scss" module>
-  .inner {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-  .head {
-    font-weight: 700;
-    color: white;
-    font-size: 56px;
-    text-transform: uppercase;
-    line-height: 60px;
-  }
-  .text {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    color: rgba(255, 255, 255, 0.6); 
-  }
   .page {
     background: linear-gradient(271.4deg, #0D1115 1.93%, #15262F 100%);
   }

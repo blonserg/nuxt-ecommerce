@@ -2,14 +2,41 @@
     &-cart {
         display: flex;
 
+        .input-group {
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 16px;
+                width: 24px;
+                height: 24px;
+                background: url('./../svg/search.svg') no-repeat 50% 50%;
+                top: 10px;
+            }
+        }
+
         .form-control {
             background-color: rgba(193, 217, 252, 0.08);
             border: 1px solid rgba(234, 238, 242, 0.12);
             border-radius: 8px;
+            color: white;
+            height: 40px;
+            padding-left: 44px;
+            margin-right: 20px;
         }
 
         &-wrap {
             position: relative;
+
+            .btn {
+                min-width: 117px;
+                height: 40px;
+
+                svg {
+                    display: inline-block;
+                }
+            }
         }
 
         &-count {
