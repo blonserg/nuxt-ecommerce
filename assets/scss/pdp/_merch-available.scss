@@ -1,0 +1,20 @@
+.merch-available {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 20px 0 0;
+    font-family: 'Inter', 'SF Pro Display', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: $color-secondary;
+
+    &-icon {
+        margin: 0 6px 0 0;
+
+        svg { fill: $color-secondary; }
+    }
+}
+
+@media (min-width: 576px) { 
+    .merch-available-wrap { display: flex; }
+ }
