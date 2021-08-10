@@ -35,7 +35,7 @@ export default {
   ul {
     display: flex;
     padding-left: 0;
-
+    margin: 0;
     li {
       list-style: none;
       margin-right: 20px;

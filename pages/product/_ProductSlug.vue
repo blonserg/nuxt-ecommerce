@@ -1,10 +1,16 @@
 <template>
   <div class="container">
     <div class="merch-header">
-      <h1 class="merch-header-ttl">ISO whey Zero</h1>
-      <div class="merch-header-art">
-        Артикул:
-        <span>100977</span>
+      <div class="row">
+        <div class="col-12 col-md-9 col-lg-10">
+          <h1 class="merch-header-ttl">ISO whey Zero</h1>
+        </div>
+        <div class="col-12  col-md-3 col-lg-2 d-flex justify-content-md-end">
+          <div class="merch-header-art">
+            Артикул:
+            <span>100977</span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="merch-hr"></div>

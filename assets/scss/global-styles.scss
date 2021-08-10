@@ -76,7 +76,7 @@ html {
   ul {
     display: flex;
     padding-left: 0;
-
+    margin: 0;
     li {
       list-style: none;
       margin-right: 20px;
@@ -143,5 +143,7 @@ html {
 @import 'hero';
 @import 'market';
 @import 'product';
+@import 'merch-hr';
+@import 'pdp/merch-header';
 @import 'filter';
 @import 'footer';
