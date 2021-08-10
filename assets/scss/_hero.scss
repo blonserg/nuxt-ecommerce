@@ -1,6 +1,7 @@
 .hero {
-    &-inner {
-        // background: url('./../png/home-screen.png') no-repeat 50% 50%;
+    &-main {
+        background: url('./../png/hero.png') no-repeat 50% 50%;
+        height: 580px;
     }
 
     &-head {
@@ -27,5 +28,11 @@
             margin-right: 20px;
             min-width: 140px;
         }
+    }
+
+    &-wrap {
+        display: flex;
+        align-items: center;
+        height: 580px;
     }
 }

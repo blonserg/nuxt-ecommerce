@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div :class="$style.page">
+    <div class="hero-main">
       <div class="container">
         <div class="row">
-          <div class="col-sm-7">
+          <div class="col-sm-7 hero-wrap">
             <div class="hero-inner">
               <h1 class="hero-head">
                 Hydro Whey Zero + Iso WhEy Zero 
@@ -171,6 +171,18 @@
           </div>
         </div>
       </VueSlickCarousel>
+      <div class="market-subscribe">
+        <div class="market-subscribe-ttl">
+          Есть вопросы?
+        </div>
+        <div class="market-subscribe-txt">
+          Оставьте номер телефона и мы свяжемся с вами в ближайшее время
+        </div>
+        <div class="market-subscribe-group">
+          <b-form-input placeholder="Номер телефона"></b-form-input>
+          <b-button>Позвоните мне</b-button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -191,7 +203,4 @@ export default {
 </script>
 
 <style lang="scss" module>
-  .page {
-    background: linear-gradient(271.4deg, #0D1115 1.93%, #15262F 100%);
-  }
 </style>
