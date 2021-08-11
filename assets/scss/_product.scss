@@ -17,7 +17,8 @@
             margin-bottom: 20px;
 
             &--list {
-                width: 260px;
+                width: 300px;
+                min-height: auto;
             }
         }
 
@@ -46,6 +47,10 @@
 
         &-price {
             .product-price-wrap { font-size: 16px; }
+
+            .slick-slider & {
+                margin-right: 15px;
+            }
         }
 
         &-raiting {

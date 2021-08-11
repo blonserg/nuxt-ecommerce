@@ -7,6 +7,18 @@
        font-size: 18px;
        line-height: 20px;
        margin-bottom: 20px;
+       display: flex;
+       justify-content: space-between;
+
+       &.collapsed {
+           .filter-header-ico {
+               transform: scale(-1, -1);
+           }
+       }
+
+       &-ico {
+           transition: transform 0.4s;
+       }
    }
 
    &-inner {
@@ -16,6 +28,19 @@
    &-range {
        display: flex;
        justify-content: space-between;
+
+       &-from,
+       &-to {
+           font-weight: 700;
+           font-size: 14px;
+           line-height: 24px;
+           color: #0D1115;
+
+           span {
+                color: #1A232B;
+                opacity: 0.6;
+           }
+       }
    }
 
    .custom-control + .custom-control {

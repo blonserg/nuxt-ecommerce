@@ -22,16 +22,13 @@
         <ProductPrice />
       </div>
     </div>
-    <BuyButton :product="product" />
   </div>
 </template>
 
 <script>
-import BuyButton from '~~/components/common/BuyButton'
 import ProductPrice from '~~/components/common/ProductPrice'
 export default {
   components: {
-    BuyButton,
     ProductPrice
   },
   props: {

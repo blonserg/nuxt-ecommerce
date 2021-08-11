@@ -1,33 +1,44 @@
 <template>
   <div class="container">
     <div class="group">
-        <div class="group-ttl">
-          Акционные товары
-        </div>
-        <div class="group-href">
-          Сортировать по
-        </div>
+      <div class="group-ttl">
+        Акционные товары
       </div>
+      <a href="/" class="link">
+        Сортировать по
+        <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.75 1.5L6.25 6L1.75 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+    <div class="merch-hr merch-hr--plp"></div>
     <div class="row">
       <div class="col-md-3 col-sm-12">
         <div class="filter">
-          <div v-b-toggle.collapse-1 class="filter-header">Цена</div>
+          <div v-b-toggle.collapse-1 class="filter-header">
+            Цена
+            <img class="filter-header-ico" src="@/assets/svg/arrow-filter.svg" alt="">
+          </div>
           <b-collapse visible id="collapse-1">
             <div class="filter-inner">
-              <b-form-input id="range-1" v-model="value" type="range" min="100" max="5000" ></b-form-input>
+              <input id="range-1" v-model="value" type="range" min="100" max="5000" />
+              <!-- <b-form-input id="range-1" v-model="value" type="range" min="100" max="5000" ></b-form-input> -->
               <div class="filter-range">
                 <div class="filter-range-from">
-                  от 100$
+                  <span>от</span> 100 <span>₴</span>
                 </div>
                 <div class="filter-range-to">
-                  до {{ value }}$
+                  <span>до</span> {{ value }} <span>₴</span>
                 </div>
               </div>
             </div>
           </b-collapse>
         </div>
         <div class="filter">
-          <div v-b-toggle.collapse-2 class="filter-header">Наличие</div>
+          <div v-b-toggle.collapse-2 class="filter-header">
+            Наличие
+            <img class="filter-header-ico" src="@/assets/svg/arrow-filter.svg" alt="">
+          </div>
           <b-collapse visible id="collapse-2">
             <div class="filter-inner">
               <b-form-checkbox
