@@ -58,7 +58,8 @@
               </div>
             </div>
           </div>
-          <div class="merch-price">{{ product.pPrice }}</div>
+          <!-- todo: refactor by using Product Price Component -->
+          <ProductPrice />
         </div>
 
 
@@ -284,6 +285,7 @@
 <script>
 import BuyButton from '~~/components/common/BuyButton'
 import ProductsList from '~~/components/common/ProductsList'
+import ProductPrice from '~~/components/common/ProductPrice'
 import { mapState } from 'vuex'
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
@@ -293,6 +295,7 @@ export default {
   components: {
     BuyButton,
     ProductsList,
+    ProductPrice,
     VueSlickCarousel
   },
   async asyncData ({ app, params, route, error }) {

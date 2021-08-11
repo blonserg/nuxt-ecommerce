@@ -45,31 +45,7 @@
         }
 
         &-price {
-            font-size: 16px;
-            line-height: 24px;
-            color: $color-secondary;
-            font-weight: bold;
-            margin-right: 20px;
-
-            &._old {
-                font-size: 12px;
-                font-weight: 500;
-                color: $color-primay;
-                opacity: 0.5;
-                display: block;
-                text-decoration: line-through;
-            }
-
-            &--inline {
-                display: flex;
-                align-items: center;
-            }
-        }
-
-        &-cur {
-            color: $color-primay;
-            opacity: 0.5;
-            margin-right: 10px;
+            .product-price-wrap { font-size: 16px; }
         }
 
         &-raiting {

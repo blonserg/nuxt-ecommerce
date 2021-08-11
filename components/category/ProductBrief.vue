@@ -17,10 +17,9 @@
           <a href="#">124 отзыва</a>
         </div>
       </div>
-      <div class="product-item-price product-item-price--inline">
-        <span>{{ product.pPrice }}</span>
-        <span class="product-item-cur">$</span>
-        <span class="product-item-price _old">1800$</span>
+      <div class="product-item-price">
+        <!-- todo: refactor by using Product Price Component -->
+        <ProductPrice />
       </div>
     </div>
     <BuyButton :product="product" />
@@ -29,9 +28,11 @@
 
 <script>
 import BuyButton from '~~/components/common/BuyButton'
+import ProductPrice from '~~/components/common/ProductPrice'
 export default {
   components: {
-    BuyButton
+    BuyButton,
+    ProductPrice
   },
   props: {
     product: {

@@ -1,0 +1,36 @@
+.product-price-wrap {
+    font-size: 24px;
+    line-height: 1;
+}
+/* Current price styles */
+.product-price {
+    font-weight: 700;
+    color: $color-primay;
+    &-cur {
+        color: rgba($color-primay, .5);
+        margin: 0 0 0 -0.1em;
+
+    }
+}
+/* EO Current price styles */
+
+/* Promo price styles */
+.product-price._promo {
+    color: $color-secondary;
+}
+/* EO Promo price styles */
+
+/* Old price styles */
+.product-price._old {
+    font-size: 0.75em;
+    font-weight: 500;
+    color: rgba($color-primay, .5);
+    padding: 0 0 0 0.2em;
+    .product-price-value {
+        text-decoration: line-through;
+    }
+    .product-price-cur {
+        opacity: .8;
+    }
+}
+/* EO Old price styles */

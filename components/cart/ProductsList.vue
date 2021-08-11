@@ -30,6 +30,8 @@
         </div>
         <div class="cart-product-price">
           {{ product.meta.pPrice }}
+          <!-- todo: refactor by using Product Price Component -->
+          <ProductPrice />
         </div>
         <div class="cart-product-amount">
           <input
@@ -65,9 +67,12 @@ import CloseOrDeleteButton from '~~/components/common/input/CloseOrDeleteButton.
 import round from '~~/mixins/round'
 import { mapActions } from 'vuex'
 import debounce from 'lodash.debounce'
+import ProductPrice from '~~/components/common/ProductPrice'
+
 export default {
   components: {
-    CloseOrDeleteButton
+    CloseOrDeleteButton,
+    ProductPrice
   },
   mixins: [round],
   props: {
