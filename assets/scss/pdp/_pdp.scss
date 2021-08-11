@@ -25,6 +25,10 @@
     }
 }
 
+@media (min-width: 576px) { 
+    .merch-info-available { display: flex; }
+ }
+
 @media (min-width: 768px) { 
     .merch-group {
         display: flex;

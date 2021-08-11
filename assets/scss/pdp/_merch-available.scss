@@ -1,4 +1,4 @@
-.merch-available {
+.product-available {
     display: inline-flex;
     align-items: center;
     margin: 0 20px 0 0;
@@ -8,13 +8,8 @@
     line-height: 1.2;
     color: $color-secondary;
 
-    &-icon {
-        margin: 0 6px 0 0;
-
-        svg { fill: $color-secondary; }
-    }
+    &-icon { margin: 0 6px 0 0; }
 }
-
-@media (min-width: 576px) { 
-    .merch-available-wrap { display: flex; }
- }
+.product-available._not-available {
+    color: rgba($color-primay, 0.5);
+}
