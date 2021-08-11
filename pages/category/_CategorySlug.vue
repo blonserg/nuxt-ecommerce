@@ -53,7 +53,10 @@
           </b-collapse>
         </div>
         <div class="filter">
-          <div v-b-toggle.collapse-3 class="filter-header">Бренды</div>
+          <div v-b-toggle.collapse-3 class="filter-header">
+            Бренды
+            <img class="filter-header-ico" src="@/assets/svg/arrow-filter.svg" alt="">
+          </div>
           <b-collapse visible id="collapse-3">
             <div class="filter-inner">
               <b-form-checkbox
@@ -88,6 +91,71 @@
               >
                 BiotechUSA
               </b-form-checkbox>
+            </div>
+          </b-collapse>
+        </div>
+        <div class="filter">
+          <div v-b-toggle.collapse-4 class="filter-header">
+            Виды протеина
+            <img class="filter-header-ico" src="@/assets/svg/arrow-filter.svg" alt="">
+          </div>
+          <b-collapse visible id="collapse-4">
+            <div class="filter-inner">
+              <b-form-checkbox
+                id="checkbox-6"
+                name="checkbox-6"
+                value="accepted"
+                unchecked-value="not_accepted"
+              >
+                Сывороточный
+              </b-form-checkbox>
+              <b-form-checkbox
+                id="checkbox-7"
+                name="checkbox-7"
+                value="accepted"
+                unchecked-value="not_accepted"
+              >
+                Соевый
+              </b-form-checkbox>
+              <b-form-checkbox
+                id="checkbox-8"
+                name="checkbox-8"
+                value="accepted"
+                unchecked-value="not_accepted"
+              >
+                Казеиновый
+              </b-form-checkbox>
+              <b-form-checkbox
+                id="checkbox-9"
+                name="checkbox-9"
+                value="accepted"
+                unchecked-value="not_accepted"
+              >
+                Говяжий
+              </b-form-checkbox>
+              
+              <b-collapse id="collapse-in">
+                <b-form-checkbox
+                id="checkbox-10"
+                name="checkbox-10"
+                value="accepted"
+                unchecked-value="not_accepted"
+                >
+                  Молочный
+                </b-form-checkbox>
+                <b-form-checkbox
+                  id="checkbox-11"
+                  name="checkbox-11"
+                  value="accepted"
+                  unchecked-value="not_accepted"
+                >
+                  Сывороточный
+                </b-form-checkbox>
+              </b-collapse>
+              <div v-b-toggle.collapse-in class="filter-inner-header">
+                Показать все
+                <img class="filter-inner-ico" src="@/assets/svg/arrow-right.svg" alt="">
+                </div>
             </div>
           </b-collapse>
         </div>

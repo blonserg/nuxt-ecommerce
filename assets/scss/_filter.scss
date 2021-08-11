@@ -23,6 +23,27 @@
 
    &-inner {
        padding-bottom: 20px;
+
+       &-header {
+           font-weight: 500;
+           font-size: 14px;
+           line-height: 20px;
+           color: #257BF4;
+           text-decoration: underline;
+           margin-top: 50px;
+
+           &.not-collapsed {
+               opacity: 0;
+               pointer-events: none;
+               transition: all 0.4s;
+               margin-top: 0;
+           }
+       }
+
+       &-ico {
+           transform: rotate(90deg) translateX(-1px);
+           margin-left: 5px;
+       }
    }
 
    &-range {
