@@ -42,7 +42,7 @@
           </div>
           <div class="footer-contacts-subscribe">
             <b-form-input placeholder="Номер телефона"></b-form-input>
-            <b-button>Позвоните мне</b-button>
+            <b-button variant="primary">Позвоните мне</b-button>
           </div>
         </div>
       </div>

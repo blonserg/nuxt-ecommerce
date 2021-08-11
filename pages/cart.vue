@@ -70,7 +70,7 @@
                     </div>
                     <nuxt-link
                         to="/checkout"
-                        class="btn btn-secondary cart-button"
+                        class="btn btn-primary cart-button"
                         >
                         Оформить заказ
                     </nuxt-link>
