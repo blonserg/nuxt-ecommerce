@@ -1,7 +1,64 @@
-.merch-info { margin-top: 90px; }
+.merch-info {
+    margin: 90px 0 42px;
+}
 .merch-name {
     font-size: 28px;
     font-weight: 700;
     line-height: 1.16;
     text-transform: uppercase;
 }
+
+/* Product attributes */
+.merch-group {
+    margin: 30px 0 60px;
+    
+    &-item {
+        label {
+            font-size: 12px;
+            line-height: 1.2;
+            color: #6D6D6D;
+        }
+        select {
+            font-size: 14px;
+            color: #1A232B;
+        }
+    }
+}
+
+@media (min-width: 768px) { 
+    .merch-group {
+        display: flex;
+
+        &-item {
+            flex: 1 0 calc(33.3333% - 32px);
+            &:not(:last-of-type) {
+                margin-right: 16px;
+            }
+        }
+    }
+ }
+/* EO Product attributes*/
+
+/* Product info attributes */
+.merch {
+    &-row {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #EAEEF2;
+        padding: 18px 0 8px;
+
+        &-name {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1.4;
+            color: rgba($color-primay, .4);
+        }
+
+        &-item {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+    }
+}
+/* EO Product info attributes */

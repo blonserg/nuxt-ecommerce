@@ -61,30 +61,30 @@
           <!-- todo: refactor by using Product Price Component -->
           <ProductPrice />
         </div>
-
-
-        <div class="merch-row">
-          <div class="merch-row-name">
-            Производитель
+        <div class="merch-attributes">
+          <div class="merch-row">
+            <span class="merch-row-name">
+              Производитель
+            </span>
+            <span class="merch-row-item">
+              BioTechUSA
+            </span>
           </div>
-          <div class="merch-row-item">
-            BioTechUSA
+          <div class="merch-row">
+            <span class="merch-row-name">
+              Страна-производитель:
+            </span>
+            <span class="merch-row-item">
+              Венгрия
+            </span>
           </div>
-        </div>
-        <div class="merch-row">
-          <div class="merch-row-name">
-            Страна-производитель:
-          </div>
-          <div class="merch-row-item">
-            Венгрия
-          </div>
-        </div>
-        <div class="merch-row">
-          <div class="merch-row-name">
-            Бренд
-          </div>
-          <div class="merch-row-item">
-            BioTechUSA
+          <div class="merch-row">
+            <span class="merch-row-name">
+              Бренд
+            </span>
+            <span class="merch-row-item">
+              BioTechUSA
+            </span>
           </div>
         </div>
         <div class="merch-group">
