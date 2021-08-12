@@ -41,14 +41,7 @@
           </div>
           <b-collapse visible id="collapse-2">
             <div class="filter-inner">
-              <b-form-checkbox
-                id="checkbox-1"
-                name="checkbox-1"
-                value="accepted"
-                unchecked-value="not_accepted"
-              >
-                Есть в наличие
-              </b-form-checkbox>
+              <Checkbox title="Есть в наличие" />
             </div>
           </b-collapse>
         </div>
@@ -59,38 +52,10 @@
           </div>
           <b-collapse visible id="collapse-3">
             <div class="filter-inner">
-              <b-form-checkbox
-                id="checkbox-2"
-                name="checkbox-2"
-                value="accepted"
-                unchecked-value="not_accepted"
-              >
-                Biotech
-              </b-form-checkbox>
-              <b-form-checkbox
-                id="checkbox-3"
-                name="checkbox-3"
-                value="accepted"
-                unchecked-value="not_accepted"
-              >
-                Biotech
-              </b-form-checkbox>
-              <b-form-checkbox
-                id="checkbox-4"
-                name="checkbox-4"
-                value="accepted"
-                unchecked-value="not_accepted"
-              >
-                Biotech
-              </b-form-checkbox>
-              <b-form-checkbox
-                id="checkbox-5"
-                name="checkbox-5"
-                value="accepted"
-                unchecked-value="not_accepted"
-              >
-                BiotechUSA
-              </b-form-checkbox>
+              <Checkbox title="Biotech" />
+              <Checkbox title="Biotech" />
+              <Checkbox title="Biotech" />
+              <Checkbox title="BiotechUSA" />
             </div>
           </b-collapse>
         </div>
@@ -101,56 +66,14 @@
           </div>
           <b-collapse visible id="collapse-4">
             <div class="filter-inner">
-              <b-form-checkbox
-                id="checkbox-6"
-                name="checkbox-6"
-                value="accepted"
-                unchecked-value="not_accepted"
-              >
-                Сывороточный
-              </b-form-checkbox>
-              <b-form-checkbox
-                id="checkbox-7"
-                name="checkbox-7"
-                value="accepted"
-                unchecked-value="not_accepted"
-              >
-                Соевый
-              </b-form-checkbox>
-              <b-form-checkbox
-                id="checkbox-8"
-                name="checkbox-8"
-                value="accepted"
-                unchecked-value="not_accepted"
-              >
-                Казеиновый
-              </b-form-checkbox>
-              <b-form-checkbox
-                id="checkbox-9"
-                name="checkbox-9"
-                value="accepted"
-                unchecked-value="not_accepted"
-              >
-                Говяжий
-              </b-form-checkbox>
-              
+              <Checkbox title="Сывороточный" />
+              <Checkbox title="Соевый" />
+              <Checkbox title="Казеиновый" />
+              <Checkbox title="Сывороточный" />
+              <Checkbox title="Говяжий" />          
               <b-collapse id="collapse-in">
-                <b-form-checkbox
-                id="checkbox-10"
-                name="checkbox-10"
-                value="accepted"
-                unchecked-value="not_accepted"
-                >
-                  Молочный
-                </b-form-checkbox>
-                <b-form-checkbox
-                  id="checkbox-11"
-                  name="checkbox-11"
-                  value="accepted"
-                  unchecked-value="not_accepted"
-                >
-                  Сывороточный
-                </b-form-checkbox>
+                <Checkbox title="Молочный" />  
+                <Checkbox title="Сывороточный" />  
               </b-collapse>
               <div v-b-toggle.collapse-in class="filter-inner-header">
                 Показать все
@@ -177,10 +100,12 @@
 
 <script>
 import ProductBrief from '~~/components/category/ProductBrief'
+import Checkbox from '~~/components/common/Checkbox'
 import { mapState } from 'vuex'
 export default {
   components: {
-    ProductBrief
+    ProductBrief,
+    Checkbox
   },
   async asyncData ({ app, params, route, error }) {
     try {

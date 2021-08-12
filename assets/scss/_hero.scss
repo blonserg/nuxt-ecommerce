@@ -35,4 +35,25 @@
         align-items: center;
         height: 580px;
     }
+
+    &-date {
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 18px;
+        color: #9EA0A1;
+        opacity: 0.8;
+    }
+
+    &-badge {
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 6px 8px;
+        border: 1px solid #257BF4;
+        border-radius: 8px;
+        background: #257BF4;
+        color: white;
+        display: inline-block;
+    }
 }
