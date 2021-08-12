@@ -9,7 +9,7 @@
         <div class="header-cart-count" v-if="productsQuantity > 0">
           {{ productsQuantity }}
         </div>
-        <b-button>
+        <b-button variant="primary">
           <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <mask id="path-1-outside-1" maskUnits="userSpaceOnUse" x="0" y="-0.446533" width="20" height="17" fill="black">
 <rect fill="white" y="-0.446533" width="20" height="17"/>

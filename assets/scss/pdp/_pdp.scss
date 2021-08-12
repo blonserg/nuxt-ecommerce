@@ -1,5 +1,7 @@
-.merch-info {
-    margin: 90px 0 42px;
+.merch {
+    &-main { padding: 90px 0; }
+    &-info { padding: 0 0 42px; }
+    &-info-available { margin: 0 0 10px; }
 }
 .merch-name {
     font-size: 28px;
@@ -24,6 +26,38 @@
         }
     }
 }
+/* EO Product attributes*/
+
+/* Product buttons */
+.merch-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+        margin: 0;
+        width: 100%;
+        max-width: 320px;
+
+        &:not(:last-of-type) { margin: 0 0 16px; }
+    }
+}
+/* EO Product buttons */
+
+@media (min-width: 576px) { 
+    .merch-info-available { display: flex; }
+
+    .merch-btns {
+        flex-direction: row;
+        align-items: flex-start;
+
+        button {
+            max-width: 198px;
+            &:not(:last-of-type) { margin: 0 16px 0 0; }
+         }
+     }
+}
+
 
 @media (min-width: 768px) { 
     .merch-group {
@@ -31,13 +65,18 @@
 
         &-item {
             flex: 1 0 calc(33.3333% - 32px);
-            &:not(:last-of-type) {
-                margin-right: 16px;
-            }
+            &:not(:last-of-type) { margin-right: 16px; }
         }
     }
  }
-/* EO Product attributes*/
+
+ @media (min-width: 992px) { 
+    .merch-btns {
+        button {
+            &:not(:last-of-type) { margin: 0 16px 0 0; }
+         }
+     }
+  }
 
 /* Product info attributes */
 .merch {

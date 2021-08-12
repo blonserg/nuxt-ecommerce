@@ -42,76 +42,73 @@
         </div>
       </div> 
       <div class="col-md-6 col-sm-12">
-        <div class="merch-info">
-          <h2 class="merch-name">{{ product.pName }}</h2>
-          <div class="merch-available-wrap">
-            <div class="merch-available">
-              <span class="merch-available-icon" aria-hidden="true">
-                <svg height="16px" viewBox="0 0 512 512" width="16px" xmlns="http://www.w3.org/2000/svg"><path d="m369.164062 174.769531c7.8125 7.8125 7.8125 20.476563 0 28.285157l-134.171874 134.175781c-7.8125 7.808593-20.472657 7.808593-28.285157 0l-63.871093-63.875c-7.8125-7.808594-7.8125-20.472657 0-28.28125 7.808593-7.8125 20.472656-7.8125 28.28125 0l49.730468 49.730469 120.03125-120.035157c7.8125-7.808593 20.476563-7.808593 28.285156 0zm142.835938 81.230469c0 141.503906-114.515625 256-256 256-141.503906 0-256-114.515625-256-256 0-141.503906 114.515625-256 256-256 141.503906 0 256 114.515625 256 256zm-40 0c0-119.394531-96.621094-216-216-216-119.394531 0-216 96.621094-216 216 0 119.394531 96.621094 216 216 216 119.394531 0 216-96.621094 216-216zm0 0"/></svg>
-              </span>
-              Есть в наличие
-            </div>
-            <div class="product-item-raiting">
-              <b-form-rating></b-form-rating>
-              <div class="product-item-feed">
-                <a href="#">124 отзыва</a>
+        <div class="merch-main">
+          <div class="merch-info">
+            <h2 class="merch-name">{{ product.pName }}</h2>
+            <div class="merch-info-available">
+              <ProductAvailable v-bind:isAvailable="true" />
+              <div class="product-item-raiting">
+                <b-form-rating></b-form-rating>
+                <div class="product-item-feed">
+                  <a href="#">124 отзыва</a>
+                </div>
               </div>
             </div>
+            <!-- todo: refactor by using Product Price Component -->
+            <ProductPrice />
           </div>
-          <!-- todo: refactor by using Product Price Component -->
-          <ProductPrice />
-        </div>
-        <div class="merch-attributes">
-          <div class="merch-row">
-            <span class="merch-row-name">
-              Производитель
-            </span>
-            <span class="merch-row-item">
-              BioTechUSA
-            </span>
+          <div class="merch-attributes">
+            <div class="merch-row">
+              <span class="merch-row-name">
+                Производитель
+              </span>
+              <span class="merch-row-item">
+                BioTechUSA
+              </span>
+            </div>
+            <div class="merch-row">
+              <span class="merch-row-name">
+                Страна-производитель:
+              </span>
+              <span class="merch-row-item">
+                Венгрия
+              </span>
+            </div>
+            <div class="merch-row">
+              <span class="merch-row-name">
+                Бренд
+              </span>
+              <span class="merch-row-item">
+                BioTechUSA
+              </span>
+            </div>
           </div>
-          <div class="merch-row">
-            <span class="merch-row-name">
-              Страна-производитель:
-            </span>
-            <span class="merch-row-item">
-              Венгрия
-            </span>
+          <div class="merch-group">
+            <div class="merch-group-item">
+              <label :for="select-1">Размер</label>
+              <b-form-select v-model="selected1" id="select-1">
+                <b-form-select-option :value="null">Выберите размер</b-form-select-option>
+                <b-form-select-option value="a">Option A</b-form-select-option>
+                <b-form-select-option value="b">Option B</b-form-select-option>
+              </b-form-select>
+            </div>
+            <div class="merch-group-item">
+              <label :for="select-2">Вкус</label>
+              <b-form-select v-model="selected2" id="select-2">
+                <b-form-select-option :value="null">Выберите вкус</b-form-select-option>
+                <b-form-select-option value="a">Option A</b-form-select-option>
+                <b-form-select-option value="b">Option B</b-form-select-option>
+              </b-form-select>
+            </div>
+            <div class="merch-group-item">
+              <label :for="select-3">Количество</label>
+              <b-form-spinbutton id="select-3" min="1" max="10"></b-form-spinbutton>
+            </div>
           </div>
-          <div class="merch-row">
-            <span class="merch-row-name">
-              Бренд
-            </span>
-            <span class="merch-row-item">
-              BioTechUSA
-            </span>
+          <div class="merch-btns">
+            <b-button variant="primary">Купить</b-button>
+            <b-button variant="outline-primary">Купить в один клик</b-button>
           </div>
-        </div>
-        <div class="merch-group">
-          <div class="merch-group-item">
-            <label :for="select-1">Размер</label>
-            <b-form-select v-model="selected1" id="select-1">
-              <b-form-select-option :value="null">Выберите размер</b-form-select-option>
-              <b-form-select-option value="a">Option A</b-form-select-option>
-              <b-form-select-option value="b">Option B</b-form-select-option>
-            </b-form-select>
-          </div>
-          <div class="merch-group-item">
-            <label :for="select-2">Вкус</label>
-            <b-form-select v-model="selected2" id="select-2">
-              <b-form-select-option :value="null">Выберите вкус</b-form-select-option>
-              <b-form-select-option value="a">Option A</b-form-select-option>
-              <b-form-select-option value="b">Option B</b-form-select-option>
-            </b-form-select>
-          </div>
-          <div class="merch-group-item">
-            <label :for="select-3">Количество</label>
-            <b-form-spinbutton id="select-3" min="1" max="10"></b-form-spinbutton>
-          </div>
-        </div>
-        <div class="merch-btns">
-          <BuyButton :product="product" />
-          <b-button>Купить в один клик</b-button>
         </div>
       </div>
     </div>
@@ -283,9 +280,9 @@
 </template>
 
 <script>
-import BuyButton from '~~/components/common/BuyButton'
 import ProductsList from '~~/components/common/ProductsList'
 import ProductPrice from '~~/components/common/ProductPrice'
+import ProductAvailable from '~~/components/common/ProductAvailable'
 import { mapState } from 'vuex'
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
@@ -293,9 +290,9 @@ import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 export default {
   components: {
-    BuyButton,
     ProductsList,
     ProductPrice,
+    ProductAvailable,
     VueSlickCarousel
   },
   async asyncData ({ app, params, route, error }) {

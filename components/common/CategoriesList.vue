@@ -12,7 +12,7 @@
                 При покупке HYDRO WHEY ZERO <span>получи 25% скидки</span> на протеин ISO WHEY ZERO (акция действует до 21.06.21)
               </p>
               <div class="hero-btns">
-                <b-button>Купить</b-button>
+                <b-button variant="primary">Купить</b-button>
                 <a class="link" href="/">
                   Подробнее
                   <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -180,7 +180,7 @@
         </div>
         <div class="market-subscribe-group">
           <b-form-input placeholder="Номер телефона"></b-form-input>
-          <b-button>Позвоните мне</b-button>
+          <b-button variant="primary">Позвоните мне</b-button>
         </div>
       </div>
     </div>

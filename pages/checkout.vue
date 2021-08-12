@@ -87,8 +87,8 @@
                 </b-form-checkbox>
             </div>
             <div class="checkout-btns">
-                <b-button>Оформить заказ</b-button>
-                <b-button>Заказать в один клик</b-button>
+                <b-button variant="primary">Оформить заказ</b-button>
+                <b-button variant="outline-primary">Заказать в один клик</b-button>
             </div>
         </div>
     </div>
