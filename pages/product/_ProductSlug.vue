@@ -113,165 +113,163 @@
       </div>
     </div>
     <div class="merch-hr"></div>
-    <div class="row">
-      <div class="col-md-6 col-sm-12">
-        <div class="merch-ttl">
-          Описание товара
+    <section class="merch-section">
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <h3 class="merch-ttl">Описание товара</h3>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="merch-descr">
+            <h4>Протеин BIOTECH ISO WHEY ZERO</h4>
+            <p>
+              BioTechUSA Iso Whey Zero Lactose Free – продукт, основное действие которого направлено на увеличение мышечного объема. Стимулятор изготовлен из сывороточного изолята высокого качества и предназначен для людей, которые ведут активный образ жизни и занимаются спортом. Коктейль не содержит лактозу, что позволяет употреблять его атлетам, которые страдают от непереносимости молочных продуктов.
+            </p>
+            <p>
+              BioTechUSA Iso Whey Zero Lactose Free производят методом микрофильтрации, благодаря чему компоненты обладают высокой биологической ценностью и хорошо усваиваются. Белковые фракции, содержащиеся в стимуляторе, абсорбируются в мышечных тканях быстрее, позволяя в максимально короткий период обеспечить мускулы строительным материалом и предотвратить катаболизм. В препарате отсутствуют сахар и трансжиры, поэтому его можно с легкостью употреблять в период поддержания режима низкокалорийной диеты.
+            </p>
+            <h4>Качество, подтвержденное сертификатами</h4>
+            <p>{{ product.pDesc }}</p>
+          </div>
         </div>
       </div>
-      <div class="col-md-6 col-sm-12">
-        <div class="merch-descr">
-          <h2>Протеин BIOTECH ISO WHEY ZERO</h2>
-          <p>
-            BioTechUSA Iso Whey Zero Lactose Free – продукт, основное действие которого направлено на увеличение мышечного объема. Стимулятор изготовлен из сывороточного изолята высокого качества и предназначен для людей, которые ведут активный образ жизни и занимаются спортом. Коктейль не содержит лактозу, что позволяет употреблять его атлетам, которые страдают от непереносимости молочных продуктов.
-          </p>
-          <p>
-            BioTechUSA Iso Whey Zero Lactose Free производят методом микрофильтрации, благодаря чему компоненты обладают высокой биологической ценностью и хорошо усваиваются. Белковые фракции, содержащиеся в стимуляторе, абсорбируются в мышечных тканях быстрее, позволяя в максимально короткий период обеспечить мускулы строительным материалом и предотвратить катаболизм. В препарате отсутствуют сахар и трансжиры, поэтому его можно с легкостью употреблять в период поддержания режима низкокалорийной диеты.
-          </p>
-          <h2>Качество, подтвержденное сертификатами</h2>
-          <p>{{ product.pDesc }}</p>
-        </div>
-      </div>
-    </div>
+    </section>
     <div class="merch-hr"></div>
-    <div class="row">
-      <div class="col-md-6 col-sm-12">
-        <div class="merch-ttl">
-          Характеристики
+    <section class="merch-section">
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <h3 class="merch-ttl">Характеристики</h3>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <ul class="merch-row-group">
+            <li class="merch-row">
+              <div class="merch-row-name">
+                Размер порции:
+              </div>
+              <div class="merch-row-item">
+                28 г
+              </div>
+            </li>
+            <li class="merch-row">
+              <div class="merch-row-name">
+                Калории:
+              </div>
+              <div class="merch-row-item">
+                28 г
+              </div>
+            </li>
+            <li class="merch-row">
+              <div class="merch-row-name">
+                Жиры:
+              </div>
+              <div class="merch-row-item">
+                28 г
+              </div>
+            </li>
+            <li class="merch-row">
+              <div class="merch-row-name">
+                Размер порции:
+              </div>
+              <div class="merch-row-item">
+                28 г
+              </div>
+            </li>
+            <li class="merch-row">
+              <div class="merch-row-name">
+                Углеводы:
+              </div>
+              <div class="merch-row-item">
+                28 г
+              </div>
+            </li>
+            <li class="merch-row">
+              <div class="merch-row-name">
+                Белки:
+              </div>
+              <div class="merch-row-item">
+                28 г
+              </div>
+            </li>
+            <li class="merch-row">
+              <div class="merch-row-name">
+                Размер порции:
+              </div>
+              <div class="merch-row-item">
+                28 г
+              </div>
+            </li>
+            <li class="merch-row">
+              <div class="merch-row-name">
+                Размер порции:
+              </div>
+              <div class="merch-row-item">
+                28 г
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="col-md-6 col-sm-12">
-        <div class="merch-row-group">
-          <div class="merch-row">
-            <div class="merch-row-name">
-              Размер порции:
-            </div>
-            <div class="merch-row-item">
-              28 г
-            </div>
-          </div>
-          <div class="merch-row">
-            <div class="merch-row-name">
-              Размер порции:
-            </div>
-            <div class="merch-row-item">
-              28 г
-            </div>
-          </div>
-        </div>
-        <div class="merch-row-group">
-          <div class="merch-row">
-            <div class="merch-row-name">
-              Размер порции:
-            </div>
-            <div class="merch-row-item">
-              28 г
-            </div>
-          </div>
-          <div class="merch-row">
-            <div class="merch-row-name">
-              Размер порции:
-            </div>
-            <div class="merch-row-item">
-              28 г
-            </div>
-          </div>
-        </div>
-        <div class="merch-row-group">
-          <div class="merch-row">
-            <div class="merch-row-name">
-              Размер порции:
-            </div>
-            <div class="merch-row-item">
-              28 г
-            </div>
-          </div>
-          <div class="merch-row">
-            <div class="merch-row-name">
-              Размер порции:
-            </div>
-            <div class="merch-row-item">
-              28 г
-            </div>
-          </div>
-        </div>
-        <div class="merch-row-group">
-          <div class="merch-row">
-            <div class="merch-row-name">
-              Размер порции:
-            </div>
-            <div class="merch-row-item">
-              28 г
-            </div>
-          </div>
-          <div class="merch-row">
-            <div class="merch-row-name">
-              Размер порции:
-            </div>
-            <div class="merch-row-item">
-              28 г
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
     <div class="merch-hr"></div>
-    <div class="row">
-      <div class="col-md-6 col-sm-12">
-        <div class="merch-ttl">
-          Отзывы
+
+    <section class="merch-section">
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <h3 class="merch-ttl">Отзывы</h3>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="merch-feed">
+            <div class="merch-feed-header">
+              <div class="merch-feed-name">
+                Алексей
+                <span class="merch-feed-raiting"> 
+                  <b-form-rating></b-form-rating>
+                </span>
+              </div>
+              <div class="merch-feed-date">
+                03.03.2021
+              </div>
+            </div>
+            <p class="merch-feed-info">
+              Мне понравился протеин PURE WHEY, отлично растворяется и приятно пьется. По вкусу как шоколадка, в составе хорошие натуральные ингредиенты, поэтому и легко организм принимает.
+            </p>
+          </div>
+          <div class="merch-feed">
+            <div class="merch-feed-header">
+              <div class="merch-feed-name">
+                Алексей
+                <span class="merch-feed-raiting"> 
+                  <b-form-rating></b-form-rating>
+                </span>
+              </div>
+              <div class="merch-feed-date">
+                03.03.2021
+              </div>
+            </div>
+            <p class="merch-feed-info">
+              Мне понравился протеин PURE WHEY, отлично растворяется и приятно пьется. По вкусу как шоколадка, в составе хорошие натуральные ингредиенты, поэтому и легко организм принимает.
+            </p>
+          </div>
         </div>
       </div>
-      <div class="col-md-6 col-sm-12">
-        <div class="merch-feed">
-          <div class="merch-feed-header">
-            <div class="merch-feed-name">
-              Алексей
-              <span class="merch-feed-raiting"> 
-                <b-form-rating></b-form-rating>
-              </span>
-            </div>
-            <div class="merch-feed-date">
-              03.03.2021
-            </div>
-          </div>
-          <div class="merch-feed-info">
-            Мне понравился протеин PURE WHEY, отлично растворяется и приятно пьется. По вкусу как шоколадка, в составе хорошие натуральные ингредиенты, поэтому и легко организм принимает.
-          </div>
-        </div>
-        <div class="merch-feed">
-          <div class="merch-feed-header">
-            <div class="merch-feed-name">
-              Алексей
-              <span class="merch-feed-raiting"> 
-                <b-form-rating></b-form-rating>
-              </span>
-            </div>
-            <div class="merch-feed-date">
-              03.03.2021
-            </div>
-          </div>
-          <div class="merch-feed-info">
-            Мне понравился протеин PURE WHEY, отлично растворяется и приятно пьется. По вкусу как шоколадка, в составе хорошие натуральные ингредиенты, поэтому и легко организм принимает.
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
     <div class="merch-hr"></div>
-    <div class="row">
-      <div class="col-md-6 col-sm-12">
-        <div class="merch-ttl">
-          Рекомендации по применению
+
+    <section class="merch-section">
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <h3 class="merch-ttl">Рекомендации по применению</h3>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="merch-descr">
+            <p>
+              Рекомендуем принимать 1-2 порции в день. В тренировочные дни: одна порция после тренировки, вторая между приемами еды. В не тренировочные дни: одна порция вечером.
+            </p>
+          </div>
         </div>
       </div>
-      <div class="col-md-6 col-sm-12">
-        <div class="merch-descr">
-          <p>
-            Рекомендуем принимать 1-2 порции в день. В тренировочные дни: одна порция после тренировки, вторая между приемами еды. В не тренировочные дни: одна порция вечером.
-          </p>
-        </div>
-      </div>
-    </div>
+    </section>
+    <div class="merch-hr"></div>
+
     <h2>Customers also buy</h2>
     <ProductsList :products="product.alsoBuyProducts" />
     <h2>Interesting goods</h2>

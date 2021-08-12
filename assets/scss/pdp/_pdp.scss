@@ -2,6 +2,36 @@
     &-main { padding: 90px 0; }
     &-info { padding: 0 0 42px; }
     &-info-available { margin: 0 0 10px; }
+    &-section {
+        padding: 60px 0 16px;
+    }
+    &-ttl { 
+        color: #0D1115;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+    &-descr {
+        color: #42484F;
+        h4 {
+            color: #0D1115;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        p {
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 0 0 20px;
+        }
+    }
+    &-row-group {
+        margin: 0 0 16px;
+        padding: 0;
+        .merch-row {
+            width: 100%;
+        }
+    }
 }
 .merch-name {
     font-size: 28px;
@@ -44,7 +74,7 @@
 }
 /* EO Product buttons */
 
-@media (min-width: 576px) { 
+@media (min-width: 576px) {
     .merch-info-available { display: flex; }
 
     .merch-btns {
@@ -56,6 +86,21 @@
             &:not(:last-of-type) { margin: 0 16px 0 0; }
          }
      }
+     .merch {
+        &-row-group {
+            display: flex;
+            flex-wrap: wrap;
+            .merch-row {
+                flex: 1 0 auto;
+                width: 100%;
+                max-width: calc(50% - 8px);
+    
+                &:nth-of-type(2n+1) {
+                    margin: 0 16px 0 0;
+                }
+            }
+        }
+    }
 }
 
 
