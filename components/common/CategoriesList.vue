@@ -73,7 +73,7 @@
           </svg>
         </a>
       </div>
-      <VueSlickCarousel :arrows="true" :dots="true" :slidesToShow="3" :slidesToScroll="1">
+      <VueSlickCarousel v-bind="settings">
         <div class="product-item">
           <div class="product-item-image">
             <img src="@/assets/png/image-carousel1.png" alt="">
@@ -199,6 +199,29 @@ export default {
     }
   },
   components: { VueSlickCarousel },
+  data() {
+    return {
+      settings: {
+        "dots": true,
+        "infinite": false,
+        "speed": 500,
+        "slidesToShow": 3,
+        "slidesToScroll": 1,
+        "initialSlide": 0,
+        "responsive": [
+        {
+          "breakpoint": 768,
+          "settings": {
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "infinite": true,
+            "dots": true
+          }
+        }
+        ]
+      }
+    }
+  }
 }
 </script>
 

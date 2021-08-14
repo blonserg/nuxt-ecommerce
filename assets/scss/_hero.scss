@@ -2,6 +2,11 @@
     &-main {
         background: url('./../png/hero.png') no-repeat 50% 50%;
         height: 580px;
+
+        @media (max-width: 768px) {
+            height: 660px;
+            background: url('./../png/hero-screen-mob.png') no-repeat 50% 50%;
+        }
     }
 
     &-head {
@@ -10,6 +15,11 @@
         font-size: 56px;
         text-transform: uppercase;
         line-height: 60px;
+
+        @media (max-width: 768px) {
+            font-size: 40px;
+            line-height: 100%;
+        }
     }
     &-text {
         font-weight: 500;

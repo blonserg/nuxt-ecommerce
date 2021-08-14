@@ -8,7 +8,7 @@
           </a>
         </div>
 
-        <div class="col-md-3 col-sm-6">
+        <div class="col-6 col-md-6">
           <h4 class="footer-ttl">Магазин</h4>
           <ul class="footer-list">
             <li class="footer-item"><a href="#">Акции</a></li>
@@ -18,7 +18,7 @@
             <li class="footer-item"><a href="#">О нас</a></li>
           </ul>
         </div>
-        <div class="col-md-3 col-sm-6 footer-products">
+        <div class="col-6 col-md-6 footer-products">
           <h4 class="footer-ttl">Продукты</h4>
           <ul class="footer-list">
             <li class="footer-item"><a href="/">Все категории</a></li>
@@ -46,11 +46,17 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="footer-hr d-md-none"></div>
+    <div class="container">
       <div class="footer-info">
         <div class="footer-info-left">
           <img src="@/assets/svg/visa.svg" alt="">
 
           <img src="@/assets/svg/mastercard.svg" alt="">
+        </div>
+        <div class="footer-copyright-logo d-block d-md-none">
+          <img src="@/assets/svg/logo-buro97.svg" alt="">
         </div>
         <div class="footer-info-right">
           <a href="/" class="footer-info-link">
@@ -67,7 +73,7 @@
         </div>
       </div>
     </div>
-    <div class="footer-hr"></div>
+    <div class="footer-hr d-none d-md-block"></div>
     <div class="container">
       <div class="footer-copyright">
         <div class="footer-copyright-info">
@@ -76,7 +82,7 @@
           <span class="footer-copyright-dot"></span>
           <a href="/">Политика конфиденциальности</a>
         </div>
-        <div class="footer-copyright-logo">
+        <div class="footer-copyright-logo d-none d-md-block">
           <img src="@/assets/svg/logo-buro97.svg" alt="">
         </div>
       </div>
