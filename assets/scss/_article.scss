@@ -34,6 +34,7 @@
         color: #42484F;
         list-style: none;
         position: relative;
+        margin-bottom: 20px;
 
         &::before {
             content: '';
@@ -45,5 +46,31 @@
             border-radius: 50%;
             background-color: #257BF4;
         }
+    }
+
+    &-attention {
+        &-ttl {
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 140%;
+            color: #0D1115;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        &-txt {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 150%;
+            color: #0D1115;
+            padding-left: 20px;
+            border-left: 3px solid #257BF4;
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+    }
+
+    .row {
+        margin-bottom: 80px;
     }
 }

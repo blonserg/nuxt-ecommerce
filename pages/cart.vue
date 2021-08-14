@@ -22,58 +22,68 @@
         </div>
         <template v-else>
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-8">
                     <ProductsList class="products" :products-from-cart="getProducts" />
                 </div>
-                <div class="col-md-3">
-                    <div class="cart-order-ttl">
-                        Ваш заказ
+                <div class="col-md-4">
+                    <div class="cart-order">
+                      <div class="cart-order-ttl">
+                          Ваш заказ
+                      </div>
+                      <div class="cart-row">
+                          <div class="cart-row-name">
+                              Всего товаров:
+                          </div>
+                          <div class="cart-row-info">
+                              6
+                              <span>ед</span>
+                          </div>
+                      </div>
+                      <div class="cart-row">
+                          <div class="cart-row-name">
+                              Скидка:
+                          </div>
+                          <div class="cart-row-info">
+                              0.00
+                              <span>₴</span>
+                          </div>
+                      </div>
+                      <div class="cart-row">
+                          <div class="cart-row-name">
+                              Сумма к оплате:
+                          </div>
+                          <div class="cart-row-info">
+                              1 800
+                              <span>₴</span>
+                          </div>
+                      </div>
+                      <div class="cart-promo">
+                          <label for="promo">Промокод</label>
+                          <div class="cart-promo-form">
+                            <b-form-input id="promo" placeholder="Введите промокод"></b-form-input>
+                            <b-button variant="primary" class="cart-promo-btn">
+                              <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.75 1.5L6.25 6L1.75 10.5" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </b-button>
+                          </div>
+                      </div>
+                      <div class="cart-total">
+                          <div class="cart-total-ttl">
+                              Итого:
+                          </div>
+                          <div class="cart-total-info">
+                              {{ getAmount | round }}
+                              <span class="cart-cur _total">₴</span>
+                          </div>
+                      </div>
+                      <nuxt-link
+                          to="/checkout"
+                          class="btn btn-primary cart-button"
+                          >
+                          Оформить заказ
+                      </nuxt-link>
                     </div>
-                    <div class="cart-row">
-                        <div class="cart-row-name">
-                            Всего товаров:
-                        </div>
-                        <div class="cart-row-info">
-                            6
-                            <span>ед</span>
-                        </div>
-                    </div>
-                    <div class="cart-row">
-                        <div class="cart-row-name">
-                            Скидка:
-                        </div>
-                        <div class="cart-row-info">
-                            0.00
-                            <span>₴</span>
-                        </div>
-                    </div>
-                    <div class="cart-row">
-                        <div class="cart-row-name">
-                            Сумма к оплате:
-                        </div>
-                        <div class="cart-row-info">
-                            1 800
-                            <span>₴</span>
-                        </div>
-                    </div>
-                    <div class="cart-promo">
-                        <label for="promo">Промокод</label>
-                        <b-form-input id="promo" placeholder="Введите промокод"></b-form-input>
-                    </div>
-                    <div class="cart-total">
-                        <div class="cart-total-ttl">
-                            Итого:
-                        </div>
-                        <div class="cart-total-info">
-                            {{ getAmount | round }}
-                        </div>
-                    </div>
-                    <nuxt-link
-                        to="/checkout"
-                        class="btn btn-primary cart-button"
-                        >
-                        Оформить заказ
-                    </nuxt-link>
                 </div>
             </div>
         </template>

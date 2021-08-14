@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="merch-hr"></div>
-            <div class="row">
+            <div class="row checkout-row">
                 <div class="col-sm-3">
                     <div class="checkout-ttl">
                         Персональные данные
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="merch-hr"></div>
-            <div class="row">
+            <div class="row checkout-row">
                 <div class="col-sm-3">
                     <div class="checkout-ttl">
                         Условия Доставки
@@ -82,9 +82,7 @@
             </div>
             <div class="merch-hr"></div>
             <div class="checkout-checkbox">
-                <b-form-checkbox  id="checkbox-1" name="checkbox-1" value="accepted"    unchecked-value="not_accepted">
-                    Перезвонить для подтверждения заказа
-                </b-form-checkbox>
+                <Checkbox title="Перезвонить для подтверждения заказа" />
             </div>
             <div class="checkout-btns">
                 <b-button variant="primary">Оформить заказ</b-button>
@@ -95,7 +93,12 @@
 </template>
 
 <script>
+import Checkbox from '~~/components/common/Checkbox'
+
 export default {
+    components: {
+        Checkbox
+    },
     data() {
         return {
             selectfield: null,

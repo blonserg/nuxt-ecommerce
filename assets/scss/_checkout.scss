@@ -1,0 +1,91 @@
+.checkout {
+    &-row {
+        margin-top: 32px;
+        margin-bottom: 56px;
+    }
+
+    &-ttl {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 130%;
+        color: #9EA0A1;
+        margin-top: 25px;
+    }
+
+    &-input {
+        label {
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 20px;
+            color: #9EA0A1;
+            margin-bottom: 4px;
+        }
+
+        .form-control {
+            background: #F2F5F7;
+            border: 1px solid #EAEDF2;
+            border-radius: 8px;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 16px;
+            color: #1A232B;
+            padding: 16px;
+            height: 48px;
+        }
+    }
+
+    &-select {
+        label {
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 20px;
+            color: #9EA0A1;
+            margin-bottom: 4px;
+        }
+
+        .custom-select {
+            background: #F2F5F7;
+            border: 1px solid #EAEDF2;
+            border-radius: 8px;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 16px;
+            color: #1A232B;
+            padding: 16px;
+            height: 48px;
+        }
+    }
+
+    &-select {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            bottom: 16px;
+            right: 16px;
+            background: url('./../svg/arrow-right.svg') no-repeat 50% 50%;
+            transform: rotate(90deg);
+        }
+    }
+
+    &-checkbox {
+        margin-top: 90px;
+    }
+
+    &-btns {
+        margin-top: 30px;
+        margin-bottom: 80px;
+
+        .btn-primary {
+            margin-right: 15px;
+            min-width: 200px;
+        }
+
+        .btn-outline-primary {
+            min-width: 200px;
+        }
+    }
+}

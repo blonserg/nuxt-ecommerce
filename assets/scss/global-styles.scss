@@ -54,6 +54,11 @@ body {
   align-items: center;
   margin-bottom: 60px;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: start;
+  }
+
   &-ttl {
     font-weight: 600;
     font-size: 30px;
@@ -161,4 +166,6 @@ body {
 @import 'filter';
 @import 'footer';
 @import 'blog';
-@import 'article'
+@import 'article';
+@import 'checkout';
+@import 'cart';

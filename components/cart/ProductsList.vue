@@ -20,13 +20,18 @@
       class="cart-product"
     >
       <template>
-        <nuxt-link :to="`/product/${product.meta.pSlug}`">
-          <img class="cart-product-image"
-            v-lazy="product.meta.images.imgL"
-          />
+        <nuxt-link class="cart-product-image_link" :to="`/product/${product.meta.pSlug}`">
+          <div class="cart-product-image_wrap">
+            <img class="cart-product-image"
+              v-lazy="product.meta.images.imgL"
+            />
+          </div>
         </nuxt-link>
         <div class="cart-product-name">
           {{ product.meta.pName }}
+          <span class="cart-product-category">
+            Biotech
+          </span>
         </div>
         <div class="cart-product-price">
           {{ product.meta.pPrice }}
@@ -50,6 +55,7 @@
         </div>
         <div class="cart-product-total">
           {{ (product.meta.pPrice * product.qty) | round }}
+          <span class="cart-cur">₴</span>
         </div>
         <div class="cart-product-delete">
           <CloseOrDeleteButton
