@@ -48,9 +48,9 @@
             <div class="merch-info-available">
               <ProductAvailable v-bind:isAvailable="true" />
               <div class="product-item-raiting">
-                <b-form-rating></b-form-rating>
+                <b-form-rating variant="warning" no-border="true" size="sm" class="rating-block" value="3.5" inline></b-form-rating>
                 <div class="product-item-feed">
-                  <a href="#">124 отзыва</a>
+                  (<a href="#">124 отзыва</a>)
                 </div>
               </div>
             </div>
@@ -217,38 +217,7 @@
           <h3 class="merch-ttl">Отзывы</h3>
         </div>
         <div class="col-md-6 col-sm-12">
-          <div class="merch-feed">
-            <div class="merch-feed-header">
-              <div class="merch-feed-name">
-                Алексей
-                <span class="merch-feed-raiting"> 
-                  <b-form-rating></b-form-rating>
-                </span>
-              </div>
-              <div class="merch-feed-date">
-                03.03.2021
-              </div>
-            </div>
-            <p class="merch-feed-info">
-              Мне понравился протеин PURE WHEY, отлично растворяется и приятно пьется. По вкусу как шоколадка, в составе хорошие натуральные ингредиенты, поэтому и легко организм принимает.
-            </p>
-          </div>
-          <div class="merch-feed">
-            <div class="merch-feed-header">
-              <div class="merch-feed-name">
-                Алексей
-                <span class="merch-feed-raiting"> 
-                  <b-form-rating></b-form-rating>
-                </span>
-              </div>
-              <div class="merch-feed-date">
-                03.03.2021
-              </div>
-            </div>
-            <p class="merch-feed-info">
-              Мне понравился протеин PURE WHEY, отлично растворяется и приятно пьется. По вкусу как шоколадка, в составе хорошие натуральные ингредиенты, поэтому и легко организм принимает.
-            </p>
-          </div>
+          <Reviews :reviews="reviews"/>
         </div>
       </div>
     </section>
@@ -281,6 +250,7 @@
 import ProductsList from '~~/components/common/ProductsList'
 import ProductPrice from '~~/components/common/ProductPrice'
 import ProductAvailable from '~~/components/common/ProductAvailable'
+import Reviews from '~~/components/reviews/Reviews'
 import { mapState } from 'vuex'
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
@@ -291,7 +261,8 @@ export default {
     ProductsList,
     ProductPrice,
     ProductAvailable,
-    VueSlickCarousel
+    VueSlickCarousel,
+    Reviews
   },
   async asyncData ({ app, params, route, error }) {
     try {
@@ -324,7 +295,23 @@ export default {
   data() {
     return {
       selected1: null,
-      selected2: null
+      selected2: null,
+      reviews: [
+            {
+                id: 1,
+                date: '03.09.2021',
+                rating: 3,
+                name: 'Алексей',
+                message: 'Мне понравился протеин PURE WHEY, отлично растворяется и приятно пьется. По вкусу как шоколадка, в составе хорошие натуральные ингредиенты, поэтому и легко организм принимает.',
+            },
+            {
+                id: 2,
+                date: '03.09.2021',
+                rating: 3.5,
+                name: 'Мария',
+                message: 'Купила карамель-капучино, растворяется долго, комочками, гораздо хуже, чем например 100% PROSTAR WHEY PROTEIN ULTIMATE NUTRITION или RULE1 WHEY BLEND. Также остаётся какая-то тяжесть в желудке, отрыжка и привкус. Насчёт их отличий по качеству набора массы сказать не могу. Беру протеины в основном для пополнения дневной нормы белка, т.к. готовить и получать их из пищи нет времени.',
+            }
+        ]
     }
   }
 }

@@ -56,18 +56,6 @@
         &-raiting {
             display: flex;
             align-items: center;
-
-            .b-rating {
-                border: 0;
-                padding: 0;
-                width: 100px;
-
-                .b-rating-star {
-                    padding: 0;
-                    justify-content: start;
-                    color: #FFC107;
-                }
-            }
         }
 
         &-feed {
