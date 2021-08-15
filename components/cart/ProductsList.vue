@@ -34,9 +34,7 @@
           </span>
         </div>
         <div class="cart-product-price">
-          {{ product.meta.pPrice }}
-          <!-- todo: refactor by using Product Price Component -->
-          <ProductPrice />
+          <ProductPrice :price="{ pPrice: product.meta.pPrice }"/>
         </div>
         <div class="cart-product-amount">
           <input
@@ -54,8 +52,7 @@
           ></b-form-spinbutton> -->
         </div>
         <div class="cart-product-total">
-          {{ (product.meta.pPrice * product.qty) | round }}
-          <span class="cart-cur">₴</span>
+            <ProductPrice :price="{ pPrice: (product.meta.pPrice * product.qty) | round }"/>
         </div>
         <div class="cart-product-delete">
           <CloseOrDeleteButton

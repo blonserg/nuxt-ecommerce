@@ -61,17 +61,12 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container home-widgets">
       <div class="group">
         <div class="group-ttl">
           Акционные товары
         </div>
-        <a class="link" href="/">
-          Смотреть все
-          <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1.75 1.5L6.25 6L1.75 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
+        <LinkMore :text="'Смотреть все'" :href="'/'"></LinkMore>
       </div>
       <VueSlickCarousel v-bind="settings">
         <div class="product-item">
@@ -84,9 +79,7 @@
               <span>BiotexhUsa</span>
             </div>
             <div class="product-item-price">
-              <span>1800</span>
-              <span class="product-item-cur">$</span>
-              <span class="product-item-price _old">1800$</span>
+              <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
             </div>
           </div>
         </div>
@@ -100,9 +93,7 @@
               <span>BiotexhUsa</span>
             </div>
             <div class="product-item-price">
-              <span>1800</span>
-              <span class="product-item-cur">$</span>
-              <span class="product-item-price _old">1800$</span>
+              <ProductPrice :price="{ pPrice: 1800 }" />
             </div>
           </div>
         </div>
@@ -116,9 +107,7 @@
               <span>BiotexhUsa</span>
             </div>
             <div class="product-item-price">
-              <span>1800</span>
-              <span class="product-item-cur">$</span>
-              <span class="product-item-price _old">1800$</span>
+              <ProductPrice :price="{ pPricePromo: 1800 }" />
             </div>
           </div>
         </div>
@@ -132,9 +121,7 @@
               <span>BiotexhUsa</span>
             </div>
             <div class="product-item-price">
-              <span>1800</span>
-              <span class="product-item-cur">$</span>
-              <span class="product-item-price _old">1800$</span>
+              <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
             </div>
           </div>
         </div>
@@ -148,9 +135,7 @@
               <span>BiotexhUsa</span>
             </div>
             <div class="product-item-price">
-              <span>1800</span>
-              <span class="product-item-cur">$</span>
-              <span class="product-item-price _old">1800$</span>
+              <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
             </div>
           </div>
         </div>
@@ -164,9 +149,7 @@
               <span>BiotexhUsa</span>
             </div>
             <div class="product-item-price">
-              <span>1800</span>
-              <span class="product-item-cur">$</span>
-              <span class="product-item-price _old">1800$</span>
+              <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
             </div>
           </div>
         </div>
@@ -191,6 +174,9 @@
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import LinkMore from '~~/components/common/LinkMore'
+import ProductPrice from '~~/components/common/ProductPrice'
+
 export default {
   props: {
     categories: {
@@ -198,7 +184,11 @@ export default {
       default: () => []
     }
   },
-  components: { VueSlickCarousel },
+  components: { 
+    VueSlickCarousel,
+    ProductPrice,
+    LinkMore
+  },
   data() {
     return {
       settings: {

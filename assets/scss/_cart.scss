@@ -72,9 +72,10 @@
         
         &-price {
             flex: 15% 0 0;
-            font-size: 14px;
-            line-height: 24px;
-            color: #0D1115;
+            .product-price-wrap {
+                font-size: 14px;
+                line-height: 24px;
+            }
         }
 
         &-amount {
@@ -86,10 +87,10 @@
         }
 
         &-total {
-            font-weight: bold;
-            font-size: 14px;
-            line-height: 24px;
-            color: #0D1115;
+            .product-price-wrap {
+                font-size: 14px;
+                line-height: 24px;
+            }
             flex: 20% 0 0;
         }
 
