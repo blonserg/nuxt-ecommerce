@@ -80,9 +80,18 @@
 
         &-amount {
             flex: 20% 0 0;
+            .product-quantity {
+                border: 0;
+                max-width: 100px;
 
-            input {
-                width: 100px;
+                .btn { 
+                    padding: 0 .1em;
+                    color: $color-primay;
+
+                    path { fill: $color-primay; }
+                }
+
+                output { border: 0!important; }
             }
         }
 

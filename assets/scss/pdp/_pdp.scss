@@ -56,15 +56,6 @@
             border: 1px solid #EAEDF2;
             cursor: pointer;
         }
-        .select-qty {
-            font-size: 14px;
-            font-weight: 700;
-            border: 1px solid #EAEDF2;
-
-            .btn { color: $color-secondary; }
-            svg { transform: translateY(-3px); } // -3px value used to fix vertical indent of icons
-            &.focus svg { transform: translateY(-3px) scale(1.1, 1.1); }
-        }
     }
 }
 /* EO Product attributes*/
