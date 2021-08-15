@@ -32,7 +32,7 @@
               </div>
             </div>
             <!-- todo: refactor by using Product Price Component -->
-            <ProductPrice />
+            <ProductPrice :price="{pPricePromo: 1800}"/>
           </div>
           <div class="merch-attributes">
             <div class="merch-row">
@@ -243,7 +243,7 @@
                   <span>BiotexhUsa</span>
                 </div>
                 <div class="product-item-price">
-                  <ProductPrice />
+                  <ProductPrice :price="{pPrice: 1800}"/>
                 </div>
               </div>
             </div>
@@ -257,7 +257,7 @@
                   <span>BiotexhUsa</span>
                 </div>
                 <div class="product-item-price">
-                  <ProductPrice />
+                  <ProductPrice :price="{pPrice: 1800}"/>
                 </div>
               </div>
             </div>
@@ -271,7 +271,7 @@
                   <span>BiotexhUsa</span>
                 </div>
                 <div class="product-item-price">
-                  <ProductPrice />
+                  <ProductPrice :price="{pPrice: 1800}"/>
                 </div>
               </div>
             </div>
@@ -285,7 +285,7 @@
                   <span>BiotexhUsa</span>
                 </div>
                 <div class="product-item-price">
-                  <ProductPrice />
+                  <ProductPrice :price="{pPrice: 1800}"/>
                 </div>
               </div>
             </div>
@@ -299,7 +299,7 @@
                   <span>BiotexhUsa</span>
                 </div>
                 <div class="product-item-price">
-                  <ProductPrice />
+                  <ProductPrice :price="{pPrice: 1800}"/>
                 </div>
               </div>
             </div>
@@ -313,7 +313,7 @@
                   <span>BiotexhUsa</span>
                 </div>
                 <div class="product-item-price">
-                  <ProductPrice />
+                  <ProductPrice :price="{pPrice: 1800}"/>
                 </div>
               </div>
             </div>
@@ -328,7 +328,7 @@
 import ProductImageCarousel from '~~/components/pdp/ProductImageCarousel'
 import ProductsList from '~~/components/common/ProductsList'
 import ProductPrice from '~~/components/common/ProductPrice'
-import ProductAvailable from '~~/components/common/ProductAvailable'
+import ProductAvailable from '~~/components/pdp/ProductAvailable'
 import BuyButton from '~~/components/common/BuyButton'
 import Reviews from '~~/components/reviews/Reviews'
 import LinkMore from '~~/components/common/LinkMore'
