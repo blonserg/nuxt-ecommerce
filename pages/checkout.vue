@@ -37,8 +37,19 @@
                 <div class="col-sm-3">
                     <div class="checkout-input checkout-input--phone">
                         <label for="phone">Телефон*</label>
-                        <b-form-input class="checkout-input=code" id="codephone">+380</b-form-input>
-                        <b-form-input id="phone"></b-form-input>
+                        <VuePhoneNumberInput
+                            v-model="phoneNumber"
+                            show-code-on-list
+                            default-country-code="UA"
+                            :translations="{
+                                countrySelectorLabel: 'Код страны',
+                                countrySelectorError: 'Choisir un pays',
+                                phoneNumberLabel: 'Номер телефона',
+                                example: 'Пример :'
+                            }"
+                        />
+                        <!-- <b-form-input class="checkout-input=code" id="codephone">+380</b-form-input>
+                        <b-form-input id="phone"></b-form-input> -->
                     </div>
                 </div>
             </div>
@@ -93,17 +104,21 @@
 </template>
 
 <script>
-import Checkbox from '~~/components/common/Checkbox'
+import Checkbox from '~~/components/common/Checkbox';
+import VuePhoneNumberInput from 'vue-phone-number-input';
+import 'vue-phone-number-input/dist/vue-phone-number-input.css';
 
 export default {
     components: {
-        Checkbox
+        Checkbox,
+        VuePhoneNumberInput
     },
     data() {
         return {
             selectfield: null,
             selectcity: null,
-            selectpost: null
+            selectpost: null,
+            phoneNumber: null
         }
     }
 }
