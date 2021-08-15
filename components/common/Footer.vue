@@ -36,9 +36,9 @@
           </p>
           <div class="footer-contacts-txt">
             <img src="@/assets/svg/phone.svg" alt="" />
-            <span class="footer-contacts-txt _dot">+38 (098) 124-45-67</span>
+            <a href="tel:+38(098)124-45-67" class="footer-contacts-txt _dot">+38 (098) 124-45-67</a>
             <img src="@/assets/svg/message.svg" alt="" />
-            <span class="footer-contacts-txt">amino@gmail.com</span>
+            <a href="mailto:amino@gmail.com" class="footer-contacts-txt">amino@gmail.com</a>
           </div>
           <div class="footer-contacts-subscribe">
             <b-form-input placeholder="Номер телефона"></b-form-input>
