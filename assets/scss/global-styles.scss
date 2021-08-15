@@ -45,6 +45,37 @@ body {
   &-link {
     font-size: 14px;
     color: #E0ECFD;
+
+    &:hover {
+      text-decoration: underline;
+      color: #E0ECFD;
+    }
+
+    a {
+      color: #E0ECFD;
+
+      &:hover {
+        text-decoration: underline;
+        color: #E0ECFD;
+      }
+    }
+  }
+
+  &-item {
+    &--all {
+      position: relative;
+      padding-left: 10px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background: url('./../svg/all-cat.svg') no-repeat 50% 50%;
+        left: 0;
+        top: 12px;
+      }
+    }
   }
 }
 

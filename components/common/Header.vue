@@ -11,7 +11,7 @@
         </div>
         <div class="d-none d-md-block col-md-6">
           <b-nav>
-            <b-nav-item active>Все категории</b-nav-item>
+            <b-nav-item class="nav-item--all" active>Все категории</b-nav-item>
             <b-nav-item>
               <n-link to="/category/cats">
                 Спортивное питание
@@ -89,6 +89,16 @@ export default {
   color: #257BF4;
   line-height: 20px;
   text-transform: uppercase;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  p {
+    margin-bottom: 0;
+    margin-top: 10px;
+  }
 }
 .cart {
   display: flex;

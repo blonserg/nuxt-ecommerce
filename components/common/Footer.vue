@@ -8,7 +8,7 @@
           </a>
         </div>
 
-        <div class="col-6 col-md-6">
+        <div class="col-6 col-md-3">
           <h4 class="footer-ttl">Магазин</h4>
           <ul class="footer-list">
             <li class="footer-item"><a href="#">Акции</a></li>
@@ -18,7 +18,7 @@
             <li class="footer-item"><a href="#">О нас</a></li>
           </ul>
         </div>
-        <div class="col-6 col-md-6 footer-products">
+        <div class="col-6 col-md-3 footer-products">
           <h4 class="footer-ttl">Продукты</h4>
           <ul class="footer-list">
             <li class="footer-item"><a href="/">Все категории</a></li>
