@@ -79,6 +79,12 @@ body {
   }
 }
 
+input {
+  &::placeholder {
+    color: #1A232B;
+  }
+}
+
 .group {
   display: flex;
   justify-content: space-between;

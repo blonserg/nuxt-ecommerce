@@ -32,6 +32,45 @@
             padding: 16px;
             height: 48px;
         }
+
+        &--phone {
+            .country-selector,
+            .country-selector__input,
+            .input-tel__input {
+                height: 48px !important;
+                background: #F2F5F7 !important;
+                border-radius: 8px !important;
+                border: none !important;
+            }
+
+            .vue-phone-number-input .select-country-container {
+                width: 68px;
+                min-width: 68px;
+                flex: 0 0 100px !important;
+                width: 100px !important;
+                min-width: 100px !important;
+                max-width: 100px !important;
+                margin-right: 10px;
+            }
+
+            .input-tel__input {
+                border-top-left-radius: 8px !important;
+                border-bottom-left-radius: 8px !important;
+
+                &::placeholder {
+                    color: #1A232B;
+                }
+            }
+
+            .country-selector__toggle__arrow {
+                color: #257BF4 !important;
+                transform: scale(0.8);
+
+                path.arrow {
+                    fill: #257BF4 !important;
+                }
+            }
+        }
     }
 
     &-select {
