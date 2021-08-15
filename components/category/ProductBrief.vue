@@ -12,9 +12,9 @@
         <span>BiotexhUsa</span>
       </div>
       <div class="product-item-raiting">
-        <b-form-rating></b-form-rating>
+        <b-form-rating variant="warning" :no-border="true" size="sm" class="rating-block" value="3.5" inline></b-form-rating>
         <div class="product-item-feed">
-          <a href="#">124 отзыва</a>
+          (<a href="#">124 отзыва</a>)
         </div>
       </div>
       <div class="product-item-price">

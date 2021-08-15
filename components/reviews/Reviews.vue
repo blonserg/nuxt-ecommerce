@@ -1,6 +1,6 @@
 <template>
     <ul class="reviews">
-        <li v-for="review in reviews" :key="review" class="review-item">
+        <li v-for="review in reviews" :key="review.id" class="review-item">
             <ReviewsItem :review="review"/>
         </li>
     </ul>
@@ -16,7 +16,7 @@ export default {
     },
     props: {
         reviews: {
-            type: Object,
+            type: Array,
             required: true
         }
     },

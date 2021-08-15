@@ -144,6 +144,11 @@ body {
   font-size: 14px;
   line-height: 18px;
   color: #257BF4;
+
+  &.down svg {
+    transform: rotate(90deg);
+    margin: 0 0 0 .2em;
+  }
 }
 
 .custom-control-input {
@@ -160,6 +165,7 @@ body {
 @import 'pdp/pdp';
 @import 'pdp/merch-header';
 @import 'pdp/merch-available';
+@import 'components/product-image-carousel';
 @import 'components/product-price';
 @import 'components/rating';
 @import 'components/reviews';

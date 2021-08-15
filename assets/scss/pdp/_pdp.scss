@@ -2,9 +2,8 @@
     &-main { padding: 90px 0; }
     &-info { padding: 0 0 42px; }
     &-info-available { margin: 0 0 10px; }
-    &-section {
-        padding: 60px 0 16px;
-    }
+    &-section { padding: 60px 0 16px; }
+    &-widgets { padding: 140px 0 116px; }
     &-ttl { 
         color: #0D1115;
         font-size: 24px;
@@ -53,6 +52,18 @@
         select {
             font-size: 14px;
             color: #1A232B;
+            background: #F2F5F7 url('./../svg/arrow-down.svg') right 0.75rem center no-repeat;
+            border: 1px solid #EAEDF2;
+            cursor: pointer;
+        }
+        .select-qty {
+            font-size: 14px;
+            font-weight: 700;
+            border: 1px solid #EAEDF2;
+
+            .btn { color: $color-secondary; }
+            svg { transform: translateY(-3px); } // -3px value used to fix vertical indent of icons
+            &.focus svg { transform: translateY(-3px) scale(1.1, 1.1); }
         }
     }
 }

@@ -18,10 +18,12 @@ export default {
     price: {
       type: Object,
       // TODO: refactor and remove default params by using real data;
-      default: {
-        pPrice: 100,
-        pPriceOld: 80,
-        currency: '$'
+      default: () => {
+        return {
+          pPrice: 100,
+          pPriceOld: 80,
+          currency: '$'
+        }
       }
     },
   },
