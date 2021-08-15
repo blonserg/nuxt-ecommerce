@@ -68,7 +68,7 @@
         </div>
         <LinkMore :text="'Смотреть все'" :href="'/'"></LinkMore>
       </div>
-      <VueSlickCarousel v-bind="settings">
+      <VueSlickCarousel v-bind="settings" class="product-carousel">
         <div class="product-item">
           <div class="product-item-image">
             <img src="@/assets/png/image-carousel1.png" alt="">

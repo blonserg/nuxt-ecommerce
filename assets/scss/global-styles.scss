@@ -139,43 +139,6 @@ input {
   }
 }
 
-.slick-slider {
-  margin-bottom: 80px;
-
-  .slick-arrow {
-    z-index: 10;
-  }
-
-  .slick-prev {
-    left: 25px;
-
-    &::before {
-      content: '';
-      width: 40px;
-      height: 40px;
-      background: url('./../svg/carousel-arrow.svg') no-repeat 50% 50%;
-      position: absolute;
-      left: 0;
-      top: -10px;
-    }
-  }
-  
-  .slick-next {
-    right: 25px;
-
-    &::before {
-      content: '';
-      width: 40px;
-      height: 40px;
-      background: url('./../svg/carousel-arrow.svg') no-repeat 50% 50%;
-      transform: scale(-1, -1);
-      position: absolute;
-      right: 0;
-      top: -10px;
-    }
-  }
-}
-
 .link {
   font-weight: 500;
   font-size: 14px;
@@ -202,6 +165,7 @@ input {
 @import 'pdp/pdp';
 @import 'pdp/merch-header';
 @import 'pdp/merch-available';
+@import 'components/product-carousel';
 @import 'components/product-image-carousel';
 @import 'components/product-price';
 @import 'components/rating';
