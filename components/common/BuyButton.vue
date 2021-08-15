@@ -1,20 +1,17 @@
 <template>
-  <div v-if="product">
+  <div class="merch-btns-inner" v-if="product">
     <client-only>
-      <button
+      <button class="btn btn-primary"
         v-if="!isProductAdded"
-        :class="$style.buy"
         @click.prevent="buyClickHandler"
       >
-        Buy
+        Купить
       </button>
       <a
         v-else
-        :class="$style.added"
-        href="#"
-        @click.prevent="addedClickHandler"
+        href="/cart"
       >
-        Already in cart
+        Уже в корзине
       </a>
     </client-only>
   </div>
@@ -45,31 +42,10 @@ export default {
     buyClickHandler () {
       this.addProduct(this.product.id)
       // this.$modal.show('customer-cart', { addedProduct: this.product.id })
-    },
-    addedClickHandler () {
-      this.$modal.show('customer-cart', { addedProduct: this.product.id })
     }
   }
 }
 </script>
 
 <style lang="scss" module>
-.buy {
-  background-color: $basic-bg-color; /* Green */
-  border: none;
-  color: #000;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-.added {
-  text-decoration: none;
-  border-bottom: 2px dotted;
-}
 </style>
