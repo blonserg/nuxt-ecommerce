@@ -82,7 +82,8 @@
             </div>
           </div>
           <div class="merch-btns">
-            <b-button variant="primary">Купить</b-button>
+            <BuyButton :product="product" />
+            <!-- <b-button variant="primary">Купить</b-button> -->
             <b-button variant="outline-primary">Купить в один клик</b-button>
           </div>
         </div>
@@ -328,6 +329,7 @@ import ProductImageCarousel from '~~/components/pdp/ProductImageCarousel'
 import ProductsList from '~~/components/common/ProductsList'
 import ProductPrice from '~~/components/common/ProductPrice'
 import ProductAvailable from '~~/components/common/ProductAvailable'
+import BuyButton from '~~/components/common/BuyButton'
 import Reviews from '~~/components/reviews/Reviews'
 import LinkMore from '~~/components/common/LinkMore'
 import { mapState } from 'vuex'
@@ -342,8 +344,8 @@ export default {
     ProductPrice,
     ProductAvailable,
     VueSlickCarousel,
-    LinkMore,
-    Reviews,
+    BuyButton,
+    Reviews
   },
   methods: {
 
