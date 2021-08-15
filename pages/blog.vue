@@ -152,8 +152,8 @@
                     </div>
                 </div>
             </div>
-            <div class="blog-pagination">
-                <b-pagination pills></b-pagination>
+            <div class="page-pagination">
+                <b-pagination pills align="center"></b-pagination>
             </div>
         </div>
     </div>

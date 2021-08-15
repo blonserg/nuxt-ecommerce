@@ -1,0 +1,7 @@
+.page-pagination {
+    width: 100%;
+
+    li:nth-child(2) { margin: 0 auto 0 0; }
+    li:nth-last-child(2) { margin: 0 0 0 auto; }
+    .page-link { color: $color-primay; } 
+}

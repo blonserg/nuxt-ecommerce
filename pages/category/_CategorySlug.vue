@@ -90,7 +90,7 @@
         >
           <ProductBrief :product="product" />
         </div>
-        <div class="product-pagination">
+        <div class="page-pagination">
           <b-pagination v-model="currentPage" pills :total-rows="rows"></b-pagination>
         </div>
       </div>
