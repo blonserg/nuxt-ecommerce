@@ -71,7 +71,7 @@
             </div>
             <div class="merch-group-item">
               <label :for="selectQuantity">Количество</label>
-              <b-form-spinbutton class="select-qty" id="selectQuantity" min="1" max="10">
+              <b-form-spinbutton class="select-qty" id="selectQuantity" min="1" max="10" v-model="qty">
                 <svg hasFocus="true" slot="increment" width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11.0166 9.91667H13.8784C14.3274 9.91667 14.6914 10.2866 14.6914 10.75C14.6914 11.2102 14.3281 11.5833 13.8784 11.5833H11.0166V14.5037C11.0166 14.9619 10.6541 15.3333 10.2 15.3333C9.74894 15.3333 9.38332 14.9626 9.38332 14.5037V11.5833H6.5215C6.07249 11.5833 5.70849 11.2134 5.70849 10.75C5.70849 10.2898 6.07175 9.91667 6.5215 9.91667H9.38332V6.99631C9.38332 6.53811 9.74579 6.16667 10.2 6.16667C10.651 6.16667 11.0166 6.53736 11.0166 6.99631V9.91667ZM10.2 20.75C4.7878 20.75 0.400391 16.2728 0.400391 10.75C0.400391 5.22715 4.7878 0.75 10.2 0.75C15.6121 0.75 19.9995 5.22715 19.9995 10.75C19.9995 16.2728 15.6121 20.75 10.2 20.75ZM10.2 19.0833C14.7101 19.0833 18.3663 15.3524 18.3663 10.75C18.3663 6.14763 14.7101 2.41667 10.2 2.41667C5.68983 2.41667 2.03365 6.14763 2.03365 10.75C2.03365 15.3524 5.68983 19.0833 10.2 19.0833Z" fill="#257BF4"/>
                 </svg>
@@ -243,7 +243,7 @@
                   <span>BiotexhUsa</span>
                 </div>
                 <div class="product-item-price">
-                  <ProductPrice :price="{pPrice: 1800}"/>
+                  <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
                 </div>
               </div>
             </div>
@@ -271,7 +271,7 @@
                   <span>BiotexhUsa</span>
                 </div>
                 <div class="product-item-price">
-                  <ProductPrice :price="{pPrice: 1800}"/>
+                  <ProductPrice :price="{pPricePromo: 1800}"/>
                 </div>
               </div>
             </div>
@@ -325,6 +325,11 @@
 </template>
 
 <script>
+import VueSlickCarousel from 'vue-slick-carousel'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import debounce from 'lodash.debounce'
+import { mapState } from 'vuex'
 import ProductImageCarousel from '~~/components/pdp/ProductImageCarousel'
 import ProductsList from '~~/components/common/ProductsList'
 import ProductPrice from '~~/components/common/ProductPrice'
@@ -332,10 +337,6 @@ import ProductAvailable from '~~/components/pdp/ProductAvailable'
 import BuyButton from '~~/components/common/BuyButton'
 import Reviews from '~~/components/reviews/Reviews'
 import LinkMore from '~~/components/common/LinkMore'
-import { mapState } from 'vuex'
-import VueSlickCarousel from 'vue-slick-carousel'
-import 'vue-slick-carousel/dist/vue-slick-carousel.css'
-import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 export default {
   components: {
@@ -345,6 +346,7 @@ export default {
     ProductAvailable,
     VueSlickCarousel,
     BuyButton,
+    LinkMore,
     Reviews
   },
   methods: {
@@ -352,6 +354,7 @@ export default {
   },
   data() {
     return {
+      qty: 1,
       sizeAttr: {
         selected: '1',
         options: [
@@ -454,5 +457,3 @@ export default {
   },
 }
 </script>
-<style lang="scss" module>
-</style>
