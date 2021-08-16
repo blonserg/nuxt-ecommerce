@@ -70,6 +70,10 @@
                     fill: #257BF4 !important;
                 }
             }
+
+            .country-selector__country-flag {
+                top: 25px !important;
+            }
         }
     }
 
@@ -107,6 +111,7 @@
             right: 16px;
             background: url('./../svg/arrow-right.svg') no-repeat 50% 50%;
             transform: rotate(90deg);
+            pointer-events: none;
         }
     }
 
