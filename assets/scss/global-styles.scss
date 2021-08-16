@@ -107,7 +107,36 @@ input {
     color: $color-secondary;
     font-size: 14px;
     line-height: 18px;
-    font-weight: 500;  }
+    font-weight: 500;  
+  }
+
+  &-link {
+    .dropdown-toggle {
+      border: 0;
+      background: none;
+      color: #007bff;
+      box-shadow: none;
+      position: relative;
+      padding-right: 16px;
+    }
+
+    .dropdown-toggle::after {
+      border: 0;
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      right: 0;
+      background: url('./../svg/arrow-down.svg') no-repeat 50% 50%;
+      top: 12px;
+    }
+
+    &.show .dropdown-toggle {
+      background: none;
+      color: #0056b3;
+      box-shadow: none;
+    }
+  }
 }
 
 .breadcrumbs {

@@ -4,12 +4,11 @@
       <div class="group-ttl">
         Акционные товары
       </div>
-      <a href="/" class="link">
-        Сортировать по
-        <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1.75 1.5L6.25 6L1.75 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
+      <b-dropdown id="dropdown" right  text="Сортировать по" class="group-link">
+        <b-dropdown-item href="#">Цена</b-dropdown-item>
+        <b-dropdown-item href="#">Название</b-dropdown-item>
+        <b-dropdown-item href="#">Рейтинг</b-dropdown-item>
+      </b-dropdown>
     </div>
     <div class="merch-hr merch-hr--plp"></div>
     <div class="row">
@@ -105,7 +104,8 @@ import { mapState } from 'vuex'
 export default {
   components: {
     ProductBrief,
-    Checkbox
+    Checkbox,
+    LinkMore
   },
   async asyncData ({ app, params, route, error }) {
     try {
