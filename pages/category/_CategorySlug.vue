@@ -100,6 +100,7 @@
 <script>
 import ProductBrief from '~~/components/category/ProductBrief'
 import Checkbox from '~~/components/common/Checkbox'
+import LinkMore from '~~/components/common/LinkMore'
 import { mapState } from 'vuex'
 export default {
   components: {
