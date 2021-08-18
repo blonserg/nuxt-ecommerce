@@ -1,3 +1,16 @@
+/* PLP Grid gutters */
+.row.plp-gutters {
+    margin-left: -$plp-gutters;
+    margin-right: -$plp-gutters;
+}
+
+[class^='col'].plp-gutters,
+[class*=' col'].plp-gutters {
+    padding-left: $plp-gutters;
+    padding-right: $plp-gutters;
+}
+/* EO PLP Grid gutters */
+
 .product {
     &-item {
         &--list {
@@ -7,7 +20,6 @@
         &-image {
             width: 100%;
             height: 100%;
-            max-width: 410px;
             min-height: 410px;
             border-radius: 16px;
             background-color: #F2F5F7;
@@ -16,10 +28,7 @@
             align-items: center;
             margin-bottom: 20px;
 
-            &--list {
-                width: 300px;
-                min-height: auto;
-            }
+            &--list { min-height: auto; }
         }
 
         &-info {
@@ -63,9 +72,7 @@
             color: #C4C4C4;
             text-decoration: underline;
 
-            a {
-                color: #C4C4C4;
-            }
+            a { color: #C4C4C4; }
         }
     }
 

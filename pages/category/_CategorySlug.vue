@@ -81,13 +81,22 @@
           </b-collapse>
         </div>
       </div>
-      <div class="col-md-9 col-sm-12 product-list">
-        <div
+      <div class="col-md-9 col-sm-12">
+        <b-row class="plp-gutters">
+          <b-col cols sm="6" md="6" lg="4"
+           v-for="product in category.products"
+          :key="product.id">
+            <ProductBrief :product="product" />
+          </b-col>
+        </b-row>
+        <!-- <div class="row no-gutters">
+          <div class="col-12 col-sm-6 col-lg-4"
           v-for="product in category.products"
           :key="product.id"
-        >
-          <ProductBrief :product="product" />
-        </div>
+          >
+            <ProductBrief :product="product" />
+          </div>
+        </div> -->
         <div class="page-pagination">
           <b-pagination v-model="currentPage" pills :total-rows="rows"></b-pagination>
         </div>
