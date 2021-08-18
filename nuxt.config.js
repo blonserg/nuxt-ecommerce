@@ -46,6 +46,7 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     'nuxt-trailingslash-module',
+    '@nuxtjs/composition-api',
     'nuxt-webfontloader',
     'bootstrap-vue/nuxt',
     // '@nuxtjs/svg',

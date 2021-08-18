@@ -20,14 +20,13 @@
           </div>
           <b-collapse visible id="collapse-1">
             <div class="filter-inner">
-              <input id="range-1" v-model="value" type="range" min="100" max="5000" />
-              <!-- <b-form-input id="range-1" v-model="value" type="range" min="100" max="5000" ></b-form-input> -->
+              <Slider v-model="priceRange.currentRange" :min="priceRange.minValue" :max="priceRange.maxValue" :tooltips="false" />
               <div class="filter-range">
                 <div class="filter-range-from">
-                  <span>от</span> 100 <span>₴</span>
+                  <span>от</span> {{ priceRange.currentRange[0] }} <span>{{ priceRange.format.prefix }}</span>
                 </div>
                 <div class="filter-range-to">
-                  <span>до</span> {{ value }} <span>₴</span>
+                  <span>до</span> {{ priceRange.currentRange[1] }} <span>{{ priceRange.format.prefix }}</span>
                 </div>
               </div>
             </div>
@@ -98,6 +97,7 @@
 </template>
 
 <script>
+import Slider from '@vueform/slider/dist/slider.vue2'
 import ProductBrief from '~~/components/category/ProductBrief'
 import Checkbox from '~~/components/common/Checkbox'
 import LinkMore from '~~/components/common/LinkMore'
@@ -106,7 +106,8 @@ export default {
   components: {
     ProductBrief,
     Checkbox,
-    LinkMore
+    LinkMore,
+    Slider
   },
   async asyncData ({ app, params, route, error }) {
     try {
@@ -138,7 +139,15 @@ export default {
   },
   data() {
     return {
-      value: '100',
+      priceRange: {
+        currentRange: [350, 1500],
+        maxValue: 3000,
+        minValue: 100,
+        format: {
+          prefix: '₴',
+          decimals: 2
+        }
+      },
       rows: 100,
       currentPage: 1
     }

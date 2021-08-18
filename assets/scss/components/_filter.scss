@@ -6,7 +6,6 @@
        font-weight: 600;
        font-size: 18px;
        line-height: 20px;
-       margin-bottom: 20px;
        display: flex;
        justify-content: space-between;
 
@@ -22,7 +21,7 @@
    }
 
    &-inner {
-       padding-bottom: 20px;
+       padding: 20px 0;
 
        &-header {
            font-weight: 500;
@@ -49,7 +48,7 @@
    &-range {
        display: flex;
        justify-content: space-between;
-
+       padding: 16px 0 0;
        &-from,
        &-to {
            font-weight: 700;

@@ -1,199 +1,22 @@
+// Abastract
+@import './abstract/global-variables';
+@import './abstract/mixins';
+@import './abstract/range-slider-vars';
 @import '../font/SF/stylesheet.css';
 
-html {
-  font-size: 16px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  font-variant-ligatures: none;
-  -webkit-font-variant-ligatures: none;
-  /* Smoothing */
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  font-smoothing: antialiased;
-  -webkit-font-smoothing: antialiased;
-  // text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
-  font-smooth: auto;
-  // line-height: 1.4rem;
-  font-weight: 500;
-  font-family: 'SF Pro Display', sans-serif;
-  overflow-x: hidden;
-}
+// Base (typography, base settings, variables, link styles, headings, buttons, inputs)
+@import 'base/base';
 
-body {
-  font-family: 'SF Pro Display', sans-serif;
-}
-
-@media screen and (min-width: 1280px) {
-  .container, .container-sm, .container-md, .container-lg, .container-xl {
-    max-width: 1280px;
-  }
-}
-
-.btn {
-  border-radius: 8px;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  height: 40px;
-}
-
-.nav {
-  &-link {
-    font-size: 14px;
-    color: #E0ECFD;
-
-    &:hover {
-      text-decoration: underline;
-      color: #E0ECFD;
-    }
-
-    a {
-      color: #E0ECFD;
-
-      &:hover {
-        text-decoration: underline;
-        color: #E0ECFD;
-      }
-    }
-  }
-
-  &-item {
-    &--all {
-      position: relative;
-      padding-left: 10px;
-
-      &::before {
-        content: '';
-        position: absolute;
-        width: 16px;
-        height: 16px;
-        background: url('./../svg/all-cat.svg') no-repeat 50% 50%;
-        left: 0;
-        top: 12px;
-      }
-    }
-  }
-}
-
-input {
-  &::placeholder {
-    color: #1A232B;
-  }
-}
-
-.group {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 60px;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: start;
-  }
-
-  &-ttl {
-    font-weight: 600;
-    font-size: 30px;
-    line-height: 42px;
-    color: $color-primay;
-  }
-
-  &-href {
-    color: $color-secondary;
-    font-size: 14px;
-    line-height: 18px;
-    font-weight: 500;  
-  }
-
-  &-link {
-    .dropdown-toggle {
-      border: 0;
-      background: none;
-      color: #007bff;
-      box-shadow: none;
-      position: relative;
-      padding-right: 16px;
-    }
-
-    .dropdown-toggle::after {
-      border: 0;
-      content: '';
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      right: 0;
-      background: url('./../svg/arrow-down.svg') no-repeat 50% 50%;
-      top: 12px;
-    }
-
-    &.show .dropdown-toggle {
-      background: none;
-      color: #0056b3;
-      box-shadow: none;
-    }
-  }
-}
-
-.breadcrumbs {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 20px;
-  color: #9EA0A1;
-  margin-top: 60px;
-
-  ul {
-    display: flex;
-    padding-left: 0;
-    margin: 0;
-    li {
-      list-style: none;
-      margin-right: 20px;
-      position: relative;
-
-      a {
-        color: #9EA0A1;
-      }
-    }
-
-    li + li:before {
-      content: '>';
-      position: absolute;
-      left: -12px;
-    }
-  }
-}
-
-.link {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
-  color: #257BF4;
-
-  &.down svg {
-    transform: rotate(90deg);
-    margin: 0 0 0 .2em;
-  }
-}
-
-.custom-control-input {
-  width: 20px;
-  height: 20px;
-}
-
-@import 'components/input-range';
-@import 'header';
-@import 'hero';
-@import 'market';
-@import 'product';
-@import 'merch-hr';
-@import 'pdp/pdp';
-@import 'pdp/merch-header';
-@import 'pdp/merch-available';
+// Components
+@import 'components/header';
+@import 'components/hero';
+@import 'components/market';
+@import 'components/footer';
+@import 'components/merch-hr';
+@import 'components/merch-header';
+@import 'components/merch-available';
+@import 'components/range-slider';
+@import 'components/filter';
 @import 'components/product-carousel';
 @import 'components/product-image-carousel';
 @import 'components/pagination';
@@ -201,10 +24,12 @@ input {
 @import 'components/product-quantity';
 @import 'components/rating';
 @import 'components/reviews';
+
+// Pages
 @import 'pages/home';
-@import 'filter';
-@import 'footer';
-@import 'blog';
-@import 'article';
-@import 'checkout';
-@import 'cart';
+@import 'pages/pdp';
+@import 'pages/blog';
+@import 'pages/cart';
+@import 'pages/checkout';
+@import 'pages/article';
+@import 'pages/plp';
