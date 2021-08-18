@@ -27,38 +27,41 @@
     </div>
     <div class="market-wrapper">
       <div class="container">
-        <div class="row">
-          <div class="col-md-4">
+        <b-row class="plp-gutters">
+          <b-col cols md="4" class="mb-4">
             <div class="market-item _econom">
-              <div class="market-item-ttl">
+              <img class="market-item-image" src="@/assets/png/coins.png" alt="">
+              <h3 class="market-item-ttl">
                 ЭКОНОМИЯ
-              </div>
+              </h3>
               <div class="market-item-txt">
                 До 25% — ведь мы напрямую сотрудничаем с производителями
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
+          </b-col>
+          <b-col cols md="4" class="mb-4">
             <div class="market-item _brand">
-              <div class="market-item-ttl">
+              <img class="market-item-image" src="@/assets/png/diamond.png" alt="">
+              <h3 class="market-item-ttl">
                 ТОП БРЕНДЫ
-              </div>
+              </h3>
               <div class="market-item-txt">
                 Только наиболее зарекомендовавшие себя среди спортсменов
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
+          </b-col>
+          <b-col cols md="4" class="mb-4">
             <div class="market-item _save">
-              <div class="market-item-ttl">
+              <img class="market-item-image" src="@/assets/png/round.png" alt="">
+              <h3 class="market-item-ttl">
                 Поддержка
-              </div>
+              </h3>
               <div class="market-item-txt">
                 Поможем с выбором и подберем подходящие продукы под ваши цели
               </div>
             </div>
-          </div>
-        </div>
+          </b-col>
+        </b-row>
       </div>
     </div>
     <div class="container home-widgets">
@@ -200,9 +203,18 @@ export default {
         "initialSlide": 0,
         "responsive": [
         {
-          "breakpoint": 768,
+          "breakpoint": 576,
           "settings": {
             "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "infinite": true,
+            "dots": true
+          }
+        },
+                {
+          "breakpoint": 768,
+          "settings": {
+            "slidesToShow": 2,
             "slidesToScroll": 1,
             "infinite": true,
             "dots": true

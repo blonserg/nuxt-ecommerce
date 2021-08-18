@@ -4,8 +4,8 @@
     margin-right: -$plp-gutters;
 }
 
-[class^='col'].plp-gutters,
-[class*=' col'].plp-gutters {
+.plp-gutters [class^='col'],
+.plp-gutters [class*=' col'] {
     padding-left: $plp-gutters;
     padding-right: $plp-gutters;
 }
