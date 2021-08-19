@@ -17,24 +17,24 @@
             </div>
             <div class="merch-hr"></div>
             <div class="row checkout-row">
-                <div class="col-sm-3">
+                <div class="col-sm-4 col-lg-2 col-xl-3">
                     <div class="checkout-ttl">
                         Персональные данные
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4 col-lg-3 col-xl-3">
                     <div class="checkout-input">
                         <label for="name">Имя*</label>
                         <b-form-input id="name" placeholder="Ваше имя"></b-form-input>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4 col-lg-3 col-xl-3">
                     <div class="checkout-input">
                         <label for="surname">Фамилия*</label>
                         <b-form-input id="surname" placeholder="Ваше фамилия"></b-form-input>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="offset-sm-4 col-sm-8 offset-lg-0 col-lg-4 col-xl-3">
                     <div class="checkout-input checkout-input--phone">
                         <label for="phone">Телефон*</label>
                         <VuePhoneNumberInput
@@ -55,12 +55,12 @@
             </div>
             <div class="merch-hr"></div>
             <div class="row checkout-row">
-                <div class="col-sm-3">
+                <div class="col-sm-4 col-lg-2 col-xl-3">
                     <div class="checkout-ttl">
                         Условия Доставки
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4 col-lg-3 col-xl-3">
                     <div class="checkout-select">
                         <label for="select-field">Область*</label>
                         <b-form-select v-model="selectfield" placeholder="Выберите область"  id="select-field">
@@ -70,7 +70,7 @@
                         </b-form-select>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4 col-lg-3 col-xl-3">
                     <div class="checkout-select">
                         <label for="select-city">Город*</label>
                         <b-form-select v-model="selectcity" placeholder="Выберите город"  id="select-city">
@@ -80,7 +80,7 @@
                         </b-form-select>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="offset-sm-4 col-sm-8 offset-lg-0 col-lg-4 col-xl-3">
                     <div class="checkout-select">
                         <label for="select-post">Новая почта*</label>
                         <b-form-select v-model="selectpost" placeholder="Выберите отделение"  id="select-post">
