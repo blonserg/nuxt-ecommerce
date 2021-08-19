@@ -1,9 +1,21 @@
 .merch {
-    &-main { padding: 90px 0; }
+    &-main { 
+        padding: 90px 0;
+
+        @media (max-width: 768px) {
+            padding: 45px 0; 
+        }
+    }
     &-info { padding: 0 0 42px; }
     &-info-available { margin: 0 0 10px; }
     &-section { padding: 60px 0 16px; }
-    &-widgets { padding: 140px 0 0; }
+    &-widgets { 
+        padding: 140px 0 0;
+
+        @media (max-width: 768px) {
+            padding: 70px 0 0; 
+        }
+    }
     &-ttl { 
         color: #0D1115;
         font-size: 24px;
@@ -65,6 +77,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (max-width: 768px) {
+        align-items: flex-start;
+    }
 
     &-inner {
         width: 198px;

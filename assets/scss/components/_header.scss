@@ -2,6 +2,10 @@
     &-cart {
         display: flex;
 
+        @media (max-width: 768px) {
+            justify-content: flex-end;
+        }
+
         .input-group {
             position: relative;
 
@@ -119,5 +123,15 @@
                 left: 4px;
             }
         }
+    }
+}
+
+.b-sidebar {
+    @media (max-width: 768px) {
+        background: linear-gradient(271.4deg, #0D1115 1.93%, #15262F 100%);
+    }
+
+    .close {
+        color: white !important;
     }
 }

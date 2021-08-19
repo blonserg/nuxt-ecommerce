@@ -1,6 +1,7 @@
 .filter {
     border-bottom: 1px solid #E5E5E5;
     margin-bottom: 20px;
+    padding-bottom: 20px;
 
    &-header {
        font-weight: 600;
@@ -21,7 +22,7 @@
    }
 
    &-inner {
-       padding: 20px 0;
+       padding: 20px 0 0;
 
        &-header {
            font-weight: 500;

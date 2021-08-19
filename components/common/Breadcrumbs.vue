@@ -32,6 +32,10 @@ export default {
   color: #9EA0A1;
   margin-top: 60px;
 
+  @media screen and (max-width: 768px) {
+    margin-top: 10px;
+  }
+
   ul {
     display: flex;
     padding-left: 0;

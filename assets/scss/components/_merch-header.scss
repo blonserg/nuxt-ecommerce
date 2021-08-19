@@ -1,5 +1,10 @@
 .merch-header {
     margin: 0 0 60px;
+
+    @media (max-width: 768px) {
+        margin: 0 0 20px;
+    }
+
     &-ttl {
         margin: 0;
         font-size: 30px;

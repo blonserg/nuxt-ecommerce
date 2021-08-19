@@ -37,7 +37,7 @@
           <b-button class="d-md-none header-sidebar-btn" v-b-toggle.sidebar-1>
             <span></span>
           </b-button>
-          <b-sidebar id="sidebar-1" title="Sidebar" shadow>
+          <b-sidebar id="sidebar-1" shadow>
             <div class="header-sidebar">
               <b-nav>
                 <b-nav-item active>Все категории</b-nav-item>

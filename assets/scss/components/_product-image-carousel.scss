@@ -6,6 +6,11 @@ $navImageSize: 70px;
     flex-direction: row-reverse;
     min-height: 630px;
 
+    @media (max-width: 768px) {
+        min-height: 430px;
+        margin: 0 -#{$slides-gutter}; 
+    }
+
     &_main {
         flex: 1 0 auto;
         width: 100%;

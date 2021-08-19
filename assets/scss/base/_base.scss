@@ -43,6 +43,11 @@ html {
   }
   
   .nav {
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+    }
+
     &-link {
       font-size: 14px;
       color: #E0ECFD;
@@ -95,6 +100,7 @@ html {
     @media (max-width: 768px) {
       flex-direction: column;
       align-items: start;
+      margin-bottom: 20px;
     }
   
     &-ttl {
@@ -119,6 +125,10 @@ html {
         box-shadow: none;
         position: relative;
         padding-right: 16px;
+
+        @media screen and (max-width: 768px) {
+          padding-left: 0;
+        }
       }
   
       .dropdown-toggle::after {
@@ -146,6 +156,10 @@ html {
     line-height: 20px;
     color: #9EA0A1;
     margin-top: 60px;
+
+    @media screen and (max-width: 768px) {
+      margin-top: 10px;
+    }
   
     ul {
       display: flex;
