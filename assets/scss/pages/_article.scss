@@ -8,6 +8,7 @@
         @media (max-width: 768px) {
             font-size: 30px;
             line-height: 34px;
+            margin-bottom: 30px;
         }
     }
 
@@ -77,5 +78,35 @@
 
     .row {
         margin-bottom: 80px;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    &-row {
+        &-href {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #EAEEF2;
+            margin-bottom: 25px;
+
+            &:hover {
+                .article-row-txt {
+                    color: #007bff;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        &-txt {
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 20px;
+            color: #000000;
+        }
     }
 }

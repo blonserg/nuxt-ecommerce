@@ -51,6 +51,7 @@
                 min-width: 100px !important;
                 max-width: 100px !important;
                 margin-right: 10px;
+                pointer-events: none;
             }
 
             .input-tel__input {
@@ -60,6 +61,10 @@
                 &::placeholder {
                     color: #1A232B;
                 }
+            }
+
+            .country-selector__toggle {
+                display: none !important;
             }
 
             .country-selector__toggle__arrow {

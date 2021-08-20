@@ -15,7 +15,7 @@
             <li class="footer-item"><a href="#">Оплата и доставка</a></li>
             <li class="footer-item"><a href="#">Статьи</a></li>
             <li class="footer-item"><a href="#">Контакты</a></li>
-            <li class="footer-item"><a href="#">О нас</a></li>
+            <li class="footer-item"><a href="/about">О нас</a></li>
           </ul>
         </div>
         <div class="col-6 col-md-3 footer-products">
