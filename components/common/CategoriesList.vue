@@ -1,29 +1,65 @@
 <template>
   <div>
-    <div class="hero-main">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-7 hero-wrap">
-            <div class="hero-inner">
-              <h1 class="hero-head">
-                Hydro Whey Zero + Iso WhEy Zero 
-              </h1>
-              <p class="hero-text">
-                При покупке HYDRO WHEY ZERO <span>получи 25% скидки</span> на протеин ISO WHEY ZERO (акция действует до 21.06.21)
-              </p>
-              <div class="hero-btns">
-                <b-button variant="primary">Купить</b-button>
-                <a class="link" href="/">
-                  Подробнее
-                  <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.75 1.5L6.25 6L1.75 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </a>
+    <div class="hero-main-wrapper">
+      <VueSlickCarousel
+        :pauseOnHover="false"
+        :swipe="false"
+        :autoplay="true"
+        :lazyLoad="ondemand"
+        :fade="true"
+        :autoplaySpeed="6000"
+      >
+      <div class="hero-main">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-7 hero-wrap">
+              <div class="hero-inner">
+                <h1 class="hero-head">
+                  Hydro Whey Zero + Iso WhEy Zero 
+                </h1>
+                <p class="hero-text">
+                  При покупке HYDRO WHEY ZERO <span>получи 25% скидки</span> на протеин ISO WHEY ZERO (акция действует до 21.06.21)
+                </p>
+                <div class="hero-btns">
+                  <b-button variant="primary">Купить</b-button>
+                  <a class="link" href="/">
+                    Подробнее
+                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1.75 1.5L6.25 6L1.75 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="hero-main">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-7 hero-wrap">
+              <div class="hero-inner">
+                <h1 class="hero-head">
+                  Hydro Whey Zero 
+                </h1>
+                <p class="hero-text">
+                  При покупке HYDRO WHEY ZERO <span>получи 55% скидки</span> на протеин ISO WHEY ZERO (акция действует до 21.06.21)
+                </p>
+                <div class="hero-btns">
+                  <b-button variant="primary">Купить</b-button>
+                  <a class="link" href="/">
+                    Подробнее
+                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1.75 1.5L6.25 6L1.75 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </VueSlickCarousel>
     </div>
     <div class="market-wrapper">
       <div class="container">
@@ -184,46 +220,46 @@ export default {
   props: {
     categories: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
-  components: { 
+  components: {
     VueSlickCarousel,
     ProductPrice,
-    LinkMore
+    LinkMore,
   },
   data() {
     return {
       settings: {
-        "dots": true,
-        "infinite": false,
-        "speed": 500,
-        "slidesToShow": 3,
-        "slidesToScroll": 1,
-        "initialSlide": 0,
-        "responsive": [
-        {
-          "breakpoint": 576,
-          "settings": {
-            "slidesToShow": 1,
-            "slidesToScroll": 1,
-            "infinite": true,
-            "dots": true
-          }
-        },
-                {
-          "breakpoint": 768,
-          "settings": {
-            "slidesToShow": 2,
-            "slidesToScroll": 1,
-            "infinite": true,
-            "dots": true
-          }
-        }
-        ]
-      }
+        dots: true,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        initialSlide: 0,
+        responsive: [
+          {
+            breakpoint: 576,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true,
+            },
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true,
+            },
+          },
+        ],
+      },
     }
-  }
+  },
 }
 </script>
 

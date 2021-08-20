@@ -8,6 +8,16 @@
             background: url('./../png/hero-screen-mob.png') no-repeat 50% 50%;
             background-color: #10181e;
         }
+
+        &-wrapper {
+            .slick-slide {
+                z-index: -1;
+            }
+
+            .slick-slide.slick-current {
+                z-index: 1;
+            }
+        }
     }
 
     &-head {
