@@ -86,3 +86,12 @@
 .product-item-infolist {
     .rating-block { padding: 0.25rem 0.5rem 0.25rem 0; }
 }
+
+.plp-actions {
+    @media screen and (max-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 20px 0 0;
+      }
+}

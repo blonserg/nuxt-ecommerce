@@ -49,6 +49,7 @@ module.exports = {
     '@nuxtjs/composition-api',
     'nuxt-webfontloader',
     'bootstrap-vue/nuxt',
+    'nuxt-breakpoints',
     // '@nuxtjs/svg',
     'cookie-universal-nuxt',
     '@nuxtjs/style-resources',
@@ -246,5 +247,15 @@ module.exports = {
 
       config.module.rules.push(svgRule) // Actually add the rule
     }
-  }
+  },
+  breakpoints: {
+    sm: 576,
+    md: 768,
+    lg: 992,
+    xl: 1200,
+    options: {
+      polyfill: true,
+      throttle: 200
+    }
+  },
 }
