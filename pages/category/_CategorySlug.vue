@@ -83,7 +83,7 @@
       </div>
       <div class="col-md-9 col-sm-12">
         <b-row class="plp-gutters">
-          <b-col cols sm="6" md="6" lg="4"
+          <b-col cols="6" lg="4"
            v-for="product in category.products"
           :key="product.id">
             <ProductBrief :product="product" />
