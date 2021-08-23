@@ -87,6 +87,8 @@
 			display: flex;
 			margin-top: 20px;
 
+			.btn-call-me { white-space: nowrap; }
+
 			@media (max-width: 768px) {
 				margin-bottom: 40px;
 			}
