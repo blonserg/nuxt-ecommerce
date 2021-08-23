@@ -39,6 +39,7 @@
     "vue-phone-number-input": "^1.1.10",
     "vue-slick-carousel": "^1.0.6",
     "vue-svg-loader": "0.11.0",
+    "vue-typeahead-bootstrap": "^2.11.1",
     "vuelidate": "^0.7.5"
   },
   "devDependencies": {

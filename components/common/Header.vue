@@ -29,10 +29,8 @@
             </b-nav-item>
           </b-nav>
         </div>
-        <div class="col-8 col-md-4 header-cart"> 
-          <b-input-group class="d-none d-md-block" size="md">
-            <b-form-input placeholder="Поиск"></b-form-input>
-          </b-input-group>
+        <div class="col-8 col-md-4 header-cart">
+          <SearchBox />
           <CartButton />
           <b-button class="d-md-none header-sidebar-btn" v-b-toggle.sidebar-1>
             <span></span>
@@ -67,9 +65,12 @@
 
 <script>
 import CartButton from '~~/components/header/CartButton'
+import SearchBox from '~~/components/common/SearchBox'
+
 export default {
   components: {
-    CartButton
+    CartButton,
+    SearchBox
   }
 
 }

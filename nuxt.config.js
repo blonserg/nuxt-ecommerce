@@ -146,8 +146,7 @@ module.exports = {
         ignoreOrder: true
       }
     }),
-
-    transpile: ['vue-lazy-hydration', 'intersection-observer'],
+    transpile: ['vue-lazy-hydration', 'intersection-observer', ({ isServer }) => 'vue-typeahead-bootstrap'],
     postcss: {
       plugins: {
         ...(!isDev && {
