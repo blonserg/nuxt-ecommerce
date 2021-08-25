@@ -1,5 +1,5 @@
 <template>
-    <div class="search-block">
+    <div class="search-block header-inner--search">
         <VueTypeaheadBootstrap
             v-model="query"
             :data="autocompleteProducts"
@@ -47,7 +47,6 @@ export default {
             if (isValidQuery) {
                 fetch(`https://api.github.com/search/users?q=${this.query}`)
                 .then(response => {
-                    console.log(`response`, response);
                     return response.json();
                 })
                 .then(data => {

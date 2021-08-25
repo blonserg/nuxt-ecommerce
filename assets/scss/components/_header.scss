@@ -1,4 +1,16 @@
 .header {
+    background: linear-gradient(271.4deg, #0D1115 1.93%, #15262F 100%);
+    padding: 20px 0;
+
+    .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .header-inner--search { margin: 0 20px 0 auto; }
+        .header-inner--logo { margin: 0 24px 0 0; }
+    }
+
     &-cart {
         display: flex;
 
@@ -49,9 +61,7 @@
                     padding-right: 0;
                 }
 
-                svg {
-                    display: inline-block;
-                }
+                svg { display: inline-block; }
 
                 span {
                     @media (max-width: 768px) {
@@ -131,7 +141,5 @@
         background: linear-gradient(271.4deg, #0D1115 1.93%, #15262F 100%);
     }
 
-    .close {
-        color: white !important;
-    }
+    .close { color: white !important; }
 }

@@ -1,0 +1,13 @@
+
+.logo {
+    font-family: 'SF Pro Display';
+    font-weight: 900;
+    font-size: 24px;
+    font-style: italic;
+    color: #257BF4;
+    line-height: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+  
+    &:hover { text-decoration: none; }
+  }

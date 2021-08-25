@@ -1,0 +1,181 @@
+/* Desktop Nav */
+%active-nav-link {
+    @media screen and (min-width: 768px) {
+        color: $color-secondary;
+        .navigation-link-icon svg {
+            fill: $color-secondary;
+        }
+    }
+}
+
+.navigation {
+    @media screen and (min-width: 768px) {
+        flex: 1 0 auto;
+    }
+    .navigation-list {}
+
+    .navigation-item {
+        &:hover {
+            @media screen and (min-width: 768px) {
+                .navigation-dropdown {
+                    display: block;
+                }
+            }
+        }
+
+        &.active {
+            .navigation-link {
+                @extend %active-nav-link;
+            }
+        }
+    }
+    .navigation-item-arrow {
+        @media screen and (min-width: 768px) {
+            display: none;
+        }
+    }
+    .navigation-link {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        line-height: 1.4;
+
+        &:hover {
+            @extend %active-nav-link;
+        }
+
+        @media screen and (min-width: 768px) {
+            padding: 8px 10px;
+        }
+    }
+    .navigation-link-icon {
+        display: none;
+        margin: -1px 10px 0 0;
+        order: -1;
+    
+        @media screen and (min-width: 768px) {
+            display: inline-block;
+        }
+    }
+}
+
+.navigation-dropdown {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    display: none;
+    height: 100%;
+    @media screen and (min-width: 768px ) {
+        height: auto;
+    }
+
+    .navigation-dropdown-inner {
+        background: #fff;
+        height: 100%;
+
+        @media screen and (min-width: 768px) {
+            margin: 25px 0 0;
+        }
+    }
+    .navigation-dropdown-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 100px 0;
+        list-style: none;
+    }
+    .navigation-dropdown-link {
+        display: inline-block;
+        margin: 0 0 10px;
+        font-size: 16px;
+        line-height: 1.6;
+        font-weight: 600;
+        color: #14181C;
+        text-decoration: none;
+
+        &:hover { text-decoration: underline; }
+    }
+
+    .navigation-dropdown-sublist {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+            a {
+                font-size: 16px;
+                line-height: 1.4;
+                font-weight: 600;
+                color: $color-primay;
+
+                @media screen and (min-width: 768px) {
+                    margin: 0 0 6px;
+                    padding: 0;
+                    font-size: 14px;
+                    line-height: 1.4;
+                    color: #8A8A8A;
+             }
+        }
+
+    }
+    .navigation-dropdown-list-item { position: static; }
+    .navigation-dropdown-back {
+        @media screen and (min-width: 768px) {
+            display: none;
+        }
+    }
+}
+/* EO Desktop Nav */
+
+/* Mobile Nav */
+.header-inner {
+    .b-sidebar-header,
+    .b-sidebar-body {
+        background: #fff;
+    }
+    .b-sidebar-body {
+        position: relative;
+    }
+    .close {
+        fill: $color-primay;
+        color: $color-primay !important;
+    }
+}
+.header-sidebar {
+    background: #fff;
+    .navigation {
+        .navigation-dropdown {
+            top: 0;
+            left: -100%;
+
+            &.active {
+                display: block;
+                left: 0;
+            }
+        }
+        .navigation-dropdown-list {
+            display: block;
+            padding: 0;
+        }
+        .navigation-link {
+            font-size: 16px;
+            font-weight: 600;
+            color: $color-primay;
+        }
+        .navigation-dropdown-anchestor {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: #fff;
+            display: none;
+
+            &.active { display: block; }
+        }
+        .navigation-dropdown-sublist {}
+    }
+}
+/* EO Mobile Nav */
