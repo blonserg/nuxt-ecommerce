@@ -61,11 +61,11 @@
 
 .navigation-dropdown {
     position: absolute;
-    left: 0;
+    left: -100vw;
     width: 100%;
     z-index: 100;
-    display: none;
     height: 100%;
+
     @media screen and (min-width: 768px ) {
         height: auto;
     }
@@ -126,6 +126,18 @@
             display: none;
         }
     }
+
+    .navigation-dropdown-back {
+        padding-left: 15px;
+        font-size: 16px;
+        line-height: 1.6;
+        font-weight: 600;
+        color: #14181C;
+
+        .navigation-item-arrow {
+            padding-right: 5px;
+        }
+    }
 }
 /* EO Desktop Nav */
 
@@ -149,6 +161,7 @@
         .navigation-dropdown {
             top: 0;
             left: -100%;
+            transition: left 0.5s;
 
             &.active {
                 display: block;
@@ -167,13 +180,13 @@
         .navigation-dropdown-anchestor {
             position: absolute;
             top: 0;
-            left: 0;
+            left: -100vw;
             height: 100%;
             width: 100%;
             background: #fff;
-            display: none;
+            transition: left 0.5s;
 
-            &.active { display: block; }
+            &.active { left: 0; }
         }
         .navigation-dropdown-sublist {}
     }
