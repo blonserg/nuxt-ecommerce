@@ -67,6 +67,28 @@
             background: #F2F5F7 url('./../svg/arrow-down.svg') right 0.75rem center no-repeat;
             border: 1px solid #EAEDF2;
             cursor: pointer;
+            height: 48px;
+            border-radius: 8px;
+        }
+
+        .b-form-spinbutton {
+            height: 48px;
+            border: 0;
+            background: #F2F5F7;
+            border: 1px solid #EAEDF2;
+            border-radius: 8px;
+
+            .btn {
+                height: 48px;
+
+                svg {
+                    transform: none;
+                }
+            }
+
+            output {
+                border: 0 !important;
+            }
         }
     }
 }
