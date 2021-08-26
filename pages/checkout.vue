@@ -41,7 +41,7 @@
                             v-model="phoneNumber"
                             show-code-on-list
                             default-country-code="UA"
-                            no-flags="true"
+                            :no-flags="true"
                             :translations="{
                                 countrySelectorLabel: 'Код страны',
                                 countrySelectorError: 'Choisir un pays',
