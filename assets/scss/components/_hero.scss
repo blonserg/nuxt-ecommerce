@@ -1,11 +1,9 @@
 .hero {
     &-main {
-        background: url('./../png/hero.png') no-repeat 50% 50%;
         height: 580px;
 
         @media (max-width: 768px) {
             height: 660px;
-            background: url('./../png/hero-screen-mob.png') no-repeat 50% 50%;
             background-color: #10181e;
         }
 
@@ -17,6 +15,14 @@
             .slick-slide.slick-current {
                 z-index: 1;
             }
+        }
+
+        &-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 580px;
         }
     }
 
