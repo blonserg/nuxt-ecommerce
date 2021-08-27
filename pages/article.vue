@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="hero-main">
+    <div class="hero-main hero-main--article" :style="{ backgroundImage: `url(${backgroundUrl})` }">
       <div class="container">
         <div class="row">
           <div class="col-sm-9 hero-wrap">
@@ -83,3 +83,12 @@
     </div>
   </div>
 </template>
+
+<script>
+import backgroundUrl from '~/assets/png/article-main.png'
+export default {
+  data() {
+    return { backgroundUrl }
+  }
+}
+</script>

@@ -7,6 +7,20 @@
             background-color: #10181e;
         }
 
+        &--article {
+            @media (max-width: 768px) {
+                height: 560px;
+                background-color: #10181e;
+            }
+
+            .hero-wrap {
+                @media (max-width: 768px) {
+                    height: 560px;
+                    align-items: center;
+                }
+            }
+        }
+
         &-wrapper {
             .slick-slide {
                 z-index: -1;
