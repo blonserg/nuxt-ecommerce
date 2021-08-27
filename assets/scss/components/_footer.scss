@@ -138,6 +138,11 @@
 			justify-content: center;
 			align-items: center;
 			border-radius: 50%;
+			transition: opacity 0.4s;
+
+			&:hover {
+				opacity: 0.6;
+			}
 
 			& + & {
 				margin-left: 8px;
