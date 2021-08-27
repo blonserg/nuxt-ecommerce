@@ -3,12 +3,12 @@
     <div class="container">
       <div class="row">
         <div class="col position-static">
-          <div class="header-inner">
+          <div class="header-inner" :class="isOpenedSearchBox && 'header-inner-expanded-search'">
             <n-link class="logo header-inner--logo" to="/">Amino</n-link>
             <Nav class="d-none d-md-block navigation"
                  :navigationData="navData"
                  :isOpenedNav="isOpenedNavigation" />
-            <SearchBox />
+            <SearchBox v-on:onHideSearchBox="hideSearchBox" v-on:onToggleSearchBox="toggleSearchBox"/>
             <CartButton />
             <b-button class="d-md-none header-sidebar-btn" v-b-toggle.sidebar-1>
               <span></span>
@@ -29,6 +29,7 @@
 import CartButton from '~~/components/header/CartButton'
 import SearchBox from '~~/components/common/SearchBox'
 import Nav from '~~/components/common/nav'
+
 export default {
   components: {
     CartButton,
@@ -38,6 +39,7 @@ export default {
   data() {
     return {
       isOpenedNavigation: false,
+      isOpenedSearchBox: false,
       navData: [
         {
           id: '1',
@@ -95,7 +97,14 @@ export default {
   methods: {
     onToggleMobileNavigation(visible) {
       this.isOpenedNavigation = visible;
-    }
+    },
+    toggleSearchBox(e) {
+      if(this.isOpenedSearchBox && e.target.tagName === "INPUT") { return; }
+      this.isOpenedSearchBox = !this.isOpenedSearchBox;
+    },
+    hideSearchBox() {
+      this.isOpenedSearchBox = false;
+    },
   }
 }
 </script>
