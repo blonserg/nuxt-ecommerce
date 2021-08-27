@@ -10,6 +10,10 @@
         :autoplaySpeed="6000"
       >
       <div class="hero-main">
+        <picture class="hero-main-img">
+          <source srcset="@/assets/png/hero-screen-mob.png" media="(max-width: 768px)">
+          <img src="@/assets/png/hero.png" alt="">
+        </picture>
         <div class="container">
           <div class="row">
             <div class="col-sm-7 hero-wrap">
@@ -35,6 +39,10 @@
         </div>
       </div>
       <div class="hero-main">
+        <picture class="hero-main-img">
+          <source srcset="@/assets/png/hero-screen-mob.png" media="(max-width: 768px)">
+          <img src="@/assets/png/hero.png" alt="">
+        </picture>
         <div class="container">
           <div class="row">
             <div class="col-sm-7 hero-wrap">

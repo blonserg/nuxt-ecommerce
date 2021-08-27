@@ -28,6 +28,10 @@
             cursor: pointer;
             transition: all 0.4s;
 
+            @media (max-width: 768px) {
+                margin-bottom: 5px;
+            }
+
             &:hover {
                 background: #257BF4;
                 color: white;

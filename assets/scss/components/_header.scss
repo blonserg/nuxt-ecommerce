@@ -111,6 +111,14 @@
             padding-left: 0;
             padding-right: 0;
 
+            &:focus,
+            &:hover,
+            &:active {
+                background: none;
+                outline: none;
+                box-shadow: none;
+            }
+
             span {
                 background: #FFFFFF;
                 border-radius: 500px;

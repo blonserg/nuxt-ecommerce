@@ -41,7 +41,7 @@
                             v-model="phoneNumber"
                             show-code-on-list
                             default-country-code="UA"
-                            no-flags="true"
+                            :no-flags="true"
                             :translations="{
                                 countrySelectorLabel: 'Код страны',
                                 countrySelectorError: 'Choisir un pays',
@@ -64,31 +64,19 @@
                 <div class="col-sm-4 col-lg-3 col-xl-3">
                     <div class="checkout-select">
                         <label for="select-field">Область*</label>
-                        <b-form-select v-model="selectfield" placeholder="Выберите область"  id="select-field">
-                            <b-form-select-option :value="null">Выберите область</b-form-select-option>
-                            <b-form-select-option value="a">Option A</b-form-select-option>
-                            <b-form-select-option value="b">Option B</b-form-select-option>
-                        </b-form-select>
+                        <b-form-select v-model="selectField.selected" :options="selectField.options" id="selectField"></b-form-select>
                     </div>
                 </div>
                 <div class="col-sm-4 col-lg-3 col-xl-3">
                     <div class="checkout-select">
                         <label for="select-city">Город*</label>
-                        <b-form-select v-model="selectcity" placeholder="Выберите город"  id="select-city">
-                            <b-form-select-option :value="null">Выберите город</b-form-select-option>
-                            <b-form-select-option value="a">Option A</b-form-select-option>
-                            <b-form-select-option value="b">Option B</b-form-select-option>
-                        </b-form-select>
+                        <b-form-select v-model="selectCity.selected" :options="selectCity.options" id="selectCity"></b-form-select>
                     </div>
                 </div>
                 <div class="offset-sm-4 col-sm-8 offset-lg-0 col-lg-4 col-xl-3">
                     <div class="checkout-select">
                         <label for="select-post">Новая почта*</label>
-                        <b-form-select v-model="selectpost" placeholder="Выберите отделение"  id="select-post">
-                            <b-form-select-option :value="null">Выберите отделение</b-form-select-option>
-                            <b-form-select-option value="a">Option A</b-form-select-option>
-                            <b-form-select-option value="b">Option B</b-form-select-option>
-                        </b-form-select>
+                        <b-form-select v-model="selectPost.selected" :options="selectPost.options" id="selectPost"></b-form-select>
                     </div>
                 </div>
             </div>
@@ -119,7 +107,34 @@ export default {
             selectfield: null,
             selectcity: null,
             selectpost: null,
-            phoneNumber: null
+            phoneNumber: null,
+            selectField: {
+            selected: '1',
+                options: [
+                { text: 'Выберите область', value: '1'},
+                { text: 'Option A', value: 'a' },
+                { text: 'Option B', value: 'b' },
+                { text: 'Option C', value: 'c' },
+                ]
+            },
+            selectCity: {
+            selected: '1',
+                options: [
+                { text: 'Выберите город', value: '1'},
+                { text: 'Option A', value: 'a' },
+                { text: 'Option B', value: 'b' },
+                { text: 'Option C', value: 'c' },
+                ]
+            },
+            selectPost: {
+            selected: '1',
+                options: [
+                { text: 'Выберите почту', value: '1'},
+                { text: 'Option A', value: 'a' },
+                { text: 'Option B', value: 'b' },
+                { text: 'Option C', value: 'c' },
+                ]
+            }
         }
     }
 }
