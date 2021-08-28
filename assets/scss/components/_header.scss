@@ -23,7 +23,10 @@
             }
         }
     }
-
+    &-utils {
+        display: flex;
+        align-items: center;
+    }
     &-cart {
         display: flex;
 
