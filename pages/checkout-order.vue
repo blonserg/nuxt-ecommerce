@@ -8,7 +8,12 @@
                 Наш менеджер свяжется с Вами в ближайшее время!
             </div>
             <div class="checkout-finish-btn">
-                <b-button variant="primary">Вернуться на главную</b-button>
+                <nuxt-link
+                    to="/"
+                    class="btn btn-primary"
+                          >
+                          Вернуться на главную
+                </nuxt-link>
             </div> 
         </div>
     </div>

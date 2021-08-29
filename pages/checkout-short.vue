@@ -2,7 +2,12 @@
     <div>
         <div class="container">
             <div class="checkout-back">
-                <LinkMore :text="'Назад'" :direction="'left'" :href="'/'"></LinkMore>
+                <a class="link left" href="">
+                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.75 1.5L6.25 6L1.75 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Назад
+                </a>
             </div>
             <div class="checkout-finish-ttl">
                 Заказать в один клик

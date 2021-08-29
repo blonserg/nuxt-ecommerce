@@ -193,6 +193,11 @@ html {
       transform: rotate(90deg);
       margin: 0 0 0 .2em;
     }
+
+    &.left svg {
+      transform: rotate(90deg);
+      margin: 0 0 0 .2em;
+    }
   }
   
   .custom-control-input {

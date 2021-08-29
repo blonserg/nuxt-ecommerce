@@ -89,6 +89,7 @@
                 font-size: 14px !important;
                 font-weight: 500 !important;
                 padding-left: 0 !important;
+                padding-top: 0 !important;
                 text-align: center;
             }
         }
@@ -164,7 +165,12 @@
     }
 
     &-back {
-        margin-top: 60px;
+        position: absolute;
+        top: 120px;
+
+        @media (max-width: 768px) {
+            top: 95px;
+        }
     }
 
     &-finish {
@@ -212,7 +218,7 @@
                 margin-left: 16px;
 
                 @media (max-width: 768px) {
-                    min-width: 270px;
+                    min-width: 245px;
                     margin-top: 10px;
                     margin-left: 0;
                 }
@@ -226,6 +232,10 @@
 
             @media (max-width: 768px) {
                 margin-bottom: 100px;
+            }
+
+            .btn {
+                line-height: 25px;
             }
         }
     }
