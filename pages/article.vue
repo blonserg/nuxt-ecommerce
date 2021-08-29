@@ -87,6 +87,12 @@
 <script>
 import backgroundUrl from '~/assets/png/article-main.png'
 export default {
+  mounted () {
+    document.body.classList.add('sticky-header')
+  },
+  destroyed () {
+    document.body.classList.remove('sticky-header')
+  },
   data() {
     return { backgroundUrl }
   }

@@ -23,11 +23,37 @@
 
         &-wrapper {
             .slick-slide {
-                z-index: -1;
+                position: relative;
+                // z-index: -1;
             }
 
-            .slick-slide.slick-current {
-                z-index: 1;
+            // .slick-slide.slick-current {
+            //     z-index: 1;
+            // }
+
+            .slick-dots {
+                bottom: 30px;
+        
+                li {
+                    width: 30px;
+                    margin: 0 5px;
+        
+                    button {
+                        width: 100%;
+                        padding: 5px 0;
+        
+                        &:before {
+                            top: 50%;
+                            transform: translateY(-50%);
+                            height: 3px;
+                            width: 100%;
+                            font-size: 0;
+                            background: #BCC6CB;
+                        }
+                    }
+        
+                    &.slick-active button:before { background: $color-secondary; }
+                }
             }
         }
 

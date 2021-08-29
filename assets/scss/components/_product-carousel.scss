@@ -12,6 +12,13 @@ $slides-gutter: 8px;
       }
     }
 
+    .product-image-carousel_main {
+        .slick-prev,
+        .slick-next {
+            top: 50%;
+        }
+    }
+
   .slick-slide {
     padding: 0 $slides-gutter;
   }

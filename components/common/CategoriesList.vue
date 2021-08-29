@@ -6,8 +6,8 @@
         :swipe="false"
         :autoplay="true"
         :lazyLoad="ondemand"
-        :fade="true"
         :autoplaySpeed="6000"
+        :dots="true"
       >
       <div class="hero-main">
         <picture class="hero-main-img">
@@ -419,6 +419,12 @@ export default {
     VueSlickCarousel,
     ProductPrice,
     LinkMore,
+  },
+  mounted () {
+    document.body.classList.add('sticky-header')
+  },
+  destroyed () {
+    document.body.classList.remove('sticky-header')
   },
   data() {
     return {

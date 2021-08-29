@@ -2,6 +2,13 @@
     background: linear-gradient(271.4deg, #0D1115 1.93%, #15262F 100%);
     padding: 20px 0;
 
+    .sticky-header & {
+        background: none;
+        position: absolute;
+        width: 100%;
+        z-index: 100;
+    }
+
     .header-inner {
         display: flex;
         justify-content: space-between;
