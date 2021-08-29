@@ -52,6 +52,7 @@ export default {
 .control:hover input:not([disabled]):checked ~ .control_indicator,
 .control input:checked:focus ~ .control_indicator {
     background: #257BF4;
+    border-color: #257BF4;
 }
 .control input:disabled ~ .control_indicator {
     background: #e6e6e6;

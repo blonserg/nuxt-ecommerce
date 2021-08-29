@@ -3,6 +3,15 @@ $slides-gutter: 8px;
 .product-carousel {
     margin: 0 -#{$slides-gutter} 130px;
 
+    .slick-prev,
+    .slick-next {
+      top: 210px;
+
+      &:hover::before {
+        background: url('./../svg/carousel-arrow-hover.svg') no-repeat 50% 50%;
+      }
+    }
+
   .slick-slide {
     padding: 0 $slides-gutter;
   }
