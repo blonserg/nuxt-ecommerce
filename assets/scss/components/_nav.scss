@@ -91,12 +91,14 @@
     }
     .navigation-dropdown-link {
         display: inline-block;
-        margin: 0 0 10px;
-        font-size: 16px;
-        line-height: 1.6;
+        margin: 0 0 20px;
+        font-size: 20px;
+        line-height: 20px;
         font-weight: 600;
         color: #14181C;
         text-decoration: none;
+        display: flex;
+        justify-content: space-between;
 
         &:hover { text-decoration: underline; }
     }
@@ -131,13 +133,19 @@
 
     .navigation-dropdown-back {
         padding-left: 15px;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 1.6;
         font-weight: 600;
         color: #14181C;
 
         .navigation-item-arrow {
             padding-right: 5px;
+            margin-bottom: 10px;
+            display: inline-block;
+
+            svg {
+                transform: scale(-1, -1);
+            }
         }
     }
 }
@@ -155,6 +163,13 @@
     .close {
         fill: $color-primay;
         color: $color-primay !important;
+    }
+
+    .b-sidebar {
+        @media screen and (max-width: 768px) {
+            width: 100vw;
+            overflow-x: hidden;
+        }
     }
 }
 .header-sidebar {
@@ -178,6 +193,18 @@
             font-size: 16px;
             font-weight: 600;
             color: $color-primay;
+
+            &.has-sub {
+                color: #257BF4;
+            }
+
+            @media screen and (max-width: 768px) {
+                font-size: 20px;
+                line-height: 20px;
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: space-between;
+            }
         }
         .navigation-dropdown-anchestor {
             position: absolute;
@@ -191,6 +218,28 @@
             &.active { left: 0; }
         }
         .navigation-dropdown-sublist {}
+    }
+}
+
+.nav-link-ttl {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.navigation-dropdown-sublist {
+
+    .nav-link {
+        @media screen and (max-width: 768px) {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px !important;
+            line-height: 20px !important;
+            color: #757575 !important;
+            font-weight: 500 !important;
+        }
     }
 }
 /* EO Mobile Nav */

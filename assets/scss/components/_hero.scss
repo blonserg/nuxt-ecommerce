@@ -33,6 +33,10 @@
 
             .slick-dots {
                 bottom: 30px;
+
+                @media (max-width: 768px) {
+                    bottom: 10px;
+                }
         
                 li {
                     width: 30px;
