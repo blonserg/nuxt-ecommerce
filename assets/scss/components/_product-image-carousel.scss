@@ -15,8 +15,19 @@ $navImageSize: 70px;
         flex: 1 0 auto;
         width: 100%;
         max-width: calc(100% - #{$navImageSize});
+
+        @media (max-width: 768px) {
+            max-width: 100%;
+        }
         
-        img { width: 100%; }
+        img { 
+            width: 100%;
+
+            @media (max-width: 768px) {
+                max-width: 80%;
+                margin: 0 auto;
+            }
+        }
     }
     &_nav { flex: 1 0 auto; }
 
@@ -31,7 +42,26 @@ $navImageSize: 70px;
         align-items: center;
         justify-content: center;
     }
-    .slick-dots { bottom: 5%; }
+    .slick-dots { 
+        bottom: 5%;
+        
+        @media (max-width: 768px) {
+            bottom: -10%;
+        }
+    }
+
+    .product-image-carousel_main {
+        .slick-prev {
+            @media (max-width: 768px) {
+                left: 10px;
+            }
+        }
+        .slick-next {
+            @media (max-width: 768px) {
+                right: 10px;
+            }
+        }
+    }
 }
 
 .image-carousel-nav {
