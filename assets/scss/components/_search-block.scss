@@ -1,9 +1,16 @@
 /* Search block general */
 .search-block {
     position: relative;
-    display: none;
-    @media screen and (min-width: 992px ) {
-        display: block;
+    margin: 0 0 0 auto;
+
+    &.expanded {
+        .input-group:after { display: block; }
+    }
+    .search {
+        display: none;
+        @media screen and (min-width: 992px ) {
+            display: block;
+        }
     }
     
     .search[aria-expanded="true"] {
@@ -22,7 +29,7 @@
             width: 16px;
             height: 16px;
             background: url('./../svg/search.svg') no-repeat;
-            z-index: 1;
+            z-index: 4;
         }
         &:after {
             content: '';
@@ -30,10 +37,9 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            left: calc(100% + 5px);
-            width: 10px;
-            height: 10px;
-            padding: 10px;
+            left: calc(100% - 15px);
+            width: 16px;
+            height: 16px;
             background: url('./../svg/close.svg') no-repeat 50% 50%;
             background-size: 10px;
             filter: invert(1);
@@ -82,6 +88,7 @@
             }
          }
     }
+    .special-highlight-class { color: $color-primay; }
     .list-group-item-action {
         text-transform: uppercase;
         font-size: 12px;
@@ -105,36 +112,91 @@
         border-radius: 6px;
     }
     .search-item-title { margin: 0 0 0 10px; }
+
+    @media screen and (min-width: 992px) {
+        margin: 0 20px 0 auto;
+    }
+    
 }
 /* EO Search block general */
 
-/* Search block mobile */
-.header-inner .header-sidebar .search-block.header-inner--search {
-    display: block;
-    margin: .2rem 1rem;
-    .input-group {
-        background-color: #F2F5F7;
-        border-radius: 8px;
+/* Search block expanded */
+.header {
+    .header-inner.header-inner-expanded-search {
+        &:after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            height: 100vh;
+            display: block;
+        }
+        @media screen and (min-width: 768px) {
+            &:after {
+                display: none;
+            }
+        }
+        .header-inner--logo { 
+            display: none;
+            @media screen and (min-width: 768px) {
+                display: block;
+            }
+        }
+        .header-utils {
+            display: none;
+            @media screen and (min-width: 768px) {
+                display: block;
+            }
+        }
+        .search {
+            display: block;
+            max-width: auto;
+        }
+        .navigation {
+            position: absolute;
+            display: none;
+        }
+        .search-block {
+            width: 100%;
+            max-width: 100%;
 
-        &:before { background: url('./../svg/search-dark.svg') no-repeat; }
-        &:after { display: none; }
-    }
+            .form-control { margin: 0 20px 0 0; }
 
-    .form-control {
-        color: $color-primay;
-        border: 1px solid #EAEDF2;
-        @include placeholder { color: $color-primay; }
-    }
-    .list-group {
-        position: relative;
-        height: auto;
-        max-height: unset;
-        margin: 0.2rem 0px 0px;
-        box-shadow: none!important;
-        border-radius: 0;
+            @media screen and (max-width: 767.98px) {
+                .list-group {
+                    box-shadow: none !important;
+                    left: -15px!important;
+                    width: calc(100% + 30px)!important;
+                    max-height: 100vh;
+                }
+                .input-group { padding: 0 5px; }
+            }
+            .list-group-item {
+                padding: 10px 0 10px 20px;
+            }
+            @media screen and (min-width: 768px) {
+                max-width: 632px;
+                .search { margin: 0 40px 0 20px; }
+            }
+            @media screen and(min-width: 992px) {
+                margin: 0;
+            }
+            .navigation-item-arrow {
+                margin: 0 20px 0 auto;
+                svg path {
+                    stroke: #000;
+                }
+                @media screen and(min-width: 768px) {
+                    display: none;
+                }
+            }
+        }
     }
 }
-/* EO Search block mobile */
+/* Search block exp[anded */
+
 
 /* Search block toggler */
 .search-block-toggler {

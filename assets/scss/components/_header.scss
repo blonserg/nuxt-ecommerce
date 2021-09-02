@@ -14,21 +14,7 @@
         justify-content: space-between;
         align-items: center;
 
-        .header-inner--search { margin: 0 20px 0 auto; }
         .header-inner--logo { margin: 0 24px 0 0; }
-        &.header-inner-expanded-search {
-            @media screen and(min-width: 768px) {
-                .navigation {
-                    position: absolute;
-                    display: none;
-                }
-                .header-inner--search { 
-                    margin: 0 20px;
-                    width: 100%;
-                    max-width: 632px;
-                }   
-            }
-        }
     }
     &-utils {
         display: flex;
