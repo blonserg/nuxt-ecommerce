@@ -1,59 +1,70 @@
 <template>
-    <div class="search-block" :class="isOpened && 'expanded'" @click="onClickSarchBox" v-click-outside="hideSearchBox">
-        <button
-            type="button"
-            class="d-lg-none search-block-toggler"
-            :class="isOpened && 'd-none'"
-            :aria-expanded="isOpened.toString()">
+  <div
+    v-click-outside="hideSearchBox"
+    class="search-block"
+    :class="isOpened && 'expanded'"
+    @click="onClickSarchBox"
+  >
+    <button
+      type="button"
+      class="d-lg-none search-block-toggler"
+      :class="isOpened && 'd-none'"
+      :aria-expanded="isOpened.toString()"
+    >
+      <svg
+        width="14"
+        height="15"
+        viewBox="0 0 14 15"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M5.77686 12.1943C6.94141 12.1943 8.03271 11.8428 8.94092 11.2422L12.1489 14.4575C12.3613 14.6626 12.6323 14.7651 12.9253 14.7651C13.5332 14.7651 13.98 14.2891 13.98 13.6885C13.98 13.4102 13.8848 13.1392 13.6797 12.9341L10.4937 9.7334C11.1528 8.7959 11.541 7.66064 11.541 6.43018C11.541 3.25879 8.94824 0.666016 5.77686 0.666016C2.61279 0.666016 0.0126953 3.25879 0.0126953 6.43018C0.0126953 9.60156 2.60547 12.1943 5.77686 12.1943ZM5.77686 10.6562C3.45508 10.6562 1.55078 8.75195 1.55078 6.43018C1.55078 4.1084 3.45508 2.2041 5.77686 2.2041C8.09863 2.2041 10.0029 4.1084 10.0029 6.43018C10.0029 8.75195 8.09863 10.6562 5.77686 10.6562Z" fill="#E0ECFD" />
+      </svg>
+    </button>
+    <VueTypeaheadBootstrap
+      ref="typeaheadBootstrap"
+      v-model="query"
+      class="search"
+      :data="autocompleteProducts"
+      :serializer="item => item.login"
+      :min-matching-chars="minChars"
+      placeholder="Поиск"
+      highlight-class="special-highlight-class"
+      :disabled-values="(selectedProduct ? [selectedProduct.login] : [])"
+      @hit="selectedProduct = $event"
+      @input="searchProducts"
+    >
+      <template slot="suggestion" slot-scope="{ data, htmlText }">
+        <div class="d-flex align-items-center">
+          <div class="search-item-image">
+            <img
+              class="rounded-circle"
+              :src="data.avatar_url"
+              style="width: 20px; height: auto;"
+            />
+          </div>
+          <span class="search-item-title" v-html="htmlText"></span>
+          <span class="navigation-item-arrow">
             <svg
-                width="14"
-                height="15"
-                viewBox="0 0 14 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+              width="8"
+              height="12"
+              viewBox="0 0 8 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-                <path d="M5.77686 12.1943C6.94141 12.1943 8.03271 11.8428 8.94092 11.2422L12.1489 14.4575C12.3613 14.6626 12.6323 14.7651 12.9253 14.7651C13.5332 14.7651 13.98 14.2891 13.98 13.6885C13.98 13.4102 13.8848 13.1392 13.6797 12.9341L10.4937 9.7334C11.1528 8.7959 11.541 7.66064 11.541 6.43018C11.541 3.25879 8.94824 0.666016 5.77686 0.666016C2.61279 0.666016 0.0126953 3.25879 0.0126953 6.43018C0.0126953 9.60156 2.60547 12.1943 5.77686 12.1943ZM5.77686 10.6562C3.45508 10.6562 1.55078 8.75195 1.55078 6.43018C1.55078 4.1084 3.45508 2.2041 5.77686 2.2041C8.09863 2.2041 10.0029 4.1084 10.0029 6.43018C10.0029 8.75195 8.09863 10.6562 5.77686 10.6562Z" fill="#E0ECFD" />
+              <path
+                d="M1.75 1.5L6.25 6L1.75 10.5"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
-        </button>
-        <VueTypeaheadBootstrap
-            ref="typeaheadBootstrap"
-            class="search"
-            v-model="query"
-            :data="autocompleteProducts"
-            :serializer="item => item.login"
-            @hit="selectedProduct = $event"
-            @input="searchProducts"
-            :minMatchingChars="minChars"
-            placeholder="Поиск"
-            highlightClass="special-highlight-class"
-            :disabledValues="(selectedProduct ? [selectedProduct.login] : [])">
-            <template slot="suggestion" slot-scope="{ data, htmlText }">
-                <div class="d-flex align-items-center">
-                    <div class="search-item-image">
-                    <img
-                        class="rounded-circle"
-                        :src="data.avatar_url"
-                        style="width: 20px; height: auto;" />
-                    </div>
-                    <span class="search-item-title" v-html="htmlText"></span>
-                    <span class="navigation-item-arrow">
-                        <svg width="8"
-                            height="12"
-                            viewBox="0 0 8 12"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1.75 1.5L6.25 6L1.75 10.5"
-                            stroke="currentColor"
-                            stroke-width="1.6"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            />
-                        </svg>
-                    </span>
-                </div>
-            </template>
-        </VueTypeaheadBootstrap>
-    </div>
+          </span>
+        </div>
+      </template>
+    </VueTypeaheadBootstrap>
+  </div>
 </template>
 
 <script>
@@ -62,48 +73,46 @@ import VueTypeaheadBootstrap from 'vue-typeahead-bootstrap'
 import { debounce } from 'lodash'
 
 export default {
-    components: {
-        VueTypeaheadBootstrap
-    },
-    props: {
-        isOpened: {
-            type: Boolean
-        }
-    },
-    data() {
-        return {
-            isFocusedSearch: false,
-            query: '',
-            minChars: 3,
-            selectedProduct: null,
-            autocompleteProducts: []
-        }
-    },
-    methods: {
-        hideSearchBox() {
-            this.$emit('onHideSearchBox');
-        },
-        onClickSarchBox(e) {
-            this.$emit('onToggleSearchBox', e);
-        },
-        searchProducts: debounce(function() {
-            
-            const isValidQuery = this.query.replace(/ /g,'').length >= this.minChars;
-            // todo: move this logic from UI part and refactor with real data
-            if (isValidQuery) {
-                fetch(`https://api.github.com/search/users?q=${this.query}`)
-                .then(response => {
-                    return response.json();
-                })
-                .then(data => {
-                    this.autocompleteProducts = data.items;
-                })
-            }
-            
-      }, 500)
-    },
-    directives: {
-        ClickOutside
+  components: {
+    VueTypeaheadBootstrap
+  },
+  directives: {
+    ClickOutside
+  },
+  props: {
+    isOpened: {
+      type: Boolean
     }
+  },
+  data () {
+    return {
+      isFocusedSearch: false,
+      query: '',
+      minChars: 3,
+      selectedProduct: null,
+      autocompleteProducts: []
+    }
+  },
+  methods: {
+    hideSearchBox () {
+      this.$emit('onHideSearchBox')
+    },
+    onClickSarchBox (e) {
+      this.$emit('onToggleSearchBox', e)
+    },
+    searchProducts: debounce(function () {
+      const isValidQuery = this.query.replace(/ /g, '').length >= this.minChars
+      // todo: move this logic from UI part and refactor with real data
+      if (isValidQuery) {
+        fetch(`https://api.github.com/search/users?q=${this.query}`)
+          .then(response => {
+            return response.json()
+          })
+          .then(data => {
+            this.autocompleteProducts = data.items
+          })
+      }
+    }, 500)
+  }
 }
 </script>

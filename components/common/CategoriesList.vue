@@ -2,79 +2,115 @@
   <div>
     <div class="hero-main-wrapper">
       <VueSlickCarousel
-        :pauseOnHover="false"
+        :pause-on-hover="false"
         :swipe="false"
         :autoplay="true"
-        :lazyLoad="ondemand"
-        :autoplaySpeed="6000"
+        :lazy-load="ondemand"
+        :autoplay-speed="6000"
         :dots="true"
       >
-      <div class="hero-main">
-        <picture class="hero-main-img">
-          <source srcset="@/assets/png/hero-screen-mob.png" media="(max-width: 768px)">
-          <img src="@/assets/png/hero.png" alt="">
-        </picture>
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-7 hero-wrap">
-              <div class="hero-inner">
-                <h1 class="hero-head">
-                  Hydro Whey Zero + Iso WhEy Zero 
-                </h1>
-                <p class="hero-text">
-                  При покупке HYDRO WHEY ZERO <span>получи 25% скидки</span> на протеин ISO WHEY ZERO (акция действует до 21.06.21)
-                </p>
-                <div class="hero-btns">
-                  <b-button variant="primary">Купить</b-button>
-                  <a class="link" href="/">
-                    Подробнее
-                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1.75 1.5L6.25 6L1.75 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </a>
+        <div class="hero-main">
+          <picture class="hero-main-img">
+            <source srcset="@/assets/png/hero-screen-mob.png" media="(max-width: 768px)" />
+            <img src="@/assets/png/hero.png" alt="" />
+          </picture>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-7 hero-wrap">
+                <div class="hero-inner">
+                  <h1 class="hero-head">
+                    Hydro Whey Zero + Iso WhEy Zero
+                  </h1>
+                  <p class="hero-text">
+                    При покупке HYDRO WHEY ZERO <span>получи 25% скидки</span> на протеин ISO WHEY ZERO (акция действует до 21.06.21)
+                  </p>
+                  <div class="hero-btns">
+                    <b-button variant="primary">
+                      Купить
+                    </b-button>
+                    <a class="link" href="/">
+                      Подробнее
+                      <svg
+                        width="8"
+                        height="12"
+                        viewBox="0 0 8 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1.75 1.5L6.25 6L1.75 10.5"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="hero-main">
-        <picture class="hero-main-img">
-          <source srcset="@/assets/png/hero-screen-mob.png" media="(max-width: 768px)">
-          <img src="@/assets/png/hero.png" alt="">
-        </picture>
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-7 hero-wrap">
-              <div class="hero-inner">
-                <h1 class="hero-head">
-                  Hydro Whey Zero 
-                </h1>
-                <p class="hero-text">
-                  При покупке HYDRO WHEY ZERO <span>получи 55% скидки</span> на протеин ISO WHEY ZERO (акция действует до 21.06.21)
-                </p>
-                <div class="hero-btns">
-                  <b-button variant="primary">Купить</b-button>
-                  <a class="link" href="/">
-                    Подробнее
-                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1.75 1.5L6.25 6L1.75 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </a>
+        <div class="hero-main">
+          <picture class="hero-main-img">
+            <source srcset="@/assets/png/hero-screen-mob.png" media="(max-width: 768px)" />
+            <img src="@/assets/png/hero.png" alt="" />
+          </picture>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-7 hero-wrap">
+                <div class="hero-inner">
+                  <h1 class="hero-head">
+                    Hydro Whey Zero
+                  </h1>
+                  <p class="hero-text">
+                    При покупке HYDRO WHEY ZERO <span>получи 55% скидки</span> на протеин ISO WHEY ZERO (акция действует до 21.06.21)
+                  </p>
+                  <div class="hero-btns">
+                    <b-button variant="primary">
+                      Купить
+                    </b-button>
+                    <a class="link" href="/">
+                      Подробнее
+                      <svg
+                        width="8"
+                        height="12"
+                        viewBox="0 0 8 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1.75 1.5L6.25 6L1.75 10.5"
+                          stroke="currentColor"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       </VueSlickCarousel>
     </div>
     <div class="market-wrapper">
       <div class="container">
         <b-row class="plp-gutters">
-          <b-col cols md="4" class="mb-4">
+          <b-col
+            cols
+            md="4"
+            class="mb-4"
+          >
             <div class="market-item _econom">
-              <img class="market-item-image" src="@/assets/png/coins.png" alt="">
+              <img
+                class="market-item-image"
+                src="@/assets/png/coins.png"
+                alt=""
+              />
               <h3 class="market-item-ttl">
                 ЭКОНОМИЯ
               </h3>
@@ -83,9 +119,17 @@
               </div>
             </div>
           </b-col>
-          <b-col cols md="4" class="mb-4">
+          <b-col
+            cols
+            md="4"
+            class="mb-4"
+          >
             <div class="market-item _brand">
-              <img class="market-item-image" src="@/assets/png/diamond.png" alt="">
+              <img
+                class="market-item-image"
+                src="@/assets/png/diamond.png"
+                alt=""
+              />
               <h3 class="market-item-ttl">
                 ТОП БРЕНДЫ
               </h3>
@@ -94,9 +138,17 @@
               </div>
             </div>
           </b-col>
-          <b-col cols md="4" class="mb-4">
+          <b-col
+            cols
+            md="4"
+            class="mb-4"
+          >
             <div class="market-item _save">
-              <img class="market-item-image" src="@/assets/png/round.png" alt="">
+              <img
+                class="market-item-image"
+                src="@/assets/png/round.png"
+                alt=""
+              />
               <h3 class="market-item-ttl">
                 Поддержка
               </h3>
@@ -113,12 +165,12 @@
         <div class="group-ttl">
           Акционные товары
         </div>
-        <LinkMore :text="'Смотреть все'" :href="'/'"></LinkMore>
+        <LinkMore :text="'Смотреть все'" :href="'/'" />
       </div>
       <VueSlickCarousel v-bind="settings" class="product-carousel">
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -132,7 +184,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -146,7 +198,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -160,7 +212,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -174,7 +226,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -188,7 +240,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -205,12 +257,12 @@
         <div class="group-ttl">
           Протеины
         </div>
-        <LinkMore :text="'Смотреть все'" :href="'/'"></LinkMore>
+        <LinkMore :text="'Смотреть все'" :href="'/'" />
       </div>
       <VueSlickCarousel v-bind="settings" class="product-carousel">
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -224,7 +276,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -238,7 +290,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -252,7 +304,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -266,7 +318,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -280,7 +332,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -297,12 +349,12 @@
         <div class="group-ttl">
           Аминокислоты
         </div>
-        <LinkMore :text="'Смотреть все'" :href="'/'"></LinkMore>
+        <LinkMore :text="'Смотреть все'" :href="'/'" />
       </div>
       <VueSlickCarousel v-bind="settings" class="product-carousel">
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -316,7 +368,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -330,7 +382,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -344,7 +396,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -358,7 +410,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -372,7 +424,7 @@
         </div>
         <div class="product-item">
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="">
+            <img src="@/assets/png/image-carousel1.png" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -393,8 +445,10 @@
           Оставьте номер телефона и мы свяжемся с вами в ближайшее время
         </div>
         <div class="market-subscribe-group">
-          <b-form-input placeholder="Номер телефона"></b-form-input>
-          <b-button variant="primary">Позвоните мне</b-button>
+          <b-form-input placeholder="Номер телефона" />
+          <b-button variant="primary">
+            Позвоните мне
+          </b-button>
         </div>
       </div>
     </div>
@@ -409,24 +463,18 @@ import LinkMore from '~~/components/common/LinkMore'
 import ProductPrice from '~~/components/common/ProductPrice'
 
 export default {
-  props: {
-    categories: {
-      type: Array,
-      default: () => [],
-    },
-  },
   components: {
     VueSlickCarousel,
     ProductPrice,
-    LinkMore,
+    LinkMore
   },
-  mounted () {
-    document.body.classList.add('sticky-header')
+  props: {
+    categories: {
+      type: Array,
+      default: () => []
+    }
   },
-  destroyed () {
-    document.body.classList.remove('sticky-header')
-  },
-  data() {
+  data () {
     return {
       settings: {
         dots: true,
@@ -442,8 +490,8 @@ export default {
               slidesToShow: 1,
               slidesToScroll: 1,
               infinite: true,
-              dots: true,
-            },
+              dots: true
+            }
           },
           {
             breakpoint: 768,
@@ -451,13 +499,19 @@ export default {
               slidesToShow: 2,
               slidesToScroll: 1,
               infinite: true,
-              dots: true,
-            },
-          },
-        ],
-      },
+              dots: true
+            }
+          }
+        ]
+      }
     }
   },
+  mounted () {
+    document.body.classList.add('sticky-header')
+  },
+  destroyed () {
+    document.body.classList.remove('sticky-header')
+  }
 }
 </script>
 

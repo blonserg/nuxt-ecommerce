@@ -12,7 +12,12 @@
               :navigation-data="navData"
               :is-opened-nav="isOpenedNavigation"
             />
-            <SearchBox ref="searchBox" :isOpened="isOpenedSearchBox" @onHideSearchBox="hideSearchBox" @onToggleSearchBox="toggleSearchBox" />
+            <SearchBox
+              ref="searchBox"
+              :is-opened="isOpenedSearchBox"
+              @onHideSearchBox="hideSearchBox"
+              @onToggleSearchBox="toggleSearchBox"
+            />
             <div class="header-utils">
               <CartButton />
               <b-button v-b-toggle.sidebar-1 class="d-md-none header-sidebar-btn">
@@ -108,10 +113,10 @@ export default {
     onToggleMobileNavigation (visible) {
       this.isOpenedNavigation = visible
     },
-    toggleSearchBox(e) {
+    toggleSearchBox (e) {
       if (this.isOpenedSearchBox && e.target.tagName === 'INPUT') { return }
-      this.isOpenedSearchBox = !this.isOpenedSearchBox;
-      this.$refs.searchBox.$refs.typeaheadBootstrap.$refs.input.focus();
+      this.isOpenedSearchBox = !this.isOpenedSearchBox
+      this.$refs.searchBox.$refs.typeaheadBootstrap.$refs.input.focus()
     },
     hideSearchBox () {
       this.isOpenedSearchBox = false
