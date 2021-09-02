@@ -1,7 +1,4 @@
 # 🛍 Ecommerce Store with Nuxt
-### [View Demo](https://nuxt-ecommerce.herokuapp.com/)
-## Build Setup
-
 ``` bash
 # install dependencies
 $ yarn install or npm install
