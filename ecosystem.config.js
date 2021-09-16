@@ -1,11 +1,9 @@
 module.exports = {
-    apps: [
-      {
-        name: 'NuxtAppName',
-        exec_mode: 'cluster',
-        instances: 'max', // Or a number of instances
-        script: './node_modules/nuxt/bin/nuxt.js',
-        args: 'start'
-      }
-    ]
-  }
+  apps : [{
+      name      : 'MyAppName', // App name that shows in `pm2 ls`
+      exec_mode : 'cluster', // enables clustering
+      instances : 'max', // or an integer
+      cwd       : './current', // only if using a subdirectory
+      script    : './node_modules/nuxt/bin/nuxt-start', // The magic key
+  }]
+};
