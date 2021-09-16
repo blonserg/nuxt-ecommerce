@@ -103,7 +103,7 @@ export default {
         },
         {
           id: '4',
-          url: 'blog',
+          url: '/blog',
           title: 'Аксессуары'
         }
       ]
