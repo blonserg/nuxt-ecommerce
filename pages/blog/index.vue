@@ -79,17 +79,13 @@ export default {
     components: {
     },
     async asyncData({store, route}) {
-        if(isEmpty(store.getters['blog/categories'])) {
-            await store.dispatch('blog/fetchCategories')
-        }
-        if(isEmpty(store.getters['blog/categoryArticles'])) {
-            const params = {
-                category: route.query.category ? route.query.category : null,
-                page: route.query.page ? route.query.page : null
-            };
+        const params = {
+            category: route.query.category ? route.query.category : null,
+            page: route.query.page ? route.query.page : null
+        };
 
-            await store.dispatch('blog/fetchCategoryArticles', params)
-        }
+        await store.dispatch('blog/fetchCategories')
+        await store.dispatch('blog/fetchCategoryArticles', params)
     },
     data: () => ({
         pageTitle: 'Статьи',
