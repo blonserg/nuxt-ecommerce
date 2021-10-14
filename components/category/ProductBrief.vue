@@ -1,20 +1,21 @@
 <template>
   <div class="product-item product-item--list">
-    <nuxt-link :to="`/product/${product.pSlug}`">
+    <nuxt-link :to="`/product/${product.slug}`">
       <img
-        v-lazy="product.image.imgL"
+        v-lazy="product.image"
+        :alt="product.title"
         class="product-item-image product-item-image--list"
       />
     </nuxt-link>
     <div class="product-item-infolist">
       <div class="product-item-ttl">
-        {{ product.pName }}
-        <span>BiotexhUsa</span>
+        {{ product.title }}
+        <span>{{product.brand}}</span>
       </div>
       <div class="product-item-raiting">
-        <b-form-rating variant="warning" :no-border="true" size="sm" class="rating-block" value="3.5" inline></b-form-rating>
-        <div class="product-item-feed">
-          (<a href="#">124 отзыва</a>)
+        <b-form-rating variant="warning" :no-border="true" size="sm" class="rating-block" value="3.5" inline readonly></b-form-rating>
+        <div class="product-item-feed" v-if="product.reviews_qty">
+          (<a href="#">{{product.reviews_qty}}</a>)
         </div>
       </div>
       <div class="product-item-price">
@@ -39,6 +40,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" module>
-</style>

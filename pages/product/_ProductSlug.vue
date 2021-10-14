@@ -3,12 +3,12 @@
     <div class="merch-header">
       <div class="row">
         <div class="col-12 col-md-9 col-lg-10">
-          <h1 class="merch-header-ttl">ISO whey Zero</h1>
+          <h1 class="merch-header-ttl">{{product.title}}</h1>
         </div>
         <div class="col-12  col-md-3 col-lg-2 d-flex justify-content-md-end">
           <div class="merch-header-art">
             Артикул:
-            <span>100977</span>
+            <span>{{product.id}}</span>
           </div>
         </div>
       </div>
@@ -16,23 +16,22 @@
     <div class="merch-hr"></div>
     <div class="row">
       <div class="col-md-6 col-sm-12">
-        <ProductImageCarousel :imagesSet="imagesSet" />
+        <ProductImageCarousel :imagesSet="product.product_images" v-if="product.product_images"/>
       </div> 
       <div class="col-md-6 col-sm-12">
         <div class="merch-main">
           <div class="merch-info">
-            <h2 class="merch-name">{{ product.pName }}</h2>
+            <h2 class="merch-name">{{ product.title }}</h2>
             <div class="merch-info-available">
               <ProductAvailable v-bind:isAvailable="true" />
               <div class="product-item-raiting">
-                <b-form-rating variant="warning" :no-border="true" size="sm" class="rating-block" value="3.5" inline></b-form-rating>
+                <b-form-rating variant="warning" :no-border="true" size="sm" class="rating-block" :value="product.rating" inline readonly></b-form-rating>
                 <div class="product-item-feed">
-                  (<a href="#">124 отзыва</a>)
+                  (<a href="#reviews">{{product.reviews_qty}} отзыва</a>)
                 </div>
               </div>
             </div>
-            <!-- todo: refactor by using Product Price Component -->
-            <ProductPrice :price="{pPricePromo: 1800}"/>
+            <ProductPrice :price="product.price"/>
           </div>
           <div class="merch-attributes">
             <div class="merch-row">
@@ -40,7 +39,7 @@
                 Производитель
               </span>
               <span class="merch-row-item">
-                BioTechUSA
+                {{product.brand || '-'}}
               </span>
             </div>
             <div class="merch-row">
@@ -48,7 +47,7 @@
                 Страна-производитель:
               </span>
               <span class="merch-row-item">
-                Венгрия
+                {{product.country || '-'}}
               </span>
             </div>
             <div class="merch-row">
@@ -56,22 +55,22 @@
                 Бренд
               </span>
               <span class="merch-row-item">
-                BioTechUSA
+                {{product.brand || '-'}}
               </span>
             </div>
           </div>
           <div class="merch-group">
             <div class="merch-group-item">
-              <label :for="selectSize">Размер</label>
-              <b-form-select v-model="sizeAttr.selected" :options="sizeAttr.options" id="selectSize"></b-form-select>
+              <label for="selectSize">Размер</label>
+              <b-form-select v-model="selectedSize" :options="product.sizeAttr.options" id="selectSize"></b-form-select>
             </div>
             <div class="merch-group-item">
-              <label :for="selectFavor">Вкус</label>
-              <b-form-select v-model="favorAttr.selected" :options="favorAttr.options" id="selectFavor"></b-form-select>
+              <label for="selectFavor">Вкус</label>
+              <b-form-select v-model="selectedTaste" :options="product.tasteAttr.options" id="selectFavor"></b-form-select>
             </div>
             <div class="merch-group-item">
-              <label :for="selectQuantity">Количество</label>
-              <b-form-spinbutton class="product-quantity" id="selectQuantity" min="1" max="10" v-model="qty">
+              <label for="selectQuantity">Количество</label>
+              <b-form-spinbutton class="product-quantity" id="selectQuantity" min="1" max="10" v-model="quantity">
                 <svg hasFocus="true" slot="increment" width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11.0166 9.91667H13.8784C14.3274 9.91667 14.6914 10.2866 14.6914 10.75C14.6914 11.2102 14.3281 11.5833 13.8784 11.5833H11.0166V14.5037C11.0166 14.9619 10.6541 15.3333 10.2 15.3333C9.74894 15.3333 9.38332 14.9626 9.38332 14.5037V11.5833H6.5215C6.07249 11.5833 5.70849 11.2134 5.70849 10.75C5.70849 10.2898 6.07175 9.91667 6.5215 9.91667H9.38332V6.99631C9.38332 6.53811 9.74579 6.16667 10.2 6.16667C10.651 6.16667 11.0166 6.53736 11.0166 6.99631V9.91667ZM10.2 20.75C4.7878 20.75 0.400391 16.2728 0.400391 10.75C0.400391 5.22715 4.7878 0.75 10.2 0.75C15.6121 0.75 19.9995 5.22715 19.9995 10.75C19.9995 16.2728 15.6121 20.75 10.2 20.75ZM10.2 19.0833C14.7101 19.0833 18.3663 15.3524 18.3663 10.75C18.3663 6.14763 14.7101 2.41667 10.2 2.41667C5.68983 2.41667 2.03365 6.14763 2.03365 10.75C2.03365 15.3524 5.68983 19.0833 10.2 19.0833Z" fill="#257BF4"/>
                 </svg>
@@ -97,15 +96,7 @@
         </div>
         <div class="col-md-6 col-sm-12">
           <div class="merch-descr">
-            <h4>Протеин BIOTECH ISO WHEY ZERO</h4>
-            <p>
-              BioTechUSA Iso Whey Zero Lactose Free – продукт, основное действие которого направлено на увеличение мышечного объема. Стимулятор изготовлен из сывороточного изолята высокого качества и предназначен для людей, которые ведут активный образ жизни и занимаются спортом. Коктейль не содержит лактозу, что позволяет употреблять его атлетам, которые страдают от непереносимости молочных продуктов.
-            </p>
-            <p>
-              BioTechUSA Iso Whey Zero Lactose Free производят методом микрофильтрации, благодаря чему компоненты обладают высокой биологической ценностью и хорошо усваиваются. Белковые фракции, содержащиеся в стимуляторе, абсорбируются в мышечных тканях быстрее, позволяя в максимально короткий период обеспечить мускулы строительным материалом и предотвратить катаболизм. В препарате отсутствуют сахар и трансжиры, поэтому его можно с легкостью употреблять в период поддержания режима низкокалорийной диеты.
-            </p>
-            <h4>Качество, подтвержденное сертификатами</h4>
-            <p>{{ product.pDesc }}</p>
+            <div v-html="product.description"></div>
             <LinkMore :text="'Смотреть все'" :href="'/'" :direction="'down'"></LinkMore>
           </div>
         </div>
@@ -119,68 +110,14 @@
         </div>
         <div class="col-md-6 col-sm-12">
           <ul class="merch-row-group">
-            <li class="merch-row">
+            <li class="merch-row"
+              v-for="property in product.properties"
+              :key="property.name">
               <div class="merch-row-name">
-                Размер порции:
+                {{property.name}}:
               </div>
               <div class="merch-row-item">
-                28 г
-              </div>
-            </li>
-            <li class="merch-row">
-              <div class="merch-row-name">
-                Калории:
-              </div>
-              <div class="merch-row-item">
-                28 г
-              </div>
-            </li>
-            <li class="merch-row">
-              <div class="merch-row-name">
-                Жиры:
-              </div>
-              <div class="merch-row-item">
-                28 г
-              </div>
-            </li>
-            <li class="merch-row">
-              <div class="merch-row-name">
-                Размер порции:
-              </div>
-              <div class="merch-row-item">
-                28 г
-              </div>
-            </li>
-            <li class="merch-row">
-              <div class="merch-row-name">
-                Углеводы:
-              </div>
-              <div class="merch-row-item">
-                28 г
-              </div>
-            </li>
-            <li class="merch-row">
-              <div class="merch-row-name">
-                Белки:
-              </div>
-              <div class="merch-row-item">
-                28 г
-              </div>
-            </li>
-            <li class="merch-row">
-              <div class="merch-row-name">
-                Размер порции:
-              </div>
-              <div class="merch-row-item">
-                28 г
-              </div>
-            </li>
-            <li class="merch-row">
-              <div class="merch-row-name">
-                Размер порции:
-              </div>
-              <div class="merch-row-item">
-                28 г
+                {{property.value}}{{Boolean(property.unit) ? ` ${property.unit}` : ''}}
               </div>
             </li>
           </ul>
@@ -190,13 +127,13 @@
     </section>
     <div class="merch-hr"></div>
 
-    <section class="merch-section">
+    <section id="reviews" class="merch-section">
       <div class="row">
         <div class="col-md-6 col-sm-12">
           <h3 class="merch-ttl">Отзывы</h3>
         </div>
         <div class="col-md-6 col-sm-12">
-          <Reviews :reviews="reviews"/>
+          <Reviews :reviews="product.product_reviews"/>
           <div class="reviews-actions">
             <LinkMore :text="'Больше отзывов'" :href="'/'" :direction="'down'"></LinkMore>
             <a class="link" href="/">Оставить отзыв</a>
@@ -212,108 +149,34 @@
           <h3 class="merch-ttl">Рекомендации по применению</h3>
         </div>
         <div class="col-md-6 col-sm-12">
-          <div class="merch-descr">
-            <p>
-              Рекомендуем принимать 1-2 порции в день. В тренировочные дни: одна порция после тренировки, вторая между приемами еды. В не тренировочные дни: одна порция вечером.
-            </p>
-          </div>
+          <div class="merch-descr" v-html="product.usage_instructions"></div>
         </div>
       </div>
     </section>
     <div class="merch-hr"></div>
-    <section class="merch-widgets">
+    <section class="merch-widgets" v-if="product.recommended">
       <div class="row">
         <div class="col-12">
           <div class="group">
             <h3 class="group-ttl merch-ttl">
               Рекомендуемые товары
             </h3>
-            <LinkMore :text="'Больше отзывов'" :href="'/'"></LinkMore>
+            <LinkMore :text="'Смотреть все'" :href="'/'"></LinkMore>
           </div>
         </div>
         <div class="col-12">
           <VueSlickCarousel v-bind="settings" class="product-carousel">
-            <div class="product-item">
-              <div class="product-item-image">
-                <img src="@/assets/png/image-carousel1.png" alt="">
-              </div>
+            <div class="product-item" v-for="rec_product in product.recommended">
+              <a :href="rec_product.slug" class="product-item-image">
+                <img :src="rec_product.image" :alt="rec_product.title">
+              </a>
               <div class="product-item-info">
                 <div class="product-item-ttl">
-                  Iso zero whey plus
-                  <span>BiotexhUsa</span>
+                  <a :href="rec_product.slug">{{rec_product.title}}</a>
+                  <span>{{rec_product.brand}}</span>
                 </div>
                 <div class="product-item-price">
-                  <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
-                </div>
-              </div>
-            </div>
-            <div class="product-item">
-              <div class="product-item-image">
-                <img src="@/assets/png/image-carousel1.png" alt="">
-              </div>
-              <div class="product-item-info">
-                <div class="product-item-ttl">
-                  Iso zero whey plus
-                  <span>BiotexhUsa</span>
-                </div>
-                <div class="product-item-price">
-                  <ProductPrice :price="{pPrice: 1800}"/>
-                </div>
-              </div>
-            </div>
-            <div class="product-item">
-              <div class="product-item-image">
-                <img src="@/assets/png/image-carousel1.png" alt="">
-              </div>
-              <div class="product-item-info">
-                <div class="product-item-ttl">
-                  Iso zero whey plus
-                  <span>BiotexhUsa</span>
-                </div>
-                <div class="product-item-price">
-                  <ProductPrice :price="{pPricePromo: 1800}"/>
-                </div>
-              </div>
-            </div>
-            <div class="product-item">
-              <div class="product-item-image">
-                <img src="@/assets/png/image-carousel1.png" alt="">
-              </div>
-              <div class="product-item-info">
-                <div class="product-item-ttl">
-                  Iso zero whey plus
-                  <span>BiotexhUsa</span>
-                </div>
-                <div class="product-item-price">
-                  <ProductPrice :price="{pPrice: 1800}"/>
-                </div>
-              </div>
-            </div>
-            <div class="product-item">
-              <div class="product-item-image">
-                <img src="@/assets/png/image-carousel1.png" alt="">
-              </div>
-              <div class="product-item-info">
-                <div class="product-item-ttl">
-                  Iso zero whey plus
-                  <span>BiotexhUsa</span>
-                </div>
-                <div class="product-item-price">
-                  <ProductPrice :price="{pPrice: 1800}"/>
-                </div>
-              </div>
-            </div>
-            <div class="product-item">
-              <div class="product-item-image">
-                <img src="@/assets/png/image-carousel1.png" alt="">
-              </div>
-              <div class="product-item-info">
-                <div class="product-item-ttl">
-                  Iso zero whey plus
-                  <span>BiotexhUsa</span>
-                </div>
-                <div class="product-item-price">
-                  <ProductPrice :price="{pPrice: 1800}"/>
+                  <ProductPrice :price="rec_product.price" v-if="rec_product.price" />
                 </div>
               </div>
             </div>
@@ -328,7 +191,6 @@
 import VueSlickCarousel from 'vue-slick-carousel'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
-import { mapState } from 'vuex'
 import ProductImageCarousel from '~~/components/pdp/ProductImageCarousel'
 import ProductsList from '~~/components/common/ProductsList'
 import ProductPrice from '~~/components/common/ProductPrice'
@@ -336,6 +198,7 @@ import ProductAvailable from '~~/components/pdp/ProductAvailable'
 import BuyButton from '~~/components/common/BuyButton'
 import Reviews from '~~/components/reviews/Reviews'
 import LinkMore from '~~/components/common/LinkMore'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -348,63 +211,50 @@ export default {
     LinkMore,
     Reviews
   },
+  async asyncData ({ store, params, route, error }) {
+    try {
+      await store.dispatch('product/getProduct', { route })
+    } catch (err) {
+      console.log(err)
+      return error({
+        statusCode: 404,
+        message: 'Товар не найден или сервер не доступен'
+      })
+    }
+  },
+    computed: {
+    ...mapGetters({
+      product: 'product/product',
+    }),
+    quantity: {
+        get () {
+            return this.$store.state.product.product.quantity
+        },
+        set (value) {
+            this.$store.commit('product/UPDATE_PRODUCT_QUANTITY', value)
+        }
+    },
+    selectedSize: {
+        get () {
+            return this.$store.state.product.product.sizeAttr.selected
+        },
+        set (value) {
+            this.$store.commit('product/UPDATE_PRODUCT_ATTRIBUTE', {attr: 'sizeAttr', value})
+        }
+    },
+    selectedTaste: {
+        get () {
+            return this.$store.state.product.product.tasteAttr.selected
+        },
+        set (value) {
+            this.$store.commit('product/UPDATE_PRODUCT_ATTRIBUTE', {attr: 'tasteAttr', value})
+        }
+    }
+  },
   methods: {
-
   },
   data() {
     return {
-      qty: 1,
-      sizeAttr: {
-        selected: '1',
-        options: [
-          { text: 'Выберите размер', value: '1'},
-          { text: 'Option A', value: 'a' },
-          { text: 'Option B', value: 'b' },
-          { text: 'Option C', value: 'c' },
-        ]
-      },
-      favorAttr: {
-        selected: '1',
-        options: [
-          { text: 'Выберите вкус', value: '1'},
-          { text: 'Option A', value: 'a' },
-          { text: 'Option B', value: 'b' },
-          { text: 'Option C', value: 'c' },
-        ]
-      },
-      reviews: [
-        {
-            id: '1',
-            date: '03.09.2021',
-            rating: 3,
-            name: 'Алексей',
-            message: 'Мне понравился протеин PURE WHEY, отлично растворяется и приятно пьется. По вкусу как шоколадка, в составе хорошие натуральные ингредиенты, поэтому и легко организм принимает.',
-        },
-        {
-            id: '2',
-            date: '03.09.2021',
-            rating: 3.5,
-            name: 'Мария',
-            message: 'Купила карамель-капучино, растворяется долго, комочками, гораздо хуже, чем например 100% PROSTAR WHEY PROTEIN ULTIMATE NUTRITION или RULE1 WHEY BLEND. Также остаётся какая-то тяжесть в желудке, отрыжка и привкус. Насчёт их отличий по качеству набора массы сказать не могу. Беру протеины в основном для пополнения дневной нормы белка, т.к. готовить и получать их из пищи нет времени.',
-        }
-      ],
-      imagesSet: [
-        {
-          id: '1',
-          url: 'image-carousel1.png',
-          title: 'Image title'
-        },
-        {
-          id: '2',
-          url: 'image-carousel1.png',
-          title: 'Image title'
-        },
-        {
-          id: '3',
-          url: 'image-carousel1.png',
-          title: 'Image title'
-        }
-      ],
       settings: {
         "dots": true,
         "infinite": false,
@@ -426,25 +276,9 @@ export default {
       }
     }
   },
-  async asyncData ({ app, params, route, error }) {
-    try {
-      await app.store.dispatch('getCurrentProduct', { route })
-    } catch (err) {
-      console.log(err)
-      return error({
-        statusCode: 404,
-        message: 'Товар не найдена или сервер не доступен'
-      })
-    }
-  },
-  computed: {
-    ...mapState({
-      product: 'currentProduct'
-    })
-  },
   head () {
     return {
-      title: this.product.pTitle,
+      title: this.product.title,
       meta: [
         {
           hid: 'description',

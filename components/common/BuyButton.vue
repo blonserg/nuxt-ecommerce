@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   props: {
@@ -27,23 +27,20 @@ export default {
   },
   computed: {
     ...mapGetters({
-      getProductsInCart: 'cart/getProductsInCart'
+      cartProducts: 'cart/cartProducts'
     }),
     isProductAdded () {
-      return this.getProductsInCart.find(p => p.productId === this.product.id)
+      return this.cartProducts.find(p => p.id === this.product.id)
     }
   },
   methods: {
-    ...mapActions({
-      addProduct: 'cart/addProduct'
+    ...mapMutations({
+      addToCart: 'cart/ADD_TO_CART'
     }),
     buyClickHandler () {
-      this.addProduct(this.product.id)
+      this.addToCart(this.product)
       // this.$modal.show('customer-cart', { addedProduct: this.product.id })
     }
   }
 }
 </script>
-
-<style lang="scss" module>
-</style>

@@ -21,7 +21,7 @@ export default {
     },
     currency: {
       type: String,
-      default: () => '$'
+      default: () => '₴'
     }
   },
 }

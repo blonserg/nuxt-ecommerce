@@ -3,11 +3,11 @@
     <client-only>
       <a
         :href="'/cart'"
-        :disabled="!productsQuantity > 0 "
+        :disabled="!totalQuantity > 0 "
         class="header-cart-wrap"
       >
-        <div class="header-cart-count" v-if="productsQuantity > 0">
-          {{ productsQuantity }}
+        <div class="header-cart-count" v-if="totalQuantity > 0">
+          {{ totalQuantity }}
         </div>
         <b-button variant="primary">
           <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,21 +26,12 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapState({
-      products: state => state.cart.products
+    ...mapGetters({
+      totalQuantity: 'cart/totalQuantity'
     }),
-    productsQuantity () {
-      if (this.products) {
-        return this.products.length
-      } else return 0
-    }
   }
 }
 </script>
-
-<style lang="scss" module>
-
-</style>

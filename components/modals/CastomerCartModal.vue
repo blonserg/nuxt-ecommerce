@@ -23,7 +23,7 @@
               <CloseOrDeleteButton />
             </div>
           </div>
-          <div v-if="getProductsInCart.length === 0" class="">
+          <div v-if="cartProducts.length === 0" class="">
             <p>
               Товаров пока нет, но это легко можно исправить :)
             </p>
@@ -41,7 +41,7 @@
               </template>
               <ProductsList class="products" :products-from-cart="getProducts" />
             </div>
-            <div>Total: {{ getAmount | round }}</div>
+            <div>Total: todo </div>
             <div class="bottom">
               <a class="button color-grey close-button" @click.prevent="$modal.hide('customer-cart')">
                 Close
@@ -64,7 +64,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import ProductsList from '~~/components/cart/ProductsList.vue'
+import ProductsList from '~/components/cart/CartProducts.vue'
 import CloseOrDeleteButton from '~~/components/common/input/CloseOrDeleteButton.vue'
 import round from '~~/mixins/round.js'
 export default {
@@ -84,11 +84,11 @@ export default {
 
   computed: {
     ...mapGetters({
-      getProductsInCart: 'cart/getProductsInCart'
+      cartProducts: 'cart/cartProducts'
     }),
     getAddedProduct () {
-      const product = this.getProductsInCart.find(
-        prod => prod.productId === this.addedProduct
+      const product = this.cartProducts.find(
+        prod => prod.id === this.addedProduct
       )
       if (product) {
         return [product]
@@ -96,26 +96,13 @@ export default {
         return null
       }
     },
-    getAmount () {
-      let amount = 0
-      if (this.getProductsInCart && this.getProductsInCart.length > 0) {
-        this.getProductsInCart.forEach(product => {
-          amount +=
-            parseFloat(product.meta.pPrice) *
-            parseInt(product.qty)
-        })
-        return amount
-      } else {
-        return 0
-      }
-    },
     getProducts () {
       if (this.addedProduct) {
-        return this.getProductsInCart.filter(
+        return this.cartProducts.filter(
           prod => prod.productId !== this.addedProduct
         )
       } else {
-        return this.getProductsInCart
+        return this.cartProducts
       }
     }
 
@@ -127,7 +114,7 @@ export default {
     },
     getProductsInCart: function (newVal, oldVal) {
       if (oldVal.length > 0) {
-        if (this.getProductsInCart.length === 0) {
+        if (this.cartProducts.length === 0) {
           this.$modal.hide('customer-cart')
         }
       }

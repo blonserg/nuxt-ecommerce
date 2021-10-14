@@ -15,7 +15,7 @@
           </div>
         </div>
       </div>
-      <div v-if="getProductsInCart.length === 0" class="">
+      <div v-if="cartProducts.length === 0">
         <p>
           Товаров пока нет, но это легко можно исправить :)
         </p>
@@ -23,7 +23,7 @@
       <template v-else>
         <div class="row">
           <div class="col-md-8">
-            <ProductsList class="products" :products-from-cart="getProducts" />
+            <CartProducts class="products" :products-from-cart="cartProducts" />
           </div>
           <div class="col-md-4">
             <div class="cart-order">
@@ -35,7 +35,7 @@
                   Всего товаров:
                 </div>
                 <div class="cart-row-info">
-                  {{ getQty }}
+                  {{ totalQuantity }}
                   <span>ед</span>
                 </div>
               </div>
@@ -44,7 +44,7 @@
                   Скидка:
                 </div>
                 <div class="cart-row-info">
-                  0.00
+                  {{ discount }}
                   <span>₴</span>
                 </div>
               </div>
@@ -53,7 +53,7 @@
                   Сумма к оплате:
                 </div>
                 <div class="cart-row-info">
-                  1 800
+                  {{ totalPrice }}
                   <span>₴</span>
                 </div>
               </div>
@@ -85,7 +85,7 @@
                   Итого:
                 </div>
                 <div class="cart-total-info">
-                  {{ getAmount | round }}
+                  {{ totalPrice }}
                   <span class="cart-cur _total">₴</span>
                 </div>
               </div>
@@ -104,13 +104,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import ProductsList from '~~/components/cart/ProductsList.vue'
+import { mapGetters, mapMutations } from 'vuex'
+import CartProducts from '~/components/cart/CartProducts.vue'
 import CloseOrDeleteButton from '~~/components/common/input/CloseOrDeleteButton.vue'
 import round from '~~/mixins/round.js'
 export default {
   components: {
-    ProductsList,
+    CartProducts,
     CloseOrDeleteButton
   },
   mixins: [round],
@@ -122,68 +122,30 @@ export default {
       }
     }
   },
-
+  mounted() {
+    this.updateTotalQuantity();
+  },
   computed: {
     ...mapGetters({
-      getProductsInCart: 'cart/getProductsInCart'
+      cartProducts: 'cart/cartProducts',
+      discount: 'cart/discount',
+      totalQuantity: 'cart/totalQuantity',
     }),
-    getAddedProduct () {
-      const product = this.getProductsInCart.find(
-        prod => prod.productId === this.addedProduct
-      )
-      if (product) {
-        return [product]
-      } else {
-        return null
-      }
-    },
-    getAmount () {
-      let amount = 0
-      if (this.getProductsInCart && this.getProductsInCart.length > 0) {
-        this.getProductsInCart.forEach(product => {
-          amount +=
-            parseFloat(product.meta.pPrice) *
-            parseInt(product.qty)
-        })
-        return amount
-      } else {
-        return 0
-      }
-    },
-    getQty () {
-      let qty = 0
-      if (this.getProductsInCart && this.getProductsInCart.length > 0) {
-        this.getProductsInCart.forEach(product => {
-          qty +=
-            parseInt(product.qty)
-        })
-        return qty
-      } else {
-        return 0
-      }
-    },
-    getProducts () {
-      if (this.addedProduct) {
-        return this.getProductsInCart.filter(
-          prod => prod.productId !== this.addedProduct
-        )
-      } else {
-        return this.getProductsInCart
-      }
-    }
+    totalPrice() {
+        let total = 0;
 
-  },
-
-  watch: {
-    getProductsInCart: function (newVal, oldVal) {
-      if (oldVal.length > 0) {
-        if (this.getProductsInCart.length === 0) {
-          this.$modal.hide('customer-cart')
+        for (let item of this.$store.state.cart.cart) {
+            total += item.totalPrice.pPrice;
         }
-      }
-    }
+
+        total -= this.$store.state.cart.discount;
+        return total.toFixed(2);
+    },
   },
   methods: {
+    ...mapMutations({
+      updateTotalQuantity: 'cart/UPDATE_TOTAL_QUANTITY'
+    }),
     async beforeOpen (event) {
       if (!event.params) {
         event.params = {}
@@ -193,9 +155,7 @@ export default {
       } else {
         this.addedProduct = this.defaults.addedProduct
       }
-    }
+    },
   }
 }
 </script>
-<style lang="scss">
-</style>

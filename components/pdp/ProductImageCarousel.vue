@@ -1,5 +1,5 @@
 <template>
-  <div class="product-image-carousel">
+  <div class="product-image-carousel" v-if="imagesSet">
     <div class="product-image-carousel_main">
       <VueSlickCarousel
         ref="imageCarousel"
@@ -12,7 +12,7 @@
           class="merch-main_image-item d-flex justify-content-center"
         >
           <div class="product-images">
-            <img src="@/assets/png/product-image.png" :alt="slide.title" />
+            <img :src="slide.url" :alt="slide.title" />
           </div>
         </div>
       </VueSlickCarousel>
@@ -25,7 +25,7 @@
         class="image-carousel-nav_item active"
         @click.prevent="goToSlide"
       >
-        <img src="@/assets/png/product-image.png" alt="" />
+        <img :src="item.url" :alt="item.title" />
       </a>
     </div>
   </div>

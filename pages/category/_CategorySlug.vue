@@ -2,7 +2,7 @@
   <div class="container">
     <div class="group">
       <div class="group-ttl">
-        Акционные товары
+        {{category.title}}
       </div>
       <div class="plp-actions d-flex justify-content-between w-sm-100">
         <b-button variant="primary d-md-none" v-b-toggle.filters>
@@ -23,22 +23,20 @@
       <div class="col-md-9 col-sm-12">
         <b-row class="plp-gutters">
           <b-col cols="6" lg="4"
-           v-for="product in category.products"
-          :key="product.id">
+            v-for="product in products"
+            :key="product.id">
             <ProductBrief :product="product" />
           </b-col>
         </b-row>
-        <!-- <div class="row no-gutters">
-          <div class="col-12 col-sm-6 col-lg-4"
-          v-for="product in category.products"
-          :key="product.id"
-          >
-            <ProductBrief :product="product" />
+        <div class="page-pagination" v-if="pagination">
+          <b-pagination
+            pills
+            align="center"
+            @change="onPaginationChange"
+            v-model="currentPage"
+            :total-rows="pagination.rows"
+            :per-page="pagination.perPage"></b-pagination>
           </div>
-        </div> -->
-        <div class="page-pagination">
-          <b-pagination v-model="currentPage" pills :total-rows="rows"></b-pagination>
-        </div>
       </div>
     </div>
   </div>
@@ -49,16 +47,16 @@ import ProductBrief from '~~/components/category/ProductBrief'
 import LinkMore from '~~/components/common/LinkMore'
 import Filters from '~~/components/common/Filters'
 
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 export default {
   components: {
     ProductBrief,
     LinkMore,
     Filters
   },
-  async asyncData ({ app, params, route, error }) {
+  async asyncData ({ store, params, route, error }) {
     try {
-      await app.store.dispatch('getCurrentCategory', { route })
+      await store.dispatch('category/getCategoryProducts', { route })
     } catch (err) {
       console.log(err)
       return error({
@@ -69,12 +67,17 @@ export default {
   },
   computed: {
     ...mapState({
-      category: 'currentCategory'
-    })
+      category: 'currentCategory',
+    }),
+    ...mapGetters({
+      category: 'category/category',
+      products: 'category/categoryProducts',
+      pagination: 'category/pagination',
+    }),
   },
   head () {
     return {
-      title: this.category.cTitle,
+      title: this.category.title,
       meta: [
         {
           hid: 'description',
@@ -95,9 +98,6 @@ export default {
       this.$nuxt.$loading.start()
       setTimeout(() => this.$nuxt.$loading.finish(), 5000)
     })
-  }
+  },
 }
 </script>
-<style lang="scss" module>
-
-</style>

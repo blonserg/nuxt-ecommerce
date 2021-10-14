@@ -8,7 +8,7 @@ export const state = () => ({
     alsoBuyProducts: [],
     interestingProducts: []
   },
-  bredcrumbs: []
+  breadcrumbs: []
 })
 export const mutations = {
   SET_CATEGORIES_LIST (state, categories) {
@@ -21,10 +21,10 @@ export const mutations = {
     state.currentProduct = product
   },
   SET_BREADCRUMBS (state, crumbs) {
-    state.bredcrumbs = crumbs
+    state.breadcrumbs = crumbs
   },
   RESET_BREADCRUMBS (state) {
-    state.bredcrumbs = []
+    state.breadcrumbs = []
   }
 
 }
@@ -89,4 +89,9 @@ export const actions = {
     await commit('SET_CURRENT_PRODUCT', { ...product, alsoBuyProducts, interestingProducts })
   }
 
+}
+export const getters = {
+  breadcrumbs: state => {
+    return state.breadcrumbs
+  }
 }

@@ -64,12 +64,12 @@ export default {
           items: [
             {
               id: 'd1',
-              url: '',
+              url: '/category/sportivnoe-pitanie',
               title: 'Спортивное питание',
               items: [
                 {
                   id: 's1',
-                  url: '',
+                  url: '/category/protein',
                   title: 'Протеин'
                 },
                 {
@@ -93,17 +93,17 @@ export default {
         },
         {
           id: '2',
-          url: '',
+          url: '/category/sportivnoe-pitanie',
           title: 'Спортивное питание'
         },
         {
           id: '3',
-          url: '/checkout',
+          url: '/category/aminokisloty',
           title: 'Аминокислоты'
         },
         {
           id: '4',
-          url: '/blog',
+          url: '/category/accessories',
           title: 'Аксессуары'
         }
       ]

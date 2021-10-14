@@ -26,13 +26,12 @@
             flex: 25% 0 0;
         }
     }
-
-    &-product {
-        border-bottom: 1px solid #EAEEF2;
-        padding: 32px 0;
+    &-item {
         display: flex;
         align-items: center;
-
+        width: 100%;
+        border-bottom: 1px solid #EAEEF2;
+        padding: 32px 0;
         @media (max-width: 768px) {
             align-items: center;
             padding: 20px 0;
@@ -41,6 +40,8 @@
             flex-wrap: wrap;
             position: relative;
         }
+    }
+    &-product {
         
         &-wrap {
             display: flex;

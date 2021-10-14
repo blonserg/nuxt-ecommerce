@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <div v-if="bredcrumbs && bredcrumbs.length > 0" :class="$style.breadcrumbs">
+    <div v-if="breadcrumbs && breadcrumbs.length > 0" :class="$style.breadcrumbs">
       <ul>
-        <li v-for="cr in bredcrumbs" :key="cr.url">
+        <li v-for="cr in breadcrumbs" :key="cr.url">
           <n-link :to="cr.url">
             {{ cr.title }}
           </n-link>
@@ -13,11 +13,11 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapState({
-      bredcrumbs: 'bredcrumbs'
+        ...mapGetters({
+      breadcrumbs: 'breadcrumbs'
     })
   }
 }
