@@ -2,10 +2,14 @@ import formatRating from "~/utils/formatRating";
 import prepareBreadcrumbsData from "~/utils/prepareBreadcrumbsData";
 
 const PRODUCT_URL = 'https://aminostore.com.ua/api/product/';
+const REQUEST_CALL_URL = 'https://aminostore.com.ua/api/one-click/';
 const ROOT_URL = 'https://aminostore.com.ua/';
 
 export const state = () => ({
     product: {},
+    customer: {
+        phone: ''
+    },
 })
 
 export const mutations = {
@@ -70,6 +74,9 @@ export const mutations = {
     },
     UPDATE_PRODUCT_QUANTITY(state, value) {
         state.product.quantity = value;
+    },
+    UPDATE_CUSTOMER_PHONE(state, value) {
+        state.customer.phone = value;
     }
 }
 
@@ -86,10 +93,26 @@ export const actions = {
         }catch(err) {
             throw new Error(err);
         }
-    }
+    },
+    async requestOneClickOrder({commit, dispatch}, payload) {
+            const {product, customer} = payload
+            const data = {
+                product_id: product.id,
+                page_url: `${ROOT_URL}product/${product.slug}`,
+                phone: customer.phone
+            }
+            this.$axios.$post(REQUEST_CALL_URL, data)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((err) => {
+                throw new Error(err);
+            });
+    },
 }
 
 export const getters = {
     product: state => state.product,
     quantity: state => state.product.quantity,
+    customerPhone: state => state.customer.phone,
 }

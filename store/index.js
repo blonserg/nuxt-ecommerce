@@ -1,5 +1,6 @@
 // function for Mock API
 import mock from '../utils/mockServer'
+
 const sleep = m => new Promise(r => setTimeout(r, m))
 export const state = () => ({
   categoriesList: [],
@@ -55,39 +56,6 @@ export const actions = {
       throw new Error('Внутреняя ошибка сервера, сообщите администратору')
     }
   },
-  async getCurrentCategory ({ commit, dispatch }, { route }) {
-    // simulate api work
-    await sleep(50)
-    const category = mock.categories.find((cat) => cat.cSlug === route.params.CategorySlug)
-    const [products, productsImages] = await Promise.all(
-      [
-        this.$axios.$get('/mock/products.json'),
-        this.$axios.$get('/mock/products-images.json')
-      ]
-    )
-    const crubms = mock.getBreadcrumbs('category', route, category)
-    await dispatch('setBreadcrumbs', crubms)
-
-    await commit('SET_CURRENT_CATEGORY', mock.addProductsToCategory(products, productsImages, category))
-  },
-  async getCurrentProduct ({ commit, dispatch }, { route }) {
-    // simulate api work
-    await sleep(50)
-    const productSlug = route.params.ProductSlug
-    const [products, productsImages, alsoBuyProducts, interestingProducts] = await Promise.all(
-      [
-        this.$axios.$get('/mock/products.json'),
-        this.$axios.$get('/mock/products-images.json'),
-        dispatch('getProductsListRandom'),
-        dispatch('getProductsListRandom')
-      ]
-
-    )
-    const product = mock.getProduct(products, productsImages, productSlug)
-    const crubms = mock.getBreadcrumbs('product', route, product)
-    await dispatch('setBreadcrumbs', crubms)
-    await commit('SET_CURRENT_PRODUCT', { ...product, alsoBuyProducts, interestingProducts })
-  }
 
 }
 export const getters = {

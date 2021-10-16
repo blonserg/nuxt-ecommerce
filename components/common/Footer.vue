@@ -40,10 +40,7 @@
             <img src="@/assets/svg/message.svg" alt="" />
             <a href="mailto:amino@gmail.com" class="footer-contacts-txt">amino@gmail.com</a>
           </div>
-          <div class="footer-contacts-subscribe">
-            <b-form-input placeholder="Номер телефона"></b-form-input>
-            <b-button variant="primary" class="btn-call-me">Позвоните мне</b-button>
-          </div>
+          <CallBack classes="footer-contacts-subscribe" />
         </div>
       </div>
     </div>
@@ -89,6 +86,12 @@
     </div>
   </div>
 </template>
+<script>
+import CallBack from '~~/components/common/CallBack'
 
-<style lang="scss" module>
-</style>
+export default {
+  components: {
+    CallBack
+  }
+}
+</script>

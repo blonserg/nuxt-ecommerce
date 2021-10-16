@@ -444,12 +444,7 @@
         <div class="market-subscribe-txt">
           Оставьте номер телефона и мы свяжемся с вами в ближайшее время
         </div>
-        <div class="market-subscribe-group">
-          <b-form-input placeholder="Номер телефона" />
-          <b-button variant="primary">
-            Позвоните мне
-          </b-button>
-        </div>
+        <CallBack classes="market-subscribe-group" />
       </div>
     </div>
   </div>
@@ -461,12 +456,14 @@ import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 import LinkMore from '~~/components/common/LinkMore'
 import ProductPrice from '~~/components/common/ProductPrice'
+import CallBack from '~~/components/common/CallBack'
 
 export default {
   components: {
     VueSlickCarousel,
     ProductPrice,
-    LinkMore
+    LinkMore,
+    CallBack,
   },
   props: {
     categories: {
@@ -514,6 +511,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" module>
-</style>

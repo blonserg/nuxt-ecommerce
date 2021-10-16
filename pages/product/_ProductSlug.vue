@@ -82,8 +82,8 @@
           </div>
           <div class="merch-btns">
             <BuyButton :product="product" />
-            <!-- <b-button variant="primary">Купить</b-button> -->
-            <b-button variant="outline-primary">Купить в один клик</b-button>
+            <b-button variant="outline-primary" @click="$bvModal.show('modal-buy-one-click')">Купить в один клик</b-button>
+            <BuyOneClickModal />
           </div>
         </div>
       </div>
@@ -199,6 +199,7 @@ import BuyButton from '~~/components/common/BuyButton'
 import Reviews from '~~/components/reviews/Reviews'
 import LinkMore from '~~/components/common/LinkMore'
 import { mapGetters } from 'vuex'
+import BuyOneClickModal from '~/components/modals/BuyOneClickModal'
 
 export default {
   components: {
@@ -209,7 +210,8 @@ export default {
     VueSlickCarousel,
     BuyButton,
     LinkMore,
-    Reviews
+    Reviews,
+    BuyOneClickModal
   },
   async asyncData ({ store, params, route, error }) {
     try {
