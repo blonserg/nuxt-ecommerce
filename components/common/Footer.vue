@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-2 col=sm-12">
-          <a class="footer-logo" href="#">
+          <a class="footer-logo" href="/">
             <p>Amino</p>
           </a>
         </div>
