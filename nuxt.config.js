@@ -40,7 +40,8 @@ module.exports = {
   ],
   plugins: [
     { src: '~~/plugins/vue-modal.js', mode: 'client' },
-    { src: '~~/plugins/vue-lazy-load.js' }
+    { src: '~~/plugins/vue-lazy-load.js' },
+    { src: '~~/plugins/v-mask.js'}
   ],
   modules: [
     // Doc: https://axios.nuxtjs.org/usage

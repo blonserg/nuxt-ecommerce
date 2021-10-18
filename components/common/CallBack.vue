@@ -2,7 +2,10 @@
     <div :class="`${classes}`">
         <b-form-input
             placeholder="Номер телефона"
-            v-model="phone">
+            v-model="phone"
+            :state="isPhoneValid"
+            @input="validatePhone"
+            v-mask="'+38 (###) ###-##-##'">
         </b-form-input>
         <b-button
             variant="primary"
@@ -19,7 +22,12 @@
 </template>
 
 <script>
+import {TheMask} from 'vue-the-mask'
+
 export default {
+    components: {
+        TheMask
+    },
     props: {
         classes: {
             type: String,
@@ -28,14 +36,22 @@ export default {
   data() {
     return {
         phone: '',
+          isPhoneValid: null,
         modalId: `modal-${this.$props.classes.split(' ')[0]}`, 
     }
   },
+  computed: {
+  },
   methods: {
+    validatePhone() {
+        this.isPhoneValid = this.phone.length === 19 ? true : false
+    },
     onClick() {
+        if(!this.isPhoneValid) { return this.isPhoneValid = false; }    
       const payload = {
-        phone: this.phone
+        phone: `+${this.phone.replace(/\D+/g, "")}`
       }
+      this.isPhoneValid = null;
       this.customerCallback(payload);
     },
     showModal() {

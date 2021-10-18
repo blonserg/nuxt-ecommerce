@@ -111,7 +111,7 @@
         <div class="col-md-6 col-sm-12">
           <ul class="merch-row-group">
             <li class="merch-row"
-              v-for="property in product.properties"
+              v-for="property in product.product_properties"
               :key="property.name">
               <div class="merch-row-name">
                 {{property.name}}:
@@ -213,6 +213,18 @@ export default {
     Reviews,
     BuyOneClickModal
   },
+  head () {
+    return {
+      title: this.product.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.product.pMetaDescription
+        }
+      ]
+    }
+  },
   async asyncData ({ store, params, route, error }) {
     try {
       await store.dispatch('product/getProduct', { route })
@@ -224,7 +236,30 @@ export default {
       })
     }
   },
-    computed: {
+  data() {
+    return {
+      settings: {
+        "dots": true,
+        "infinite": false,
+        "speed": 500,
+        "slidesToShow": 3,
+        "slidesToScroll": 1,
+        "initialSlide": 0,
+        "responsive": [
+        {
+          "breakpoint": 768,
+          "settings": {
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "infinite": true,
+            "dots": true
+          }
+        }
+        ]
+      }
+    }
+  },
+  computed: {
     ...mapGetters({
       product: 'product/product',
     }),
@@ -254,41 +289,6 @@ export default {
     }
   },
   methods: {
-  },
-  data() {
-    return {
-      settings: {
-        "dots": true,
-        "infinite": false,
-        "speed": 500,
-        "slidesToShow": 3,
-        "slidesToScroll": 1,
-        "initialSlide": 0,
-        "responsive": [
-        {
-          "breakpoint": 768,
-          "settings": {
-            "slidesToShow": 1,
-            "slidesToScroll": 1,
-            "infinite": true,
-            "dots": true
-          }
-        }
-        ]
-      }
-    }
-  },
-  head () {
-    return {
-      title: this.product.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.product.pMetaDescription
-        }
-      ]
-    }
   },
 }
 </script>

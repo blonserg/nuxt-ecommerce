@@ -13,9 +13,9 @@
         <span>{{product.brand}}</span>
       </div>
       <div class="product-item-raiting">
-        <b-form-rating variant="warning" :no-border="true" size="sm" class="rating-block" value="3.5" inline readonly></b-form-rating>
-        <div class="product-item-feed" v-if="product.reviews_qty">
-          (<a href="#">{{product.reviews_qty}}</a>)
+        <b-form-rating variant="warning" :no-border="true" size="sm" class="rating-block" :value="product.rating" inline readonly></b-form-rating>
+        <div class="product-item-feed" v-if="product.product_reviews_qty">
+          (<a href="#">{{product.product_reviews_qty}}</a>)
         </div>
       </div>
       <div class="product-item-price">
