@@ -80,9 +80,16 @@ export const actions = {
     },
     async fetchProductsWithFilters({commit, dispatch}, payload) {
         try {
-            const url = APPLIED_FILTERS_URL + payload.query;
+            const url = APPLIED_FILTERS_URL + payload.query + `&page=${payload.page || 1}`;
             const response = await this.$axios.$get(url);
 
+            const pagination = {
+                currentPage: payload.page || 1,
+                count: response.count ? response.count : null,
+                next: response.next ? response.next : null,
+                previous: response.previous ? response.previous : null,
+            };
+            commit('SET_PAGE_PAGINATION', pagination , {root: true})
             commit('category/SET_CATEGORY_PRODUCTS', response.results, { root: true });
         } catch(err) {
             console.error(err);

@@ -6,7 +6,6 @@ export const state = () => ({
     article: {},
     categories: [],
     categoryArticles: [],
-    pagination: {}
 })
 
 export const mutations = {
@@ -23,19 +22,6 @@ export const mutations = {
     SET_BLOG_CATEGORY_ARTICLES(state, articles) {
         state.categoryArticles = articles;
     },
-    SET_BLOG_PAGINATION(state, data) {
-        const pagination = {
-            currentPage: data.currentPage,
-            rows: data.count,
-            next: data.next,
-            previous: data.previous,
-            perPage: 3,
-        }
-        state.pagination = pagination;
-    },
-    UPDATE_CURRENT_PAGE(state, currentPage) {
-        state.pagination.currentPage = currentPage;
-    }
 }
 
 export const actions = {
@@ -56,7 +42,7 @@ export const actions = {
         };
 
         commit('SET_BLOG_CATEGORY_ARTICLES', articles);
-        commit('SET_BLOG_PAGINATION', pagination);
+        commit('SET_PAGE_PAGINATION', pagination, {root: true});
 
     },
     async fetchArticle({commit}, payload) {
@@ -73,5 +59,4 @@ export const getters = {
     article: state => state.article,
     categories: state => state.categories,
     categoryArticles: state => state.categoryArticles,
-    pagination: state => state.pagination
 }

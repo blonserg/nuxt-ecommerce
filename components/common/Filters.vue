@@ -112,7 +112,7 @@ export default {
             const query = prepareFilterQueries(this.formData);
             // todo: implement adding query params to url
             // this.$router.push(query);
-            this.$store.dispatch('filters/fetchProductsWithFilters', { query });
+            this.$store.dispatch('filters/fetchProductsWithFilters', { query, page: 1 });
         }, 1000),
         changeHandler() {
             this.$refs.submitButton.click();

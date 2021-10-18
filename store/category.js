@@ -4,7 +4,6 @@ const CATEGORY_PRODUCTS_URL = 'https://aminostore.com.ua/api/category/';
 export const state = () => ({
     currentCategory: {},
     categoryProducts: [],
-    pagination: null,
 })
 
 export const mutations = {
@@ -12,7 +11,7 @@ export const mutations = {
         const products = data.map((product) => {
             return {
                 ...product,
-                image: `https://aminostore.com.ua/media/${product.image}`
+                image: product.image ? `https://aminostore.com.ua/media/${product.image}` : ''
             };
         });
         state.categoryProducts = products
@@ -27,12 +26,19 @@ export const mutations = {
 }
 
 export const actions = {
-    async getCategoryProducts({commit, dispatch}, { route }) {
+    async getCategoryProducts({commit, dispatch}, { route, page }) {
         try {
             const url = CATEGORY_PRODUCTS_URL + route.params.CategorySlug
             const response = await this.$axios.$get(url)
             const crumbs = prepareBreadcrumbsData('category', route, response);
-
+            console.log(response);
+            const pagination = {
+                currentPage: page || 1,
+                count: response.count ? response.count : null,
+                next: response.next ? response.next : null,
+                previous: response.previous ? response.previous : null,
+            };
+            commit('SET_PAGE_PAGINATION', pagination ,{root: true})
             commit('SET_CATEGORY_PRODUCTS', response.products)
             commit('SET_CURRENT_CATEGORY', response)
             dispatch('setBreadcrumbs', crumbs, { root: true } )

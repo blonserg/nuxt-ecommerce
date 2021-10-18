@@ -93,20 +93,20 @@ export default {
         ...mapGetters({
             categories: 'blog/categories',
             categoryArticles: 'blog/categoryArticles',
-            pagination: 'blog/pagination',
+            pagination: 'pagination',
         }),
         currentPage: {
             get () {
-                return this.$store.state.blog.pagination.currentPage
+                return this.$store.state.pagination.currentPage
             },
             set (value) {
-                this.$store.commit('blog/UPDATE_CURRENT_PAGE', value)
+                this.$store.commit('UPDATE_CURRENT_PAGE', value)
             }
         }
     },
     methods: {
         ...mapMutations({
-            updateCurrentPage: 'blog/UPDATE_CURRENT_PAGE'
+            updateCurrentPage: 'UPDATE_CURRENT_PAGE'
         }),
         openArticle(slug) {
             this.$router.push(`blog/${slug}`);

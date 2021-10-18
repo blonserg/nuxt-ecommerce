@@ -47,7 +47,7 @@ import ProductBrief from '~~/components/category/ProductBrief'
 import LinkMore from '~~/components/common/LinkMore'
 import Filters from '~~/components/common/Filters'
 
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters, mapMutations } from 'vuex'
 export default {
   components: {
     ProductBrief,
@@ -57,7 +57,7 @@ export default {
   async asyncData ({ store, params, route, error }) {
     try {
       await store.dispatch('filters/fetchFilters', {route});
-      await store.dispatch('category/getCategoryProducts', { route });
+      await store.dispatch('category/getCategoryProducts', { route, page: 1 });
     } catch (err) {
       console.error(err);
       return error({
@@ -73,15 +73,34 @@ export default {
     })
   },
   computed: {
-    ...mapState({
-      category: 'currentCategory',
+      ...mapState({
+        category: 'currentCategory',
+      }),
+      ...mapGetters({
+        category: 'category/category',
+        products: 'category/categoryProducts',
+        filterOptions: 'filters/filters',
+        pagination: 'pagination',
+      }),
+      currentPage: {
+        get () {
+          return this.$store.state.pagination.currentPage;
+        },
+        set (value) {
+          this.updateCurrentPage(value)
+        }
+      },
+  },
+  methods: {
+    ...mapMutations({
+        updateCurrentPage: 'UPDATE_CURRENT_PAGE'
     }),
-    ...mapGetters({
-      category: 'category/category',
-      products: 'category/categoryProducts',
-      pagination: 'category/pagination',
-      filterOptions: 'filters/filters',
-    }),
+    onPaginationChange(page) {
+      const query = this.$route.query
+      this.$router.push({query: {...query, page: page}})
+      this.updateCurrentPage(page);
+      this.$store.dispatch('category/getCategoryProducts', { route: this.$route, ...query, page: page });
+    },
   },
   head () {
     return {
@@ -93,12 +112,6 @@ export default {
           content: this.category.cMetaDescription
         }
       ]
-    }
-  },
-  data() {
-    return {
-      rows: 100,
-      currentPage: 1
     }
   },
 }

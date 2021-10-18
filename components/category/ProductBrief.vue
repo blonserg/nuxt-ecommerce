@@ -20,7 +20,7 @@
       </div>
       <div class="product-item-price">
         <!-- todo: refactor by using Product Price Component -->
-        <ProductPrice :price="{pPrice: 1800}"/>
+        <ProductPrice :price="{pPrice: product.price}"/>
       </div>
     </div>
   </div>

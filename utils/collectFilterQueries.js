@@ -1,6 +1,9 @@
 // todo: refactor or delete
 export default function collectFilterQueries ({query, filters}) {
   let filterQueries = [];
+  if(!filters) {
+    filterQueries;
+  }
   for (const [key, value] of Object.entries(query)) {
     filters.forEach((filter) => {
         if(filter.slug === key) {

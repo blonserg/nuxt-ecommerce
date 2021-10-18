@@ -9,7 +9,8 @@ export const state = () => ({
     alsoBuyProducts: [],
     interestingProducts: []
   },
-  breadcrumbs: []
+  breadcrumbs: [],
+  pagination: [],
 })
 export const mutations = {
   SET_CATEGORIES_LIST (state, categories) {
@@ -26,8 +27,23 @@ export const mutations = {
   },
   RESET_BREADCRUMBS (state) {
     state.breadcrumbs = []
-  }
-
+  },
+  SET_PAGE_PAGINATION(state, data) {
+    const pagination = {
+        currentPage: data.currentPage,
+        rows: data.count,
+        next: data.next,
+        previous: data.previous,
+        perPage: 3,
+    }
+    state.pagination = pagination;
+  },
+  RESET_PAGINATION(state) {
+    state.pagination = []
+  },
+  UPDATE_CURRENT_PAGE(state, currentPage) {
+    state.pagination.currentPage = currentPage
+  },
 }
 export const actions = {
   async getProductsListRandom ({ commit }) {
@@ -59,7 +75,6 @@ export const actions = {
 
 }
 export const getters = {
-  breadcrumbs: state => {
-    return state.breadcrumbs
-  }
+  breadcrumbs: state => state.breadcrumbs,
+  pagination: state => state.pagination
 }
