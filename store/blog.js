@@ -1,3 +1,5 @@
+import prepareBreadcrumbsData from "~/utils/prepareBreadcrumbsData"
+
 const ARTICLE_URL = 'https://aminostore.com.ua/api/article/'
 const BLOG_CATEGORIES_URL = 'https://aminostore.com.ua/api/blog-categories/'
 const BLOG_CATEGORY_ARTICLES_URL = 'https://aminostore.com.ua/api/articles/'
@@ -30,7 +32,7 @@ export const actions = {
 
         commit('SET_BLOG_CATEGORIES', response);
     },
-    async fetchCategoryArticles ({commit}, payload) {
+    async fetchCategoryArticles ({commit, dispatch}, payload) {
         const url = `${BLOG_CATEGORY_ARTICLES_URL}?category=${payload.category || ''}&page=${payload.page || 1}`
         const response = await this.$axios.$get(url)
         const articles = response.results;
@@ -40,10 +42,11 @@ export const actions = {
             next: response.next,
             previous: response.previous,
         };
+        const crumbs = prepareBreadcrumbsData('blog', null, {title: 'Статьи', slug: 'blog'});
 
         commit('SET_BLOG_CATEGORY_ARTICLES', articles);
         commit('SET_PAGE_PAGINATION', pagination, {root: true});
-
+        dispatch('setBreadcrumbs', crumbs, { root: true } )
     },
     async fetchArticle({commit}, payload) {
         const url = ARTICLE_URL + payload.slug;

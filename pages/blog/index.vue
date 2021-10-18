@@ -1,15 +1,6 @@
 <template>
     <div>
         <div class="container">
-            <div class="breadcrumbs">
-                <ul>
-                    <li>
-                    <a href="/">Main</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="container">
             <div class="group">
                 <div class="group-left">
                     <div class="group-ttl">

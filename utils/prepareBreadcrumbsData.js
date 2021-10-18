@@ -20,9 +20,13 @@ export default function prepareBreadcrumbsData (pageType, route, data) {
           title: data.title.toUpperCase(),
           url: `/product/${data.slug}`
         })
-  
         break
-  
+        case 'blog':
+          crumbs.push({
+            title: data.title.toUpperCase(),
+            url: data.slug
+          })
+          break
       default:
         break
     }
