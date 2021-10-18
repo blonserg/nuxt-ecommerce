@@ -31,9 +31,8 @@ export const actions = {
         try {
             const url = CATEGORY_PRODUCTS_URL + route.params.CategorySlug
             const response = await this.$axios.$get(url)
-            
             const crumbs = prepareBreadcrumbsData('category', route, response);
-    
+
             commit('SET_CATEGORY_PRODUCTS', response.products)
             commit('SET_CURRENT_CATEGORY', response)
             dispatch('setBreadcrumbs', crumbs, { root: true } )

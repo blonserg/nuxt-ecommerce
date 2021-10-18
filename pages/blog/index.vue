@@ -73,7 +73,6 @@
 <script>
 import { mapState, mapActions, mapGetters, mapMutations } from 'vuex'
 import formatDate from '../../utils/formatDate'
-import { isEmpty } from 'lodash'
 
 export default {
     components: {
@@ -84,8 +83,8 @@ export default {
             page: route.query.page ? route.query.page : null
         };
 
-        await store.dispatch('blog/fetchCategories')
-        await store.dispatch('blog/fetchCategoryArticles', params)
+        await store.dispatch('blog/fetchCategories');
+        await store.dispatch('blog/fetchCategoryArticles', params);
     },
     data: () => ({
         pageTitle: 'Статьи',

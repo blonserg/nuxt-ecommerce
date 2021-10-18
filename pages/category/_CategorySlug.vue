@@ -18,7 +18,7 @@
     <div class="merch-hr merch-hr--plp"></div>
     <div class="row">
       <div class="col-md-3 col-sm-12">
-        <Filters />
+        <Filters :filters="filterOptions" />
       </div>
       <div class="col-md-9 col-sm-12">
         <b-row class="plp-gutters">
@@ -56,14 +56,21 @@ export default {
   },
   async asyncData ({ store, params, route, error }) {
     try {
-      await store.dispatch('category/getCategoryProducts', { route })
+      await store.dispatch('filters/fetchFilters', {route});
+      await store.dispatch('category/getCategoryProducts', { route });
     } catch (err) {
-      console.log(err)
+      console.error(err);
       return error({
         statusCode: 404,
         message: 'Категория не найдена или сервер не доступен'
       })
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+      setTimeout(() => this.$nuxt.$loading.finish(), 5000)
+    })
   },
   computed: {
     ...mapState({
@@ -73,6 +80,7 @@ export default {
       category: 'category/category',
       products: 'category/categoryProducts',
       pagination: 'category/pagination',
+      filterOptions: 'filters/filters',
     }),
   },
   head () {
@@ -92,12 +100,6 @@ export default {
       rows: 100,
       currentPage: 1
     }
-  },
-  mounted() {
-    this.$nextTick(() => {
-      this.$nuxt.$loading.start()
-      setTimeout(() => this.$nuxt.$loading.finish(), 5000)
-    })
   },
 }
 </script>
