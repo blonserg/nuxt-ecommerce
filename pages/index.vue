@@ -15,7 +15,6 @@ export default {
     try {
       await store.dispatch('getCategoriesList')
     } catch (err) {
-      console.log(err)
       return error({
         statusCode: 404,
         message: 'Категории не найдены или сервер не доступен'

@@ -9,7 +9,8 @@
             </n-link>
             <Nav
               class="d-none d-md-block navigation"
-              :navigation-data="navData"
+              :navigation-data="menu"
+              :subnav="submenu"
               :is-opened-nav="isOpenedNavigation"
             />
             <SearchBox
@@ -30,7 +31,10 @@
               @change="onToggleMobileNavigation"
             >
               <div class="header-sidebar">
-                <Nav :navigation-data="navData" :is-opened-nav="isOpenedNavigation" />
+                <Nav
+                  :navigation-data="menu"
+                  :subnav="submenu"
+                  :is-opened-nav="isOpenedNavigation" />
               </div>
             </b-sidebar>
           </div>
@@ -44,7 +48,7 @@
 import CartButton from '~~/components/header/CartButton'
 import SearchBox from '~~/components/common/SearchBox'
 import Nav from '~~/components/common/Nav'
-
+import { mapGetters } from 'vuex'
 export default {
   components: {
     CartButton,
@@ -108,6 +112,12 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    ...mapGetters({
+      menu: 'topNav',
+      submenu: 'submenu'
+    })
   },
   methods: {
     onToggleMobileNavigation (visible) {

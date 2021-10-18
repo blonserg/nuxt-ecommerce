@@ -102,9 +102,9 @@ export const actions = {
                 phone: customer.phone
             }
             this.$axios.$post(REQUEST_CALL_URL, data)
-            .then((response) => {
-                console.log(response);
-            })
+                .then((response) => {
+                    console.log(response);
+                })
             .catch((err) => {
                 throw new Error(err);
             });

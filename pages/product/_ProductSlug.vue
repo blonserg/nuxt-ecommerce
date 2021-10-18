@@ -217,7 +217,7 @@ export default {
     try {
       await store.dispatch('product/getProduct', { route })
     } catch (err) {
-      console.log(err)
+      console.error(err);
       return error({
         statusCode: 404,
         message: 'Товар не найден или сервер не доступен'

@@ -1,8 +1,11 @@
 // function for Mock API
 import mock from '../utils/mockServer'
+const INIT_URL = 'https://aminostore.com.ua/api/init/'
+const CATEGORIES_URL = 'https://aminostore.com.ua/api/category/'
 
 const sleep = m => new Promise(r => setTimeout(r, m))
 export const state = () => ({
+  pageData: {},
   categoriesList: [],
   currentCategory: {},
   currentProduct: {
@@ -13,6 +16,10 @@ export const state = () => ({
   pagination: [],
 })
 export const mutations = {
+  SET_PAGE_DATA(state, {pageData, submenu}) {
+    state.pageData = pageData
+    state.pageData.submenu = submenu;
+  },
   SET_CATEGORIES_LIST (state, categories) {
     state.categoriesList = categories
   },
@@ -46,6 +53,19 @@ export const mutations = {
   },
 }
 export const actions = {
+  async nuxtServerInit({ dispatch }) {
+    await dispatch('fetchPageData')
+  },
+  async fetchPageData({commit}) {
+    return Promise.all([this.$axios.$get(INIT_URL), this.$axios.$get(CATEGORIES_URL)])
+    .then(([pageData, submenu]) => {
+
+      commit('SET_PAGE_DATA', {pageData, submenu});
+    })
+    .catch(error => { 
+      console.error(error)
+    });
+  },
   async getProductsListRandom ({ commit }) {
     // simulate api work
     await sleep(50)
@@ -76,5 +96,10 @@ export const actions = {
 }
 export const getters = {
   breadcrumbs: state => state.breadcrumbs,
-  pagination: state => state.pagination
+  pagination: state => state.pagination,
+  topNav: state => state.pageData.top_menu,
+  submenu: state => state.pageData.submenu,
+  footerNav: state => state.pageData.bottom_menu,
+  pageConfigs: state => state.pageData.params,
+  seoTools: state => state.pageData.counters_and_builtins
 }

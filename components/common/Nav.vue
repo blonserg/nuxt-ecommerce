@@ -2,17 +2,17 @@
   <nav>
     <ul class="nav navigation">
       <li
-        v-for="navItem in navigationData"
-        :key="navItem.id"
+        v-for="(navItem, idx) in navigationData"
+        :key="navItem.slug"
         class="nav-item navigation-item"
       >
         <!-- Navigation item with dropdown -->
         <nuxt-link
-          v-if="navItem.items"
-          :to="navItem.url"
+          v-if="idx === 0"
+          :to="`/${navItem.slug}`"
           class="nav-link navigation-link has-sub"
           active-class="active"
-          @click="handleDropdown($event, `${navItem.id}-dropdown`)"
+          @click="handleDropdown($event, `${navItem.slug}-dropdown`)"
         >
           {{ navItem.title }}
           <span class="navigation-item-arrow"><svg
@@ -71,9 +71,10 @@
         </nuxt-link>
         <!-- EO Navigation item with dropdown -->
         <!-- Navigation item without dropdown -->
+
         <nuxt-link
           v-else
-          :to="navItem.url"
+          :to="`${navItem.slug}`"
           class="nav-link navigation-link"
           active-class="active"
         >
@@ -99,11 +100,11 @@
         <!-- EO Navigation item without dropdown -->
         <!-- Navigation dropdown content -->
         <NavDropdown
-          v-if="navItem.items"
-          :id="`${navItem.id}-dropdown`"
-          :dropdown-data="navItem.items"
-          :current-dropdown-id="`${navItem.id}-dropdown`"
-          :is-expanded-dropdown="expandedDropdown === `${navItem.id}-dropdown`"
+          v-if="idx === 0"
+          :id="`${navItem.slug}-dropdown`"
+          :dropdown-data="subnav"
+          :current-dropdown-id="`${navItem.slug}-dropdown`"
+          :is-expanded-dropdown="expandedDropdown === `${navItem.slug}-dropdown`"
           :expanded-sublist="expandedSublist"
           @hideDropdownNav="collapseDropdown"
           @hideSublistNav="collapseSublist"
@@ -126,6 +127,9 @@ export default {
     navigationData: {
       type: Array,
       required: true
+    },
+    subnav: {
+      type: Array,
     },
     isOpenedNav: {
       type: Boolean

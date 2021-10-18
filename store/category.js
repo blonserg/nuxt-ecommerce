@@ -31,7 +31,6 @@ export const actions = {
             const url = CATEGORY_PRODUCTS_URL + route.params.CategorySlug
             const response = await this.$axios.$get(url)
             const crumbs = prepareBreadcrumbsData('category', route, response);
-            console.log(response);
             const pagination = {
                 currentPage: page || 1,
                 count: response.count ? response.count : null,

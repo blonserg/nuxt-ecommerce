@@ -1,9 +1,9 @@
 <template>
   <div class="navigation-dropdown" :class="{ active: isExpandedDropdown }">
     <div class="navigation-dropdown-inner">
-      <a
+      <nuxt-link
         class="navigation-dropdown-back"
-        href=""
+        to="/back"
         aria-role="button"
         title="back"
         @click="hideDropdown"
@@ -23,7 +23,7 @@
             stroke-linejoin="round"
           />
         </svg></span>
-      </span>Назад</a>
+      </span>Назад</nuxt-link>
       <ul class="navigation-dropdown-list row">
         <li
           v-for="item in dropdownData"
@@ -31,9 +31,9 @@
           class="navigation-dropdown-list-item col"
         >
           <!-- Navigation dropdown item with dropdown -->
-          <a
-            v-if="item.items"
-            :href="item.url"
+          <nuxt-link
+            v-if="item.sub_categories"
+            :to="`/category/${item.slug}`"
             class="navigation-dropdown-link"
             @click="toggleSublist($event, `${currentDropdownId}-${item.id}-sublist`)"
           >
@@ -54,12 +54,12 @@
                 />
               </svg></span>
             </span>
-          </a>
+          </nuxt-link>
           <!-- EO Navigation dropdown item with dropdown -->
           <!-- Navigation dropdown item without dropdown -->
-          <a
+          <nuxt-link
             v-else
-            :href="item.url"
+            :to="`/category/${item.slug}`"
             class="navigation-dropdown-link"
           >
             {{ item.title }}
@@ -78,7 +78,7 @@
                 stroke-linejoin="round"
               />
             </svg></span>
-          </a>
+          </nuxt-link>
           <!-- EO Navigation dropdown item without dropdown -->
           <!-- Navigation sublist content -->
           <div
@@ -86,9 +86,9 @@
             class="navigation-dropdown-anchestor"
             :class="{ active: expandedSublist === `${currentDropdownId}-${item.id}-sublist`}"
           >
-            <a
+            <nuxt-link
               class="navigation-dropdown-back"
-              href=""
+              to="/back"
               aria-role="button"
               title="back"
               @click="hideSublist"
@@ -106,18 +106,18 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
-            </svg></span>Назад</a>
+            </svg></span>Назад</nuxt-link>
             <span class="nav-link-ttl d-block d-md-none col">{{ item.title }}</span>
             <ul
-              v-if="item.items"
+              v-if="item.sub_categories"
               class="navigation-dropdown-sublist"
             >
               <li
-                v-for="sublistItem in item.items"
+                v-for="sublistItem in item.sub_categories"
                 :key="sublistItem.id"
                 class="nav-item"
               >
-                <a class="nav-link" :href="sublistItem.url">
+                <nuxt-link class="nav-link" :to="`/category/${sublistItem.slug}`">
                   {{ sublistItem.title }}
                   <span class="navigation-item-arrow"><svg
                     width="8"
@@ -134,7 +134,7 @@
                       stroke-linejoin="round"
                     />
                   </svg></span>
-                </a>
+                </nuxt-link>
               </li>
             </ul>
           </div>
@@ -148,7 +148,8 @@
 export default {
   props: {
     dropdownData: {
-      type: Array,
+      type: [Array],
+      default: function() { return []; },
       required: true
     },
     isExpandedDropdown: {
