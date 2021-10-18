@@ -24,7 +24,6 @@
 <script>
 export default {
     components: {
-        TheMask
     },
     props: {
         classes: {
