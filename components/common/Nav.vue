@@ -74,7 +74,7 @@
 
         <nuxt-link
           v-else
-          :to="`${navItem.slug}`"
+          :to="`/category/${navItem.slug}`"
           class="nav-link navigation-link"
           active-class="active"
         >
@@ -121,45 +121,43 @@ import NavDropdown from '~~/components/common/NavDropdown'
 
 export default {
   components: {
-    NavDropdown
+    NavDropdown,
   },
   props: {
     navigationData: {
       type: Array,
-      required: true
+      required: true,
     },
     subnav: {
       type: Array,
     },
     isOpenedNav: {
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
-  data () {
+  data() {
     return {
       expandedDropdown: '',
-      expandedSublist: ''
+      expandedSublist: '',
     }
   },
-  computed: {
-  },
+  computed: {},
   watch: {
-      	isOpenedNav: function (newVal) {
+    isOpenedNav: function (newVal) {
       if (!newVal) {
-        this.expandedDropdown = '',
-        this.expandedSublist = ''
+        ;(this.expandedDropdown = ''), (this.expandedSublist = '')
       }
-    }
+    },
   },
   methods: {
-    collapseDropdown () {
+    collapseDropdown() {
       this.expandedSublist = ''
       this.expandedDropdown = ''
     },
-    collapseSublist () {
+    collapseSublist() {
       this.expandedSublist = ''
     },
-    handleDropdown (e, dropdownId) {
+    handleDropdown(e, dropdownId) {
       if (!this.$breakpoints.lMd) {
         e.preventDefault()
         if (this.expandedDropdown !== dropdownId) {
@@ -169,7 +167,7 @@ export default {
         }
       }
     },
-    handleSublist (e, sublistId) {
+    handleSublist(e, sublistId) {
       if (!this.$breakpoints.lMd) {
         e.preventDefault()
         if (this.expandedSublist !== sublistId) {
@@ -178,8 +176,7 @@ export default {
           this.expandedSublist = ''
         }
       }
-    }
-  }
+    },
+  },
 }
-
 </script>
