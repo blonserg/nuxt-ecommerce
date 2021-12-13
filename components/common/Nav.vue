@@ -7,7 +7,7 @@
         class="nav-item navigation-item"
       >
         <!-- Navigation item with dropdown -->
-        <nuxt-link
+        <a
           v-if="idx === 0"
           :to="`/${navItem.slug}`"
           class="nav-link navigation-link has-sub"
@@ -68,7 +68,7 @@
               />
             </svg>
           </i>
-        </nuxt-link>
+        </a>
         <!-- EO Navigation item with dropdown -->
         <!-- Navigation item without dropdown -->
 

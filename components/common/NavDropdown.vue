@@ -1,9 +1,9 @@
 <template>
   <div class="navigation-dropdown" :class="{ active: isExpandedDropdown }">
     <div class="navigation-dropdown-inner">
-      <nuxt-link
+      <a
         class="navigation-dropdown-back"
-        to="/back"
+        href="/back"
         aria-role="button"
         title="back"
         @click="hideDropdown"
@@ -23,7 +23,7 @@
             stroke-linejoin="round"
           />
         </svg></span>
-      </span>Назад</nuxt-link>
+      </span>Назад</a>
       <ul class="navigation-dropdown-list row">
         <li
           v-for="item in dropdownData"
@@ -31,9 +31,9 @@
           class="navigation-dropdown-list-item col"
         >
           <!-- Navigation dropdown item with dropdown -->
-          <nuxt-link
+          <a
             v-if="item.sub_categories"
-            :to="`/category/${item.slug}`"
+            :href="`/category/${item.slug}`"
             class="navigation-dropdown-link"
             @click="toggleSublist($event, `${currentDropdownId}-${item.id}-sublist`)"
           >
@@ -54,7 +54,7 @@
                 />
               </svg></span>
             </span>
-          </nuxt-link>
+          </a>
           <!-- EO Navigation dropdown item with dropdown -->
           <!-- Navigation dropdown item without dropdown -->
           <nuxt-link
@@ -86,9 +86,9 @@
             class="navigation-dropdown-anchestor"
             :class="{ active: expandedSublist === `${currentDropdownId}-${item.id}-sublist`}"
           >
-            <nuxt-link
+            <a
               class="navigation-dropdown-back"
-              to="/back"
+              href="/back"
               aria-role="button"
               title="back"
               @click="hideSublist"
@@ -106,7 +106,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
-            </svg></span>Назад</nuxt-link>
+            </svg></span>Назад</a>
             <span class="nav-link-ttl d-block d-md-none col">{{ item.title }}</span>
             <ul
               v-if="item.sub_categories"
@@ -149,35 +149,36 @@ export default {
   props: {
     dropdownData: {
       type: [Array],
-      default: function() { return []; },
-      required: true
+      default: function () {
+        return []
+      },
+      required: true,
     },
     isExpandedDropdown: {
-      type: Boolean
+      type: Boolean,
     },
     currentDropdownId: {
-      type: String
+      type: String,
     },
     expandedSublist: {
-      type: String
-    }
+      type: String,
+    },
   },
-  data () {
-    return {
-    }
+  data() {
+    return {}
   },
   methods: {
-    hideDropdown (e) {
+    hideDropdown(e) {
       e.preventDefault()
       this.$emit('hideDropdownNav')
     },
-    hideSublist (e) {
+    hideSublist(e) {
       e.preventDefault()
       this.$emit('hideSublistNav')
     },
-    toggleSublist (e, sublistId) {
+    toggleSublist(e, sublistId) {
       this.$emit('toggleSublist', e, sublistId)
-    }
-  }
+    },
+  },
 }
 </script>
