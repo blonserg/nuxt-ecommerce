@@ -33,7 +33,7 @@
             pills
             align="center"
             @change="onPaginationChange"
-            v-model="currentPage"
+            :value="$route.query.page || 1"
             :total-rows="pagination.rows"
             :per-page="pagination.perPage"></b-pagination>
           </div>
@@ -47,7 +47,7 @@ import ProductBrief from '~~/components/category/ProductBrief'
 import LinkMore from '~~/components/common/LinkMore'
 import Filters from '~~/components/common/Filters'
 
-import { mapState, mapGetters, mapMutations } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 export default {
   components: {
     ProductBrief,
@@ -82,23 +82,11 @@ export default {
         filterOptions: 'filters/filters',
         pagination: 'pagination',
       }),
-      currentPage: {
-        get () {
-          return this.$store.state.pagination.currentPage;
-        },
-        set (value) {
-          this.updateCurrentPage(value)
-        }
-      },
   },
   methods: {
-    ...mapMutations({
-        updateCurrentPage: 'UPDATE_CURRENT_PAGE'
-    }),
     onPaginationChange(page) {
       const query = this.$route.query
-      this.$router.push({query: {...query, page: page}})
-      this.updateCurrentPage(page);
+      this.$router.push({ query: {...query, page: page}})
       this.$store.dispatch('category/getCategoryProducts', { route: this.$route, ...query, page: page });
     },
   },
