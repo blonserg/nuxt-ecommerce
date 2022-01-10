@@ -257,7 +257,7 @@
         <div class="group-ttl">
           Протеины
         </div>
-        <LinkMore :text="'Смотреть все'" :href="'/'" />
+        <LinkMore :text="'Смотреть все'" :href="'/category/protein'" />
       </div>
       <VueSlickCarousel v-bind="settings" class="product-carousel">
         <div class="product-item">
@@ -349,7 +349,7 @@
         <div class="group-ttl">
           Аминокислоты
         </div>
-        <LinkMore :text="'Смотреть все'" :href="'/'" />
+        <LinkMore :text="'Смотреть все'" :href="'/category/aminokisloty'" />
       </div>
       <VueSlickCarousel v-bind="settings" class="product-carousel">
         <div class="product-item">
