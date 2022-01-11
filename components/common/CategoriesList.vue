@@ -8,11 +8,16 @@
         :lazy-load="ondemand"
         :autoplay-speed="6000"
         :dots="true"
+        class="main-carousel"
       >
         <div class="hero-main">
           <picture class="hero-main-img">
-            <source srcset="@/assets/png/hero-screen-mob.png" media="(max-width: 768px)" />
-            <img src="@/assets/png/hero.png" alt="" />
+            <source srcset="@/assets/png/hero-screen-mob.png" media="(max-width: 468px)" />
+            <img
+              src="@/assets/png/hero.png"
+              class="hero-main-picture"
+              alt=""
+            />
           </picture>
           <div class="container">
             <div class="row">
@@ -54,8 +59,12 @@
         </div>
         <div class="hero-main">
           <picture class="hero-main-img">
-            <source srcset="@/assets/png/hero-screen-mob.png" media="(max-width: 768px)" />
-            <img src="@/assets/png/hero.png" alt="" />
+            <source srcset="@/assets/png/hero-screen-mob.png" media="(max-width: 468px)" />
+            <img
+              src="@/assets/png/hero.png"
+              class="hero-main-picture"
+              alt=""
+            />
           </picture>
           <div class="container">
             <div class="row">
@@ -463,7 +472,7 @@ export default {
     VueSlickCarousel,
     ProductPrice,
     LinkMore,
-    CallBack,
+    CallBack
   },
   props: {
     categories: {
@@ -511,3 +520,24 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.hero-main-picture {
+  width: 100%;
+  object-fit: cover;
+  height: 660px;
+  @media (min-width: 769px) {
+    height: 100%;
+  }
+}
+</style>
+
+<style lang="scss">
+// top main slider
+.main-carousel {
+  .slick-next {
+    right: 25px;
+    display: none !important;
+  }
+}
+</style>
