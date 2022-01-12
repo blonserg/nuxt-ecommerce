@@ -25,13 +25,21 @@
         <div class="col-sm-4 col-lg-3 col-xl-3">
           <div class="checkout-input">
             <label for="name">Имя*</label>
-            <b-form-input id="name" placeholder="Ваше имя" />
+            <b-form-input
+              id="name"
+              v-model="name"
+              placeholder="Ваше имя"
+            />
           </div>
         </div>
         <div class="col-sm-4 col-lg-3 col-xl-3">
           <div class="checkout-input">
             <label for="surname">Фамилия*</label>
-            <b-form-input id="surname" placeholder="Ваше фамилия" />
+            <b-form-input
+              id="surname"
+              v-model="surname"
+              placeholder="Ваше фамилия"
+            />
           </div>
         </div>
         <div class="offset-sm-4 col-sm-8 offset-lg-0 col-lg-4 col-xl-3">
@@ -48,6 +56,7 @@
                 phoneNumberLabel: 'Номер телефона',
                 example: 'Пример :'
               }"
+              @update="changeNumber"
             />
             <!-- <b-form-input class="checkout-input=code" id="codephone">+380</b-form-input>
                         <b-form-input id="phone"></b-form-input> -->
@@ -94,10 +103,14 @@
       </div>
       <div class="merch-hr"></div>
       <div class="checkout-checkbox">
-        <Checkbox title="Перезвонить для подтверждения заказа" />
+        <Checkbox v-model="isCallMe" title="Перезвонить для подтверждения заказа" />
       </div>
       <div class="checkout-btns">
-        <b-button variant="primary">
+        <b-button
+          variant="primary"
+          :disabled="!isFullForm"
+          @click="createOrder"
+        >
           Оформить заказ
         </b-button>
         <b-button variant="outline-primary" @click="$router.push('/checkout-short')">
@@ -120,10 +133,11 @@ export default {
   },
   data () {
     return {
-      selectfield: null,
-      selectcity: null,
-      selectpost: null,
       phoneNumber: null,
+      isValid: false,
+      name: '',
+      surname: '',
+      isCallMe: true,
       selectField: {
         selected: '1',
         options: [
@@ -150,6 +164,26 @@ export default {
           { text: 'Option B', value: 'b' },
           { text: 'Option C', value: 'c' }
         ]
+      }
+    }
+  },
+  computed: {
+    isFullForm () {
+      return this.isValid &&
+      this.selectField.selected !== '1' &&
+      this.selectCity.selected !== '1' &&
+      this.selectPost.selected !== '1' &&
+      this.name !== '' &&
+      this.surname !== ''
+    }
+  },
+  methods: {
+    changeNumber (e) {
+      this.isValid = e.isValid
+    },
+    createOrder () {
+      if (this.isFullForm) {
+        this.$router.push('/checkout-order/long')
       }
     }
   }

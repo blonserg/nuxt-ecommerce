@@ -79,7 +79,7 @@ export default {
     },
     createOrder () {
       if (this.isValid) {
-        this.$router.push('/checkout-order')
+        this.$router.push('/checkout-order/short')
       }
     }
   }
