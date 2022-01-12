@@ -5,9 +5,7 @@
         Спасибо, ваш заказ был успешно оформлен!
       </div>
       <div class="checkout-finish-txt">
-        {{ $router.params.id === "short" ?
-          "Наш менеджер свяжется с Вами в ближайшее время!" :
-          "Ваш заказ готов к отправке, вы получите уведомление, когда наш менеджер его отправит" }}
+        {{ finishText }}
       </div>
       <div class="checkout-finish-btn">
         <nuxt-link
@@ -22,4 +20,13 @@
 </template>
 
 <script>
+export default {
+  computed: {
+    finishText () {
+      return this.$router.currentRoute.params.id === 'short'
+        ? 'Наш менеджер свяжется с Вами в ближайшее время!'
+        : 'Ваш заказ готов к отправке, вы получите уведомление, когда наш менеджер его отправит'
+    }
+  }
+}
 </script>
