@@ -1,7 +1,7 @@
 // function for Mock API
 import mock from '../utils/mockServer'
 const INIT_URL = 'https://aminostore.com.ua/api/init/'
-const CATEGORIES_URL = 'https://aminostore.com.ua/api/category/'
+const CATEGORIES_URL = 'https://aminostore.com.ua/api/categories/'
 
 const sleep = m => new Promise(r => setTimeout(r, m))
 export const state = () => ({
@@ -13,12 +13,12 @@ export const state = () => ({
     interestingProducts: []
   },
   breadcrumbs: [],
-  pagination: [],
+  pagination: []
 })
 export const mutations = {
-  SET_PAGE_DATA(state, {pageData, submenu}) {
+  SET_PAGE_DATA (state, { pageData, submenu }) {
     state.pageData = pageData
-    state.pageData.submenu = submenu;
+    state.pageData.submenu = submenu
   },
   SET_CATEGORIES_LIST (state, categories) {
     state.categoriesList = categories
@@ -35,36 +35,35 @@ export const mutations = {
   RESET_BREADCRUMBS (state) {
     state.breadcrumbs = []
   },
-  SET_PAGE_PAGINATION(state, data) {
+  SET_PAGE_PAGINATION (state, data) {
     const pagination = {
-        currentPage: data.currentPage,
-        rows: data.count,
-        next: data.next,
-        previous: data.previous,
-        perPage: 3,
+      currentPage: data.currentPage,
+      rows: data.count,
+      next: data.next,
+      previous: data.previous,
+      perPage: 3
     }
-    state.pagination = pagination;
+    state.pagination = pagination
   },
-  RESET_PAGINATION(state) {
+  RESET_PAGINATION (state) {
     state.pagination = []
   },
-  UPDATE_CURRENT_PAGE(state, currentPage) {
+  UPDATE_CURRENT_PAGE (state, currentPage) {
     state.pagination.currentPage = currentPage
-  },
+  }
 }
 export const actions = {
-  async nuxtServerInit({ dispatch }) {
+  async nuxtServerInit ({ dispatch }) {
     await dispatch('fetchPageData')
   },
-  async fetchPageData({commit}) {
+  async fetchPageData ({ commit }) {
     return Promise.all([this.$axios.$get(INIT_URL), this.$axios.$get(CATEGORIES_URL)])
-    .then(([pageData, submenu]) => {
-
-      commit('SET_PAGE_DATA', {pageData, submenu});
-    })
-    .catch(error => { 
-      console.error(error)
-    });
+      .then(([pageData, submenu]) => {
+        commit('SET_PAGE_DATA', { pageData, submenu })
+      })
+      .catch(error => {
+        console.error(error)
+      })
   },
   async getProductsListRandom ({ commit }) {
     // simulate api work
@@ -91,7 +90,7 @@ export const actions = {
       console.log(err)
       throw new Error('Внутреняя ошибка сервера, сообщите администратору')
     }
-  },
+  }
 
 }
 export const getters = {

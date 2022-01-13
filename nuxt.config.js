@@ -41,7 +41,7 @@ module.exports = {
   plugins: [
     { src: '~~/plugins/vue-modal.js', mode: 'client' },
     { src: '~~/plugins/vue-lazy-load.js' },
-    { src: '~~/plugins/v-mask.js'}
+    { src: '~~/plugins/v-mask.js' }
   ],
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
@@ -128,16 +128,16 @@ module.exports = {
       commons: true
     },
     babel: {
-      presets({isServer}) {
+      presets ({ isServer }) {
         const targets = isServer ? { node: 'current' } : { ie: 11 }
         return [
-          [ require.resolve("@babel/preset-env"), { targets }  ]
+          [require.resolve('@babel/preset-env'), { targets }]
         ]
       },
       plugins: [
-        "@babel/syntax-dynamic-import",
-        "@babel/transform-runtime",
-        "@babel/transform-async-to-generator"
+        '@babel/syntax-dynamic-import',
+        '@babel/transform-runtime',
+        '@babel/transform-async-to-generator'
       ]
     },
     optimization: {
@@ -148,7 +148,7 @@ module.exports = {
         ignoreOrder: true
       }
     }),
-    transpile: ['vue-lazy-hydration', 'intersection-observer', ({ isServer }) => 'vue-typeahead-bootstrap'],
+    transpile: ['vue-lazy-hydration', 'intersection-observer', ({ isServer }) => isServer && 'vue-typeahead-bootstrap'],
     postcss: {
       plugins: {
         ...(!isDev && {
@@ -258,5 +258,5 @@ module.exports = {
       polyfill: true,
       throttle: 200
     }
-  },
+  }
 }
