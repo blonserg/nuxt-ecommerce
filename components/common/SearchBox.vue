@@ -26,12 +26,10 @@
       v-model="query"
       class="search"
       :data="autocompleteProducts"
-      :serializer="item => item.login"
-      :min-matching-chars="minChars"
+      :serializer="item => item.title"
       placeholder="Поиск"
       highlight-class="special-highlight-class"
-      :disabled-values="(selectedProduct ? [selectedProduct.login] : [])"
-      @hit="selectedProduct = $event"
+      @hit="selectProduct"
       @input="searchProducts"
     >
       <template slot="suggestion" slot-scope="{ data, htmlText }">
@@ -39,7 +37,7 @@
           <div class="search-item-image">
             <img
               class="rounded-circle"
-              :src="data.avatar_url"
+              :src="`${url}${data.image}`"
               style="width: 20px; height: auto;"
             />
           </div>
@@ -71,6 +69,7 @@
 import ClickOutside from 'vue-click-outside'
 import VueTypeaheadBootstrap from 'vue-typeahead-bootstrap'
 import { debounce } from 'lodash'
+import { URL } from '@/utils/constants'
 
 export default {
   components: {
@@ -90,7 +89,8 @@ export default {
       query: '',
       minChars: 3,
       selectedProduct: null,
-      autocompleteProducts: []
+      autocompleteProducts: [],
+      url: URL
     }
   },
   methods: {
@@ -100,16 +100,20 @@ export default {
     onClickSarchBox (e) {
       this.$emit('onToggleSearchBox', e)
     },
+    selectProduct (e) {
+      this.$router.push(`/product/${e.slug}`)
+      this.query = ''
+    },
     searchProducts: debounce(function () {
-      const isValidQuery = this.query.replace(/ /g, '').length >= this.minChars
+      const isValidQuery = this.query.replace(/\s/g, '').length >= this.minChars
       // todo: move this logic from UI part and refactor with real data
       if (isValidQuery) {
-        fetch(`https://api.github.com/search/users?q=${this.query}`)
+        fetch(`${this.url}api/search/?q=${this.query}`)
           .then(response => {
             return response.json()
           })
           .then(data => {
-            this.autocompleteProducts = data.items
+            this.autocompleteProducts = data
           })
       }
     }, 500)
