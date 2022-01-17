@@ -95,6 +95,7 @@ export default {
   },
   methods: {
     hideSearchBox () {
+      this.query = ''
       this.$emit('onHideSearchBox')
     },
     onClickSarchBox (e) {
