@@ -5,7 +5,7 @@
         :pause-on-hover="false"
         :swipe="false"
         :autoplay="true"
-        :lazy-load="ondemand"
+        :lazy-load="'progressive'"
         :autoplay-speed="6000"
         :dots="true"
         class="main-carousel"
