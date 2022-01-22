@@ -29,8 +29,7 @@
       </div>
     </div>
     <div class="article">
-      <div class="container">
-        {{ article.text }}
+      <div class="container" v-html="article.text">
       </div>
     </div>
   </div>
