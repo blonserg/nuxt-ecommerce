@@ -57,7 +57,7 @@
       </div>
       <div v-if="pagination.rows" class="page-pagination">
         <b-pagination
-          v-model="currentPage"
+          :value="$route.query.page || 1"
           pills
           align="center"
           :total-rows="pagination.rows"
@@ -93,15 +93,7 @@ export default {
       categories: 'blog/categories',
       categoryArticles: 'blog/categoryArticles',
       pagination: 'pagination'
-    }),
-    currentPage: {
-      get () {
-        return this.$store.state.pagination.currentPage
-      },
-      set (value) {
-        this.$store.commit('UPDATE_CURRENT_PAGE', value)
-      }
-    }
+    })
   },
   methods: {
     ...mapMutations({
@@ -131,7 +123,6 @@ export default {
     onPaginationChange (page) {
       const query = this.$route.query
       this.$router.push({ query: { ...query, page: page } })
-      this.updateCurrentPage(page)
 
       this.$store.dispatch('blog/fetchCategoryArticles', { ...query, page: page })
     },
