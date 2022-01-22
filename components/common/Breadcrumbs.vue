@@ -3,9 +3,9 @@
     <div v-if="breadcrumbs && breadcrumbs.length > 0" :class="$style.breadcrumbs">
       <ul>
         <li v-for="cr in breadcrumbs" :key="cr.url">
-          <n-link :to="cr.url">
+          <a @click="golink(cr.url)">
             {{ cr.title }}
-          </n-link>
+          </a>
         </li>
       </ul>
     </div>
@@ -13,12 +13,20 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   computed: {
-        ...mapGetters({
+    ...mapGetters({
       breadcrumbs: 'breadcrumbs'
     })
+  },
+  methods: {
+    golink (pageLink) {
+      const pageUrl = pageLink === '/'
+        ? '/'
+        : `/${pageLink}`
+      this.$router.push(pageUrl)
+    }
   }
 }
 </script>
@@ -47,6 +55,7 @@ export default {
 
       a {
         color: #9EA0A1;
+        cursor: pointer;
       }
     }
 

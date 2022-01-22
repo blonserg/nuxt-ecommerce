@@ -19,7 +19,7 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <!-- <div class="container">
       <div class="breadcrumbs">
         <ul>
           <li>
@@ -27,7 +27,8 @@
           </li>
         </ul>
       </div>
-    </div>
+    </div> -->
+    <Breadcrumbs />
     <div class="article">
       <div class="container" v-html="article.text">
       </div>
@@ -39,8 +40,12 @@
 import backgroundUrl from '~/assets/png/article-main.png'
 import { mapGetters } from 'vuex'
 import formatDate from './../../utils/formatDate'
+import Breadcrumbs from '~/components/common/Breadcrumbs.vue'
 
 export default {
+  components: {
+    Breadcrumbs
+  },
   async asyncData ({ store, route }) {
     await store.dispatch('blog/fetchArticle', { slug: route.params.slug })
   },
