@@ -121,7 +121,7 @@
 import Slider from '@vueform/slider/dist/slider.vue2'
 import debounce from 'lodash.debounce'
 import prepareFilterQueries from '~/utils/prepareFilterQueries'
-import { mapMutations } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   components: {
@@ -141,6 +141,9 @@ export default {
     }
   },
   computed: {
+    ...mapState({
+      category: 'category'
+    }),
     toggleExpandingFiltersOnResize () {
       // Filters is visible by default on tablets and desktops and collapsed on mobiles by default
       return this.isVisibleFilters = this.$breakpoints.lMd
@@ -150,9 +153,14 @@ export default {
     ...mapMutations({
       updatePriceRange: 'filters/UPDATE_PRICE_RANGE_VALUE'
     }),
+    applyParams (type, value) {
+      const query = this.$route.query
+      this.$router.push({ query: { ...query, [type]: value } })
+    },
     updateSlider (value, idx, event) {
       this.formData['price-range'] = event
       this.updatePriceRange({ value: event, filterIdx: idx })
+      this.$router.push({ query: { ...this.$route.query, min_price: event[0], max_price: event[1] } })
       this.$refs.submitButton.click()
     },
     prepareInitialFormData (filters) {
@@ -166,10 +174,10 @@ export default {
     },
     submitHandler: debounce(function submitHandler (event) {
       event.preventDefault()
-      const query = prepareFilterQueries(this.formData)
+      // const query = prepareFilterQueries(this.formData)
       // todo: implement adding query params to url
       // this.$router.push(query);
-      this.$store.dispatch('filters/fetchProductsWithFilters', { query, page: 1 })
+      // this.$store.dispatch('filters/fetchProductsWithFilters', { query, page: 1, currentCategory: this.category.currentCategory.id })
     }, 1000),
     changeHandler () {
       this.$refs.submitButton.click()

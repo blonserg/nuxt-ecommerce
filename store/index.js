@@ -41,7 +41,7 @@ export const mutations = {
       rows: data.count,
       next: data.next,
       previous: data.previous,
-      perPage: 3
+      perPage: 10
     }
     state.pagination = pagination
   },

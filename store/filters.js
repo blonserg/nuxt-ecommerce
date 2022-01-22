@@ -79,7 +79,20 @@ export const actions = {
   },
   async fetchProductsWithFilters ({ commit, dispatch }, payload) {
     try {
-      const url = APPLIED_FILTERS_URL + payload.query + `&page=${payload.page || 1}`
+      const query = {
+        ordering: payload.query.ordering || 'price', page: payload.query.page || 1, ...payload.query
+      }
+      if (payload.category) {
+        query.categories = payload.category
+      }
+      let params = ''
+      let flag = true
+      // eslint-disable-next-line no-loops/no-loops
+      for (const [key, value] of Object.entries(query)) {
+        params += `${flag ? '?' : '&'}${key}=${value}`
+        flag = false
+      }
+      const url = APPLIED_FILTERS_URL + params
       const response = await this.$axios.$get(url)
 
       const pagination = {
