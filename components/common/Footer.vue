@@ -10,7 +10,6 @@
 
         <div
           v-for="(item, idx) in footerNav"
-          :key="item.id"
           class="col-6 col-md-3"
           :class="idx === 2 ? 'footer-products' : ''"
         >
@@ -21,7 +20,6 @@
             <ul class="footer-list">
               <li
                 v-for="navItem in item.results"
-                :key="navItem.id"
                 class="footer-item"
               >
                 <nuxt-link :to="`${navItem.slug}`">
