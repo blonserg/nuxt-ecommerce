@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CategoriesList :categories="categories" />
+    <CategoriesList :protein="protein" :aminokisloty="aminokisloty" />
   </div>
 </template>
 
@@ -11,9 +11,13 @@ export default {
   components: {
     CategoriesList
   },
-  async asyncData ({ app, route, params, error, store }) {
+  async asyncData ({ app, route, $axios, params, error, store }) {
     try {
       await store.dispatch('getCategoriesList')
+      const APPLIED_FILTERS_URL = 'https://aminostore.com.ua/api/products/?categories='
+      const protein = await $axios.$get(APPLIED_FILTERS_URL + '1')
+      const aminokisloty = await $axios.$get(APPLIED_FILTERS_URL + '2')
+      return { protein: protein.results, aminokisloty: aminokisloty.results }
     } catch (err) {
       return error({
         statusCode: 404,

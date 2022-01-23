@@ -172,184 +172,26 @@
     <div class="container home-widgets">
       <div class="group">
         <div class="group-ttl">
-          Акционные товары
-        </div>
-        <LinkMore :text="'Смотреть все'" :href="'/'" />
-      </div>
-      <VueSlickCarousel v-bind="settings" class="product-carousel">
-        <div class="product-item">
-          <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
-            </div>
-          </div>
-        </div>
-        <div class="product-item">
-          <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{ pPrice: 1800 }" />
-            </div>
-          </div>
-        </div>
-        <div class="product-item">
-          <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{ pPricePromo: 1800 }" />
-            </div>
-          </div>
-        </div>
-        <div class="product-item">
-          <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
-            </div>
-          </div>
-        </div>
-        <div class="product-item">
-          <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
-            </div>
-          </div>
-        </div>
-        <div class="product-item">
-          <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
-            </div>
-          </div>
-        </div>
-      </VueSlickCarousel>
-      <div class="group">
-        <div class="group-ttl">
           Протеины
         </div>
         <LinkMore :text="'Смотреть все'" :href="'/category/protein'" />
       </div>
       <VueSlickCarousel v-bind="settings" class="product-carousel">
-        <div class="product-item">
+        <div
+          v-for="el in protein"
+          class="product-item"
+          @click="$router.push('/product/' + el.slug)"
+        >
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
+            <img :src="'https://aminostore.com.ua/' + el.image" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
+              {{ el.title }}
+              <span>{{ el.brand }}</span>
             </div>
             <div class="product-item-price">
-              <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
-            </div>
-          </div>
-        </div>
-        <div class="product-item">
-          <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{ pPrice: 1800 }" />
-            </div>
-          </div>
-        </div>
-        <div class="product-item">
-          <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{ pPricePromo: 1800 }" />
-            </div>
-          </div>
-        </div>
-        <div class="product-item">
-          <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
-            </div>
-          </div>
-        </div>
-        <div class="product-item">
-          <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
-            </div>
-          </div>
-        </div>
-        <div class="product-item">
-          <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
+              <ProductPrice :price="{pPrice: el.price, pPriceOld: el.regular_price}" />
             </div>
           </div>
         </div>
@@ -361,87 +203,21 @@
         <LinkMore :text="'Смотреть все'" :href="'/category/aminokisloty'" />
       </div>
       <VueSlickCarousel v-bind="settings" class="product-carousel">
-        <div class="product-item">
+        <div
+          v-for="el in aminokisloty"
+          class="product-item"
+          @click="$router.push('/product/' + el.slug)"
+        >
           <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
+            <img :src="'https://aminostore.com.ua/' + el.image" alt="" />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
+              {{ el.title }}
+              <span>{{ el.brand }}</span>
             </div>
             <div class="product-item-price">
-              <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
-            </div>
-          </div>
-        </div>
-        <div class="product-item">
-          <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{ pPrice: 1800 }" />
-            </div>
-          </div>
-        </div>
-        <div class="product-item">
-          <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{ pPricePromo: 1800 }" />
-            </div>
-          </div>
-        </div>
-        <div class="product-item">
-          <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
-            </div>
-          </div>
-        </div>
-        <div class="product-item">
-          <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
-            </div>
-          </div>
-        </div>
-        <div class="product-item">
-          <div class="product-item-image">
-            <img src="@/assets/png/image-carousel1.png" alt="" />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              Iso zero whey plus
-              <span>BiotexhUsa</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{pPrice: 1800, pPriceOld: 1800}" />
+              <ProductPrice :price="{pPrice: el.price, pPriceOld: el.regular_price}" />
             </div>
           </div>
         </div>
@@ -475,7 +251,11 @@ export default {
     CallBack
   },
   props: {
-    categories: {
+    aminokisloty: {
+      type: Array,
+      default: () => []
+    },
+    protein: {
       type: Array,
       default: () => []
     }
