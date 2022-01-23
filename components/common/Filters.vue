@@ -55,7 +55,7 @@
                   type="checkbox"
                   :checked="false"
                   :value="option.slug"
-                  @change="changeHandler"
+                  @change="changeHandler(option)"
                 />
                 <div class="control_indicator"></div>
               </label>
@@ -179,7 +179,21 @@ export default {
       // this.$router.push(query);
       // this.$store.dispatch('filters/fetchProductsWithFilters', { query, page: 1, currentCategory: this.category.currentCategory.id })
     }, 1000),
-    changeHandler () {
+    changeHandler (event) {
+      console.log(this.formData)
+      const forms = {}
+      // eslint-disable-next-line no-loops/no-loops
+      for (const [key, value] of Object.entries(this.formData)) {
+        if (value.length) {
+          // eslint-disable-next-line security/detect-object-injection
+          forms[key] = value.join()
+        }
+        // console.log(key)
+        // console.log(value.length)
+      }
+
+      console.log(forms)
+      this.$router.push({ query: { ...this.$route.query, ...forms } })
       this.$refs.submitButton.click()
     }
   }
