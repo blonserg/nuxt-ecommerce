@@ -183,7 +183,11 @@
           @click="$router.push('/product/' + el.slug)"
         >
           <div class="product-item-image">
-            <img :src="'https://aminostore.com.ua/' + el.image" alt="" />
+            <img
+              :src="'https://aminostore.com.ua/' + el.image"
+              alt=""
+              class="product-item-image__img"
+            />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -209,7 +213,11 @@
           @click="$router.push('/product/' + el.slug)"
         >
           <div class="product-item-image">
-            <img :src="'https://aminostore.com.ua/' + el.image" alt="" />
+            <img
+              :src="'https://aminostore.com.ua/' + el.image"
+              alt=""
+              class="product-item-image__img"
+            />
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
@@ -308,6 +316,12 @@ export default {
   height: 660px;
   @media (min-width: 769px) {
     height: 100%;
+  }
+}
+
+.product-item-image {
+  &__img {
+    width: 100%;
   }
 }
 </style>
