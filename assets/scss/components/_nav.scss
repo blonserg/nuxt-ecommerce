@@ -52,7 +52,7 @@
         display: none;
         margin: -1px 10px 0 0;
         order: -1;
-    
+
         @media screen and (min-width: 768px) {
             display: inline-block;
         }
@@ -124,7 +124,10 @@
         }
 
     }
-    .navigation-dropdown-list-item { position: static; }
+    .navigation-dropdown-list-item {
+      position: static;
+      flex: 30%;
+    }
     .navigation-dropdown-back {
         @media screen and (min-width: 768px) {
             display: none;
