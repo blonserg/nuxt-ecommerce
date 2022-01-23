@@ -322,6 +322,8 @@ export default {
 .product-item-image {
   &__img {
     width: 100%;
+    height: 410px;
+    object-fit: cover;
   }
 }
 </style>
