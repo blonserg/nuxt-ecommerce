@@ -22,7 +22,7 @@
                 v-for="navItem in item.results"
                 class="footer-item"
               >
-                <nuxt-link :to="`${navItem.slug}`">
+                <nuxt-link :to="`/category/${navItem.slug}`">
                   {{ navItem.title }}
                 </nuxt-link>
               </li>
