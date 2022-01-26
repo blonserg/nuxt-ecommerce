@@ -60,8 +60,17 @@
               <div class="cart-promo">
                 <label for="promo">Промокод</label>
                 <div class="cart-promo-form">
-                  <b-form-input id="promo" placeholder="Введите промокод" />
-                  <b-button variant="primary" class="cart-promo-btn">
+                  <b-form-input
+                    id="promo"
+                    v-model="promo"
+                    placeholder="Введите промокод"
+                  />
+                  <b-button
+                    variant="primary"
+                    class="cart-promo-btn"
+                    :disabled="promo.length === 0"
+                    @click="sendPromo"
+                  >
                     <svg
                       width="8"
                       height="12"
@@ -119,28 +128,29 @@ export default {
       addedProduct: null,
       defaults: {
         addedProduct: null
-      }
+      },
+      promo: ''
     }
-  },
-  mounted() {
-    this.updateTotalQuantity();
   },
   computed: {
     ...mapGetters({
       cartProducts: 'cart/cartProducts',
       discount: 'cart/discount',
-      totalQuantity: 'cart/totalQuantity',
+      totalQuantity: 'cart/totalQuantity'
     }),
-    totalPrice() {
-        let total = 0;
+    totalPrice () {
+      let total = 0
 
-        for (let item of this.$store.state.cart.cart) {
-            total += item.totalPrice.pPrice;
-        }
+      for (const item of this.$store.state.cart.cart) {
+        total += item.totalPrice.pPrice
+      }
 
-        total -= this.$store.state.cart.discount;
-        return total.toFixed(2);
-    },
+      total -= this.$store.state.cart.discount
+      return total.toFixed(2)
+    }
+  },
+  mounted () {
+    this.updateTotalQuantity()
   },
   methods: {
     ...mapMutations({
@@ -156,6 +166,9 @@ export default {
         this.addedProduct = this.defaults.addedProduct
       }
     },
+    sendPromo () {
+      console.log(this.promo, this.promo.length)
+    }
   }
 }
 </script>
