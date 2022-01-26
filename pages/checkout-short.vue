@@ -59,6 +59,8 @@
 <script>
 import VuePhoneNumberInput from 'vue-phone-number-input'
 import 'vue-phone-number-input/dist/vue-phone-number-input.css'
+import { URL } from '@/utils/constants'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -66,12 +68,14 @@ export default {
   },
   data () {
     return {
-      selectfield: null,
-      selectcity: null,
-      selectpost: null,
       phoneNumber: null,
       isValid: false
     }
+  },
+  computed: {
+    ...mapGetters({
+      cartProducts: 'cart/cartProducts'
+    })
   },
   methods: {
     changeNumber (e) {
@@ -79,6 +83,9 @@ export default {
     },
     createOrder () {
       if (this.isValid) {
+        this.$axios.post(`${URL}api/one-click/`, {
+          phone: this.phoneNumber
+        })
         this.$router.push('/checkout-order/short')
       }
     }
