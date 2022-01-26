@@ -28,7 +28,7 @@
         </ul>
       </div>
     </div> -->
-    <!-- <Breadcrumbs /> -->
+    <Breadcrumbs class="breadcrumbs" />
     <div class="article">
       <div class="container" v-html="article.text">
       </div>
@@ -40,11 +40,11 @@
 import backgroundUrl from '~/assets/png/article-main.png'
 import { mapGetters } from 'vuex'
 import formatDate from './../../utils/formatDate'
-// import Breadcrumbs from '~/components/common/Breadcrumbs.vue'
+import Breadcrumbs from '~/components/common/Breadcrumbs.vue'
 
 export default {
   components: {
-    // Breadcrumbs
+    Breadcrumbs
   },
   async asyncData ({ store, route }) {
     await store.dispatch('blog/fetchArticle', { slug: route.params.slug })
@@ -71,3 +71,17 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.container {
+  .breadcrumbs_2gBpg {
+    display: none;
+  }
+}
+
+.breadcrumbs {
+  .breadcrumbs_2gBpg {
+    display: block;
+  }
+}
+</style>
