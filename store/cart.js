@@ -5,6 +5,7 @@ export const state = () => ({
   cartCount: 0,
   totalPrice: 0,
   discount: 0,
+  promocode: '',
   totalQuantity: 0
 })
 export const mutations = {
@@ -35,6 +36,13 @@ export const mutations = {
       totalQuantity += Number(product.quantity)
     })
     state.totalQuantity = totalQuantity
+  },
+  UPDATE_PROMOCODE (state, data) {
+    state.discount = 0
+    state.promocode = ''
+
+    state.discount = data.discount
+    state.promocode = data.value
   },
   UPDATE_TOTAL_PRODUCT_PRICE (state) {
     const products = state.cart.map((item) => {
