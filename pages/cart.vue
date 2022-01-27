@@ -45,7 +45,7 @@
                 </div>
                 <div class="cart-row-info">
                   {{ discount }}
-                  <span>₴</span>
+                  <span>%</span>
                 </div>
               </div>
               <div class="cart-row">
@@ -100,7 +100,7 @@
                       promoDisapprove ? 'cart-promo-desc--red' : ''
                     ]"
                   >
-                    {{ promoApprove ? discount
+                    {{ promoApprove ? `Скидка ${discount}%`
                       : "Промокод не найден" }}
                   </div>
                 </div>
@@ -171,7 +171,7 @@ export default {
       return total.toFixed(2)
     },
     priceWithPromo () {
-      return this.discount ? +this.totalPrice - this.discount
+      return this.discount ? +this.totalPrice - (+this.totalPrice / 100 * +this.discount)
         : this.totalPrice
     }
   },
