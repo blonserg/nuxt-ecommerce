@@ -73,5 +73,6 @@ export const getters = {
   totalQuantity: state => state.totalQuantity,
   cartProducts: state => state.cart,
   totalPrice: state => state.totalPrice,
-  discount: state => state.discount
+  discount: state => state.discount,
+  promocode: state => state.promocode
 }

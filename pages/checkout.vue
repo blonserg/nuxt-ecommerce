@@ -125,6 +125,8 @@
 import Checkbox from '~~/components/common/Checkbox'
 import VuePhoneNumberInput from 'vue-phone-number-input'
 import 'vue-phone-number-input/dist/vue-phone-number-input.css'
+import { URL } from '@/utils/constants'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -160,14 +162,17 @@ export default {
         selected: '1',
         options: [
           { text: 'Выберите почту', value: '1' },
-          { text: 'Option A', value: 'a' },
-          { text: 'Option B', value: 'b' },
-          { text: 'Option C', value: 'c' }
+          { text: 3434, value: 'a' },
+          { text: 2, value: 'b' },
+          { text: 345, value: 'c' }
         ]
       }
     }
   },
   computed: {
+    ...mapGetters({
+      promocode: 'cart/promocode'
+    }),
     isFullForm () {
       return this.isValid &&
       this.selectField.selected !== '1' &&
@@ -181,9 +186,39 @@ export default {
     changeNumber (e) {
       this.isValid = e.isValid
     },
-    createOrder () {
+    async createOrder () {
       if (this.isFullForm) {
-        this.$router.push('/checkout-order/long')
+        try {
+          const { data } = await this.$axios.post(`${URL}api/order/`, {
+            phone: this.phoneNumber,
+            first_name: this.name,
+            second_name: this.surname,
+            region: this.selectField.options[0].text,
+            city: this.selectCity.options[0].text,
+            promocode: this.promocode,
+            nova_poshta_office: 190,
+            call_me: this.isCallMe,
+
+            items: [
+              {
+                product: 495367,
+                qty: 2
+
+              },
+              {
+                product: 419276,
+                qty: 21
+
+              }
+            ]
+          })
+
+          if (data && data === 'created') {
+            await this.$router.push('/checkout-order/long')
+          }
+        } catch (err) {
+          console.error('ORDER_ERROR_IS :', err)
+        }
       }
     }
   }
