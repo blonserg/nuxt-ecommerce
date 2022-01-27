@@ -189,7 +189,8 @@ export default {
     async createOrder () {
       if (this.isFullForm) {
         try {
-          const { data } = await this.$axios.post(`${URL}api/order/`, {
+          // TODO: fix inputs
+          console.log({
             phone: this.phoneNumber,
             first_name: this.name,
             second_name: this.surname,
@@ -197,25 +198,33 @@ export default {
             city: this.selectCity.options[0].text,
             promocode: this.promocode,
             nova_poshta_office: 190,
-            call_me: this.isCallMe,
-
-            items: [
-              {
-                product: 495367,
-                qty: 2
-
-              },
-              {
-                product: 419276,
-                qty: 21
-
-              }
-            ]
+            call_me: this.isCallMe
           })
+          // const { data } = await this.$axios.post(`${URL}api/order/`, {
+          //   phone: this.phoneNumber,
+          //   first_name: this.name,
+          //   second_name: this.surname,
+          //   region: this.selectField.options[0].text,
+          //   city: this.selectCity.options[0].text,
+          //   promocode: this.promocode,
+          //   nova_poshta_office: 190,
+          //   call_me: this.isCallMe,
 
-          if (data && data === 'created') {
-            await this.$router.push('/checkout-order/long')
-          }
+          //   items: [
+          //     {
+          //       product: 495367,
+          //       qty: 2
+          //     },
+          //     {
+          //       product: 419276,
+          //       qty: 21
+          //     }
+          //   ]
+          // })
+
+          // if (data && data === 'created') {
+          //   await this.$router.push('/checkout-order/long')
+          // }
         } catch (err) {
           console.error('ORDER_ERROR_IS :', err)
         }
