@@ -199,7 +199,7 @@
               :href="'/'"
               :direction="'down'"
             />
-            <a class="link" href="/">Оставить отзыв</a>
+            <span class="link" @click="openReviewModal">Оставить отзыв</span>
           </div>
         </div>
       </div>
@@ -249,6 +249,10 @@
         </div>
       </div>
     </section>
+    <ReviewModal
+      :opened="reviewModal"
+      :product-id="product.id"
+    />
   </div>
 </template>
 
@@ -265,6 +269,7 @@ import Reviews from '~~/components/reviews/Reviews'
 import LinkMore from '~~/components/common/LinkMore'
 import { mapGetters } from 'vuex'
 import BuyOneClickModal from '~/components/modals/BuyOneClickModal'
+import ReviewModal from '~/components/modals/ReviewModal.vue'
 
 export default {
   components: {
@@ -276,7 +281,8 @@ export default {
     BuyButton,
     LinkMore,
     Reviews,
-    BuyOneClickModal
+    BuyOneClickModal,
+    ReviewModal
   },
   async asyncData ({ store, params, route, error }) {
     try {
@@ -309,7 +315,8 @@ export default {
             }
           }
         ]
-      }
+      },
+      reviewModal: false
     }
   },
   computed: {
@@ -342,6 +349,9 @@ export default {
     }
   },
   methods: {
+    openReviewModal () {
+      this.reviewModal = !this.reviewModal
+    }
   },
   head () {
     return {
@@ -357,3 +367,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.link {
+  cursor: pointer;
+}
+</style>
