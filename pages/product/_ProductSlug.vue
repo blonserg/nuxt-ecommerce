@@ -197,6 +197,7 @@
             <LinkMore
               :text="'Больше отзывов'"
               :direction="'down'"
+              class="mr-3"
             />
             <span class="link" @click="openModal()">Оставить отзыв</span>
           </div>
