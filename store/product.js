@@ -9,7 +9,8 @@ export const state = () => ({
   product: {},
   customer: {
     phone: ''
-  }
+  },
+  reviewModal: false
 })
 
 export const mutations = {
@@ -77,6 +78,12 @@ export const mutations = {
   },
   UPDATE_CUSTOMER_PHONE (state, value) {
     state.customer.phone = value
+  },
+  OPEN_MODAL (state) {
+    state.reviewModal = true
+  },
+  CLOSE_MODAL (state) {
+    state.reviewModal = false
   }
 }
 
@@ -113,5 +120,6 @@ export const actions = {
 export const getters = {
   product: state => state.product,
   quantity: state => state.product.quantity,
-  customerPhone: state => state.customer.phone
+  customerPhone: state => state.customer.phone,
+  reviewModal: state => state.reviewModal
 }

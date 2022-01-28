@@ -196,10 +196,9 @@
           <div class="reviews-actions">
             <LinkMore
               :text="'Больше отзывов'"
-              :href="'/'"
               :direction="'down'"
             />
-            <span class="link" @click="openReviewModal">Оставить отзыв</span>
+            <span class="link" @click="openModal()">Оставить отзыв</span>
           </div>
         </div>
       </div>
@@ -250,7 +249,7 @@
       </div>
     </section>
     <ReviewModal
-      :opened="reviewModal"
+      :review-modal="reviewModal"
       :product-id="product.id"
     />
   </div>
@@ -267,7 +266,7 @@ import ProductAvailable from '~~/components/pdp/ProductAvailable'
 import BuyButton from '~~/components/common/BuyButton'
 import Reviews from '~~/components/reviews/Reviews'
 import LinkMore from '~~/components/common/LinkMore'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import BuyOneClickModal from '~/components/modals/BuyOneClickModal'
 import ReviewModal from '~/components/modals/ReviewModal.vue'
 
@@ -315,13 +314,13 @@ export default {
             }
           }
         ]
-      },
-      reviewModal: false
+      }
     }
   },
   computed: {
     ...mapGetters({
-      product: 'product/product'
+      product: 'product/product',
+      reviewModal: 'product/reviewModal'
     }),
     quantity: {
       get () {
@@ -349,9 +348,10 @@ export default {
     }
   },
   methods: {
-    openReviewModal () {
-      this.reviewModal = !this.reviewModal
-    }
+    ...mapMutations({
+      openModal: 'product/OPEN_MODAL',
+      closeModal: 'product/CLOSE_MODAL'
+    })
   },
   head () {
     return {

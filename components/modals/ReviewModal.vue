@@ -1,10 +1,10 @@
 <template>
   <div
-    v-show="opened"
+    v-show="reviewModal"
     class="review-modal"
   >
     <div v-if="!sended" class="review-modal__container">
-      <div class="review-modal__cross" @click="opened = false"></div>
+      <div class="review-modal__cross" @click="closeModal()"></div>
       <h3 class="review-modal__title">
         Добавить отзыв
       </h3>
@@ -59,7 +59,7 @@
     <div
       v-else
       class="review-modal__container"
-      @click="opened = false"
+      @click="closeModal()"
     >
       <div class="review-modal__cross"></div>
       <h3 class="review-modal__title">
@@ -72,11 +72,12 @@
 
 <script>
 import { URL } from '@/utils/constants'
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'ReviewModal',
   props: {
-    opened: {
+    reviewModal: {
       type: Boolean,
       default: false
     },
@@ -104,9 +105,12 @@ export default {
     }
   },
   methods: {
+    ...mapMutations({
+      closeModal: 'product/CLOSE_MODAL'
+    }),
     async sendReview () {
       if (this.isFullForm) {
-        const { data, status } = await this.$axios.post(`${URL}api/review/`, {
+        const { status } = await this.$axios.post(`${URL}api/review/`, {
           email: this.email,
           first_name: this.name,
           text: this.review,
