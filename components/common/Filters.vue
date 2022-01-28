@@ -20,15 +20,15 @@
             <input
               type="hidden"
               name="price-range[max_price]"
-              :value="filter.priceRange.currentRange[0]"
+              :value="formData['price-range'][0]"
             />
             <input
               type="hidden"
               name="price-range[min_price]"
-              :value="filter.priceRange.currentRange[1]"
+              :value="formData['price-range'][1]"
             />
             <Slider
-              :value="filter.priceRange.currentRange"
+              :value="formData['price-range']"
               :min="filter.priceRange.minValue"
               :max="filter.priceRange.maxValue"
               :tooltips="false"
@@ -36,10 +36,10 @@
             />
             <div class="filter-range">
               <div class="filter-range-from">
-                <span>от</span> {{ filter.priceRange.currentRange[0] }} <span>{{ filter.priceRange.format.prefix }}</span>
+                <span>от</span> {{ formData['price-range'][0] }} <span>{{ filter.priceRange.format.prefix }}</span>
               </div>
               <div class="filter-range-to">
-                <span>до</span> {{ filter.priceRange.currentRange[1] }} <span>{{ filter.priceRange.format.prefix }}</span>
+                <span>до</span> {{ formData['price-range'][1] }} <span>{{ filter.priceRange.format.prefix }}</span>
               </div>
             </div>
           </div>
@@ -153,10 +153,6 @@ export default {
     ...mapMutations({
       updatePriceRange: 'filters/UPDATE_PRICE_RANGE_VALUE'
     }),
-    applyParams (type, value) {
-      const query = this.$route.query
-      this.$router.push({ query: { ...query, [type]: value } })
-    },
     updateSlider (value, idx, event) {
       this.formData['price-range'] = event
       this.updatePriceRange({ value: event, filterIdx: idx })
@@ -170,6 +166,18 @@ export default {
           formData[filter.slug] = []
         };
       })
+      formData['price-range'] = [150, 1500]
+      // eslint-disable-next-line no-loops/no-loops
+      for (const [key, value] of Object.entries(this.$route.query)) {
+        if (key === 'min_price') {
+          formData['price-range'][0] = value
+        } else if (key === 'max_price') {
+          formData['price-range'][1] = value
+        } else {
+          formData[key] = value.split(',')
+        }
+      }
+
       return formData
     },
     submitHandler: debounce(function submitHandler (event) {
@@ -180,20 +188,20 @@ export default {
       // this.$store.dispatch('filters/fetchProductsWithFilters', { query, page: 1, currentCategory: this.category.currentCategory.id })
     }, 1000),
     changeHandler (event) {
-      console.log(this.formData)
       const forms = {}
       // eslint-disable-next-line no-loops/no-loops
       for (const [key, value] of Object.entries(this.formData)) {
         if (value.length) {
+          if (key === 'price-range') {
+            forms.min_price = value[0]
+            forms.max_price = value[1]
+          } else {
           // eslint-disable-next-line security/detect-object-injection
-          forms[key] = value.join()
+            forms[key] = value.join()
+          }
         }
-        // console.log(key)
-        // console.log(value.length)
       }
-
-      console.log(forms)
-      this.$router.push({ query: { ...this.$route.query, ...forms } })
+      this.$router.push({ query: { ...forms } })
       this.$refs.submitButton.click()
     }
   }

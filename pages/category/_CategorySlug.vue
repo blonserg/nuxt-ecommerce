@@ -95,7 +95,6 @@ export default {
   },
   watch: {
     $route: function () {
-      console.log(this.$store.state.category.currentCategory.id)
       this.$store.dispatch('filters/fetchProductsWithFilters', { category: this.$store.state.category.currentCategory.id, query: this.$route.query })
     }
   },
