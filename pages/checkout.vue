@@ -129,6 +129,7 @@ import { URL } from '@/utils/constants'
 import { mapGetters } from 'vuex'
 
 export default {
+  name: 'Checkout',
   components: {
     Checkbox,
     VuePhoneNumberInput
@@ -144,34 +145,32 @@ export default {
         selected: '1',
         options: [
           { text: 'Выберите область', value: '1' },
-          { text: 'Option A', value: 'a' },
-          { text: 'Option B', value: 'b' },
-          { text: 'Option C', value: 'c' }
+          { text: 'Option B', value: '2' },
+          { text: 'Option C', value: '3' }
         ]
       },
       selectCity: {
         selected: '1',
         options: [
           { text: 'Выберите город', value: '1' },
-          { text: 'Option A', value: 'a' },
-          { text: 'Option B', value: 'b' },
-          { text: 'Option C', value: 'c' }
+          { text: 'Option B', value: '2' },
+          { text: 'Option C', value: '3' }
         ]
       },
       selectPost: {
         selected: '1',
         options: [
-          { text: 'Выберите почту', value: '1' },
-          { text: 3434, value: 'a' },
-          { text: 2, value: 'b' },
-          { text: 345, value: 'c' }
+          { text: 'Выберите отделение', value: '1' },
+          { text: 33, value: '2' },
+          { text: 6, value: '3' }
         ]
       }
     }
   },
   computed: {
     ...mapGetters({
-      promocode: 'cart/promocode'
+      promocode: 'cart/promocode',
+      cartProducts: 'cart/cartProducts'
     }),
     isFullForm () {
       return this.isValid &&
@@ -180,6 +179,15 @@ export default {
       this.selectPost.selected !== '1' &&
       this.name !== '' &&
       this.surname !== ''
+    },
+    field () {
+      return this.selectField.options.find(option => option.value === this.selectField.selected)
+    },
+    city () {
+      return this.selectCity.options.find(option => option.value === this.selectCity.selected)
+    },
+    post () {
+      return this.selectPost.options.find(option => option.value === this.selectPost.selected)
     }
   },
   methods: {
@@ -189,42 +197,43 @@ export default {
     async createOrder () {
       if (this.isFullForm) {
         try {
-          // TODO: fix inputs
-          console.log({
+          const items = this.cartProducts.map(el => {
+            return {
+              product: el.quantity,
+              qty: el.id
+            }
+          })
+
+          // TODO: add data for dropdowns
+          // console.log(this.$axios.post('http://testapi.novaposhta.ua/v2.0/json/AddressGeneral/getSettlements/', {
+          //   modelName: 'AddressGeneral',
+          //   calledMethod: 'getSettlements',
+          //   methodProperties: {
+          //     AreaRef: 'dcaadb64-4b33-11e4-ab6d-005056801329',
+          //     Ref: '0e451e40-4b3a-11e4-ab6d-005056801329',
+          //     RegionRef: 'e4ade6ea-4b33-11e4-ab6d-005056801329',
+          //     Page: '1'
+          //   },
+          //   apiKey: 'bac578ab67003fbf3ab4fa63ee520b71'
+          // }, {
+          //   contentType: 'application/json'
+          // }))
+
+          const { status } = await this.$axios.post(`${URL}api/order/`, {
             phone: this.phoneNumber,
             first_name: this.name,
             second_name: this.surname,
-            region: this.selectField.options[0].text,
-            city: this.selectCity.options[0].text,
+            region: this.field.text,
+            city: this.city.text,
             promocode: this.promocode,
-            nova_poshta_office: 190,
-            call_me: this.isCallMe
+            nova_poshta_office: this.post.text,
+            call_me: this.isCallMe,
+            items: items
           })
-          // const { data } = await this.$axios.post(`${URL}api/order/`, {
-          //   phone: this.phoneNumber,
-          //   first_name: this.name,
-          //   second_name: this.surname,
-          //   region: this.selectField.options[0].text,
-          //   city: this.selectCity.options[0].text,
-          //   promocode: this.promocode,
-          //   nova_poshta_office: 190,
-          //   call_me: this.isCallMe,
 
-          //   items: [
-          //     {
-          //       product: 495367,
-          //       qty: 2
-          //     },
-          //     {
-          //       product: 419276,
-          //       qty: 21
-          //     }
-          //   ]
-          // })
-
-          // if (data && data === 'created') {
-          //   await this.$router.push('/checkout-order/long')
-          // }
+          if (status && status === 201) {
+            await this.$router.push('/checkout-order/long')
+          }
         } catch (err) {
           console.error('ORDER_ERROR_IS :', err)
         }
