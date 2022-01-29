@@ -97,10 +97,10 @@ export default {
   },
   computed: {
     isFullForm () {
-      const emailReg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
+      // const emailReg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
       return this.rating !== 0 &&
       this.name &&
-      emailReg.test(this.email) &&
+      this.email &&
       this.review
     }
   },
