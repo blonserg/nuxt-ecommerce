@@ -365,7 +365,7 @@ export default {
         return this.product.description
       } else {
         const text = this.product.description
-        return text.length > 200 ? text.slice(0, 40 - 1) + '…' : text
+        return text.length > 200 ? text.slice(0, 200 - 1) + '…' : text
       }
     },
     productProperties () {
