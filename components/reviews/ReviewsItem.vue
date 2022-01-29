@@ -31,6 +31,7 @@
 
 <script>
 import formatDate from '~/utils/formatDate'
+import { formatRating } from '~/utils/formatRating'
 export default {
   props: {
     review: {
@@ -40,7 +41,7 @@ export default {
   },
   computed: {
     rating () {
-      return +this.review.rating / 100
+      return formatRating(this.review.rating)
     }
   },
   methods: {

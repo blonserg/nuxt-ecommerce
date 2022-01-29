@@ -1,4 +1,4 @@
-import formatRating from '~/utils/formatRating'
+import { formatRating, globalRating } from '~/utils/formatRating'
 import prepareBreadcrumbsData from '~/utils/prepareBreadcrumbsData'
 
 const PRODUCT_URL = 'https://aminostore.com.ua/api/product/'
@@ -42,7 +42,8 @@ export const mutations = {
 
     const product = {
       ...data,
-      rating: formatRating(data.rating) || 0,
+      // product_reviews
+      rating: globalRating(data.product_reviews) || 0,
       price: {
         pPrice: data.price,
         pPricePromo: data.is_promoted ? data.price : null,

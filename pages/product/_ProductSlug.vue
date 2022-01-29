@@ -34,7 +34,7 @@
                   :no-border="true"
                   size="sm"
                   class="rating-block"
-                  :value="product.rating"
+                  :value="productRating"
                   inline
                   readonly
                 />
@@ -43,7 +43,7 @@
                 </div>
               </div>
             </div>
-            <ProductPrice :price="product.price" />
+            <ProductPrice :price="productPrice" />
           </div>
           <div class="merch-attributes">
             <div class="merch-row">
@@ -346,6 +346,12 @@ export default {
       set (value) {
         this.$store.commit('product/UPDATE_PRODUCT_ATTRIBUTE', { attr: 'tasteAttr', value })
       }
+    },
+    productRating () {
+      return this.product.rating
+    },
+    productPrice () {
+      return this.product.price
     }
   },
   methods: {
