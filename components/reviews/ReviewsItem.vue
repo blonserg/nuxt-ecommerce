@@ -7,7 +7,7 @@
             {{ review.email }}
           </div>
           <b-form-rating
-            v-model="review.rating"
+            v-model="rating"
             variant="warning"
             :no-border="true"
             size="sm"
@@ -36,6 +36,11 @@ export default {
     review: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    rating () {
+      return +this.review.rating / 100
     }
   },
   methods: {

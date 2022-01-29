@@ -204,21 +204,6 @@ export default {
             }
           })
 
-          // TODO: add data for dropdowns
-          // console.log(this.$axios.post('http://testapi.novaposhta.ua/v2.0/json/AddressGeneral/getSettlements/', {
-          //   modelName: 'AddressGeneral',
-          //   calledMethod: 'getSettlements',
-          //   methodProperties: {
-          //     AreaRef: 'dcaadb64-4b33-11e4-ab6d-005056801329',
-          //     Ref: '0e451e40-4b3a-11e4-ab6d-005056801329',
-          //     RegionRef: 'e4ade6ea-4b33-11e4-ab6d-005056801329',
-          //     Page: '1'
-          //   },
-          //   apiKey: 'bac578ab67003fbf3ab4fa63ee520b71'
-          // }, {
-          //   contentType: 'application/json'
-          // }))
-
           const { status } = await this.$axios.post(`${URL}api/order/`, {
             phone: this.phoneNumber,
             first_name: this.name,
