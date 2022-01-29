@@ -141,11 +141,12 @@
         </div>
         <div class="col-md-6 col-sm-12">
           <div class="merch-descr">
-            <div v-html="product.description"></div>
+            <div v-html="productDescription"></div>
             <LinkMore
+              v-if="!showProductDescription"
               :text="'Смотреть все'"
-              :href="'/'"
               :direction="'down'"
+              @click.native="showMoreDescription()"
             />
           </div>
         </div>
@@ -162,7 +163,7 @@
         <div class="col-md-6 col-sm-12">
           <ul class="merch-row-group">
             <li
-              v-for="property in product.product_properties"
+              v-for="property in productProperties"
               :key="property.name"
               class="merch-row"
             >
@@ -175,9 +176,10 @@
             </li>
           </ul>
           <LinkMore
+            v-if="!showProductProperties"
             :text="'Смотреть все'"
-            :href="'/'"
             :direction="'down'"
+            @click.native="showMoreProperties()"
           />
         </div>
       </div>
@@ -192,12 +194,14 @@
           </h3>
         </div>
         <div class="col-md-6 col-sm-12">
-          <Reviews :reviews="product.product_reviews" />
+          <Reviews :reviews="productReviews" />
           <div class="reviews-actions">
             <LinkMore
+              v-if="!showProductReviews"
               :text="'Больше отзывов'"
               :direction="'down'"
               class="mr-3"
+              @click.native="showMoreReviews()"
             />
             <span class="link" @click="openModal()">Оставить отзыв</span>
           </div>
@@ -226,7 +230,7 @@
             <h3 class="group-ttl merch-ttl">
               Рекомендуемые товары
             </h3>
-            <LinkMore :text="'Смотреть все'" :href="'/'" />
+            <LinkMore :text="'Смотреть все'" />
           </div>
         </div>
         <div class="col-12">
@@ -315,7 +319,10 @@ export default {
             }
           }
         ]
-      }
+      },
+      showProductDescription: false,
+      showProductProperties: false,
+      showProductReviews: false
     }
   },
   computed: {
@@ -352,13 +359,47 @@ export default {
     },
     productPrice () {
       return this.product.price
+    },
+    productDescription () {
+      // text.length > 40 ? text.slice(0, 40 - 1) + '…' : text
+      if (this.showProductDescription) {
+        return this.product.description
+      } else {
+        const text = this.product.description
+        return text.length > 200 ? text.slice(0, 40 - 1) + '…' : text
+      }
+    },
+    productProperties () {
+      if (this.showProductProperties) {
+        return this.product.product_properties
+      } else {
+        const list = this.product.product_properties.slice(0, 3)
+        return list
+      }
+    },
+    productReviews () {
+      if (this.showProductReviews) {
+        return this.product.product_reviews
+      } else {
+        const list = this.product.product_reviews.slice(0, 3)
+        return list
+      }
     }
   },
   methods: {
     ...mapMutations({
       openModal: 'product/OPEN_MODAL',
       closeModal: 'product/CLOSE_MODAL'
-    })
+    }),
+    showMoreDescription () {
+      this.showProductDescription = true
+    },
+    showMoreProperties () {
+      this.showProductProperties = true
+    },
+    showMoreReviews () {
+      this.showProductReviews = true
+    }
   },
   head () {
     return {

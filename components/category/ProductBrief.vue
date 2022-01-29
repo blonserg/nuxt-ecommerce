@@ -10,17 +10,25 @@
     <div class="product-item-infolist">
       <div class="product-item-ttl">
         {{ product.title }}
-        <span>{{product.brand}}</span>
+        <span>{{ product.brand }}</span>
       </div>
       <div class="product-item-raiting">
-        <b-form-rating variant="warning" :no-border="true" size="sm" class="rating-block" :value="product.rating" inline readonly></b-form-rating>
-        <div class="product-item-feed" v-if="product.product_reviews_qty">
-          (<a href="#">{{product.product_reviews_qty}}</a>)
+        <b-form-rating
+          variant="warning"
+          :no-border="true"
+          size="sm"
+          class="rating-block"
+          :value="product.rating"
+          inline
+          readonly
+        />
+        <div v-if="product.product_reviews_qty" class="product-item-feed">
+          (<a href="#">{{ product.product_reviews_qty }}</a>)
         </div>
       </div>
       <div class="product-item-price">
         <!-- todo: refactor by using Product Price Component -->
-        <ProductPrice :price="{pPrice: product.price}"/>
+        <ProductPrice :price="{pPrice: product.price}" />
       </div>
     </div>
   </div>
