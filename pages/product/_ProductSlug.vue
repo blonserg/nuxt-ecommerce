@@ -361,7 +361,6 @@ export default {
       return this.product.price
     },
     productDescription () {
-      // text.length > 40 ? text.slice(0, 40 - 1) + '…' : text
       if (this.showProductDescription) {
         return this.product.description
       } else {
