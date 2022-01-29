@@ -178,7 +178,7 @@
       </div>
       <VueSlickCarousel v-bind="settings" class="product-carousel">
         <div
-          v-for="el in protein"
+          v-for="el in deleteItems(protein)"
           class="product-item"
           @click="$router.push('/product/' + el.slug)"
         >
@@ -208,7 +208,7 @@
       </div>
       <VueSlickCarousel v-bind="settings" class="product-carousel">
         <div
-          v-for="el in aminokisloty"
+          v-for="el in deleteItems(aminokisloty)"
           class="product-item"
           @click="$router.push('/product/' + el.slug)"
         >
@@ -305,6 +305,15 @@ export default {
   },
   destroyed () {
     document.body.classList.remove('sticky-header')
+  },
+  methods: {
+    deleteItems (items) {
+      // deleted extra items
+      const list = items.length > 6
+        ? items.slice(0, 5)
+        : items
+      return list
+    }
   }
 }
 </script>
