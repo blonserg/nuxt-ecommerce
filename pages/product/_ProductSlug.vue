@@ -290,7 +290,7 @@ export default {
   },
   async asyncData ({ store, params, route, error }) {
     try {
-      await store.dispatch('product/getProduct', { route })
+      await store.dispatch('product/getProduct', { route, categories: store.getters.submenu })
     } catch (err) {
       console.error(err)
       return error({
