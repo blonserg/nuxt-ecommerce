@@ -188,6 +188,10 @@ export default {
       this.cities.forEach(el => {
         this.selectCity.options.push({ text: el.name, value: el.id, parent: el.parent_id })
       })
+
+      if (+id === 2164) {
+        this.selectCity.options.push({ text: 'Киев', value: '2000', parent: '2164' })
+      }
     }
   },
   async mounted () {

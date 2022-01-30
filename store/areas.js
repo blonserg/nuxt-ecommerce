@@ -9,16 +9,11 @@ export const mutations = {
   SET_AREAS (state, areas) {
     state.areas = areas
   },
-  SET_CITIES (state, cityId) {
+  SET_CITIES (state, regiondId) {
     state.cities = null
     state.areas.forEach(el => {
-      if (el.id === cityId) {
+      if (el.id === regiondId) {
         state.cities = el.areas
-        state.cities.push({
-          id: '2000',
-          name: 'Киев',
-          parent_id: '115'
-        })
       }
     })
   }
