@@ -335,6 +335,10 @@ export default {
     object-fit: contain;
   }
 }
+
+.product-item-ttl {
+  max-width: 15.625rem;
+}
 </style>
 
 <style lang="scss">
