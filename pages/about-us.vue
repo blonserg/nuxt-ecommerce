@@ -1,6 +1,13 @@
 <template>
   <div>
     <div class="container">
+      <div class="breadcrumbs">
+        <ul>
+          <li>
+            <a href="/">Main</a>
+          </li>
+        </ul>
+      </div>
       <div class="group">
         <div class="group-left">
           <div class="group-ttl">
@@ -344,5 +351,26 @@
         </div>
       </div>
     </div>
+    <div class="container home-widgets">
+      <div class="market-subscribe">
+        <div class="market-subscribe-ttl">
+          Есть вопросы?
+        </div>
+        <div class="market-subscribe-txt">
+          Оставьте номер телефона и мы свяжемся с вами в ближайшее время
+        </div>
+        <CallBack classes="market-subscribe-group" />
+      </div>
+    </div>
   </div>
 </template>
+
+<script>
+import CallBack from '~~/components/common/CallBack'
+export default {
+  name: 'AboutUs',
+  components: {
+    CallBack
+  }
+}
+</script>
