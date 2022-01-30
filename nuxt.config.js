@@ -30,10 +30,7 @@ module.exports = {
     middleware: ['resetBreacrumbs'],
     prefetchLinks: false
   },
-  loading: {
-    color: 'blue',
-    height: '5px'
-  },
+  loading: '~/components/LoadingBar.vue',
   css: [
     'normalize.css',
     './assets/scss/global-styles.scss'
