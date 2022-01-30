@@ -223,7 +223,7 @@ export default {
             second_name: this.surname,
             region: this.field.text,
             city: this.city.text,
-            promocode: this.promocode,
+            promocode: this.promocode || 'ww',
             nova_poshta_office: this.post,
             call_me: this.isCallMe,
             items: items
