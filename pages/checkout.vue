@@ -90,13 +90,13 @@
             />
           </div>
         </div>
-        <div class="offset-sm-4 col-sm-8 offset-lg-0 col-lg-4 col-xl-3">
-          <div class="checkout-select">
-            <label for="select-post">Новая почта*</label>
-            <b-form-select
-              id="selectPost"
-              v-model="selectPost.selected"
-              :options="selectPost.options"
+        <div class="col-sm-4 col-lg-3 col-xl-3">
+          <div class="checkout-input">
+            <label for="post">Новая почта*</label>
+            <b-form-input
+              id="post"
+              v-model="post"
+              placeholder="Выберите почту"
             />
           </div>
         </div>
@@ -144,39 +144,30 @@ export default {
       selectField: {
         selected: '1',
         options: [
-          { text: 'Выберите область', value: '1' },
-          { text: 'Option B', value: '2' },
-          { text: 'Option C', value: '3' }
+          { text: 'Выберите область', value: '1' }
         ]
       },
       selectCity: {
         selected: '1',
         options: [
-          { text: 'Выберите город', value: '1' },
-          { text: 'Option B', value: '2' },
-          { text: 'Option C', value: '3' }
+          { text: 'Выберите город', value: '1' }
         ]
       },
-      selectPost: {
-        selected: '1',
-        options: [
-          { text: 'Выберите отделение', value: '1' },
-          { text: 33, value: '2' },
-          { text: 6, value: '3' }
-        ]
-      }
+      post: null
     }
   },
   computed: {
     ...mapGetters({
       promocode: 'cart/promocode',
-      cartProducts: 'cart/cartProducts'
+      cartProducts: 'cart/cartProducts',
+      areas: 'areas/areas',
+      cities: 'areas/cities'
     }),
     isFullForm () {
       return this.isValid &&
       this.selectField.selected !== '1' &&
       this.selectCity.selected !== '1' &&
-      this.selectPost.selected !== '1' &&
+      this.post &&
       this.name !== '' &&
       this.surname !== ''
     },
@@ -185,10 +176,28 @@ export default {
     },
     city () {
       return this.selectCity.options.find(option => option.value === this.selectCity.selected)
-    },
-    post () {
-      return this.selectPost.options.find(option => option.value === this.selectPost.selected)
     }
+  },
+  watch: {
+    'selectField.selected' (id) {
+      this.$store.commit('areas/SET_CITIES', id)
+
+      this.selectCity.selected = 1
+      this.selectCity.options.length = 1
+
+      this.cities.forEach(el => {
+        this.selectCity.options.push({ text: el.name, value: el.id, parent: el.parent_id })
+      })
+    }
+  },
+  async mounted () {
+    await this.$store.dispatch('areas/fetchAreas')
+
+    this.areas.forEach(el => {
+      if (el.id !== '115') {
+        this.selectField.options.push({ text: el.name, value: el.id, areas: el.areas })
+      }
+    })
   },
   methods: {
     changeNumber (e) {
@@ -211,7 +220,7 @@ export default {
             region: this.field.text,
             city: this.city.text,
             promocode: this.promocode,
-            nova_poshta_office: this.post.text,
+            nova_poshta_office: this.post,
             call_me: this.isCallMe,
             items: items
           })
