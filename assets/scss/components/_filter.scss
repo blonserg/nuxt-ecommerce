@@ -12,12 +12,14 @@
 
        &.collapsed {
            .filter-header-ico {
-               transform: scale(-1, -1);
+            transform: scale(-1, -1);
            }
        }
 
        &-ico {
-           transition: transform 0.4s;
+        transition: transform 0.4s;
+        width: 14px;
+        height: 14px;
        }
    }
 
