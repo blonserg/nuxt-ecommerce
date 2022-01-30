@@ -321,7 +321,6 @@ export default {
 <style lang="scss" scoped>
 .hero-main-picture {
   width: 100%;
-  object-fit: cover;
   height: 660px;
   @media (min-width: 769px) {
     height: 100%;
@@ -329,10 +328,11 @@ export default {
 }
 
 .product-item-image {
+  height: 416px;
   &__img {
     width: 100%;
-    height: 410px;
-    object-fit: cover;
+    height: 300px;
+    object-fit: contain;
   }
 }
 </style>
