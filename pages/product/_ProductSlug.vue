@@ -230,7 +230,9 @@
             <h3 class="group-ttl merch-ttl">
               Рекомендуемые товары
             </h3>
-            <LinkMore :text="'Смотреть все'" />
+            <nuxt-link :to="'/category/' + $store.getters.submenu.find(e => e.title === product.category).slug">
+              Смотреть все >
+            </nuxt-link>
           </div>
         </div>
         <div class="col-12">
