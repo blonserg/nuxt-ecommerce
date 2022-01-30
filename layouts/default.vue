@@ -1,6 +1,6 @@
 <template>
   <div class="body">
-    <div class="header">
+    <div class="header-container">
       <Header />
     </div>
     <div class="content">
@@ -8,7 +8,7 @@
       <nuxt />
       <CastomerCartModal />
     </div>
-    <div class="footer">
+    <div class="footer-container">
       <Footer />
     </div>
   </div>
@@ -88,8 +88,8 @@ body {
   width: 100%;
 }
 
-.footer,
-.header {
+.footer-container,
+.header-container {
   width: 100%;
 }
 
