@@ -26,20 +26,24 @@ module.exports = {
   serverMiddleware: [
     // '~~/serverMiddleware/headers'
   ],
-  router: {
-    middleware: ['resetBreacrumbs'],
-    prefetchLinks: false
-  },
-  loading: '~/components/LoadingBar.vue',
-  css: [
-    'normalize.css',
-    './assets/scss/global-styles.scss'
-  ],
   plugins: [
     { src: '~~/plugins/vue-modal.js', mode: 'client' },
     { src: '~~/plugins/vue-lazy-load.js' },
     { src: '~~/plugins/v-mask.js' }
   ],
+  // loading: '~/components/LoadingBar.vue',
+  loading: {
+    color: 'blue',
+    height: '5px'
+  },
+  css: [
+    'normalize.css',
+    './assets/scss/global-styles.scss'
+  ],
+  router: {
+    middleware: ['resetBreacrumbs'],
+    prefetchLinks: false
+  },
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
