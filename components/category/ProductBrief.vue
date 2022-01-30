@@ -48,3 +48,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.product-item-image--list {
+  object-fit: cover;
+  min-height: 320px;
+}
+</style>
