@@ -39,7 +39,7 @@
             cols="6"
             lg="4"
           >
-            <ProductBrief :product="product" />
+            <ProductBrief :product="product" class="products" />
           </b-col>
         </b-row>
         <div v-if="pagination" class="page-pagination">
@@ -128,3 +128,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.products {
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+}
+</style>
