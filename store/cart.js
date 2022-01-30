@@ -64,6 +64,14 @@ export const mutations = {
     state.cart = products
     this.commit('cart/UPDATE_TOTAL_QUANTITY', state.cart)
     this.commit('cart/UPDATE_TOTAL_PRODUCT_PRICE', state)
+  },
+  REMOVE_ITEMS (state) {
+    state.cart = []
+    state.cartCount = 0
+    state.totalPrice = 0
+    state.discount = 0
+    state.promocode = ''
+    state.totalQuantity = 0
   }
 }
 export const actions = {

@@ -231,6 +231,7 @@ export default {
 
           if (status && status === 201) {
             await this.$router.push('/checkout-order/long')
+            this.$store.commit('cart/REMOVE_ITEMS')
           }
         } catch (err) {
           console.error('ORDER_ERROR_IS :', err)
