@@ -89,11 +89,12 @@ export const mutations = {
 }
 
 export const actions = {
-  async getProduct ({ commit, dispatch }, { route }) {
+  async getProduct ({ commit, dispatch }, { route, categories }) {
     try {
       const url = PRODUCT_URL + route.params.ProductSlug
       const response = await this.$axios.$get(url)
-      const crumbs = prepareBreadcrumbsData('product', route, response)
+      const slug = categories.find(e => e.title === response.category).slug
+      const crumbs = prepareBreadcrumbsData('product', null, { slug, title: response.category, prod_title: response.title, prod_slug: response.slug })
 
       commit('SET_PRODUCT', response)
       dispatch('setBreadcrumbs', crumbs, { root: true })

@@ -3,9 +3,9 @@
     <div v-if="breadcrumbs && breadcrumbs.length > 0" :class="$style.breadcrumbs">
       <ul>
         <li v-for="cr in breadcrumbs" :key="cr.url">
-          <a @click="golink(cr.url)">
+          <nuxt-link :to="cr.url">
             {{ cr.title }}
-          </a>
+          </nuxt-link>
         </li>
       </ul>
     </div>
