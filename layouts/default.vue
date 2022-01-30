@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <div>
+  <div class="body">
+    <div class="header">
       <Header />
     </div>
-    <div>
+    <div class="content">
       <Breadcrumbs />
       <nuxt />
       <CastomerCartModal />
     </div>
-    <div>
+    <div class="footer">
       <Footer />
     </div>
   </div>
@@ -62,6 +62,40 @@ export default {
   }
 }
 </script>
-<style lang="scss" module>
+<style lang="scss">
+html {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* position: relative; */
+}
+
+#__nuxt,
+#__layout {
+  height: 100%;
+  width: 100%;
+}
+
+.footer,
+.header {
+  width: 100%;
+}
+
+.content {
+  width: 100%;
+  flex: 1 0 auto;
+}
 
 </style>
