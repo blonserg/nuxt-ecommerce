@@ -8,7 +8,7 @@ export default function prepareBreadcrumbsData (pageType, route, data) {
     case 'category':
       crumbs.push({
         title: data.title,
-        url: `/category/${data.slug}`
+        url: `/category${data.slug}`
       })
       break
     case 'product':
