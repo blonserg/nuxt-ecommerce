@@ -19,7 +19,12 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Интернет-магазин' }
     ],
     link: [
-      { rel: 'shortcut icon', href: '/favicon.ico' }
+      { rel: 'shortcut icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        type: 'text/css',
+        src: 'normalize.css'
+      }
     ]
   },
   rootDir: __dirname,
