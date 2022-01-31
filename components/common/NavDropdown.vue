@@ -1,5 +1,6 @@
 <template>
   <div class="navigation-dropdown" :class="{ active: isExpandedDropdown }">
+    <div class="cross" @click="$emit('closeMenu')"></div>
     <div class="navigation-dropdown-inner">
       <a
         class="navigation-dropdown-back"
@@ -152,33 +153,66 @@ export default {
       default: function () {
         return []
       },
-      required: true,
+      required: true
     },
     isExpandedDropdown: {
-      type: Boolean,
+      type: Boolean
     },
     currentDropdownId: {
-      type: String,
+      type: String
     },
     expandedSublist: {
-      type: String,
-    },
+      type: String
+    }
   },
-  data() {
+  data () {
     return {}
   },
   methods: {
-    hideDropdown(e) {
+    hideDropdown (e) {
       e.preventDefault()
       this.$emit('hideDropdownNav')
     },
-    hideSublist(e) {
+    hideSublist (e) {
       e.preventDefault()
       this.$emit('hideSublistNav')
     },
-    toggleSublist(e, sublistId) {
+    toggleSublist (e, sublistId) {
       this.$emit('toggleSublist', e, sublistId)
-    },
-  },
+    }
+  }
 }
 </script>
+<style lang="scss" scoped>
+.cross {
+    display: block;
+    width: 16px;
+    height: 1rem;
+    position: absolute;
+    z-index: 2002;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      display: block;
+      margin-left: 5px;
+      width: 2px;
+      height: 16px;
+      background-color: black;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      margin-left: 5px;
+      margin-top: -16px;
+      width: 2px;
+      height: 16px;
+      background-color: black;
+      transform: rotate(-45deg);
+    }
+  }
+</style>

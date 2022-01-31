@@ -12,7 +12,7 @@
           :to="`/${navItem.slug}`"
           class="nav-link navigation-link has-sub"
           active-class="active"
-          @click="handleDropdown($event, `${navItem.slug}-dropdown`)"
+          @click="isOpenedNavV = true"
         >
           {{ navItem.title }}
           <span class="navigation-item-arrow"><svg
@@ -100,7 +100,7 @@
         <!-- EO Navigation item without dropdown -->
         <!-- Navigation dropdown content -->
         <NavDropdown
-          v-if="idx === 0"
+          v-if="idx === 0 && isOpenedNavV"
           :id="`${navItem.slug}-dropdown`"
           :dropdown-data="subnav"
           :current-dropdown-id="`${navItem.slug}-dropdown`"
@@ -109,6 +109,7 @@
           @hideDropdownNav="collapseDropdown"
           @hideSublistNav="collapseSublist"
           @toggleSublist="handleSublist"
+          @closeMenu="isOpenedNavV = false"
         />
         <!-- EO Navigation dropdown content -->
       </li>
@@ -121,24 +122,25 @@ import NavDropdown from '~~/components/common/NavDropdown'
 
 export default {
   components: {
-    NavDropdown,
+    NavDropdown
   },
   props: {
     navigationData: {
       type: Array,
-      required: true,
+      required: true
     },
     subnav: {
-      type: Array,
+      type: Array
     },
     isOpenedNav: {
-      type: Boolean,
-    },
+      type: Boolean
+    }
   },
-  data() {
+  data () {
     return {
+      isOpenedNavV: false,
       expandedDropdown: '',
-      expandedSublist: '',
+      expandedSublist: ''
     }
   },
   computed: {},
@@ -147,17 +149,17 @@ export default {
       if (!newVal) {
         ;(this.expandedDropdown = ''), (this.expandedSublist = '')
       }
-    },
+    }
   },
   methods: {
-    collapseDropdown() {
+    collapseDropdown () {
       this.expandedSublist = ''
       this.expandedDropdown = ''
     },
-    collapseSublist() {
+    collapseSublist () {
       this.expandedSublist = ''
     },
-    handleDropdown(e, dropdownId) {
+    handleDropdown (e, dropdownId) {
       if (!this.$breakpoints.lMd) {
         e.preventDefault()
         if (this.expandedDropdown !== dropdownId) {
@@ -167,7 +169,7 @@ export default {
         }
       }
     },
-    handleSublist(e, sublistId) {
+    handleSublist (e, sublistId) {
       if (!this.$breakpoints.lMd) {
         e.preventDefault()
         if (this.expandedSublist !== sublistId) {
@@ -176,7 +178,7 @@ export default {
           this.expandedSublist = ''
         }
       }
-    },
-  },
+    }
+  }
 }
 </script>

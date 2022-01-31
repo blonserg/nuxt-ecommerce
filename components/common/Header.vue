@@ -34,7 +34,8 @@
                 <Nav
                   :navigation-data="menu"
                   :subnav="submenu"
-                  :is-opened-nav="isOpenedNavigation" />
+                  :is-opened-nav="isOpenedNavigation"
+                />
               </div>
             </b-sidebar>
           </div>
