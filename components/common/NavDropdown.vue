@@ -184,7 +184,8 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.cross {
+@media (min-width: 768px) {
+ .cross {
     display: block;
     width: 16px;
     height: 1rem;
@@ -215,4 +216,5 @@ export default {
       transform: rotate(-45deg);
     }
   }
+}
 </style>

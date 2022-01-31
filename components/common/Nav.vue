@@ -12,7 +12,7 @@
           :to="`/${navItem.slug}`"
           class="nav-link navigation-link has-sub"
           active-class="active"
-          @click="isOpenedNavV = true"
+          @click="media($event, navItem.slug)"
         >
           {{ navItem.title }}
           <span class="navigation-item-arrow"><svg
@@ -119,7 +119,7 @@
       overflow: hidden;
       }
       :root {
-      --accent-color: {{ isOpened ? 'hidden' : 'auto' }};
+      --accent-color: {{ isOpenedNavV ? 'hidden' : 'auto' }};
       }
     </style>
     <div v-if="isOpenedNavV" class="isOpenedNavigation"></div>
@@ -165,6 +165,16 @@ export default {
       this.expandedSublist = ''
       this.expandedDropdown = ''
     },
+    media (event, slug) {
+      if (process.browser && window) {
+        if (window.innerWidth > 768) {
+          this.isOpenedNavV = true
+        } else {
+          this.handleDropdown(event, `${slug}-dropdown`)
+        }
+      }
+    },
+
     collapseSublist () {
       this.expandedSublist = ''
     },
@@ -193,7 +203,11 @@ export default {
 </script>
 
 <style scoped>
-.isOpenedNavigation{
+.isOpenedNavigation {
+  display: none;
+}
+@media (min-width:768px) {
+ .isOpenedNavigation{
   position: fixed;
   top: 80px;
   left: 0px;
@@ -202,5 +216,7 @@ export default {
   background: rgba(0, 0, 0, 0.7);
   overflow: hidden;
   z-index: 10;
+  display: block;
+}
 }
 </style>
