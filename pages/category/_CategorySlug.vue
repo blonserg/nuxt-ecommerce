@@ -2,7 +2,7 @@
   <div class="container">
     <div class="group">
       <div class="group-ttl">
-        {{ category.title }}
+        {{ category.title ? category.title : 'Акционные товары' }}
       </div>
       <div class="plp-actions d-flex justify-content-between w-sm-100">
         <b-button v-b-toggle.filters variant="primary d-md-none">
