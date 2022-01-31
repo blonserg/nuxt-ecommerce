@@ -191,7 +191,9 @@
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
-              {{ el.title }}
+              <a :href="'/product/' + el.slug">
+                {{ el.title }}
+              </a>
               <span>{{ el.brand }}</span>
             </div>
             <div class="product-item-price">
@@ -221,7 +223,9 @@
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
-              {{ el.title }}
+              <a :href="'/product/' + el.slug">
+                {{ el.title }}
+              </a>
               <span>{{ el.brand }}</span>
             </div>
             <div class="product-item-price">
@@ -251,7 +255,9 @@
           </div>
           <div class="product-item-info">
             <div class="product-item-ttl">
-              {{ el.title }}
+              <a :href="'/product/' + el.slug">
+                {{ el.title }}
+              </a>
               <span>{{ el.brand }}</span>
             </div>
             <div class="product-item-price">
@@ -372,6 +378,10 @@ export default {
 
 .product-item-ttl {
   max-width: 15.625rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 </style>
 
