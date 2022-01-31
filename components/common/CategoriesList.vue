@@ -172,6 +172,36 @@
     <div class="container home-widgets">
       <div class="group">
         <div class="group-ttl">
+          Акционные товары
+        </div>
+        <LinkMore :text="'Смотреть все'" :href="'/category/&promotions=bundled_for_1grn,discounted_bundle,is_promoted,discount_for_second_item'" />
+      </div>
+      <VueSlickCarousel v-bind="settings" class="product-carousel">
+        <div
+          v-for="el in deleteItems(aminokisloty2)"
+          class="product-item"
+          @click="$router.push('/product/' + el.slug)"
+        >
+          <div class="product-item-image">
+            <img
+              :src="'https://aminostore.com.ua/' + el.image"
+              alt=""
+              class="product-item-image__img"
+            />
+          </div>
+          <div class="product-item-info">
+            <div class="product-item-ttl">
+              {{ el.title }}
+              <span>{{ el.brand }}</span>
+            </div>
+            <div class="product-item-price">
+              <ProductPrice :price="{pPrice: el.price, pPriceOld: el.regular_price}" />
+            </div>
+          </div>
+        </div>
+      </VueSlickCarousel>
+      <div class="group">
+        <div class="group-ttl">
           Протеины
         </div>
         <LinkMore :text="'Смотреть все'" :href="'/category/protein'" />
@@ -260,6 +290,10 @@ export default {
   },
   props: {
     aminokisloty: {
+      type: Array,
+      default: () => []
+    },
+    aminokisloty2: {
       type: Array,
       default: () => []
     },

@@ -80,7 +80,7 @@ body {
 }
 
 .body {
-  overflow: var(--accent-color);
+  // overflow: var(--accent-color, 'inherit');
   height: 100%;
   width: 100%;
   display: flex;

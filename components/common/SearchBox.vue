@@ -62,7 +62,10 @@
         </div>
       </template>
     </VueTypeaheadBootstrap>
-    <style>
+    <style v-if="isOpened">
+      body{
+      overflow: hidden
+      }
       :root {
       --accent-color: {{ isOpened ? 'hidden' : 'auto' }};
       }
@@ -137,5 +140,6 @@ export default {
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
   overflow: hidden;
+  z-index: 50;
 }
 </style>
