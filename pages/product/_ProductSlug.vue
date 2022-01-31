@@ -360,6 +360,7 @@ export default {
       return this.product.rating
     },
     productPrice () {
+      console.log(this.product.price)
       return this.product.price
     },
     productDescription () {

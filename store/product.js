@@ -47,7 +47,7 @@ export const mutations = {
       price: {
         pPrice: data.price,
         pPricePromo: data.is_promoted ? data.price : null,
-        pPriceOld: data.priceOld || null
+        pPriceOld: data.regular_price || null
       },
       product_images,
       sizeAttr: {

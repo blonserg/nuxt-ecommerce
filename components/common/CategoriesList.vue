@@ -182,7 +182,7 @@
           class="product-item"
           @click="$router.push('/product/' + el.slug)"
         >
-          <div class="product-item-image">
+          <div class="product-item-image" :class="el.price && el.regular_price ? 'product-item-image-discounted': ''">
             <img
               :src="'https://aminostore.com.ua/' + el.image"
               alt=""
@@ -214,7 +214,7 @@
           class="product-item"
           @click="$router.push('/product/' + el.slug)"
         >
-          <div class="product-item-image">
+          <div class="product-item-image" :class="el.price && el.regular_price ? 'product-item-image-discounted': ''">
             <img
               :src="'https://aminostore.com.ua/' + el.image"
               alt=""
@@ -246,7 +246,7 @@
           class="product-item"
           @click="$router.push('/product/' + el.slug)"
         >
-          <div class="product-item-image">
+          <div class="product-item-image" :class="el.price && el.regular_price ? 'product-item-image-discounted': ''">
             <img
               :src="'https://aminostore.com.ua/' + el.image"
               alt=""
@@ -391,6 +391,20 @@ export default {
   .slick-next {
     right: 25px;
     display: none !important;
+  }
+}
+
+.product-item-image-discounted {
+  position: relative;
+  &:after {
+    position: absolute;
+    content: url('../../assets/png/flame.png');
+    width: 21px;
+    height: 32px;
+    display: block;
+    z-index: 5;
+    top: 10px;
+    right: 26px;
   }
 }
 </style>

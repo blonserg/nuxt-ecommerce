@@ -1,6 +1,6 @@
 <template>
   <div class="product-item product-item--list">
-    <nuxt-link :to="`/product/${product.slug}`">
+    <nuxt-link :to="`/product/${product.slug}`" :class="product.price && product.regular_price ? 'product-item-image-discounted': ''">
       <img
         v-lazy="product.image"
         :alt="product.title"
@@ -28,7 +28,7 @@
       </div>
       <div class="product-item-price">
         <!-- todo: refactor by using Product Price Component -->
-        <ProductPrice :price="{pPrice: product.price}" />
+        <ProductPrice :price="{pPrice: product.price, pPriceOld: product.regular_price}" />
       </div>
     </div>
   </div>
@@ -54,5 +54,19 @@ export default {
   object-fit: cover;
   min-height: 320px;
   max-height: 320px;
+}
+
+.product-item-image-discounted {
+  position: relative;
+  &:after {
+    position: absolute;
+    content: url('../../assets/png/flame.png');
+    width: 21px;
+    height: 32px;
+    display: block;
+    z-index: 5;
+    top: 10px;
+    right: 26px;
+  }
 }
 </style>
