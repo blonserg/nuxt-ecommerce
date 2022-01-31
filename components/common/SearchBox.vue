@@ -62,6 +62,12 @@
         </div>
       </template>
     </VueTypeaheadBootstrap>
+    <style>
+      :root {
+      --accent-color: {{ isOpened ? 'hidden' : 'auto' }};
+      }
+    </style>
+    <div v-if="isOpened" class="isOpenedNavigation"></div>
   </div>
 </template>
 
@@ -121,3 +127,15 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.isOpenedNavigation{
+  position: fixed;
+  top: 80px;
+  left: 0px;
+  width: 100vw;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+</style>
