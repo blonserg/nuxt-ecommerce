@@ -114,6 +114,15 @@
         <!-- EO Navigation dropdown content -->
       </li>
     </ul>
+    <style v-if="isOpenedNavV">
+      body{
+      overflow: hidden;
+      }
+      :root {
+      --accent-color: {{ isOpened ? 'hidden' : 'auto' }};
+      }
+    </style>
+    <div v-if="isOpenedNavV" class="isOpenedNavigation"></div>
   </nav>
 </template>
 
@@ -182,3 +191,16 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.isOpenedNavigation{
+  position: fixed;
+  top: 80px;
+  left: 0px;
+  width: 100vw;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  z-index: 10;
+}
+</style>
