@@ -49,6 +49,8 @@
             :value="$route.query.page || 1"
             :total-rows="pagination.rows"
             :per-page="pagination.perPage"
+            first-class="dis"
+            last-class="dis"
             @change="onPaginationChange"
           />
         </div>

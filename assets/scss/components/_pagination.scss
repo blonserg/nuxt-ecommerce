@@ -3,7 +3,7 @@
 
     li:nth-child(2) { margin: 0 auto 0 0; }
     li:nth-last-child(2) { margin: 0 0 0 auto; }
-    .page-link { color: $color-primay; } 
+    .page-link { color: $color-primay; }
 }
 
 .pagination {
@@ -13,4 +13,7 @@
         line-height: 24px;
         margin: 0 8px;
     }
+}
+.dis{
+  display: none;
 }

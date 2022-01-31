@@ -58,10 +58,11 @@
       <div v-if="pagination.rows" class="page-pagination">
         <b-pagination
           :value="$route.query.page || 1"
-          pills
           align="center"
           :total-rows="pagination.rows"
           :per-page="pagination.perPage"
+          first-class="dis"
+          last-class="dis"
           @change="onPaginationChange"
         />
       </div>
