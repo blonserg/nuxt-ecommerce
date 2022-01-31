@@ -1,5 +1,5 @@
 <template>
-  <div class="body">
+  <div v-if="!loading" class="body">
     <div class="header-container">
       <Header />
     </div>
@@ -27,7 +27,11 @@ export default {
     CastomerCartModal,
     Footer
   },
+  data: function () {
+    return { loading: true }
+  },
   computed: {
+
     meta () {
       return [
         { charset: 'utf-8' },
@@ -42,7 +46,9 @@ export default {
   beforeCreate () {
     // vueMainPlugins()
   },
-
+  mounted: function () {
+    this.loading = false
+  },
   methods: {
   },
   head () {
