@@ -53,5 +53,6 @@ export default {
 .product-item-image--list {
   object-fit: cover;
   min-height: 320px;
+  max-height: 320px;
 }
 </style>
