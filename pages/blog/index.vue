@@ -63,6 +63,7 @@
           :per-page="pagination.perPage"
           first-class="dis"
           last-class="dis"
+          pills
           @change="onPaginationChange"
         />
       </div>
