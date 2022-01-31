@@ -123,7 +123,7 @@
           </div>
           <div class="merch-btns">
             <BuyButton :product="product" />
-            <b-button variant="outline-primary" @click="$bvModal.show('modal-buy-one-click')">
+            <b-button variant="outline-primary" @click="openBuyModal()">
               Купить в один клик
             </b-button>
             <BuyOneClickModal />
@@ -259,6 +259,9 @@
       :review-modal="reviewModal"
       :product-id="product.id"
     />
+    <BuyModal
+      :buy-modal="buyModal"
+    />
   </div>
 </template>
 
@@ -276,6 +279,7 @@ import LinkMore from '~~/components/common/LinkMore'
 import { mapGetters, mapMutations } from 'vuex'
 import BuyOneClickModal from '~/components/modals/BuyOneClickModal'
 import ReviewModal from '~/components/modals/ReviewModal.vue'
+import BuyModal from '~/components/modals/BuyModal.vue'
 
 export default {
   components: {
@@ -288,7 +292,8 @@ export default {
     LinkMore,
     Reviews,
     BuyOneClickModal,
-    ReviewModal
+    ReviewModal,
+    BuyModal
   },
   async asyncData ({ store, params, route, error }) {
     try {
@@ -330,7 +335,8 @@ export default {
   computed: {
     ...mapGetters({
       product: 'product/product',
-      reviewModal: 'product/reviewModal'
+      reviewModal: 'product/reviewModal',
+      buyModal: 'product/buyModal'
     }),
     quantity: {
       get () {
@@ -391,7 +397,9 @@ export default {
   methods: {
     ...mapMutations({
       openModal: 'product/OPEN_MODAL',
-      closeModal: 'product/CLOSE_MODAL'
+      closeModal: 'product/CLOSE_MODAL',
+      openBuyModal: 'product/OPEN_BUY_MODAL',
+      closeBuyModal: 'product/CLOSE_BUY_MODAL'
     }),
     showMoreDescription () {
       this.showProductDescription = true

@@ -10,7 +10,8 @@ export const state = () => ({
   customer: {
     phone: ''
   },
-  reviewModal: false
+  reviewModal: false,
+  buyModal: false
 })
 
 export const mutations = {
@@ -85,6 +86,12 @@ export const mutations = {
   },
   CLOSE_MODAL (state) {
     state.reviewModal = false
+  },
+  OPEN_BUY_MODAL (state) {
+    state.buyModal = true
+  },
+  CLOSE_BUY_MODAL (state) {
+    state.buyModal = false
   }
 }
 
@@ -123,5 +130,6 @@ export const getters = {
   product: state => state.product,
   quantity: state => state.product.quantity,
   customerPhone: state => state.customer.phone,
-  reviewModal: state => state.reviewModal
+  reviewModal: state => state.reviewModal,
+  buyModal: state => state.buyModal
 }
