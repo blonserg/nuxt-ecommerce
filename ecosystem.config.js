@@ -4,6 +4,6 @@ module.exports = {
     exec_mode: 'cluster', // enables clustering
     instances: 'max', // or an integer
     script: './node_modules/nuxt/bin/nuxt.js',
-    args: 'dev'
+    args: 'start'
   }]
 }
