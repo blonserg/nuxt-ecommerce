@@ -21,18 +21,18 @@ html {
     font-family: 'SF Pro Display', sans-serif;
     overflow-x: hidden;
   }
-  
+
   body {
     font-family: 'SF Pro Display', sans-serif;
   }
-  
+
   @media screen and (min-width: 1280px) {
     .container, .container-sm, .container-md, .container-lg, .container-xl {
       max-width: 1280px;
     }
   }
 
-  
+
 
 .btn {
     border-radius: 8px;
@@ -41,7 +41,7 @@ html {
     line-height: 20px;
     height: 40px;
   }
-  
+
   .nav {
     @media screen and (max-width: 768px) {
       display: flex;
@@ -51,27 +51,27 @@ html {
     &-link {
       font-size: 14px;
       color: #E0ECFD;
-  
+
       &:hover {
         text-decoration: underline;
         color: #E0ECFD;
       }
-  
+
       a {
         color: #E0ECFD;
-  
+
         &:hover {
           text-decoration: underline;
           color: #E0ECFD;
         }
       }
     }
-  
+
     &-item {
       &--all {
         position: relative;
         padding-left: 10px;
-  
+
         &::before {
           content: '';
           position: absolute;
@@ -84,39 +84,39 @@ html {
       }
     }
   }
-  
+
   input {
     &::placeholder {
       color: #1A232B;
     }
   }
-  
+
   .group {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 60px;
-  
+
     @media (max-width: 768px) {
       flex-direction: column;
       align-items: start;
       margin-bottom: 30px;
     }
-  
+
     &-ttl {
       font-weight: 600;
       font-size: 30px;
       line-height: 42px;
       color: $color-primay;
     }
-  
+
     &-href {
       color: $color-secondary;
       font-size: 14px;
       line-height: 18px;
-      font-weight: 500;  
+      font-weight: 500;
     }
-  
+
     &-link {
       .dropdown-toggle {
         border: 0;
@@ -130,7 +130,7 @@ html {
           padding-left: 0;
         }
       }
-  
+
       .dropdown-toggle::after {
         border: 0;
         content: '';
@@ -141,7 +141,7 @@ html {
         background: url('./../svg/arrow-down.svg') no-repeat 50% 50%;
         top: 12px;
       }
-  
+
       &.show .dropdown-toggle {
         background: none;
         color: #0056b3;
@@ -149,7 +149,7 @@ html {
       }
     }
   }
-  
+
   .breadcrumbs {
     font-weight: 400;
     font-size: 12px;
@@ -160,7 +160,7 @@ html {
     @media screen and (max-width: 768px) {
       margin-top: 10px;
     }
-  
+
     ul {
       display: flex;
       padding-left: 0;
@@ -169,26 +169,28 @@ html {
         list-style: none;
         margin-right: 20px;
         position: relative;
-  
+
         a {
           color: #9EA0A1;
         }
       }
-  
+
       li + li:before {
-        content: '>';
+        content: url('./../svg/breadcrumbs_arrow.svg');
         position: absolute;
         left: -12px;
+        width: 3px;
+        height: 6px;
       }
     }
   }
-  
+
   .link {
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
     color: #257BF4;
-  
+
     &.down svg {
       transform: rotate(90deg);
       margin: 0 0 0 .2em;
@@ -199,7 +201,7 @@ html {
       margin: 0 0 0 .2em;
     }
   }
-  
+
   .custom-control-input {
     width: 20px;
     height: 20px;

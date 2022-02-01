@@ -60,9 +60,11 @@ export default {
     }
 
     li + li:before {
-      content: '>';
+      content: url('./../../assets/svg/breadcrumbs_arrow.svg');
       position: absolute;
       left: -12px;
+      width: 3px;
+      height: 6px;
     }
   }
 }
