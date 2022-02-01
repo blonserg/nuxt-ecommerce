@@ -111,6 +111,7 @@
           @toggleSublist="handleSublist"
           @closeMenu="isOpenedNavV = false"
         />
+
         <!-- EO Navigation dropdown content -->
       </li>
     </ul>
@@ -167,8 +168,9 @@ export default {
     },
     media (event, slug) {
       if (process.browser && window) {
+        this.isOpenedNavV = true
         if (window.innerWidth > 768) {
-          this.isOpenedNavV = true
+
         } else {
           this.handleDropdown(event, `${slug}-dropdown`)
         }
@@ -206,7 +208,9 @@ export default {
 .isOpenedNavigation {
   display: none;
 }
+
 @media (min-width:768px) {
+
  .isOpenedNavigation{
   position: fixed;
   top: 80px;
