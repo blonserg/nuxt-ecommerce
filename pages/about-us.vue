@@ -39,9 +39,14 @@
             <h2>В нашем интернет-магазине вы найдете лучшие спортивные добавки от ведущих торговых марок.</h2>
           </div>
           <div class="col-md-7 col-sm-12">
-            <a href="#" class="article-row-href">
+            <nuxt-link
+              v-for="item in categories"
+              :key="item.id"
+              :to="`/category/${item.page}`"
+              class="article-row-href"
+            >
               <span class="article-row-txt">
-                Протеин
+                {{ item.name }}
               </span>
               <span class="article-row-ico">
                 <svg
@@ -59,238 +64,7 @@
                   />
                 </svg>
               </span>
-            </a>
-            <a href="#" class="article-row-href">
-              <span class="article-row-txt">
-                Готовые комплексы
-              </span>
-              <span class="article-row-ico">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M17.9707 1.19215H17.6707V1.49215L17.6707 16.5378L1.92023 0.787865L1.7081 0.575739L1.49597 0.787868L0.789821 1.49401L0.577689 1.70615L0.789821 1.91828L16.5438 17.6722L1.49061 17.6722H1.19061V17.9722L1.19061 18.971V19.271H1.49061L17.9707 19.271H18.9695H19.2695V18.971V17.9722L19.2695 1.49215V1.19215H18.9695L17.9707 1.19215Z"
-                    fill="#9EA0A1"
-                    stroke="#9EA0A1"
-                    stroke-width="0.6"
-                  />
-                </svg>
-              </span>
-            </a>
-            <a href="#" class="article-row-href">
-              <span class="article-row-txt">
-                Гейнеры
-              </span>
-              <span class="article-row-ico">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M17.9707 1.19215H17.6707V1.49215L17.6707 16.5378L1.92023 0.787865L1.7081 0.575739L1.49597 0.787868L0.789821 1.49401L0.577689 1.70615L0.789821 1.91828L16.5438 17.6722L1.49061 17.6722H1.19061V17.9722L1.19061 18.971V19.271H1.49061L17.9707 19.271H18.9695H19.2695V18.971V17.9722L19.2695 1.49215V1.19215H18.9695L17.9707 1.19215Z"
-                    fill="#9EA0A1"
-                    stroke="#9EA0A1"
-                    stroke-width="0.6"
-                  />
-                </svg>
-              </span>
-            </a>
-            <a href="#" class="article-row-href">
-              <span class="article-row-txt">
-                Аминокислоты
-              </span>
-              <span class="article-row-ico">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M17.9707 1.19215H17.6707V1.49215L17.6707 16.5378L1.92023 0.787865L1.7081 0.575739L1.49597 0.787868L0.789821 1.49401L0.577689 1.70615L0.789821 1.91828L16.5438 17.6722L1.49061 17.6722H1.19061V17.9722L1.19061 18.971V19.271H1.49061L17.9707 19.271H18.9695H19.2695V18.971V17.9722L19.2695 1.49215V1.19215H18.9695L17.9707 1.19215Z"
-                    fill="#9EA0A1"
-                    stroke="#9EA0A1"
-                    stroke-width="0.6"
-                  />
-                </svg>
-              </span>
-            </a>
-            <a href="#" class="article-row-href">
-              <span class="article-row-txt">
-                Креатин
-              </span>
-              <span class="article-row-ico">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M17.9707 1.19215H17.6707V1.49215L17.6707 16.5378L1.92023 0.787865L1.7081 0.575739L1.49597 0.787868L0.789821 1.49401L0.577689 1.70615L0.789821 1.91828L16.5438 17.6722L1.49061 17.6722H1.19061V17.9722L1.19061 18.971V19.271H1.49061L17.9707 19.271H18.9695H19.2695V18.971V17.9722L19.2695 1.49215V1.19215H18.9695L17.9707 1.19215Z"
-                    fill="#9EA0A1"
-                    stroke="#9EA0A1"
-                    stroke-width="0.6"
-                  />
-                </svg>
-              </span>
-            </a>
-            <a href="#" class="article-row-href">
-              <span class="article-row-txt">
-                Бустеры роста
-              </span>
-              <span class="article-row-ico">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M17.9707 1.19215H17.6707V1.49215L17.6707 16.5378L1.92023 0.787865L1.7081 0.575739L1.49597 0.787868L0.789821 1.49401L0.577689 1.70615L0.789821 1.91828L16.5438 17.6722L1.49061 17.6722H1.19061V17.9722L1.19061 18.971V19.271H1.49061L17.9707 19.271H18.9695H19.2695V18.971V17.9722L19.2695 1.49215V1.19215H18.9695L17.9707 1.19215Z"
-                    fill="#9EA0A1"
-                    stroke="#9EA0A1"
-                    stroke-width="0.6"
-                  />
-                </svg>
-              </span>
-            </a>
-            <a href="#" class="article-row-href">
-              <span class="article-row-txt">
-                Питание для суставов
-              </span>
-              <span class="article-row-ico">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M17.9707 1.19215H17.6707V1.49215L17.6707 16.5378L1.92023 0.787865L1.7081 0.575739L1.49597 0.787868L0.789821 1.49401L0.577689 1.70615L0.789821 1.91828L16.5438 17.6722L1.49061 17.6722H1.19061V17.9722L1.19061 18.971V19.271H1.49061L17.9707 19.271H18.9695H19.2695V18.971V17.9722L19.2695 1.49215V1.19215H18.9695L17.9707 1.19215Z"
-                    fill="#9EA0A1"
-                    stroke="#9EA0A1"
-                    stroke-width="0.6"
-                  />
-                </svg>
-              </span>
-            </a>
-            <a href="#" class="article-row-href">
-              <span class="article-row-txt">
-                L-карнитин
-              </span>
-              <span class="article-row-ico">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M17.9707 1.19215H17.6707V1.49215L17.6707 16.5378L1.92023 0.787865L1.7081 0.575739L1.49597 0.787868L0.789821 1.49401L0.577689 1.70615L0.789821 1.91828L16.5438 17.6722L1.49061 17.6722H1.19061V17.9722L1.19061 18.971V19.271H1.49061L17.9707 19.271H18.9695H19.2695V18.971V17.9722L19.2695 1.49215V1.19215H18.9695L17.9707 1.19215Z"
-                    fill="#9EA0A1"
-                    stroke="#9EA0A1"
-                    stroke-width="0.6"
-                  />
-                </svg>
-              </span>
-            </a>
-            <a href="#" class="article-row-href">
-              <span class="article-row-txt">
-                Предтреники
-              </span>
-              <span class="article-row-ico">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M17.9707 1.19215H17.6707V1.49215L17.6707 16.5378L1.92023 0.787865L1.7081 0.575739L1.49597 0.787868L0.789821 1.49401L0.577689 1.70615L0.789821 1.91828L16.5438 17.6722L1.49061 17.6722H1.19061V17.9722L1.19061 18.971V19.271H1.49061L17.9707 19.271H18.9695H19.2695V18.971V17.9722L19.2695 1.49215V1.19215H18.9695L17.9707 1.19215Z"
-                    fill="#9EA0A1"
-                    stroke="#9EA0A1"
-                    stroke-width="0.6"
-                  />
-                </svg>
-              </span>
-            </a>
-            <a href="#" class="article-row-href">
-              <span class="article-row-txt">
-                Витамины и минералы
-              </span>
-              <span class="article-row-ico">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M17.9707 1.19215H17.6707V1.49215L17.6707 16.5378L1.92023 0.787865L1.7081 0.575739L1.49597 0.787868L0.789821 1.49401L0.577689 1.70615L0.789821 1.91828L16.5438 17.6722L1.49061 17.6722H1.19061V17.9722L1.19061 18.971V19.271H1.49061L17.9707 19.271H18.9695H19.2695V18.971V17.9722L19.2695 1.49215V1.19215H18.9695L17.9707 1.19215Z"
-                    fill="#9EA0A1"
-                    stroke="#9EA0A1"
-                    stroke-width="0.6"
-                  />
-                </svg>
-              </span>
-            </a>
-            <a href="#" class="article-row-href">
-              <span class="article-row-txt">
-                Батончики
-              </span>
-              <span class="article-row-ico">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M17.9707 1.19215H17.6707V1.49215L17.6707 16.5378L1.92023 0.787865L1.7081 0.575739L1.49597 0.787868L0.789821 1.49401L0.577689 1.70615L0.789821 1.91828L16.5438 17.6722L1.49061 17.6722H1.19061V17.9722L1.19061 18.971V19.271H1.49061L17.9707 19.271H18.9695H19.2695V18.971V17.9722L19.2695 1.49215V1.19215H18.9695L17.9707 1.19215Z"
-                    fill="#9EA0A1"
-                    stroke="#9EA0A1"
-                    stroke-width="0.6"
-                  />
-                </svg>
-              </span>
-            </a>
-            <a href="#" class="article-row-href">
-              <span class="article-row-txt">
-                Шейкеры
-              </span>
-              <span class="article-row-ico">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M17.9707 1.19215H17.6707V1.49215L17.6707 16.5378L1.92023 0.787865L1.7081 0.575739L1.49597 0.787868L0.789821 1.49401L0.577689 1.70615L0.789821 1.91828L16.5438 17.6722L1.49061 17.6722H1.19061V17.9722L1.19061 18.971V19.271H1.49061L17.9707 19.271H18.9695H19.2695V18.971V17.9722L19.2695 1.49215V1.19215H18.9695L17.9707 1.19215Z"
-                    fill="#9EA0A1"
-                    stroke="#9EA0A1"
-                    stroke-width="0.6"
-                  />
-                </svg>
-              </span>
-            </a>
+            </nuxt-link>
             <p>
               Это позволяет каждому спортсмену выбрать наиболее эффективные добавки и комплексы в зависимости от целей занятий и потребностей организма. К каждому товару имеется детальное описание, в котором можно отыскать не только состав и правила приема средства, но и особенности его воздействия на организм.
             </p>
@@ -371,6 +145,20 @@ export default {
   name: 'AboutUs',
   components: {
     CallBack
+  },
+  data () {
+    return {
+      categories: []
+    }
+  },
+  async mounted () {
+    const { data } = await this.$axios.get('https://aminostore.com.ua/api/categories/')
+
+    data.forEach(el => {
+      this.categories.push({ page: el.slug, name: el.title, id: el.id })
+    })
+
+    return this.categories
   }
 }
 </script>

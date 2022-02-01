@@ -22,7 +22,6 @@ export default {
       const protein = await $axios.$get(APPLIED_FILTERS_URL + '1')
       const aminokisloty = await $axios.$get(APPLIED_FILTERS_URL + '2')
       const aminokisloty2 = await $axios.$get('https://aminostore.com.ua/api/products/?ordering=price?is_discounted=true')
-      console.log(aminokisloty2.results)
       return { protein: protein.results, aminokisloty: aminokisloty.results, aminokisloty2: aminokisloty2.results }
     } catch (err) {
       return error({
