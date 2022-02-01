@@ -135,6 +135,6 @@ export default {
 .products {
   display: flex;
   flex-direction: column;
-  align-items: self-start;
+  align-items: center;
 }
 </style>

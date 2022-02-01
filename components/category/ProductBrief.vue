@@ -9,8 +9,10 @@
     </nuxt-link>
     <div class="product-item-infolist">
       <div class="product-item-ttl">
-        {{ product.title }}
-        <span>{{ product.brand }}</span>
+        <nuxt-link :to="`/product/${product.slug}`">
+          {{ product.title }}
+          <span>{{ product.brand }}</span>
+        </nuxt-link>
       </div>
       <div class="product-item-raiting">
         <b-form-rating
@@ -51,9 +53,17 @@ export default {
 
 <style lang="scss" scoped>
 .product-item-image--list {
-  object-fit: cover;
+  object-fit: contain;
   min-height: 320px;
   max-height: 320px;
+}
+
+.product-item-ttl {
+  max-width: 70%;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .product-item-image-discounted {

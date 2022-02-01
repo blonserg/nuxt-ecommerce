@@ -377,7 +377,7 @@ export default {
 }
 
 .product-item-ttl {
-  max-width: 15.625rem;
+  max-width: 70%;
 
   &:hover {
     text-decoration: underline;

@@ -243,8 +243,10 @@
               </a>
               <div class="product-item-info">
                 <div class="product-item-ttl">
-                  <a :href="rec_product.slug">{{ rec_product.title }}</a>
-                  <span>{{ rec_product.brand }}</span>
+                  <nuxt-link :to="rec_product.slug">
+                    {{ rec_product.title }}
+                    <span>{{ rec_product.brand }}</span>
+                  </nuxt-link>
                 </div>
                 <div class="product-item-price">
                   <ProductPrice v-if="rec_product.price" :price="rec_product.price" />
@@ -429,5 +431,13 @@ export default {
 <style lang="scss" scoped>
 .link {
   cursor: pointer;
+}
+
+.product-item-ttl {
+  max-width: 70%;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 </style>
