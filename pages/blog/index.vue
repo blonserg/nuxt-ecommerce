@@ -40,22 +40,22 @@
           class="col-md-4"
         >
           <div class="blog-item">
-            <div class="blog-item-image">
-              <img :src="article.image" />
-            </div>
-            <div class="blog-item-badge">
-              {{ article.category }}
-            </div>
-            <a
-              :href="'blog/'+article.slug"
-              class="blog-item-ttl"
-              @click.prevent="openArticle(article.slug)"
-            >
-              {{ article.title }}
-            </a>
-            <div class="blog-item-info">
-              {{ getFormattedDescription(article.announce) }}
-            </div>
+            <nuxt-link :to="'blog/'+article.slug">
+              <div class="blog-item-image">
+                <img :src="article.image" />
+              </div>
+              <div class="blog-item-badge">
+                {{ article.category }}
+              </div>
+              <a
+                class="blog-item-ttl"
+              >
+                {{ article.title }}
+              </a>
+              <div class="blog-item-info">
+                {{ getFormattedDescription(article.announce) }}
+              </div>
+            </nuxt-link>
             <div class="blog-item-date">
               {{ formatDate(article.created) }}
             </div>
@@ -111,9 +111,6 @@ export default {
     ...mapMutations({
       updateCurrentPage: 'UPDATE_CURRENT_PAGE'
     }),
-    openArticle (slug) {
-      this.$router.push(`blog/${slug}`)
-    },
     categoryClickHandler (event, slug) {
       this.$router.push({ query: { category: slug } })
 
