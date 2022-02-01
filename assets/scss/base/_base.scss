@@ -139,7 +139,8 @@ html {
         height: 16px;
         right: 0;
         background: url('./../svg/arrow-down.svg') no-repeat 50% 50%;
-        top: 12px;
+        top: 13px;
+        right: -3px;
       }
 
       &.show .dropdown-toggle {

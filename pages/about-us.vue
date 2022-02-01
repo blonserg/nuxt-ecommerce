@@ -74,8 +74,9 @@
             <nuxt-link to="category/category">
               Каталог товаров
               <svg
-                width="8"
-                height="12"
+                class="svg"
+                width="12"
+                height="14"
                 viewBox="0 0 8 12"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -106,8 +107,9 @@
             <nuxt-link to="category?promotions=bundled_for_1grn,discounted_bundle,is_promoted,discount_for_second_item">
               Смотреть акции
               <svg
-                width="8"
-                height="12"
+                class="svg"
+                width="12"
+                height="14"
                 viewBox="0 0 8 12"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -162,3 +164,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.svg {
+  padding-left: 4px;
+  padding-bottom: 2px;
+}
+</style>

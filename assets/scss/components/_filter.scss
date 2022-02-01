@@ -9,6 +9,7 @@
        line-height: 20px;
        display: flex;
        justify-content: space-between;
+       align-items: center;
 
        &.collapsed {
            .filter-header-ico {
@@ -45,6 +46,7 @@
        &-ico {
            transform: rotate(90deg) translateX(-1px);
            margin-left: 5px;
+           margin-top: 1px;
        }
    }
 
