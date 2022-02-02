@@ -70,6 +70,8 @@
           :per-page="pagination.perPage"
           first-class="dis"
           last-class="dis"
+          prev-class="pag-link"
+          next-class="pag-link"
           pills
           @change="onPaginationChange"
         />
