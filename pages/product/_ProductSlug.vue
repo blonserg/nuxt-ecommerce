@@ -503,4 +503,12 @@ export default {
     right: 26px;
   }
 }
+
+.product-item-price {
+  .product-price-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+}
 </style>
