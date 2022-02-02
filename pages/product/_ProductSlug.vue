@@ -235,10 +235,22 @@
         </div>
         <div class="col-12">
           <VueSlickCarousel v-bind="settings" class="product-carousel">
-            <div v-for="rec_product in product.recommended" class="product-item">
-              <a :href="rec_product.slug" class="product-item-image">
-                <img :src="`https://aminostore.com.ua/${rec_product.image}.jpg`" :alt="rec_product.title" />
-              </a>
+            <div
+              v-for="rec_product in product.recommended"
+              class="product-item"
+              @click="$router.push('/product/' + rec_product.slug)"
+            >
+              <div
+                :href="rec_product.slug"
+                class="product-item-image"
+                :class="rec_product.price && rec_product.regular_price ? 'product-item-image-discounted': ''"
+              >
+                <img
+                  class="product-item-image__img"
+                  :src="`https://aminostore.com.ua/${rec_product.image}`"
+                  :alt="rec_product.title"
+                />
+              </div>
               <div class="product-item-info">
                 <div class="product-item-ttl">
                   <nuxt-link :to="rec_product.slug">
@@ -247,7 +259,7 @@
                   </nuxt-link>
                 </div>
                 <div class="product-item-price">
-                  <ProductPrice v-if="rec_product.price" :price="rec_product.price" />
+                  <ProductPrice :price="{pPrice: rec_product.price, pPriceOld: rec_product.regular_price}" />
                 </div>
               </div>
             </div>
@@ -363,7 +375,6 @@ export default {
       }
     },
     productRating () {
-      console.log(this.product.recommended)
       return this.product.rating
     },
     productPrice () {
@@ -437,6 +448,59 @@ export default {
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+.hero-main-picture {
+  width: 100%;
+  height: 660px;
+  @media (min-width: 769px) {
+    height: 100%;
+  }
+}
+
+.product-item-image {
+  width: 100%;
+  height: 100%;
+  min-height: 410px;
+  border-radius: 16px;
+  background-color: #F2F5F7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  display: block;
+  height: 416px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+  }
+}
+
+// top main slider
+.main-carousel {
+  .slick-next {
+    right: 25px;
+    display: none !important;
+  }
+}
+
+.product-item-image-discounted {
+  position: relative;
+  &:after {
+    position: absolute;
+    content: url('../../assets/png/flame.png');
+    width: 21px;
+    height: 32px;
+    display: block;
+    z-index: 5;
+    top: 10px;
+    right: 26px;
   }
 }
 </style>
