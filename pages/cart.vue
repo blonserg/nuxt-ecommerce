@@ -171,7 +171,7 @@ export default {
       return total.toFixed(2)
     },
     priceWithPromo () {
-      return this.discount ? +this.totalPrice - (+this.totalPrice / 100 * +this.discount).toFixed(0)
+      return this.discount ? +this.totalPrice - (+this.totalPrice / 100 * +this.discount).toFixed(2)
         : this.totalPrice
     }
   },
