@@ -237,7 +237,7 @@
           <VueSlickCarousel v-bind="settings" class="product-carousel">
             <div v-for="rec_product in product.recommended" class="product-item">
               <a :href="rec_product.slug" class="product-item-image">
-                <img :src="`https://aminostore.com.ua${rec_product.image}.jpg`" :alt="rec_product.title" />
+                <img :src="`https://aminostore.com.ua/${rec_product.image}.jpg`" :alt="rec_product.title" />
               </a>
               <div class="product-item-info">
                 <div class="product-item-ttl">
