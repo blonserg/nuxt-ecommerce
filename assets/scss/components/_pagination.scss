@@ -17,3 +17,10 @@
 .dis{
   display: none;
 }
+
+.pag-link.disabled {
+  span {
+    border: 1px solid #E5E5E5 !important;
+    color: #EAEEF2 !important;
+  }
+}

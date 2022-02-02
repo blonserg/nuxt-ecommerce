@@ -51,8 +51,22 @@
             :per-page="pagination.perPage"
             first-class="dis"
             last-class="dis"
+            prev-class="pag-link"
+            next-class="pag-link"
             @change="onPaginationChange"
           />
+          <!-- <b-pagination
+            :value="$route.query.page || 1"
+            :total-rows="pagination.rows"
+            :per-page="pagination.perPage"
+            first-class="dis"
+            last-class="dis"
+            first-text="First"
+            prev-text="Prev"
+            next-text="Next"
+            last-text="Last"
+            @change="onPaginationChange"
+          /> -->
         </div>
       </div>
     </div>
