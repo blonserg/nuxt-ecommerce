@@ -237,7 +237,7 @@
           <VueSlickCarousel v-bind="settings" class="product-carousel">
             <div v-for="rec_product in product.recommended" class="product-item">
               <a :href="rec_product.slug" class="product-item-image">
-                <img :src="rec_product.image" :alt="rec_product.title" />
+                <img :src="`${rec_product.image}.png`" :alt="rec_product.title" />
               </a>
               <div class="product-item-info">
                 <div class="product-item-ttl">
@@ -363,6 +363,7 @@ export default {
       }
     },
     productRating () {
+      console.log(this.product.recommended)
       return this.product.rating
     },
     productPrice () {
