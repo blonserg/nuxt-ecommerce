@@ -4,6 +4,7 @@
       :protein="protein"
       :aminokisloty="aminokisloty"
       :aminokisloty2="aminokisloty2"
+      :banners="banners"
     />
   </div>
 </template>
@@ -19,10 +20,11 @@ export default {
     try {
       await store.dispatch('getCategoriesList')
       const APPLIED_FILTERS_URL = 'https://aminostore.com.ua/api/products/?ordering=price?categories='
+      const { banners } = await $axios.$get('https://aminostore.com.ua/api/init/')
       const protein = await $axios.$get(APPLIED_FILTERS_URL + '1')
       const aminokisloty = await $axios.$get(APPLIED_FILTERS_URL + '2')
       const aminokisloty2 = await $axios.$get('https://aminostore.com.ua/api/products/?ordering=price?is_discounted=true')
-      return { protein: protein.results, aminokisloty: aminokisloty.results, aminokisloty2: aminokisloty2.results }
+      return { protein: protein.results, aminokisloty: aminokisloty.results, aminokisloty2: aminokisloty2.results, banners: banners }
     } catch (err) {
       return error({
         statusCode: 404,

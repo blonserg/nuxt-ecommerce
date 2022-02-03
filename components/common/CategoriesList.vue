@@ -12,9 +12,9 @@
       >
         <div class="hero-main">
           <picture class="hero-main-img">
-            <source srcset="@/assets/png/hero-screen-mob.png" media="(max-width: 468px)" />
+            <source :srcset="`https://aminostore.com.ua/${banners[0].image}`" media="(max-width: 468px)" />
             <img
-              src="@/assets/png/hero.png"
+              :src="`https://aminostore.com.ua/${banners[0].image}`"
               class="hero-main-picture"
               alt=""
             />
@@ -23,12 +23,9 @@
             <div class="row">
               <div class="col-sm-7 hero-wrap">
                 <div class="hero-inner">
-                  <h1 class="hero-head">
-                    Hydro Whey Zero + Iso WhEy Zero
+                  <h1 class="hero-head" v-text="banners[0].title">
                   </h1>
-                  <p class="hero-text">
-                    При покупке HYDRO WHEY ZERO <span>получи 25% скидки</span> на протеин ISO WHEY ZERO (акция действует до 21.06.21)
-                  </p>
+                  <p class="hero-text" v-html="banners[0].description"></p>
                   <div class="hero-btns">
                     <b-button variant="primary">
                       Купить
@@ -59,9 +56,9 @@
         </div>
         <div class="hero-main">
           <picture class="hero-main-img">
-            <source srcset="@/assets/png/hero-screen-mob.png" media="(max-width: 468px)" />
+            <source :srcset="`https://aminostore.com.ua/${banners[1].image}`" media="(max-width: 468px)" />
             <img
-              src="@/assets/png/hero.png"
+              :src="`https://aminostore.com.ua/${banners[1].image}`"
               class="hero-main-picture"
               alt=""
             />
@@ -70,12 +67,8 @@
             <div class="row">
               <div class="col-sm-7 hero-wrap">
                 <div class="hero-inner">
-                  <h1 class="hero-head">
-                    Hydro Whey Zero
-                  </h1>
-                  <p class="hero-text">
-                    При покупке HYDRO WHEY ZERO <span>получи 55% скидки</span> на протеин ISO WHEY ZERO (акция действует до 21.06.21)
-                  </p>
+                  <h1 class="hero-head" v-text="banners[1].title"></h1>
+                  <p class="hero-text" v-html="banners[1].description"></p>
                   <div class="hero-btns">
                     <b-button variant="primary">
                       Купить
@@ -304,6 +297,10 @@ export default {
       default: () => []
     },
     protein: {
+      type: Array,
+      default: () => []
+    },
+    banners: {
       type: Array,
       default: () => []
     }
