@@ -62,14 +62,6 @@
         </div>
       </template>
     </VueTypeaheadBootstrap>
-    <style v-if="isOpened">
-      body{
-      overflow: hidden
-      }
-      :root {
-      --accent-color: {{ isOpened ? 'hidden' : 'auto' }};
-      }
-    </style>
     <div v-if="isOpened" class="isOpenedNavigation"></div>
   </div>
 </template>
@@ -102,7 +94,13 @@ export default {
       url: URL
     }
   },
+  watch: {
+    isOpened: function (newVal) {
+      document.body.style.overflow = newVal ? 'hidden' : 'visible'
+    }
+  },
   methods: {
+
     hideSearchBox () {
       this.query = ''
       this.$emit('onHideSearchBox')

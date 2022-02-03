@@ -72,9 +72,9 @@
         <!-- EO Navigation item with dropdown -->
         <!-- Navigation item without dropdown -->
 
-        <nuxt-link
+        <a
           v-else
-          :to="`/category/${navItem.slug}`"
+          :href="`/category/${navItem.slug}`"
           class="nav-link navigation-link"
           active-class="active"
         >
@@ -96,7 +96,7 @@
               />
             </svg>
           </span>
-        </nuxt-link>
+        </a>
         <!-- EO Navigation item without dropdown -->
         <!-- Navigation dropdown content -->
         <NavDropdown
@@ -115,14 +115,7 @@
         <!-- EO Navigation dropdown content -->
       </li>
     </ul>
-    <style v-if="isOpenedNavV">
-      body{
-      overflow: hidden;
-      }
-      :root {
-      --accent-color: {{ isOpenedNavV ? 'hidden' : 'auto' }};
-      }
-    </style>
+
     <div v-if="isOpenedNavV" class="isOpenedNavigation"></div>
   </nav>
 </template>
@@ -155,6 +148,9 @@ export default {
   },
   computed: {},
   watch: {
+    isOpenedNavV: function (newVal) {
+      document.body.style.overflow = newVal ? 'hidden' : 'visible'
+    },
     isOpenedNav: function (newVal) {
       if (!newVal) {
         ;(this.expandedDropdown = ''), (this.expandedSublist = '')
