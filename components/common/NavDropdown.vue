@@ -58,9 +58,9 @@
           </a>
           <!-- EO Navigation dropdown item with dropdown -->
           <!-- Navigation dropdown item without dropdown -->
-          <nuxt-link
+          <a
             v-else
-            :to="`/category/${item.slug}`"
+            :href="`/category/${item.slug}`"
             class="navigation-dropdown-link"
           >
             {{ item.title }}
@@ -79,7 +79,7 @@
                 stroke-linejoin="round"
               />
             </svg></span>
-          </nuxt-link>
+          </a>
           <!-- EO Navigation dropdown item without dropdown -->
           <!-- Navigation sublist content -->
           <div
@@ -118,7 +118,7 @@
                 :key="sublistItem.id"
                 class="nav-item"
               >
-                <nuxt-link class="nav-link" :to="`/category/${sublistItem.slug}`">
+                <a class="nav-link" :href="`/category/${sublistItem.slug}`">
                   {{ sublistItem.title }}
                   <span class="navigation-item-arrow"><svg
                     width="8"
@@ -135,7 +135,7 @@
                       stroke-linejoin="round"
                     />
                   </svg></span>
-                </nuxt-link>
+                </a>
               </li>
             </ul>
           </div>
