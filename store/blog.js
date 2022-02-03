@@ -42,7 +42,7 @@ export const actions = {
       next: response.next,
       previous: response.previous
     }
-    const crumbs = prepareBreadcrumbsData('blog', null, { title: 'Статьи', slug: 'blog' })
+    const crumbs = prepareBreadcrumbsData('blog', null, { title: 'Статьи', slug: '/blog' })
 
     commit('SET_BLOG_CATEGORY_ARTICLES', articles)
     commit('SET_PAGE_PAGINATION', pagination, { root: true })

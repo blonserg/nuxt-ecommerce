@@ -47,6 +47,7 @@ export default {
     Breadcrumbs
   },
   async asyncData ({ store, route }) {
+    await store.dispatch('blog/fetchCategoryArticles', { category: '' })
     await store.dispatch('blog/fetchArticle', { slug: route.params.slug })
   },
   data () {

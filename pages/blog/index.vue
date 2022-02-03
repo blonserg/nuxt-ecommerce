@@ -92,7 +92,6 @@ export default {
       category: route.query.category ? route.query.category : null,
       page: route.query.page ? route.query.page : null
     }
-
     await store.dispatch('blog/fetchCategories')
     await store.dispatch('blog/fetchCategoryArticles', params)
   },
@@ -106,9 +105,9 @@ export default {
       pagination: 'pagination'
     })
   },
-  async beforeMount () {
-    await this.$store.commit('RESET_BREADCRUMBS')
-  },
+  // async beforeMount () {
+  // await this.$store.commit('RESET_BREADCRUMBS')
+  // },
   methods: {
     ...mapMutations({
       updateCurrentPage: 'UPDATE_CURRENT_PAGE'

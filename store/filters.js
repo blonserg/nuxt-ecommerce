@@ -56,7 +56,6 @@ export const mutations = {
 
     // add price range filter
     state.filters.push(priceRangeFilter)
-
     // add other filters
     state.filters = [
       ...state.filters,
