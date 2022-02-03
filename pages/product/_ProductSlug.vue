@@ -230,7 +230,7 @@
             <h3 class="group-ttl merch-ttl">
               Рекомендуемые товары
             </h3>
-            <LinkMore :text="'Смотреть все'" :to="'/category/' + $store.getters.submenu.find(e => e.title === product.category).slug" />
+            <LinkMore :text="'Смотреть все'" :href="('/category/' + product.categorySLug)" />
           </div>
         </div>
         <div class="col-12">
