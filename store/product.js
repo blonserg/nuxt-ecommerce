@@ -11,7 +11,8 @@ export const state = () => ({
     phone: ''
   },
   reviewModal: false,
-  buyModal: false
+  buyModal: false,
+  categorySlug: ''
 })
 
 export const mutations = {
@@ -50,6 +51,7 @@ export const mutations = {
         pPricePromo: data.is_promoted ? data.price : null,
         pPriceOld: data.regular_price || null
       },
+      categorySLug: data.category_slug,
       product_images,
       sizeAttr: {
         selected: 0,
@@ -102,7 +104,6 @@ export const actions = {
       const response = await this.$axios.$get(url)
       const slug = categories.find(e => e.title === response.category).slug
       const crumbs = prepareBreadcrumbsData('product', null, { slug, title: response.category, prod_title: response.title, prod_slug: response.slug })
-
       commit('SET_PRODUCT', response)
       dispatch('setBreadcrumbs', crumbs, { root: true })
     } catch (err) {
