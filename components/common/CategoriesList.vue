@@ -10,11 +10,11 @@
         :dots="true"
         class="main-carousel"
       >
-        <div class="hero-main">
+        <div v-for="banner in banners" class="hero-main">
           <picture class="hero-main-img">
-            <source :srcset="`https://aminostore.com.ua/${banners[0].image}`" media="(max-width: 468px)" />
+            <source :srcset="`https://aminostore.com.ua/${banner.image_mobile}`" media="(max-width: 468px)" />
             <img
-              :src="`https://aminostore.com.ua/${banners[0].image}`"
+              :src="`https://aminostore.com.ua/${banner.image}`"
               class="hero-main-picture"
               alt=""
             />
@@ -23,57 +23,14 @@
             <div class="row">
               <div class="col-sm-7 hero-wrap">
                 <div class="hero-inner">
-                  <h1 class="hero-head" v-text="banners[0].title">
+                  <h1 class="hero-head" v-text="banner.title">
                   </h1>
-                  <p class="hero-text" v-html="banners[0].description"></p>
+                  <p class="hero-text" v-html="banner.description"></p>
                   <div class="hero-btns">
                     <b-button variant="primary">
                       Купить
                     </b-button>
-                    <a class="link" href="/">
-                      Подробнее
-                      <svg
-                        width="8"
-                        height="12"
-                        viewBox="0 0 8 12"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M1.75 1.5L6.25 6L1.75 10.5"
-                          stroke="currentColor"
-                          stroke-width="1.6"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="hero-main">
-          <picture class="hero-main-img">
-            <source :srcset="`https://aminostore.com.ua/${banners[1].image}`" media="(max-width: 468px)" />
-            <img
-              :src="`https://aminostore.com.ua/${banners[1].image}`"
-              class="hero-main-picture"
-              alt=""
-            />
-          </picture>
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-7 hero-wrap">
-                <div class="hero-inner">
-                  <h1 class="hero-head" v-text="banners[1].title"></h1>
-                  <p class="hero-text" v-html="banners[1].description"></p>
-                  <div class="hero-btns">
-                    <b-button variant="primary">
-                      Купить
-                    </b-button>
-                    <a class="link" href="/">
+                    <a class="link" :href="`https://aminostore.com.ua/product/${banner.product__slug}`">
                       Подробнее
                       <svg
                         width="8"
@@ -279,6 +236,7 @@ import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 import LinkMore from '~~/components/common/LinkMore'
 import ProductPrice from '~~/components/common/ProductPrice'
 import CallBack from '~~/components/common/CallBack'
+import { URL } from '@/utils/constants'
 
 export default {
   components: {
