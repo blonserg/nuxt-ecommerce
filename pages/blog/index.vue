@@ -64,17 +64,24 @@
       </div>
       <div v-if="pagination.rows" class="page-pagination">
         <b-pagination
-          :value="$route.query.page || 1"
+          pills
           align="center"
+          :value="$route.query.page || 1"
           :total-rows="pagination.rows"
           :per-page="pagination.perPage"
           first-class="dis"
           last-class="dis"
           prev-class="pag-link"
           next-class="pag-link"
-          pills
           @change="onPaginationChange"
-        />
+        >
+          <template #prev-text>
+            <Arrow class="prev" />
+          </template>
+          <template #next-text>
+            <Arrow />
+          </template>
+        </b-pagination>
       </div>
     </div>
   </div>
@@ -140,3 +147,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.prev{
+  transform: rotate(180deg);
+}
+</style>
