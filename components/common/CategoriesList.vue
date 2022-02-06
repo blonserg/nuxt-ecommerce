@@ -27,9 +27,9 @@
                   </h1>
                   <div class="hero-text" v-html="banner.description"></div>
                   <div class="hero-btns">
-                    <b-button variant="primary">
+                    <!-- <b-button variant="primary">
                       Купить
-                    </b-button>
+                    </b-button> -->
                     <!-- <BuyButton :product="banner.product_info" /> -->
                     <a class="link" :href="`/product/${banner.product__slug}`">
                       Подробнее
@@ -238,7 +238,7 @@ import LinkMore from '~~/components/common/LinkMore'
 import ProductPrice from '~~/components/common/ProductPrice'
 import CallBack from '~~/components/common/CallBack'
 import { mapGetters, mapMutations } from 'vuex'
-import BuyButton from '~~/components/common/BuyButton'
+// import BuyButton from '~~/components/common/BuyButton'
 import { URL } from '@/utils/constants'
 
 export default {
@@ -246,8 +246,8 @@ export default {
     VueSlickCarousel,
     ProductPrice,
     LinkMore,
-    CallBack,
-    BuyButton
+    CallBack
+    // BuyButton
   },
   props: {
     aminokisloty: {
