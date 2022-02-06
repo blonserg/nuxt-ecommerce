@@ -23,8 +23,8 @@ export const mutations = {
     const sizeOptions = [
       { text: 'Выберите размер', value: '0' }
     ]
-    data.sizes.forEach((size) => {
-      const formattedSize = { text: size, value: size }
+    data.linked_products.forEach(({ size, slug }) => {
+      const formattedSize = { text: size, value: size, slug }
       sizeOptions.push(formattedSize)
     })
     data.tastes.forEach((taste) => {

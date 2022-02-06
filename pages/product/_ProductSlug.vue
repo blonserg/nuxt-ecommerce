@@ -363,6 +363,10 @@ export default {
         return this.$store.state.product.product.sizeAttr.selected
       },
       set (value) {
+        const selectedProduct = this.$store.state.product.product.sizeAttr.options.find(e => e.value === value)
+        if (selectedProduct && selectedProduct.slug) {
+          this.$router.push('/product/' + selectedProduct.slug)
+        }
         this.$store.commit('product/UPDATE_PRODUCT_ATTRIBUTE', { attr: 'sizeAttr', value })
       }
     },
