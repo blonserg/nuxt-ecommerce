@@ -93,6 +93,7 @@ import formatDate from '../../utils/formatDate'
 
 export default {
   components: {
+    Arrow: () => import('@/assets/svg/Стрелка.svg?inline')
   },
   async asyncData ({ store, route }) {
     const params = {
