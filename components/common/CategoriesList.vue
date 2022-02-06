@@ -135,7 +135,7 @@
         >
           <div class="product-item-image" :class="el.price && el.regular_price ? 'product-item-image-discounted': ''">
             <img
-              :src="`${thisLocation}` + el.image"
+              :src="`${thisLocation}/` + el.image"
               alt=""
               class="product-item-image__img"
             />
@@ -167,7 +167,7 @@
         >
           <div class="product-item-image" :class="el.price && el.regular_price ? 'product-item-image-discounted': ''">
             <img
-              :src="`${thisLocation}` + el.image"
+              :src="`${thisLocation}/` + el.image"
               alt=""
               class="product-item-image__img"
             />
@@ -199,7 +199,7 @@
         >
           <div class="product-item-image" :class="el.price && el.regular_price ? 'product-item-image-discounted': ''">
             <img
-              :src="thisLocation + el.image"
+              :src="thisLocation + '/' + el.image"
               alt=""
               class="product-item-image__img"
             />
