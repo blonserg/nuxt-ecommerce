@@ -8,6 +8,12 @@
 
 .pagination {
     .page-link {
+      padding: 0px !important;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
         font-weight: 600;
         font-size: 14px;
         line-height: 24px;
@@ -19,8 +25,7 @@
 }
 
 .pag-link.disabled {
-  span {
-    border: 1px solid #E5E5E5 !important;
-    color: #EAEEF2 !important;
+  span svg {
+    opacity: 0.1;
   }
 }

@@ -54,7 +54,14 @@
             prev-class="pag-link"
             next-class="pag-link"
             @change="onPaginationChange"
-          />
+          >
+            <template #prev-text>
+              <Arrow class="prev" />
+            </template>
+            <template #next-text>
+              <Arrow />
+            </template>
+          </b-pagination>
           <!-- <b-pagination
             :value="$route.query.page || 1"
             :total-rows="pagination.rows"
@@ -81,6 +88,7 @@ import Filters from '~~/components/common/Filters'
 import { mapState, mapGetters } from 'vuex'
 export default {
   components: {
+    Arrow: () => import('@/assets/svg/Стрелка.svg?inline'),
     ProductBrief,
     LinkMore,
     Filters
@@ -150,5 +158,8 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.prev{
+  transform: rotate(180deg);
 }
 </style>
