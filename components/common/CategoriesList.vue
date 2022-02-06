@@ -12,9 +12,9 @@
       >
         <div v-for="banner in banners" class="hero-main">
           <picture class="hero-main-img">
-            <source :srcset="`https://aminostore.com.ua/${banner.image_mobile}`" media="(max-width: 468px)" />
+            <source :srcset="`https://aminostore.com.ua/media/${banner.image_mobile}`" media="(max-width: 468px)" />
             <img
-              :src="`https://aminostore.com.ua/${banner.image}`"
+              :src="`https://aminostore.com.ua/media/${banner.image}`"
               class="hero-main-picture"
               alt=""
             />
@@ -23,14 +23,15 @@
             <div class="row">
               <div class="col-sm-7 hero-wrap">
                 <div class="hero-inner">
-                  <h1 class="hero-head" v-text="banner.title">
+                  <h1 class="hero-head" v-html="banner.title">
                   </h1>
-                  <p class="hero-text" v-html="banner.description"></p>
+                  <div class="hero-text" v-html="banner.description"></div>
                   <div class="hero-btns">
-                    <b-button variant="primary">
+                    <!-- <b-button variant="primary">
                       Купить
-                    </b-button>
-                    <a class="link" :href="`https://aminostore.com.ua/product/${banner.product__slug}`">
+                    </b-button> -->
+                    <!-- <BuyButton :product="banner.product_info" /> -->
+                    <a class="link" :href="`/product/${banner.product__slug}`">
                       Подробнее
                       <svg
                         width="8"
@@ -134,7 +135,7 @@
         >
           <div class="product-item-image" :class="el.price && el.regular_price ? 'product-item-image-discounted': ''">
             <img
-              :src="'https://aminostore.com.ua/' + el.image"
+              :src="`${thisLocation}` + el.image"
               alt=""
               class="product-item-image__img"
             />
@@ -166,7 +167,7 @@
         >
           <div class="product-item-image" :class="el.price && el.regular_price ? 'product-item-image-discounted': ''">
             <img
-              :src="'https://aminostore.com.ua/' + el.image"
+              :src="`${thisLocation}` + el.image"
               alt=""
               class="product-item-image__img"
             />
@@ -198,7 +199,7 @@
         >
           <div class="product-item-image" :class="el.price && el.regular_price ? 'product-item-image-discounted': ''">
             <img
-              :src="'https://aminostore.com.ua/' + el.image"
+              :src="thisLocation + el.image"
               alt=""
               class="product-item-image__img"
             />
@@ -236,6 +237,8 @@ import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 import LinkMore from '~~/components/common/LinkMore'
 import ProductPrice from '~~/components/common/ProductPrice'
 import CallBack from '~~/components/common/CallBack'
+import { mapGetters, mapMutations } from 'vuex'
+// import BuyButton from '~~/components/common/BuyButton'
 import { URL } from '@/utils/constants'
 
 export default {
@@ -244,6 +247,7 @@ export default {
     ProductPrice,
     LinkMore,
     CallBack
+    // BuyButton
   },
   props: {
     aminokisloty: {
@@ -293,6 +297,11 @@ export default {
           }
         ]
       }
+    }
+  },
+  computed: {
+    thisLocation () {
+      return process.client ? location.origin : ''
     }
   },
   mounted () {
