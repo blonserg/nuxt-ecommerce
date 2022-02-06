@@ -25,7 +25,7 @@
                 <div class="hero-inner">
                   <h1 class="hero-head" v-html="banner.title">
                   </h1>
-                  <div class="hero-text" v-html="banner.description"></div>
+                  <p class="hero-text" v-html="banner.description"></p>
                   <div class="hero-btns">
                     <!-- <b-button variant="primary">
                       Купить
