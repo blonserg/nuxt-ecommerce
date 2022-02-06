@@ -1,10 +1,13 @@
 <template>
-  <div class="merch-btns-inner" v-if="product">
+  <div v-if="product" class="merch-btns-inner">
     <client-only>
       <b-button
-        variant="primary"
         v-if="!isProductAdded"
-        @click.prevent="buyClickHandler">Купить</b-button> 
+        variant="primary"
+        @click.prevent="buyClickHandler"
+      >
+        Купить
+      </b-button>
       <a
         v-else
         href="/cart"

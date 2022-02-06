@@ -23,8 +23,14 @@ export default {
       const { banners } = await $axios.$get('https://aminostore.com.ua/api/init/')
       const protein = await $axios.$get(APPLIED_FILTERS_URL + '1')
       const aminokisloty = await $axios.$get(APPLIED_FILTERS_URL + '2')
+      const bannersz = []
+      for (const banner of banners) {
+        const { data } = await $axios.get('https://aminostore.com.ua/api/product/' + banner.product__slug)
+        bannersz.push({ ...banner, product_info: data })
+      };
+      console.log(bannersz)
       const aminokisloty2 = await $axios.$get('https://aminostore.com.ua/api/products/?ordering=price?is_discounted=true')
-      return { protein: protein.results, aminokisloty: aminokisloty.results, aminokisloty2: aminokisloty2.results, banners: banners }
+      return { protein: protein.results, aminokisloty: aminokisloty.results, aminokisloty2: aminokisloty2.results, banners: bannersz }
     } catch (err) {
       return error({
         statusCode: 404,
