@@ -117,7 +117,6 @@ export default {
   },
   mounted () {
     document.body.classList.add('sticky-header')
-    console.log(this.article)
   },
   destroyed () {
     document.body.classList.remove('sticky-header')
