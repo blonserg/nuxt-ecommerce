@@ -30,7 +30,59 @@
     </div> -->
     <Breadcrumbs class="breadcrumbs" />
     <div class="article">
-      <div class="container" v-html="article.text">
+      <div class="container">
+        <div>
+          <span
+            v-for="list of article.article_parts"
+            :key="list.position"
+            class="article-text"
+          >
+            <h3 class="article-text__title">
+              {{ list.title }}
+            </h3>
+            <div class="article-text__info">
+              <p class="article-text__text" v-html="list.text"></p>
+              <p v-html="list.brief"></p>
+            </div>
+          </span>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="group">
+              <h3 class="group-ttl merch-ttl">
+                Похожие статьи
+              </h3>
+            </div>
+          </div>
+          <div
+            v-for="article in article.related"
+            :key="article.id"
+            class="col-md-4"
+          >
+            <div class="blog-item">
+              <nuxt-link :to="article.slug">
+                <div class="blog-item-image">
+                  <img :src="'https://aminostore.com.ua/'+article.image" />
+                </div>
+                <div class="blog-item-badge">
+                  {{ article.category }}
+                </div>
+                <a
+                  class="blog-item-ttl"
+                >
+                  {{ article.title }}
+                </a>
+                <div class="blog-item-info">
+                  {{ getFormattedDescription(article.announce) }}
+                </div>
+              </nuxt-link>
+              <div class="blog-item-date">
+                {{ formatDate(article.created) }}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -51,7 +103,9 @@ export default {
     await store.dispatch('blog/fetchArticle', { slug: route.params.slug })
   },
   data () {
-    return { backgroundUrl }
+    return {
+      backgroundUrl
+    }
   },
   computed: {
     ...mapGetters({
@@ -60,6 +114,7 @@ export default {
   },
   mounted () {
     document.body.classList.add('sticky-header')
+    console.log(this.article)
   },
   destroyed () {
     document.body.classList.remove('sticky-header')
@@ -68,7 +123,16 @@ export default {
     getSlug () {
       return this.$route.params.slug
     },
-    formatDate
+    formatDate,
+    getFormattedDescription (desc) {
+      let formattedDesc = desc
+      const maxLength = 96
+      if (desc.length > maxLength) {
+        formattedDesc = desc.slice(0, maxLength)
+        formattedDesc += '...'
+      }
+      return formattedDesc
+    }
   }
 }
 </script>
@@ -83,6 +147,47 @@ export default {
 .breadcrumbs {
   .breadcrumbs_2gBpg {
     display: block;
+  }
+}
+</style>
+
+<style lang="scss">
+.article-text {
+  display: flex;
+  padding-top: 50px;
+  flex-direction: column;
+
+  &::before {
+    display: none;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 2.5rem;
+    line-height: 2.75rem;
+    color: #0D1115;
+    margin-bottom: 2.5rem;
+  }
+
+  &__info {
+  }
+
+  &__text {
+    margin-bottom: 4rem;
+  }
+
+  @media (min-width: 992px) {
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__title {
+      width: 36%;
+    }
+
+    &__info {
+      width: 60%;
+      padding-left: 2rem;
+    }
   }
 }
 </style>
