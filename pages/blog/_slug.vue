@@ -56,7 +56,7 @@
             </div>
           </div>
           <div
-            v-for="article in article.related"
+            v-for="article in filteredItems"
             :key="article.id"
             class="col-md-4"
           >
@@ -110,7 +110,10 @@ export default {
   computed: {
     ...mapGetters({
       article: 'blog/article'
-    })
+    }),
+    filteredItems: function () {
+      return this.article.related.slice(0, 3)
+    }
   },
   mounted () {
     document.body.classList.add('sticky-header')
