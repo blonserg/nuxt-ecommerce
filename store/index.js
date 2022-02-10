@@ -100,5 +100,15 @@ export const getters = {
   submenu: state => state.pageData.submenu,
   footerNav: state => state.pageData.bottom_menu,
   pageConfigs: state => state.pageData.params,
-  seoTools: state => state.pageData.counters_and_builtins
+  seoTools: state => state.pageData.counters_and_builtins,
+  categoriesSliders: (state) => {
+    const categories = state.pageData.top_menu
+    const arr = []
+    categories.forEach(el => {
+      if (el.slug !== 'category') {
+        arr.push({ title: el.title, slug: el.slug })
+      }
+    })
+    return arr
+  }
 }

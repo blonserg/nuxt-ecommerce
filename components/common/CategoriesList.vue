@@ -153,70 +153,40 @@
           </div>
         </div>
       </VueSlickCarousel>
-      <div class="group">
-        <div class="group-ttl">
-          Протеины
+      <div v-for="category in categoriesSliders">
+        <div class="group">
+          <div class="group-ttl">
+            {{ category.title }}
+          </div>
+          <LinkMore :text="'Смотреть все'" :href="`/category/${category.slug}`" />
         </div>
-        <LinkMore :text="'Смотреть все'" :href="'/category/protein'" />
+        <VueSlickCarousel v-bind="settings" class="product-carousel">
+          <div
+            v-for="el in deleteItems(protein)"
+            class="product-item"
+            @click="$router.push('/product/' + el.slug)"
+          >
+            <div class="product-item-image" :class="el.price && el.regular_price ? 'product-item-image-discounted': ''">
+              <img
+                :src="`${thisLocation}/` + el.image"
+                alt=""
+                class="product-item-image__img"
+              />
+            </div>
+            <div class="product-item-info">
+              <div class="product-item-ttl">
+                <a :href="'/product/' + el.slug">
+                  {{ el.title }}
+                </a>
+                <span>{{ el.brand }}</span>
+              </div>
+              <div class="product-item-price">
+                <ProductPrice :price="{pPrice: el.price, pPriceOld: el.regular_price}" />
+              </div>
+            </div>
+          </div>
+        </VueSlickCarousel>
       </div>
-      <VueSlickCarousel v-bind="settings" class="product-carousel">
-        <div
-          v-for="el in deleteItems(protein)"
-          class="product-item"
-          @click="$router.push('/product/' + el.slug)"
-        >
-          <div class="product-item-image" :class="el.price && el.regular_price ? 'product-item-image-discounted': ''">
-            <img
-              :src="`${thisLocation}/` + el.image"
-              alt=""
-              class="product-item-image__img"
-            />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              <a :href="'/product/' + el.slug">
-                {{ el.title }}
-              </a>
-              <span>{{ el.brand }}</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{pPrice: el.price, pPriceOld: el.regular_price}" />
-            </div>
-          </div>
-        </div>
-      </VueSlickCarousel>
-      <div class="group">
-        <div class="group-ttl">
-          Аминокислоты
-        </div>
-        <LinkMore :text="'Смотреть все'" :href="'/category/aminokisloty'" />
-      </div>
-      <VueSlickCarousel v-bind="settings" class="product-carousel">
-        <div
-          v-for="el in deleteItems(aminokisloty)"
-          class="product-item"
-          @click="$router.push('/product/' + el.slug)"
-        >
-          <div class="product-item-image" :class="el.price && el.regular_price ? 'product-item-image-discounted': ''">
-            <img
-              :src="thisLocation + '/' + el.image"
-              alt=""
-              class="product-item-image__img"
-            />
-          </div>
-          <div class="product-item-info">
-            <div class="product-item-ttl">
-              <a :href="'/product/' + el.slug">
-                {{ el.title }}
-              </a>
-              <span>{{ el.brand }}</span>
-            </div>
-            <div class="product-item-price">
-              <ProductPrice :price="{pPrice: el.price, pPriceOld: el.regular_price}" />
-            </div>
-          </div>
-        </div>
-      </VueSlickCarousel>
       <div class="market-subscribe">
         <div class="market-subscribe-ttl">
           Есть вопросы?
@@ -300,6 +270,10 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      categoriesSliders: 'categoriesSliders',
+      submenu: 'submenu'
+    }),
     thisLocation () {
       return process.client ? location.origin : ''
     }
